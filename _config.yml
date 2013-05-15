@@ -16,7 +16,7 @@ author :
   name : Turbidsoul Chen
   email : sccn.sq+blog@gmail.com
   github : turbidsoul
-  twitter : turbidsoul
+  twitter : Turbidsoul
   feedburner : sccn.sq+feedburner@gmail.com
 
 # The production_url is only used when full-domain names are needed
@@ -84,7 +84,7 @@ JB :
   comments :
     provider : disqus
     disqus :
-      short_name : jekyllbootstrap
+      short_name : turbidsoul
     livefyre :
       site_id : 123
     intensedebate :
