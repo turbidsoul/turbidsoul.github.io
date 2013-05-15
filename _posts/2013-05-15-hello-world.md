@@ -10,3 +10,9 @@ tags: []
 ## Hello World!
 
 这是一个测试文章
+
+```python
+def foo():
+    print("Hello World!")
+foo()
+```
