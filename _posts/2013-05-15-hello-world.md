@@ -3,7 +3,7 @@ layout: post
 title: "Hello World!"
 description: ""
 category: gossip
-tags: [blog, gossip]
+tags: [blog,gossip]
 ---
 {% include JB/setup %}
 
