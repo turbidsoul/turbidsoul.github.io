@@ -3,7 +3,7 @@ layout: post
 title: "关于Morphia在存储冗余类的时候出现的一个问题？"
 description: "关于Morphia在存储冗余类的时候出现的一个问题？"
 category: Java
-tags: [java,morphia,code,mongo]
+tags: [java, morphia, code, mongo]
 ---
 {% include JB/setup %}
 

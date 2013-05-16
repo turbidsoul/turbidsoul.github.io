@@ -3,7 +3,7 @@ layout: post
 title: "在jekyll上的第一个Post"
 description: ""
 category: gossip
-tags: [gossip,blog]
+tags: [gossip, blog]
 ---
 {% include JB/setup %}
 
