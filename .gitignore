@@ -1,8 +1,10 @@
 .rvmrc
-.rbenv-version
+.DS_Store
 _site/*
 Thumbs.db
+_build.bat
 _theme_packages/*
-.DS_Store
+.rbenv-version
 !.gitkeep
-run.bat
+_run.bat
+_build.bat
