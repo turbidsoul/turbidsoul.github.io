@@ -3,7 +3,7 @@ layout: post
 title: "Jquery分页插件"
 description: ""
 category: jquery
-tags: [jquery,javascript,code]
+tags: [jquery, javascript, code]
 ---
 {% include JB/setup %}
 
