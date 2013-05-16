@@ -11,7 +11,7 @@ markdown: redcarpet
 # so be sure to set them if your theme uses them.
 #
 title : Turbidsoul's 小黑屋
-tagline: Site Tagline
+tagline: Code Monkey
 author :
   name : Turbidsoul Chen
   email : sccn.sq+blog@gmail.com
@@ -94,6 +94,10 @@ JB :
       num_posts: 5
       width: 580
       colorscheme: light
+    uyan :
+      uid: 1728551
+    duoshuo :
+      shore_name: turbidsoul
    
   # Settings for analytics helper
   # Set 'provider' to the analytics provider you want to use.
@@ -102,7 +106,7 @@ JB :
   analytics :
     provider : google 
     google : 
-        tracking_id : 'UA-39293102-2'
+        tracking_id : 'UA-39293102-3'
     getclicky :
       site_id : 
     mixpanel :
@@ -126,4 +130,6 @@ JB :
   # and include your custom code. Your custom file must be defined at:
   #   ./_includes/custom/[HELPER]
   # where [HELPER] is the name of the helper you are overriding.
-  
+
+
+
