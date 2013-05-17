@@ -5,7 +5,6 @@ description: "快速计算二进制位1的个数"
 category: Python
 tags: [python, arithmetic]
 ---
-{% include JB/setup %}
 
 昨天在G+上看到的一个算法题: > Returns the number of 1bits in any integer, for example, bits(2) = 1, > bits(3) = 2, bits(4) = 1, bits(5) = 2, bits(6) = 2, bits(7) = 3 我用python简单的实现了一下，实现的还是有点冗长，应该还能优化。
 

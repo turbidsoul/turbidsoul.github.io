@@ -5,7 +5,6 @@ description: "Sublime2插件Emmet和SublimeV8冲突 "
 category: Sublime2
 tags: [sublime2, emmet, sublimev8]
 ---
-{% include JB/setup %}
 
 Sublime2插件Emmet和SublimeV8冲突
 ================================

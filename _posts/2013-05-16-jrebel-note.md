@@ -5,7 +5,6 @@ description: "JRebel小记"
 category: Java
 tags: [java, jrebel]
 ---
-{% include JB/setup %}
 
 
 

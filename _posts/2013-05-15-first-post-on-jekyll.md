@@ -5,7 +5,6 @@ description: ""
 category: gossip
 tags: [gossip, blog]
 ---
-{% include JB/setup %}
 
 jekyll
 ======

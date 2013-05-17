@@ -5,7 +5,6 @@ description: "关于firefox中使用google搜索被劫持到www5.1616.com的解�
 category: firefox
 tags: [firefox, google]
 ---
-{% include JB/setup %}
 
 这个问题也是我今天早上发现的，搜索东西的时候发现先进入www5.1616.net然后在跳转到google中，感觉像是被劫持了，于是我就在 google上搜索了www5.1616.net发现很多人都有这个问题，而且但是绝大多数都认为是DNS被劫持的问题，但是我觉得不是这样，因为很多人 都和我的情况一样，出现问题的只有他一个，同一局域网下的别人都正常，同一社区下的只有个别的人有这个问题，并不是大面积出现，而且我只有Firefox 有问题，chrome和IE9都正常，所以我肯定是firefox的问题。
 

@@ -5,7 +5,6 @@ description: "IText中文处理问题！！！ "
 category: Java
 tags: [itext, java, code]
 ---
-{% include JB/setup %}
 
 IText中文处理问题！！！
 ======================

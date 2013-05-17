@@ -5,7 +5,6 @@ description: "Spring配置文件加载的疑问和annotation加载的问题"
 category: Java
 tags: [java, sprint, annotation]
 ---
-{% include JB/setup %}
 
 Spring配置文件加载的疑问和annotation加载的问题
 ==============================================

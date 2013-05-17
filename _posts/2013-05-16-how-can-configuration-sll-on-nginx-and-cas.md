@@ -5,7 +5,6 @@ description: "如何配置在nginx和cas上配置ssl？"
 category: Nginx
 tags: [nginx, cas, ssl, java, https]
 ---
-{% include JB/setup %}
 
 
 公司准备对登录服务采用https，而登录服务采用的是cas，前段的是用nginx代理， 所以就有了之后的几个问题。

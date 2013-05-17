@@ -5,7 +5,6 @@ description: "WebSocket+WebRTC实现视频通讯"
 category: WebRTC
 tags: [webrtc, websocket, python]
 ---
-{% include JB/setup %}
 
 
 这篇文章本来早就该写了，但是电脑坏了，在加上工作比较忙，所以就一直拖到今天。

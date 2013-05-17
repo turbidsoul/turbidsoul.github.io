@@ -5,7 +5,6 @@ description: ""
 category: jquery
 tags: [jquery, javascript, code]
 ---
-{% include JB/setup %}
 
 开发一个jquery 插件
 ===================

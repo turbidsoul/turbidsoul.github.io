@@ -5,7 +5,6 @@ description: "java8的闭包Lambda语句小探 "
 category: Java
 tags: [java, lambda, closure, code]
 ---
-{% include JB/setup %}
 
 java8的闭包Lambda语句小探
 =========================

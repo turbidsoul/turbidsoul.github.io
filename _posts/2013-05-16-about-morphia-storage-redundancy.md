@@ -5,7 +5,6 @@ description: "关于Morphia在存储冗余类的时候出现的一个问题？"
 category: Java
 tags: [java, morphia, code, mongo]
 ---
-{% include JB/setup %}
 
 
 关于Morphia在存储冗余类的时候出现的一个问题？

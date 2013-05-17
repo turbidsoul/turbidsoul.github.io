@@ -5,7 +5,6 @@ description: "fn实现无限计算等比级数"
 category: Python
 tags: [python, arithmetic, functional]
 ---
-{% include JB/setup %}
 
 
 今天看InfoQ上的一篇关于 [Fn.py](http://www.infoq.com/cn/articles/fn.py-functional-programming-python) 的文章，Fn中的Stream可以实现无限序列，例如文章中的代码：

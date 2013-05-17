@@ -5,7 +5,6 @@ description: "Misaka+pygments实现markdown生成html页面并语法高亮"
 category: Python
 tags: [python, misaka, pygments, markdown]
 ---
-{% include JB/setup %}
 
 
 ## 来由

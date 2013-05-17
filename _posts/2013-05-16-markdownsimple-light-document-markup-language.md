@@ -5,7 +5,6 @@ description: "markdown：简单，轻量级的文档标记语言"
 category: Markdown
 tags: [markdown]
 ---
-{% include JB/setup %}
 
 
 Markdown：简单，轻量级的文档标记语言

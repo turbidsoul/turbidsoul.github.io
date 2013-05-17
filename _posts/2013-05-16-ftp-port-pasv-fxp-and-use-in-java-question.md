@@ -5,7 +5,6 @@ description: "FTP的PORT模式，PASV模式， FXP协议和在java中使用时�
 category: Java
 tags: [ftp, port, pasv, fxp, java]
 ---
-{% include JB/setup %}
 
 
 这是最近一礼拜遇到的一个很头疼的问题，由于我们的系统需要需要用到ftp的fxp进行两个ftp服务器之间进行数据传输。 但是就是在这上出现了让我很郁闷的问题，连着几天，一个坑接一个坑，连续解决了5，6个问题，到今天下午才算是把所有问题解决。

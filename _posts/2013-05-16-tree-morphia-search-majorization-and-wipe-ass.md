@@ -5,7 +5,6 @@ description: "树，morphia，查询，优化和擦屁股！ "
 category: Java
 tags: [java, morphia, mongo, code]
 ---
-{% include JB/setup %}
 
 树，morphia，查询，优化和擦屁股！
 ================================
