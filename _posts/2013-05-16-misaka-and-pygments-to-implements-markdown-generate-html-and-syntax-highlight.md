@@ -64,7 +64,7 @@ pygments是python的语法高亮工具包，它提供了语法样式 `pygments.s
 
 昨天无事可作的时候 把[jekyll][jekyll]的一个主题minimum的样式写成Style,代码如下：
 
-<script src="https://gist.github.com/turbidsoul/5567214.js"></script>
+{% gist 5567214 %}
 
 同时它也支持很多语言，具体支持什么语言请参照[Support Language][pygments_lang]
 
