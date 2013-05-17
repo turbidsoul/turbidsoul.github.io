@@ -6,10 +6,6 @@ category: Sublime2
 tags: [sublime2, emmet, sublimev8]
 ---
 
-Sublime2插件Emmet和SublimeV8冲突
-================================
-
-
 Zencode很久没有更新，最近在github上看到Zencode的作者[sergeche](https://github.com/sergeche)把Zencode更名为Emmet，并增加了很多新功能.
 
 刚好下午左右没什么事情，就安装了Emmet并卸载了Zencode,可以怎么都没有效果，打开sublime的控制台看了下， 每次按Tab键的时候都会出现下图的错误:

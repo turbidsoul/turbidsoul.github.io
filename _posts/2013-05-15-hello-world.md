@@ -5,9 +5,6 @@ description: ""
 category: gossip
 tags: [blog, gossip]
 ---
-{% include JB/setup %}
-
-## Hello World!
 
 这是测试哦哦哦哦！
 

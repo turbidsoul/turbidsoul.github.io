@@ -6,10 +6,6 @@ category: Java
 tags: [java, morphia, mongo, code]
 ---
 
-树，morphia，查询，优化和擦屁股！
-================================
-
-
 
 前天和昨天一直都在忙后台CMS树的优化和一些bug的修改，不过主要精力放在了树的优化上。
 
