@@ -77,3 +77,8 @@ hr {
     height: 4px;
     padding: 0;
 }
+
+.article_list {
+    list-style-type: decimal;
+    list-style-position: outside;;
+}
