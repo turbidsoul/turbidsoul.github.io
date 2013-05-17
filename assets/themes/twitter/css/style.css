@@ -68,4 +68,12 @@ body {
 	border:1px solid #4C964D;
 	color:#FFF;
 }
-	
+
+
+hr {
+    background: url("../bootstrap/img/github-dirty-shade.png") repeat-x scroll 0 0 transparent;
+    border: 0 none;
+    color: #CCCCCC;
+    height: 4px;
+    padding: 0;
+}
