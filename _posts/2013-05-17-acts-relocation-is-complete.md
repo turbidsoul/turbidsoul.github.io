@@ -2,8 +2,8 @@
 layout: post
 title: "徒迁完成"
 description: "徒迁完成"
-category: gossip
-tags: [jekyll, gossip]
+category: 闲聊
+tags: [jekyll, 闲聊]
 published: true
 ---
 

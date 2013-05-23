@@ -2,8 +2,8 @@
 layout: post
 title: "Hello World!"
 description: ""
-category: gossip
-tags: [blog, gossip]
+category: 闲聊
+tags: [blog, 闲聊]
 ---
 
 这是测试哦哦哦哦！

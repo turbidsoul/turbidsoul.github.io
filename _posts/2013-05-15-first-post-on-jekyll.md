@@ -2,8 +2,8 @@
 layout: post
 title: "在jekyll上的第一个Post"
 description: ""
-category: gossip
-tags: [gossip, blog]
+category: 闲聊
+tags: [闲聊, blog]
 ---
 
 几经考虑最后还是决定搬家到这里来，我觉得`appengine` 太重量级了，我并不喜欢，我喜欢轻量级的东西，jekyll更适合我。
