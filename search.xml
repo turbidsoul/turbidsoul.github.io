@@ -1,0 +1,15 @@
+---
+layout: nil
+title : RSS Feed
+---
+<?xml version="1.0" encoding="UTF-8" ?>
+{% include JB/setup %}
+<articles>
+{% for post in site.posts %}
+    <article>
+        <title>{{ post.title }}</title>
+        <url>{{ BASE_PATH }}{{ post.url }}</url>
+        <date>{{ post.date | date: "%Y-%m-%d") }}</date>
+    </article>
+{% endfor %}
+</articles>
