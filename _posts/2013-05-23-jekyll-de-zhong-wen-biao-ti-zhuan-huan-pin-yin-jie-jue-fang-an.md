@@ -3,7 +3,7 @@ layout: post
 title: "jekyll的中文标题转换拼音解决方案"
 description: "jekyll的中文标题转换拼音解决方案"
 category: jekyll
-tags: [jekyll, code]
+tags: [jekyll, code, ruby]
 ---
 
 整这个并不是什么刚需，纯粹是怕麻烦，直接把中文转换成拼音更方便一点。
