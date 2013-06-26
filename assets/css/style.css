@@ -71,7 +71,7 @@ body {
 
 
 hr {
-    background: url("../bootstrap/img/github-dirty-shade.png") repeat-x scroll 0 0 transparent;
+    background: url("../images/github-dirty-shade.png") repeat-x scroll 0 0 transparent;
     border: 0 none;
     color: #CCCCCC;
     height: 4px;
@@ -80,8 +80,31 @@ hr {
 
 .article_list {
     list-style-type: decimal;
-    list-style-position: outside;;
+    list-style-position: outside;
 }
 
+/*
+.article_list_category {
+  list-style-type: none;
+  width: 100%;
+  height: auto;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.article_list_category li {
+  margin: 5px;
+  padding: 5px;
+  border: 1px dotted #eee;
+  width: 100px;
+  height: 150px;
+
+  -webkit-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.52);
+     -moz-box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.52);
+          box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.52);
+
+
+}
+*/
 .clear_hr {
 }
