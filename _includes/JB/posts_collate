@@ -17,33 +17,6 @@ Usage:
 
 -->{% endcomment %}
 
-<style>
-  .article-list {
-    overflow: auto;
-  }
-  .article-item {
-    list-style-type: none;
-    width: 145px;
-    height: 109px;
-    border: 1px solid #eee;
-    box-shadow: 0 0 2px 1px #eee;
-    display: inline;
-    float: left;
-    margin: 4px;
-    text-align: center;
-    background: url(http://images.shrinktheweb.com/xino.php?stwembed=1&stwaccesskeyid=b6547352422a6f2&stwsize=lg&stwurl=http://blog.turbidsoul.me) 0 0 no-repeat;
-  }
-  .article-title {
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    text-align: justify;
-  }
-  .article-bg {
-    background-color: rgba(200, 200, 200, .5);
-    color: #033C3C;
-  }
-</style>
-
 {% if site.JB.posts_collate.provider == "custom" %}
   {% include custom/posts_collate %}
 {% else %}
