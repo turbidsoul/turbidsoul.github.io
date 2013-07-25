@@ -14,39 +14,66 @@ Usage:
         => 'for post in site.posts reversed'
       2) Next make sure to change 'post.previous.date' to:
         => 'post.next.date'
-        
+
 -->{% endcomment %}
+
+<style>
+  .article-list {
+    overflow: auto;
+  }
+  .article-item {
+    list-style-type: none;
+    width: 145px;
+    height: 109px;
+    border: 1px solid #eee;
+    box-shadow: 0 0 2px 1px #eee;
+    display: inline;
+    float: left;
+    margin: 4px;
+    text-align: center;
+    background: url(http://images.shrinktheweb.com/xino.php?stwembed=1&stwaccesskeyid=b6547352422a6f2&stwsize=lg&stwurl=http://blog.turbidsoul.me) 0 0 no-repeat;
+  }
+  .article-title {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    text-align: justify;
+  }
+</style>
 
 {% if site.JB.posts_collate.provider == "custom" %}
   {% include custom/posts_collate %}
 {% else %}
   {% for post in posts_collate  %}
     {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
-    {% capture this_month %}{{ post.date | date: "%B" }}{% endcapture %}
+    {% capture this_month %}{{ post.date | date: "%m" }}{% endcapture %}
     {% capture next_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
-    {% capture next_month %}{{ post.previous.date | date: "%b" }}{% endcapture %}
-  
+    {% capture next_month %}{{ post.previous.date | date: "%m" }}{% endcapture %}
+
     {% if forloop.first %}
       <h2>{{this_year}}</h2>
-      <h3>{{this_month}}</h3>
-      <ul>
+      <h3>{{this_month}} 月</h3>
+      <ul class="article-list">
     {% endif %}
-  
-    <li><span>{{ post.date | date: "%Y-%m-%d" }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
-  
+    <a title="{{ post.title }}" href="{{ BASE_PATH }}{{ post.url }}">
+      <li class="article-item" title="{{ post.title }}">
+        <span>{{ post.date | date: "%Y-%m-%d" }}</span>
+        <p class="article-title">{{ post.title }}</p>
+      </li>
+    </a>
+
     {% if forloop.last %}
       </ul>
     {% else %}
       {% if this_year != next_year %}
         </ul>
         <h2>{{next_year}}</h2>
-        <h3>{{next_month}}</h3>
+        <h3>{{next_month}} 月</h3>
         <ul>
-      {% else %}    
+      {% else %}
         {% if this_month != next_month %}
           </ul>
-          <h3>{{next_month}}</h3>
-          <ul>
+          <h3>{{next_month}} 月</h3>
+          <ul class="article-list">
         {% endif %}
       {% endif %}
     {% endif %}
