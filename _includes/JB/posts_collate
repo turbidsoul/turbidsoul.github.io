@@ -38,6 +38,10 @@ Usage:
     word-wrap: break-word;
     text-align: justify;
   }
+  .article-bg {
+    background-color: rgba(200, 200, 200, .5);
+    color: #033C3C;
+  }
 </style>
 
 {% if site.JB.posts_collate.provider == "custom" %}
@@ -56,8 +60,10 @@ Usage:
     {% endif %}
     <a title="{{ post.title }}" href="{{ BASE_PATH }}{{ post.url }}">
       <li class="article-item" title="{{ post.title }}">
-        <span>{{ post.date | date: "%Y-%m-%d" }}</span>
-        <p class="article-title">{{ post.title }}</p>
+        <div class="article-bg">
+          <span>{{ post.date | date: "%Y-%m-%d" }}</span>
+          <p class="article-title">{{ post.title }}</p>
+        </div>
       </li>
     </a>
 
