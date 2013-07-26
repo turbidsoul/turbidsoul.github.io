@@ -111,6 +111,10 @@ hr {
     background: url(http://images.shrinktheweb.com/xino.php?stwembed=1&stwaccesskeyid=b6547352422a6f2&stwsize=lg&stwurl=http://blog.turbidsoul.me) 0 0 no-repeat;
 }
 
+.article-item:hover {
+    box-shadow: 0 0 5px 1px #000;
+}
+
 .article-title {
     overflow-wrap: break-word;
     word-wrap: break-word;
