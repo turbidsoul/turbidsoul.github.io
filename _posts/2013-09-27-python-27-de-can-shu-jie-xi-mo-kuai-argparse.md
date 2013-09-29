@@ -4,7 +4,7 @@ title: "python 2.7 的参数解析模块 argparse"
 description: "python 2.7 的参数解析模块 argparse"
 category: Python
 tags: [python, code, argparse, python27]
-published: false
+published: true
 ---
 
 今天下午没事，就优化了一下以前写的一些工作上用的小工具，当然大多数都是python写的命令行下的小工具，之前命令行参数都是自己解析，虽然不是什么复杂的事情，但是自己临时写出来的东西毕竟不如人家写出来的好，正好前短时间看到python2.7把 **argparse** 加入到了标准模块中，所以这次对这些工具的代码重构就是使用了 **argparse** 替代自己写的那个简陋名两行解析工具。
@@ -126,7 +126,7 @@ prefix_chars：参数前缀，默认是`-`。不过要注意的是，如果改�
 
 #### add_argument() ####
 
-* name or flags: 参数名称或者是一个字符串列表，e.g.: `parser.add_argument('-f', --foo')`
+* name or flags: 参数名称或者是一个字符串列表，e.g.: `parser.add_argument('-f', '--foo')`
 * action: 指定参数的处理方式。
 
 ```pycon
@@ -178,6 +178,179 @@ Namespace(p1='2', p2='1')
 
 ```
 
+* nargs: 这是用来表示这个参数的值的数量。
+
+N，int，是一个整型数字，指定这个参数的值的个数
+
+```pycon
+>>> parser = argparse.ArgumentParser(description='argparse test')
+... parser.add_argument('--p1', nargs=2)
+... parser.print_help()
+...
+usage: -c [-h] [--p1 P1 P1]
+
+argparse test
+
+optional arguments:
+  -h, --help  show this help message and exit
+  --p1 P1 P1
+
+```
+
+'?'， 表示0个或者1个
+
+```pycon
+>>> parser = argparse.ArgumentParser(description='argparse test')
+... parser.add_argument('--p1', nargs='?')
+... parser.print_help()
+...
+usage: -c [-h] [--p1 [P1]]
+
+argparse test
+
+optional arguments:
+  -h, --help  show this help message and exit
+  --p1 [P1]
+
+```
+
+'*', 表示0个或者多个
+
+```pycon
+>>> parser = argparse.ArgumentParser(description='argparse test')
+... parser.add_argument('--p1', nargs='*')
+... parser.print_help()
+...
+usage: -c [-h] [--p1 [P1 [P1 ...]]]
+
+argparse test
+
+optional arguments:
+  -h, --help          show this help message and exit
+  --p1 [P1 [P1 ...]]
+
+```
+
+'+', 和'*'有点相似，表示的是1个或者多个
+
+```pycon
+>>> parser = argparse.ArgumentParser(description='argparse test')
+... parser.add_argument('--p1', nargs='+')
+... parser.print_help()
+...
+usage: -c [-h] [--p1 P1 [P1 ...]]
+
+argparse test
+
+optional arguments:
+  -h, --help        show this help message and exit
+  --p1 P1 [P1 ...]
+
+```
+
+argparse.REMAINDER, 这个是表示把其余的参数都聚集成一个list
+
+```pycon
+>>> parser = argparse.ArgumentParser(prog='argtest', description='argparse test')
+... parser.add_argument('--p1')
+... parser.add_argument('p2')
+... parser.add_argument('p3', nargs=argparse.REMAINDER)
+... parser.print_help()
+...
+usage: argtest [-h] [--p1 P1] p2 ...
+
+argparse test
+
+positional arguments:
+  p2
+  p3
+
+optional arguments:
+  -h, --help  show this help message and exit
+  --p1 P1
+
+>>> parser.parse_args('--p1 a test b c d e'.split())
+Namespace(p1='a', p2='test', p3=['b', 'c', 'd', 'e'])
+```
+
+* const，表示一个常量,const有三种形，如下面代码：
+
+```pycon
+>>> parser = argparse.ArgumentParser(description='argparse test')
+... parser.add_argument('--p1', const=1, action='store_const')
+... parser.parse_args(["--p1"])
+...
+Namespace(p1=1)
+
+>>> parser = argparse.ArgumentParser(description='argparse test')
+... parser.add_argument('--p1', const=1, action='append_const')
+... parser.parse_args("--p1 --p1".split())
+...
+Namespace(p1=[1, 1])
+
+>>> parser = argparse.ArgumentParser(description='argparse test')
+... parser.add_argument('--p1', const=1, nargs='?')
+... parser.parse_args("--p1".split())
+...
+Namespace(p1=1)
+```
+
+* default: 默认值，这里值说明一点，这个参数提供一个`argparse.SUPPESS`,如果命令行下没有这个参数，那么就不会有这个参数的属性，具体的区别，请看下面的代码：
+
+```pycon
+>>> parser = argparse.ArgumentParser(description='argparse test')
+... parser.add_argument('--p1', default=argparse.SUPPRESS)
+... parser.parse_args("--p1 1".split())
+...
+Namespace(p1='1')
+
+>>> parser = argparse.ArgumentParser(description='argparse test')
+... parser.add_argument('--p1', default=argparse.SUPPRESS)
+... parser.parse_args("".split())
+...
+Namespace()
+
+>>> parser = argparse.ArgumentParser(description='argparse test')
+... parser.add_argument('--p1')
+... parser.parse_args("".split())
+...
+Namespace(p1=None)
+
+```
+
+* type: 参数类型，也就是声明参数的类型，例如int,file(分为读和写，表示的方式不同),也可以自定义
+
+```pycon
+>>> parser = argparse.ArgumentParser(description='argparse test')
+... parser.add_argument('--source', type=file)
+... parser.add_argument('--target', type=argparse.FileType('w'))
+... parser.parse_args("--p1 1 --source source.txt --target target.txt".split())
+...
+Namespace(p1=1, source=<open file 'source.txt', mode 'r' at 0x0496E6A8>, target=<open file 'target.txt', mode 'w' at 0x0496E548>)
+
+
+>>> def upper(s):
+...     if not s.isupper():
+...         raise argparse.ArgumentTypeError('%r not a upper letter' % s)
+...     return s
+... parser = argparse.ArgumentParser(prog='argtest')
+... parser.add_argument('--p1', type=upper)
+... parser.parse_args('--p1 A'.split())
+...
+Namespace(p1='A')
+
+>>> def upper(s):
+...     if not s.isupper():
+...         raise argparse.ArgumentTypeError('%r not a upper letter' % s)
+...     return s
+... parser = argparse.ArgumentParser(prog='argtest')
+... parser.add_argument('--p1', type=upper)
+... parser.parse_args('--p1 a'.split())
+...
+usage: argtest [-h] [--p1 P1]
+argtest: error: argument --p1: 'a' not a upper letter
+
+```
 
 [1]: http://docs.python.org/2/library/argparse.html#argumentparser-objects "ArgumentParser objects"
 [2]: http://docs.python.org/2/library/argparse.html#the-add-argument-method "The add_argument() method"
