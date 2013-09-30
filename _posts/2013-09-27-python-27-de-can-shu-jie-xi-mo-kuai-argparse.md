@@ -352,5 +352,64 @@ argtest: error: argument --p1: 'a' not a upper letter
 
 ```
 
+* choices: 提供给参数一组可选择的值，
+```pycon
+>>> parser = argparse.ArgumentParser(prog='argtest')
+... parser.add_argument('--p1', choices=[1,2,3])
+... parser.add_argument('--p2', choices=range(1, 10, 2))
+... parser.print_help()
+...
+usage: argtest [-h] [--p1 {1,2,3}] [--p2 {1,3,5,7,9}]
+
+optional arguments:
+  -h, --help        show this help message and exit
+  --p1 {1,2,3}
+  --p2 {1,3,5,7,9}
+
+```
+
+* required: 为True时，表示这个参数是必须的，默认是False
+* help: 参数的说明描述，当值为`argparse.SUPPRESS`时，这个参数在参数说明中不显示
+* metavar: 对于这个参数我不知道如何解释，可以看一下他的[官方文档][3]和下面的代码应该就能理解。
+
+```pycon
+>>> parser = argparse.ArgumentParser(prog='argtest')
+... parser.add_argument('-s', '--start')
+... parser.add_argument('-e', '--end', metavar='over')
+... parser.add_argument('--p3', metavar=['p1', 'p2'])
+... parser.print_help()
+...
+usage: argtest [-h] [-s START] [-e over] [--p3 ['p1', 'p2']]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -s START, --start START
+  -e over, --end over
+  --p3 ['p1', 'p2']
+```
+
+* dest 允许用户提供一个自定义的属性名，如下代码：
+
+```pycon
+>>> parser = argparse.ArgumentParser(prog='argtest')
+... parser.add_argument('-s', '--start', dest='ss')
+... parser.print_help()
+...
+usage: argtest [-h] [-s SS]
+
+optional arguments:
+  -h, --help         show this help message and exit
+  -s SS, --start SS
+
+>>> parser.parse_args('-s a'.split())
+... Namespace(ss='a')
+```
+
+
+## 结论
+
+argparse 还有很多其他功能，我这里之说了连个最常用的，当然我的小工具里也就用了这么多，如果还有兴趣可以自己试一试，python本身确实提供了很多不错的模块，有时候完全没有必要舍本逐末。
+
 [1]: http://docs.python.org/2/library/argparse.html#argumentparser-objects "ArgumentParser objects"
 [2]: http://docs.python.org/2/library/argparse.html#the-add-argument-method "The add_argument() method"
+[3]: http://docs.python.org/2/library/argparse.html#metavar "metavar"
