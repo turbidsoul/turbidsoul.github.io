@@ -44,7 +44,7 @@ end: 100
 * `add_argument` 添加具体命令行参数，这是关于此方法[argparse#the-add-argument-method][2]的说明
 * `print_help()` 和 `print_usage()` 这是打印帮助信息和usage，就是python xxxx.py -h 只有打印出的那些帮助信息
 * `parser.parse_args()` 这是解析命令行参数
-* `args.start` 和 `args.end` 这样是读取之前在上面用`add_argument`添加的参数，如果要读取没有添加的参数则会抛出一个一行, 例如: 
+* `args.start` 和 `args.end` 这样是读取之前在上面用`add_argument`添加的参数，如果要读取没有添加的参数则会抛出一个异常, 例如:
 
 ```pycon
 >>> args.eee
