@@ -1,22 +1,19 @@
 ---
-layout: page
-title: Turbidsoul's 小黑屋
-tagline: 成为优秀的开发人员，可以没有数学技能，但成为卓越的开发人员，不能没有！
+layout: default
 ---
 
-<input type="text" placeholder="请输入文章标题或者日期" id="J_search" style="width:99%">
-
------------------------------------------------------------------------------------------
-
-最新文章
-========
-
-<ul class="posts">
+<div>
+  <ul class="listing main-listing">
+  {% capture year %}{{ site.time | date:"%Y"}}{% endcapture %}
   {% for post in site.posts %}
-    <li class="article_list"><span>{{ post.date | date: "%Y-%m-%d") }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
-    <p>{{post.excerpt | markdownify}}</p>
-    {% if forloop.index >= 10 %}
-        {% break %}
+    {% capture y %}{{ post.date | date:"%Y"}}{% endcapture %}
+    {% if year != y %}
+    {% break %}
     {% endif %}
+    <li class="listing-item">
+      <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+      <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+    </li>
   {% endfor %}
-</ul>
+  </ul>
+</div>
