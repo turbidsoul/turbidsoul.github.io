@@ -41,8 +41,8 @@ mc.callLifecycleMethods(PostPersist.class, ent, dbO, mapr);
 
 即上面哪行代码的时候，有两个参数让我注意到，第一个是entity他是FreeCourse，第二个是ent他缺失VideoInfo，在进入callLiftcycleMoethods方法内,跟踪到306行有下面两张截图：
 
-![FzwYz](/assets/images/FzwYz.png)
-![KSLXG](/assets/images/KSLXG.png)
+![FzwYz](/file/images/FzwYz.png)
+![KSLXG](/file/images/KSLXG.png)
 
 下面两个图第一个是method.invoke方法的entity参数的值是VideoInfo，第二章图是method那个方法在调用，可以看到是MongoBaseEntity下的注解方法，也就是处理数据存储前后的事件方法。这里的VideoInfo是FreeCourse下冗余的FreeVideo下冗余的VideoInfo的数据。
 

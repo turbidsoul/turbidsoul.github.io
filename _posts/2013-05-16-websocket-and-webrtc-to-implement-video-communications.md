@@ -15,7 +15,7 @@ tags: [webrtc, websocket, python]
 
 首先来简单的说一些WebSocket协议:
 
-![websocket](/assets/images/websocket.png)
+![websocket](/file/images/websocket.png)
 
  对于我这里来说 ：
 
@@ -36,7 +36,7 @@ tags: [webrtc, websocket, python]
 
 其次我在说一说WebRTC，这里我会结合WebSocket一起说一些我的：
 
-![webrtc](/assets/images/webrtc.png)
+![webrtc](/file/images/webrtc.png)
 
  这是我做的demo的时序图，第一次画将就以下吧：
 
@@ -52,4 +52,4 @@ tags: [webrtc, websocket, python]
  说到这里，基本上我的demo的实现思想基本说完了，但是还要说明以下，我花了很多时间调试代码，但是一直都没有成功，最后把浏览器更新到firefox19才调试成功，firefox19之前的版本虽然也对WebRTC实现，但是功能实现的并不完善，默写方法和19实现的也不一样。所以这里需要注意以下。
 
 
-这是我实现的源代码：[WebRTC-Demo](https://github.com/turbidsoul/webrtc-demo)，代码实现的很粗糙，而且也借鉴其他人的实现的方法。 
+这是我实现的源代码：[WebRTC-Demo](https://github.com/turbidsoul/webrtc-demo)，代码实现的很粗糙，而且也借鉴其他人的实现的方法。
