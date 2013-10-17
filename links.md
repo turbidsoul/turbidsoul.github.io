@@ -1,7 +1,7 @@
 ---
-title: links
+title: 友情连接
 layout: page
 ---
 
-[Keep on Fighting! | 谢益辉](http://yihui.name/)
+[谢益辉](http://yihui.name/)
 
