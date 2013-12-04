@@ -100,6 +100,8 @@ JB :
       uid: 1728551
     duoshuo :
       shore_name: turbidsoul
+    google_plus:
+      uid: ''
 
   # Settings for analytics helper
   # Set 'provider' to the analytics provider you want to use.
