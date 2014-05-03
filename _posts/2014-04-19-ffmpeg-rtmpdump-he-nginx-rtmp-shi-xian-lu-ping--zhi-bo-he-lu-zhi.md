@@ -12,3 +12,4 @@ published: false
 ## 前置的知识 ##
 
 * ffmpeg: [http://ffmpeg.org/ffmpeg.html](http://ffmpeg.org/ffmpeg.html)
+* rtmpdump:
