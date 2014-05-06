@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Turbidsoul's 小黑屋</title><link href="http://blog.turbidsoul.me/pelican-blog/" rel="alternate"></link><link href="http://blog.turbidsoul.me/pelican-blog/feeds/rtmp.atom.xml" rel="self"></link><id>http://blog.turbidsoul.me/pelican-blog/</id><updated>2014-04-19T00:00:00+08:00</updated><entry><title>ffmpeg,rtmpdump和nginx rtmp实现录屏，直播和录制</title><link href="http://blog.turbidsoul.me/pelican-blog/posts/ffmpegrtmpdumphe-nginx-rtmpshi-xian-lu-ping-zhi-bo-he-lu-zhi.html" rel="alternate"></link><updated>2014-04-19T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me/pelican-blog,2014-04-19:posts/ffmpegrtmpdumphe-nginx-rtmpshi-xian-lu-ping-zhi-bo-he-lu-zhi.html</id><summary type="html">&lt;p&gt;公司最近在做视频直播的项目，我这里分配到对直播的视频进行录制，录制的方式是通过rtmpdump对rtmp的视频流进行录制&lt;/p&gt;
+&lt;h2&gt;前置的知识&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;ffmpeg: &lt;a href="http://ffmpeg.org/ffmpeg.html"&gt;http://ffmpeg.org/ffmpeg.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;rtmpdump:&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="ffmpeg"></category><category term="rtmp"></category><category term="rtmpdump"></category><category term="nginx"></category></entry></feed>

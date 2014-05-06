@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Turbidsoul's 小黑屋 - jrebelTurbidsoul's 小黑屋</title>
+
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div><img src="http://blog.turbidsoul.me/pelican-blog/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/pelican-blog/">Turbidsoul's 小黑屋 </a></div>
+        <div class="sub-title"></div>
+
+<p>
+  <div class="view"><a href="http://blog.turbidsoul.me/pelican-blog/archives.html">Archives</a></div>
+</p>
+
+<!-- Social links -->
+<div class="social">
+<h4>Follow Me</h4>
+<ul>
+    <li><a href="https://plus.google.com/+TurbidsoulChen">Google+</a></li>
+    <li><a href="https://github.com/turbidsoul">Github</a></li>
+    <li><a href="https://twitter.com/Turbidsoul">Twitter</a></li>
+    <li><a href="https://facebook.com/turbidsoul">Facebook</a></li>
+    <li><a href="http://weibo.com/turbidsoul">微博</a></li>
+    <li><a href="http://instagram.com/turbidsoul">Instagram</a></li>
+</ul>
+</div>
+
+      </header>
+      <section>
+      <div class="front-title"><a href="http://blog.turbidsoul.me/pelican-blog/posts/jrebelxiao-ji.html">JRebel小记</a></div>
+<p>
+<small>
+<abbr class="published" title="2012-12-15T00:00:00">
+  周六 15 十二月 2012
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/java.html">java</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/jrebel.html">jrebel</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/jrebelxiao-ji.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <blockquote>
+<p>首先我先承认我标题党了，其实完全算不上简述，只是我这两天使用JRebel的一点心得吧。 当然我用的是盗版啦，谁让我有一个高富帅的心却是一个吊丝的命呢。 至于如何破解什么的请自己到网上搜索。</p>
+</blockquote>
+<p>进入正题，我使用的是 eclipse 4.2+RunJettyRun(jetty当然是8喽)+JRebel5.1 ，不过我用的破解的JRebel是5.0的， 直接覆盖，完全没问题。</p>
+<p>首先说一下如何在通过RunJettyRun使用JRebel,其实很简单，只需要在启动的配置的 Arguments &gt; VM Arguments 中加入 “${jrebel_args}”就可以了， 这样在启动的时候就能看到JRebel启动：</p>
+<div class="highlight"><pre><span class="k">[2012-12-15 22:32:17]</span>
+<span class="err">[2012-12-15</span> <span class="err">22:32:17]</span> <span class="c1">#############################################################</span>
+<span class="k">[2012-12-15 22:32:17]</span>
+<span class="err">[2012-12-15</span> <span class="err">22:32:17]</span>  <span class="err">JRebel</span> <span class="err">5.0.0</span> <span class="err">(201206080930 ...</span></pre></div> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/pelican-blog/posts/jrebelxiao-ji.html">read more...</a></div>
+      <hr />
+
+      </section>
+      <footer>
+        <p><small>&copy; Turbidsoul's 小黑屋 &mdash; Theme based on Sundown by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <!-- Scale fix -->
+    <script>
+      var metas = document.getElementsByTagName('meta');
+      var i;
+      
+      if (navigator.userAgent.match(/iPhone/i)) {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+          }
+        }
+      
+        document.addEventListener("gesturestart", gestureStart, false);
+      }
+
+      function gestureStart() {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

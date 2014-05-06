@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Leibniz公式和Walliz公式估算Pi的值Turbidsoul's 小黑屋</title>
+
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div><img src="http://blog.turbidsoul.me/pelican-blog/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/pelican-blog/">Turbidsoul's 小黑屋 </a></div>
+        <div class="sub-title"></div>
+
+<p>
+  <div class="view"><a href="http://blog.turbidsoul.me/pelican-blog/archives.html">Archives</a></div>
+</p>
+
+<!-- Social links -->
+<div class="social">
+<h4>Follow Me</h4>
+<ul>
+    <li><a href="https://plus.google.com/+TurbidsoulChen">Google+</a></li>
+    <li><a href="https://github.com/turbidsoul">Github</a></li>
+    <li><a href="https://twitter.com/Turbidsoul">Twitter</a></li>
+    <li><a href="https://facebook.com/turbidsoul">Facebook</a></li>
+    <li><a href="http://weibo.com/turbidsoul">微博</a></li>
+    <li><a href="http://instagram.com/turbidsoul">Instagram</a></li>
+</ul>
+</div>
+
+      </header>
+      <section>
+<section id="content" class="body">
+  <article>
+      <div class="article-title">
+        Leibniz公式和Walliz公式估算Pi的值
+      </div>
+
+    <div class="entry-content">
+<p>
+<small>
+<abbr class="published" title="2013-06-08T00:00:00">
+  周六 08 六月 2013
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/pi.html">pi</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/python.html">python</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/leibniz.html">leibniz</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/walliz.html">walliz</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/leibnizgong-shi-he-wallizgong-shi-gu-suan-pide-zhi.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>前两天和同事在聊天的时候说道了 $pi$ 的算法，回家之后在<a href="https://zh.wikipedia.org/wiki/圓周率">维基</a>上看了一下关于 $pi$ 的公式，正好这回没事干，就用Python实现了两个比较简单的公式，分别是Leibniz 和 Walliz.</p>
+<h2>Leibniz</h2>
+<p>公式如下：</p>
+<p>$1 - 1/3 + 1/5 - 1/7 + 1/9 - ... = pi/4$</p>
+<p>这个公式也可以用另外一种方式表示：</p>
+<p>$pi/4 = sum_{n=0}^{oo} (-1)^n/(2n+1)$</p>
+<p>从公式中能看出来，Leibniz是当n趋向于无穷大的时候，计算 $(-1)^n/(2n+1)$的和，用python代码实现如下：</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">leibniz_pi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="nb">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="p">[(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">)</span> <span class="o">**</span> <span class="n">x</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)])</span> <span class="o">*</span> <span class="mi">4</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">leibniz_pi</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">999999</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">3.14159165359</span>
+</pre></div>
+
+
+<h2>Wallis</h2>
+<p>公式如下：</p>
+<p>$2/1 * 2/3 * 4/3 * 4/5 * 6/5 * 6/7 * 8/7 * 8/9 ... = pi/2$</p>
+<p>公式也能如下表示：</p>
+<p>$pi/2 = prod_{n=1}^{oo} ((2k)/(2k-1) * (2k)/(2k+1))$</p>
+<p>Wallis是一个乘积的运算，计算k从1趋向无穷大的时候 $(2k)/(2k-1) * (2k)/(2k+1)$ 乘积，python代码实现如下：</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">wallis_pi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">,</span> <span class="p">[(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">x</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">x</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">x</span> <span class="o">/</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)])</span> <span class="o">*</span> <span class="mi">2</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">wallis_pi</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">999999</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mf">3.14159186819</span>
+</pre></div>
+
+
+<h2>结论</h2>
+<p>两个公式的实现都比较简单，其实对于这类的计算题，只要知道公式现实起来都不会复杂，因为这是把前人智慧的结晶已另外一种方式展现出来，并不是自己的成果，而且我觉得这两个公式的实现代码还有优化的可能，在$n&gt;999999$的时候程序执行的效率明显下降，但是我想就算优化也是有限的，因为$pi$的计算越到后面越是对计算机性能的考验而非算法。</p>
+<p>维基上面关$pi$的计算公式还有好多，我也有实验过，但是限于我机子性能的问题，并没有深入下去。维基上也给出了一些更简单的算法，比方说使用反正切函数计算就会更加简单。</p>
+<p><strong>这里我是第一次使用MathJax写数学公式如果有那里错误，请指正出来，我会在最短的时间内修正!</strong></p>
+<p>好了这次先到这里，我要去休息，如果对这些还想有更多的了解，推荐去看一下维基上关于$pi$的介绍。</p>
+    </div><!-- /.entry-content -->
+  </article>
+</section>
+      </section>
+      <footer>
+        <p><small>&copy; Turbidsoul's 小黑屋 &mdash; Theme based on Sundown by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <!-- Scale fix -->
+    <script>
+      var metas = document.getElementsByTagName('meta');
+      var i;
+      
+      if (navigator.userAgent.match(/iPhone/i)) {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+          }
+        }
+      
+        document.addEventListener("gesturestart", gestureStart, false);
+      }
+
+      function gestureStart() {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

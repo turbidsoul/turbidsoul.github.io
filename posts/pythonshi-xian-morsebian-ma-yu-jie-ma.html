@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>python实现morse编码与解码Turbidsoul's 小黑屋</title>
+
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div><img src="http://blog.turbidsoul.me/pelican-blog/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/pelican-blog/">Turbidsoul's 小黑屋 </a></div>
+        <div class="sub-title"></div>
+
+<p>
+  <div class="view"><a href="http://blog.turbidsoul.me/pelican-blog/archives.html">Archives</a></div>
+</p>
+
+<!-- Social links -->
+<div class="social">
+<h4>Follow Me</h4>
+<ul>
+    <li><a href="https://plus.google.com/+TurbidsoulChen">Google+</a></li>
+    <li><a href="https://github.com/turbidsoul">Github</a></li>
+    <li><a href="https://twitter.com/Turbidsoul">Twitter</a></li>
+    <li><a href="https://facebook.com/turbidsoul">Facebook</a></li>
+    <li><a href="http://weibo.com/turbidsoul">微博</a></li>
+    <li><a href="http://instagram.com/turbidsoul">Instagram</a></li>
+</ul>
+</div>
+
+      </header>
+      <section>
+<section id="content" class="body">
+  <article>
+      <div class="article-title">
+        python实现morse编码与解码
+      </div>
+
+    <div class="entry-content">
+<p>
+<small>
+<abbr class="published" title="2013-06-04T00:00:00">
+  周二 04 六月 2013
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/python.html">python</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/morse.html">morse</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/code.html">code</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>写这个完全是闲着无聊，看了一片趣文<a href="http://blog.jobbole.com/40628/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=draft-created-on-20130531-at-1028-am">趣文：表白后女生发给我一串五层加密的密码</a> 这篇文章来源自百度贴吧的的有一个帖子<a href="http://tieba.baidu.com/f?kz=529691897">传送门</a>，文章的内容还是很欢乐的。</p>
+<p>言归正传，<a href="http://zh.wikipedia.org/zh/%E6%91%A9%E5%B0%94%E6%96%AF%E7%94%B5%E7%A0%81">Morse Code</a> 的算法是根据维基得来的，说白了就是键值对，编码解码也都是按照键值对进行匹配的。</p>
+<p>编码如下：</p>
+<div class="highlight"><pre><span class="n">__morse_code__</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&#39;A&#39;</span><span class="p">:</span> <span class="s">&#39;.-&#39;</span><span class="p">,</span> <span class="s">&#39;B&#39;</span><span class="p">:</span> <span class="s">&#39;-...&#39;</span><span class="p">,</span> <span class="s">&#39;C&#39;</span><span class="p">:</span> <span class="s">&#39;-.-.&#39;</span><span class="p">,</span> <span class="s">&#39;D&#39;</span><span class="p">:</span> <span class="s">&#39;-..&#39;</span><span class="p">,</span> <span class="s">&#39;E&#39;</span><span class="p">:</span> <span class="s">&#39;.&#39;</span><span class="p">,</span> <span class="s">&#39;F&#39;</span><span class="p">:</span> <span class="s">&#39;..-.&#39;</span><span class="p">,</span> <span class="s">&#39;G&#39;</span><span class="p">:</span> <span class="s">&#39;--.&#39;</span><span class="p">,</span>
+    <span class="s">&#39;H&#39;</span><span class="p">:</span> <span class="s">&#39;....&#39;</span><span class="p">,</span> <span class="s">&#39;I&#39;</span><span class="p">:</span> <span class="s">&#39;..&#39;</span><span class="p">,</span> <span class="s">&#39;J&#39;</span><span class="p">:</span> <span class="s">&#39;.---&#39;</span><span class="p">,</span> <span class="s">&#39;K&#39;</span><span class="p">:</span> <span class="s">&#39;-.-&#39;</span><span class="p">,</span> <span class="s">&#39;L&#39;</span><span class="p">:</span> <span class="s">&#39;.-..&#39;</span><span class="p">,</span> <span class="s">&#39;M&#39;</span><span class="p">:</span> <span class="s">&#39;--&#39;</span><span class="p">,</span> <span class="s">&#39;N&#39;</span><span class="p">:</span> <span class="s">&#39;-.&#39;</span><span class="p">,</span>
+    <span class="s">&#39;O&#39;</span><span class="p">:</span> <span class="s">&#39;---&#39;</span><span class="p">,</span> <span class="s">&#39;P&#39;</span><span class="p">:</span> <span class="s">&#39;.--.&#39;</span><span class="p">,</span> <span class="s">&#39;Q&#39;</span><span class="p">:</span> <span class="s">&#39;--.-&#39;</span><span class="p">,</span> <span class="s">&#39;R&#39;</span><span class="p">:</span> <span class="s">&#39;.-.&#39;</span><span class="p">,</span> <span class="s">&#39;S&#39;</span><span class="p">:</span> <span class="s">&#39;...&#39;</span><span class="p">,</span> <span class="s">&#39;T&#39;</span><span class="p">:</span> <span class="s">&#39;-&#39;</span><span class="p">,</span> <span class="s">&#39;U&#39;</span><span class="p">:</span> <span class="s">&#39;..-&#39;</span><span class="p">,</span>
+    <span class="s">&#39;V&#39;</span><span class="p">:</span> <span class="s">&#39;...-&#39;</span><span class="p">,</span> <span class="s">&#39;W&#39;</span><span class="p">:</span> <span class="s">&#39;.--&#39;</span><span class="p">,</span> <span class="s">&#39;X&#39;</span><span class="p">:</span> <span class="s">&#39;-..-&#39;</span><span class="p">,</span> <span class="s">&#39;Y&#39;</span><span class="p">:</span> <span class="s">&#39;-.--&#39;</span><span class="p">,</span> <span class="s">&#39;Z&#39;</span><span class="p">:</span> <span class="s">&#39;--..&#39;</span><span class="p">,</span>
+
+    <span class="s">&#39;1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;.----&#39;</span><span class="p">,</span> <span class="s">&#39;.-&#39;</span><span class="p">],</span> <span class="s">&#39;2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;..---&#39;</span><span class="p">,</span> <span class="s">&#39;..-&#39;</span><span class="p">],</span> <span class="s">&#39;3&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;...--&#39;</span><span class="p">,</span> <span class="s">&#39;...-&#39;</span><span class="p">],</span> <span class="s">&#39;4&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;....-&#39;</span><span class="p">,</span> <span class="s">&#39;....-&#39;</span><span class="p">],</span> <span class="s">&#39;5&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;.....&#39;</span><span class="p">,</span> <span class="s">&#39;.&#39;</span><span class="p">],</span>
+    <span class="s">&#39;6&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;-....&#39;</span><span class="p">,</span> <span class="s">&#39;-....&#39;</span><span class="p">],</span> <span class="s">&#39;7&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;--...&#39;</span><span class="p">,</span> <span class="s">&#39;-...&#39;</span><span class="p">],</span> <span class="s">&#39;8&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;---..&#39;</span><span class="p">,</span> <span class="s">&#39;-..&#39;</span><span class="p">],</span> <span class="s">&#39;9&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;----.&#39;</span><span class="p">,</span> <span class="s">&#39;-.&#39;</span><span class="p">],</span> <span class="s">&#39;0&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;-----&#39;</span><span class="p">,</span> <span class="s">&#39;-&#39;</span><span class="p">],</span>
+
+    <span class="s">&#39;.&#39;</span><span class="p">:</span> <span class="s">&#39;.-.-.-&#39;</span><span class="p">,</span> <span class="s">&#39;:&#39;</span><span class="p">:</span> <span class="s">&#39;---...&#39;</span><span class="p">,</span> <span class="s">&#39;,&#39;</span><span class="p">:</span> <span class="s">&#39;--..--&#39;</span><span class="p">,</span> <span class="s">&#39;;&#39;</span><span class="p">:</span> <span class="s">&#39;-.-.-.&#39;</span><span class="p">,</span> <span class="s">&#39;?&#39;</span><span class="p">:</span> <span class="s">&#39;..--..&#39;</span><span class="p">,</span> <span class="s">&#39;=&#39;</span><span class="p">:</span> <span class="s">&#39;-...-&#39;</span><span class="p">,</span> <span class="s">&quot;&#39;&quot;</span><span class="p">:</span> <span class="s">&#39;.---.&#39;</span><span class="p">,</span>
+    <span class="s">&#39;/&#39;</span><span class="p">:</span> <span class="s">&#39;-..-.&#39;</span><span class="p">,</span> <span class="s">&#39;!&#39;</span><span class="p">:</span> <span class="s">&#39;-.-.--&#39;</span><span class="p">,</span> <span class="s">&#39;-&#39;</span><span class="p">:</span> <span class="s">&#39;-....-&#39;</span><span class="p">,</span> <span class="s">&#39;_&#39;</span><span class="p">:</span> <span class="s">&#39;..--.-&#39;</span><span class="p">,</span> <span class="s">&#39;&quot;&#39;</span><span class="p">:</span> <span class="s">&#39;.-..-.&#39;</span><span class="p">,</span> <span class="s">&#39;(&#39;</span><span class="p">:</span> <span class="s">&#39;-.--.&#39;</span><span class="p">,</span> <span class="s">&#39;)&#39;</span><span class="p">:</span> <span class="s">&#39;-.--.-&#39;</span><span class="p">,</span>
+    <span class="s">&#39;$&#39;</span><span class="p">:</span> <span class="s">&#39;...-..-&#39;</span><span class="p">,</span> <span class="s">&#39;&amp;&#39;</span><span class="p">:</span> <span class="s">&#39;.-...&#39;</span><span class="p">,</span> <span class="s">&#39;@&#39;</span><span class="p">:</span> <span class="s">&#39;.--.-.&#39;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>编码没有什么特别的，不过对于数字有两种编码，长码和短码，长码是五位，短码少的是2位最长是5位，上面的代码中0位上的是长码、1位上的是短码。</p>
+<p>在解码的时候需要键值翻转，如下：</p>
+<div class="highlight"><pre><span class="n">__de_morse_code__</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">__morse_code__</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">__morse_code__</span><span class="p">[</span><span class="n">c</span><span class="p">])</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">_c</span> <span class="ow">in</span> <span class="n">__morse_code__</span><span class="p">[</span><span class="n">c</span><span class="p">]:</span>
+            <span class="n">__de_morse_code__</span><span class="p">[</span><span class="n">_c</span><span class="p">]</span> <span class="o">=</span> <span class="n">c</span>
+        <span class="k">continue</span>
+    <span class="n">__de_morse_code__</span><span class="p">[</span><span class="n">__morse_code__</span><span class="p">[</span><span class="n">c</span><span class="p">]]</span> <span class="o">=</span> <span class="n">c</span>
+</pre></div>
+
+
+<p>我们来看一下上面那篇趣文中的morse电码：</p>
+<div class="highlight"><pre><span class="o">****-</span><span class="cm">/*—-/—-*/</span><span class="o">****-</span><span class="cm">/****-/*—-/—**/</span><span class="o">*</span><span class="err">—</span><span class="o">-</span><span class="cm">/****-/*—-/-****/</span><span class="o">***</span><span class="err">–</span><span class="cm">/****-/*—-/—-*/</span><span class="o">**</span><span class="err">—</span><span class="o">/-***</span><span class="err">*/</span><span class="o">**</span><span class="err">—</span><span class="cm">/**—/***–/–***/</span><span class="o">****-/</span>
+</pre></div>
+
+
+<p>标准的编码是用<code>.</code>和<code>-</code>表示 <em>Dit</em> 和 <em>Dah</em> 上面的编码写成标准的形式如下：</p>
+<div class="highlight"><pre><span class="p">....</span><span class="o">-/</span><span class="p">.</span><span class="o">----/----</span><span class="p">.</span><span class="o">/</span><span class="p">....</span><span class="o">-/</span><span class="p">....</span><span class="o">-/</span><span class="p">.</span><span class="o">----/---</span><span class="p">..</span><span class="o">/</span><span class="p">.</span><span class="o">----/</span><span class="p">....</span><span class="o">-/</span><span class="p">.</span><span class="o">----/-</span><span class="p">....</span><span class="o">/</span><span class="p">...</span><span class="o">--/</span><span class="p">....</span><span class="o">-/</span><span class="p">.</span><span class="o">----/----</span><span class="p">.</span><span class="o">/</span><span class="p">..</span><span class="o">---/-</span><span class="p">....</span><span class="o">/</span><span class="p">..</span><span class="o">---/</span><span class="p">..</span><span class="o">---/</span><span class="p">...</span><span class="o">--/--</span><span class="p">...</span><span class="o">/</span><span class="p">....</span><span class="o">-</span>
+</pre></div>
+
+
+<p>编码和解码的代码如下：</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">morse_encode</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="n">encoded</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">__morse_code__</span><span class="p">[</span><span class="n">c</span><span class="p">])</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
+            <span class="n">encoded</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">__morse_code__</span><span class="p">[</span><span class="n">c</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">encoded</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">__morse_code__</span><span class="p">[</span><span class="n">c</span><span class="p">])</span>
+    <span class="k">return</span> <span class="s">&quot;/&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">encoded</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">morse_decode</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">codes</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">code</span> <span class="ow">in</span> <span class="n">codes</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">code</span><span class="p">:</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">__de_morse_code__</span><span class="p">[</span><span class="n">code</span><span class="p">])</span>
+    <span class="k">return</span> <span class="s">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+
+
+<p>代码很简单，并没有什么特别的，测试代码和运行结果：</p>
+<div class="highlight"><pre><span class="n">result</span> <span class="o">=</span> <span class="n">morse_encode</span><span class="p">(</span><span class="s">&#39;4194418141634192622374&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">morse_decode</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">morse_decode</span><span class="p">(</span><span class="s">&#39;....-/.----/----./....-/....-/.----/---../.----/....-/.----/-..../...--/....-/.----/----./..---/-..../..---/..---/...--/--.../....-&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="o">....-/.----/----./....-/....-/.----/---../.----/....-/.----/-..../...--/....-/.----/----./..---/-..../..---/..---/...--/--.../....-</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">4194418141634192622374</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">4194418141634192622374</span>
+</pre></div>
+
+
+<p>上面的就是运行结果，下面有两个关于morse的应用：</p>
+<iframe src="//zh.wikipedia.org/wiki/File:TVB_News_Theme_Song_Extract.ogg?embedplayer=yes" width="220" height="23" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+
+<p><a href="http://www.omnicron.com/~ford/java/NMorse.html">Morse Code Translation and Copy Practice</a></p>
+    </div><!-- /.entry-content -->
+  </article>
+</section>
+      </section>
+      <footer>
+        <p><small>&copy; Turbidsoul's 小黑屋 &mdash; Theme based on Sundown by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <!-- Scale fix -->
+    <script>
+      var metas = document.getElementsByTagName('meta');
+      var i;
+      
+      if (navigator.userAgent.match(/iPhone/i)) {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+          }
+        }
+      
+        document.addEventListener("gesturestart", gestureStart, false);
+      }
+
+      function gestureStart() {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

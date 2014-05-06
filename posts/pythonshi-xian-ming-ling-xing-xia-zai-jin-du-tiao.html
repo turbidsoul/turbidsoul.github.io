@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>python实现命令行下载进度条Turbidsoul's 小黑屋</title>
+
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div><img src="http://blog.turbidsoul.me/pelican-blog/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/pelican-blog/">Turbidsoul's 小黑屋 </a></div>
+        <div class="sub-title"></div>
+
+<p>
+  <div class="view"><a href="http://blog.turbidsoul.me/pelican-blog/archives.html">Archives</a></div>
+</p>
+
+<!-- Social links -->
+<div class="social">
+<h4>Follow Me</h4>
+<ul>
+    <li><a href="https://plus.google.com/+TurbidsoulChen">Google+</a></li>
+    <li><a href="https://github.com/turbidsoul">Github</a></li>
+    <li><a href="https://twitter.com/Turbidsoul">Twitter</a></li>
+    <li><a href="https://facebook.com/turbidsoul">Facebook</a></li>
+    <li><a href="http://weibo.com/turbidsoul">微博</a></li>
+    <li><a href="http://instagram.com/turbidsoul">Instagram</a></li>
+</ul>
+</div>
+
+      </header>
+      <section>
+<section id="content" class="body">
+  <article>
+      <div class="article-title">
+        python实现命令行下载进度条
+      </div>
+
+    <div class="entry-content">
+<p>
+<small>
+<abbr class="published" title="2013-06-23T00:00:00">
+  周日 23 六月 2013
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/python.html">python</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/cmd.html">cmd</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/ftp.html">ftp</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/progressbar.html">progressbar</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/pythonshi-xian-ming-ling-xing-xia-zai-jin-du-tiao.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>这是昨晚下班之后同事问我的一个问题，不过当时已经7点，如果在不出公司就会赶不上最后一趟公交车，所以就给同事说回家研究研究礼拜一给他答案，昨晚无事就看了一下。</p>
+<h4>需要用到的模块</h4>
+<ul>
+<li>使用 <strong>pip</strong> 安装progressbar <code>pip install progressbar</code></li>
+<li>这里我是从ftp上下载一个或者多个文件，所以我们要用到 <strong>ftplib</strong>。这是python的标准模块，在代码前导入即可</li>
+<li>我在最后要把代码编译成exe文件所以要用 <strong>py2exe</strong> <code>pip install py2exe</code></li>
+</ul>
+<h4>原理</h4>
+<p>我们先来看一下progressbar的是原理，如下代码：</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">51</span><span class="p">):</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;Computing: [</span><span class="si">%s%s</span><span class="s">] </span><span class="si">%i%%</span><span class="se">\r</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="s">&#39;#&#39;</span> <span class="o">*</span> <span class="n">x</span> <span class="p">,</span> <span class="s">&#39;-&#39;</span> <span class="o">*</span> <span class="p">(</span><span class="mi">50</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="p">,</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.02</span><span class="p">)</span>
+</pre></div>
+
+
+<p>上面这段代码运行之后的结果：</p>
+<div class="highlight"><pre><span class="go">Computing: [##################################################] 100%</span>
+</pre></div>
+
+
+<p>这是最简单的命令行进度条，只是通过循环向stdio输出进度条，每0.02s向控制台输出，每次都会从新计算#和-的个数，这样就会变化成我们欲行代码时看到的效果，也可以在上面加入对文件传输的速度和文件下载速度的显示，就能做成类似progressbar那样的效果。</p>
+<h4>progressbar的使用</h4>
+<p>progressbar使用非常简单，如下代码：</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">progressbar</span> <span class="kn">import</span> <span class="n">ProgressBar</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">ProgressBar</span><span class="p">(</span><span class="n">maxval</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">101</span><span class="p">):</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span class="go">Computing: [##############################&gt;-------------------] 60%</span>
+</pre></div>
+
+
+<p><strong>常用数据描述符</strong></p>
+<ul>
+<li>maxval: 设置progressbar的最大值，我们也可以通过 <code>p.maxval</code> 在出程序运行的过程中得到这个值，</li>
+<li>currval: 这个表示的是当前值，可以通过 <code>p.currval</code></li>
+<li>widgets：配置progressbar进度条样式的时候会用到这个，我会在后面介绍</li>
+</ul>
+<p>这三个是我代码中用到的，还有很多，可以参考progress文档或者代码</p>
+<h4>完整代码</h4>
+<p>{% gist 5844112 %}</p>
+<p>这段代码接受4个参数，分别是ftp地址，用户名，密码和需要下载的文件（多个文件使用,分割）</p>
+<ol>
+<li>首先和ftp建立连接，并使用循环一个一个的对文件进行处理</li>
+<li>通过ftp的size命令得到文件的大小，并把这个值做为progressbar的maxval</li>
+<li>下来就是设置进度条的样式，在上面我就说过这个是通过widget实现的。<ul>
+<li><code>Percetage()</code> 显示进度的百分比</li>
+<li><code>Bar(marker='*', left='[', right=']')</code> 设置进度条的标记符</li>
+<li><code>ETA()</code> 剩余时间</li>
+<li><code>FileTransferSpeed()</code> 显示文件的传输速度</li>
+</ul>
+</li>
+<li>现在就是要进行文件传输，并在传输的过程修正进度条，ftp.retrbinary提供了callback，那就只需要在callback中进行更新进度条，并把数据写入本地的文件中</li>
+<li>关闭连接</li>
+</ol>
+<p>最后就是要编程成exe文件向，我使用的py2exe,如下：</p>
+<div class="highlight"><pre><span class="c"># -*- coding: utf8 -*-</span>
+
+<span class="kn">from</span> <span class="nn">distutils.core</span> <span class="kn">import</span> <span class="n">setup</span>
+<span class="kn">import</span> <span class="nn">py2exe</span>
+
+<span class="n">setup</span><span class="p">(</span><span class="n">console</span><span class="o">=</span><span class="p">[</span><span class="s">&quot;ftp_download.py&quot;</span><span class="p">],</span> <span class="n">zipfile</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+</pre></div>
+
+
+<p>应为是命令行工具，所以使用的console，zipfile=表示把python*.zip文件打入exe中。</p>
+<p>在cmd下运行如下命令<code>python ftp_download_exe.py py2exe -b 1</code></p>
+<ul>
+<li>ftp_download_exe.py就是上面那段代码保存后的文件</li>
+<li><code>-b 1</code> 表示把所有文件都编译到一个exe文件中，这样我们就只有一个exe文件不会在依赖其他的文件</li>
+</ul>
+<p>编译完了之后在dist目录下就是表一好的文件，ftp_download.exe,我们运行一下看看效果： <code>ftp_download.exe 127.0.0.1 test test PbSetup60.exe,VIDEO0006.mp4</code></p>
+<div class="highlight"><pre><span class="n">Download</span> <span class="p">[</span><span class="n">PbSetup60</span><span class="p">.</span><span class="n">exe</span><span class="p">]</span><span class="o">:</span> <span class="mi">100</span><span class="o">%</span> <span class="p">[</span><span class="o">********************</span><span class="p">]</span> <span class="n">Time</span><span class="o">:</span> <span class="mi">0</span><span class="o">:</span><span class="mo">00</span><span class="o">:</span><span class="mo">05</span>   <span class="mf">1.69</span> <span class="n">MB</span><span class="o">/</span><span class="n">s</span>
+<span class="n">Download</span> <span class="p">[</span><span class="n">VIDEO0006</span><span class="p">.</span><span class="n">mp4</span><span class="p">]</span><span class="o">:</span>  <span class="mi">20</span><span class="o">%</span> <span class="p">[</span><span class="o">****</span>                <span class="p">]</span> <span class="n">ETA</span><span class="o">:</span>  <span class="mi">0</span><span class="o">:</span><span class="mo">00</span><span class="o">:</span><span class="mi">09</span>   <span class="mf">2.24</span> <span class="n">MB</span><span class="o">/</span><span class="n">s</span>
+</pre></div>
+    </div><!-- /.entry-content -->
+  </article>
+</section>
+      </section>
+      <footer>
+        <p><small>&copy; Turbidsoul's 小黑屋 &mdash; Theme based on Sundown by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <!-- Scale fix -->
+    <script>
+      var metas = document.getElementsByTagName('meta');
+      var i;
+      
+      if (navigator.userAgent.match(/iPhone/i)) {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+          }
+        }
+      
+        document.addEventListener("gesturestart", gestureStart, false);
+      }
+
+      function gestureStart() {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

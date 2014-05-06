@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>关于firefox中使用google搜索被劫持到www5.1616.com的解决办法！Turbidsoul's 小黑屋</title>
+
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div><img src="http://blog.turbidsoul.me/pelican-blog/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/pelican-blog/">Turbidsoul's 小黑屋 </a></div>
+        <div class="sub-title"></div>
+
+<p>
+  <div class="view"><a href="http://blog.turbidsoul.me/pelican-blog/archives.html">Archives</a></div>
+</p>
+
+<!-- Social links -->
+<div class="social">
+<h4>Follow Me</h4>
+<ul>
+    <li><a href="https://plus.google.com/+TurbidsoulChen">Google+</a></li>
+    <li><a href="https://github.com/turbidsoul">Github</a></li>
+    <li><a href="https://twitter.com/Turbidsoul">Twitter</a></li>
+    <li><a href="https://facebook.com/turbidsoul">Facebook</a></li>
+    <li><a href="http://weibo.com/turbidsoul">微博</a></li>
+    <li><a href="http://instagram.com/turbidsoul">Instagram</a></li>
+</ul>
+</div>
+
+      </header>
+      <section>
+<section id="content" class="body">
+  <article>
+      <div class="article-title">
+        关于firefox中使用google搜索被劫持到www5.1616.com的解决办法！
+      </div>
+
+    <div class="entry-content">
+<p>
+<small>
+<abbr class="published" title="2012-03-16T00:00:00">
+  周五 16 三月 2012
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/firefox.html">firefox</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/google.html">google</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/guan-yu-firefoxzhong-shi-yong-googlesou-suo-bei-jie-chi-dao-www51616comde-jie-jue-ban-fa.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>这个问题也是我今天早上发现的，搜索东西的时候发现先进入www5.1616.net然后在跳转到google中，感觉像是被劫持了，于是我就在 google上搜索了www5.1616.net发现很多人都有这个问题，而且但是绝大多数都认为是DNS被劫持的问题，但是我觉得不是这样，因为很多人 都和我的情况一样，出现问题的只有他一个，同一局域网下的别人都正常，同一社区下的只有个别的人有这个问题，并不是大面积出现，而且我只有Firefox 有问题，chrome和IE9都正常，所以我肯定是firefox的问题。</p>
+<p>后面我有简单的试了几次，发现https下不存在这种现象所以我象应该是他修改我的某些search相关文件，其实在firefox中和search有关的文件就几个，常用的人也都知道：</p>
+<ol>
+<li>{Profiles}/searchplugins/*.xml</li>
+<li>{app_root}/searchplugins/*.xml</li>
+<li>{Profiles}/search.json</li>
+<li>{Profiles}/search.sqlite</li>
+<li>{Profiles}/extensions/cehomepage@mozillaonline.com/searchplugins/*.xml</li>
+</ol>
+<p>总共就这5个吧，我知道的只有这些.</p>
+<p>其实我本来并没有想到会是这几个地方，但是看了月光在2010年5月的一片名为<a href="http://www.williamlong.info/archives/2186.html">《Google支持HTTPS加密搜索》</a>文章，才想到这点上的。</p>
+<p>在网上有些文章说需要删除search.json和search.sqlite，其实不用。先打开search.json，可以格式化一下，看着清楚，直接搜索google，找到后向下拖，看到有下面的代码:</p>
+<div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">&quot;params&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;q&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;{searchTerms}&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;1157&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;type&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span> <span class="s2">&quot;21&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;rels&quot;</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="nt">&quot;template&quot;</span><span class="p">:</span> <span class="s2">&quot;http://www5.1616.net/q.php&quot;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>删除这段就可以，记得把上面的逗号也删掉啊！</p>
+<p>然 后进入，上面列出第五点下，打开google.xml，把url的属性template修改会原来的值,即 为:http://www.google.com/search然后保存就行了，然后重启firefox，再试试应该已经解决了问题，可能这不是唯一的解 决办法，但是是一个根除的办法，我还没有找到是什么东西修改了这些文件，我也喜欢有人能找到这个东西，并更不出来！</p>
+<p><strong>在上面月光的文章中已经说了google已经启动了https所以我也希望大家都使用https上网，这样更安全一点。</strong></p>
+    </div><!-- /.entry-content -->
+  </article>
+</section>
+      </section>
+      <footer>
+        <p><small>&copy; Turbidsoul's 小黑屋 &mdash; Theme based on Sundown by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <!-- Scale fix -->
+    <script>
+      var metas = document.getElementsByTagName('meta');
+      var i;
+      
+      if (navigator.userAgent.match(/iPhone/i)) {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+          }
+        }
+      
+        document.addEventListener("gesturestart", gestureStart, false);
+      }
+
+      function gestureStart() {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Jquery分页插件Turbidsoul's 小黑屋</title>
+
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div><img src="http://blog.turbidsoul.me/pelican-blog/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/pelican-blog/">Turbidsoul's 小黑屋 </a></div>
+        <div class="sub-title"></div>
+
+<p>
+  <div class="view"><a href="http://blog.turbidsoul.me/pelican-blog/archives.html">Archives</a></div>
+</p>
+
+<!-- Social links -->
+<div class="social">
+<h4>Follow Me</h4>
+<ul>
+    <li><a href="https://plus.google.com/+TurbidsoulChen">Google+</a></li>
+    <li><a href="https://github.com/turbidsoul">Github</a></li>
+    <li><a href="https://twitter.com/Turbidsoul">Twitter</a></li>
+    <li><a href="https://facebook.com/turbidsoul">Facebook</a></li>
+    <li><a href="http://weibo.com/turbidsoul">微博</a></li>
+    <li><a href="http://instagram.com/turbidsoul">Instagram</a></li>
+</ul>
+</div>
+
+      </header>
+      <section>
+<section id="content" class="body">
+  <article>
+      <div class="article-title">
+        Jquery分页插件
+      </div>
+
+    <div class="entry-content">
+<p>
+<small>
+<abbr class="published" title="2011-12-07T00:00:00">
+  周三 07 十二月 2011
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/jquery.html">jquery</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/javascript.html">javascript</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/code.html">code</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/jqueryfen-ye-cha-jian.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>我们头不让我们使用外面的页面特效脚本，因为页面加载的时候使用太多的不相关页面会影响页面加载的速度。so，只能自己动手去写一个分页插件。</p>
+<p>今天没有在公司，没有截到效果图，不过没有关系，我可以说一下我的实现思路，我会在后面把效果图补上。</p>
+<p>这个插件有两个主要方法refresh_data和refresh_num_bar，这两个方法是用来刷新，首页，末页，上一页，下一页，以及在这些中间的数字按钮的样式变化。</p>
+<p>首先是refresh_data：</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">refresh_data</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$data</span><span class="p">,</span> <span class="nx">cur_page</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">$data</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.peak_comment_li&#39;</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;#peak_comment_count&#39;</span><span class="p">).</span><span class="nx">peak</span><span class="p">({</span>
+            <span class="nx">url</span><span class="o">:</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s2">&quot;#peak_comment_url&quot;</span><span class="p">).</span><span class="nx">val</span><span class="p">(),</span>
+            <span class="nx">msgbox</span><span class="o">:</span> <span class="nx">options</span><span class="p">[</span><span class="s1">&#39;msgbox&#39;</span><span class="p">],</span>
+            <span class="nx">peakTagId</span><span class="o">:</span> <span class="s2">&quot;peak_comment_d_count&quot;</span>
+        <span class="p">});</span>
+        <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.reply_comment_btn&#39;</span><span class="p">).</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">parent</span><span class="p">().</span><span class="nx">parent</span><span class="p">().</span><span class="nx">find</span><span class="p">(</span><span class="s2">&quot;.reply_comment_li&quot;</span><span class="p">).</span><span class="nx">show</span><span class="p">();</span>
+        <span class="p">});</span>
+        <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.cancel_comment_btn&#39;</span><span class="p">).</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">parent</span><span class="p">().</span><span class="nx">hide</span><span class="p">();</span>
+        <span class="p">});</span>
+    <span class="p">});</span>
+
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#content_comment_more &gt; dl&#39;</span><span class="p">).</span><span class="nx">remove</span><span class="p">();</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#content_comment_more&#39;</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="nx">$data</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">cur_page</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$prev_page</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">).</span><span class="nx">remove</span><span class="p">();</span>
+        <span class="nx">$prev_page</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;上一页&#39;</span><span class="p">);</span>
+        <span class="nx">$prev_page</span><span class="p">.</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;disabled&#39;</span><span class="p">);</span>
+        <span class="nx">$prev_page</span><span class="p">.</span><span class="nx">unbind</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">);</span>
+        <span class="nx">$next_page</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;a&gt;&lt;/a&gt;&#39;</span><span class="p">);</span>
+        <span class="nx">a</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;下一页&quot;</span><span class="p">);</span>
+        <span class="nx">$next_page</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+        <span class="nx">$next_page</span><span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;disabled&#39;</span><span class="p">);</span>
+        <span class="nx">$next_page</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="nx">next_page_click</span><span class="p">);</span>
+        <span class="nx">refresh_num_bar</span><span class="p">(</span><span class="nx">cur_page</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">cur_page</span> <span class="o">==</span> <span class="nx">max_page</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">$next_page</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">).</span><span class="nx">remove</span><span class="p">();</span>
+        <span class="nx">$next_page</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;下一页&#39;</span><span class="p">);</span>
+        <span class="nx">$next_page</span><span class="p">.</span><span class="nx">addClass</span><span class="p">(</span><span class="s1">&#39;disabled&#39;</span><span class="p">);</span>
+        <span class="nx">$next_page</span><span class="p">.</span><span class="nx">unbind</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">);</span>
+        <span class="nx">$prev_page</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;a&gt;&lt;/a&gt;&#39;</span><span class="p">);</span>
+        <span class="nx">a</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;上一页&quot;</span><span class="p">);</span>
+        <span class="nx">$prev_page</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+        <span class="nx">$prev_page</span><span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;disabled&#39;</span><span class="p">);</span>
+        <span class="nx">$prev_page</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="nx">prev_page_click</span><span class="p">);</span>
+        <span class="nx">refresh_num_bar</span><span class="p">(</span><span class="nx">cur_page</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">$prev_page</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">).</span><span class="nx">remove</span><span class="p">();</span>
+        <span class="nx">$prev_page</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">a_prev</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;a&gt;&lt;/a&gt;&#39;</span><span class="p">);</span>
+        <span class="nx">a_prev</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;上一页&quot;</span><span class="p">);</span>
+        <span class="nx">$prev_page</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">a_prev</span><span class="p">);</span>
+        <span class="nx">$prev_page</span><span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;disabled&#39;</span><span class="p">);</span>
+        <span class="nx">$prev_page</span><span class="p">.</span><span class="nx">unbind</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">);</span>
+        <span class="nx">$prev_page</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="nx">prev_page_click</span><span class="p">);</span>
+
+        <span class="nx">refresh_num_bar</span><span class="p">(</span><span class="nx">cur_page</span><span class="p">);</span>
+
+        <span class="nx">$next_page</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">).</span><span class="nx">remove</span><span class="p">();</span>
+        <span class="nx">$next_page</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">a_next</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;&lt;a&gt;&lt;/a&gt;&#39;</span><span class="p">);</span>
+        <span class="nx">a_next</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="s2">&quot;下一页&quot;</span><span class="p">);</span>
+        <span class="nx">$next_page</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">a_next</span><span class="p">);</span>
+        <span class="nx">$next_page</span><span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="s1">&#39;disabled&#39;</span><span class="p">);</span>
+        <span class="nx">$next_page</span><span class="p">.</span><span class="nx">unbind</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">);</span>
+        <span class="nx">$next_page</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="nx">next_page_click</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>这个方法是为首页，末页和上下页绑定click事件，并调用refresh_num_bar修改数字按钮的样式，重新生成数字按钮，并绑定事件
+下面的是refresh_num_bar 方法的代码：</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">refresh_num_bar</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">cur_page</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">$num_page_bar</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s2">&quot;.num_page&quot;</span><span class="p">).</span><span class="nx">remove</span><span class="p">();</span>
+    <span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="nx">max_page</span> <span class="o">&lt;</span> <span class="mi">9</span> <span class="o">?</span> <span class="nx">max_page</span> <span class="o">:</span> <span class="mi">9</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">k</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="c1">// 这里是用来在当前页是倒数第三页，且显示的按钮是最后一个按钮的时候，把它显示出來</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">max_page</span> <span class="o">-</span> <span class="nx">cur_page</span> <span class="o">==</span> <span class="mi">3</span> <span class="o">&amp;&amp;</span> <span class="nx">i</span> <span class="o">==</span> <span class="mi">9</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;&lt;a class=&#39;num_page&#39;&gt;&quot;</span> <span class="o">+</span> <span class="nx">max_page</span> <span class="o">+</span> <span class="s2">&quot;&lt;/a&gt;&quot;</span><span class="p">);</span>
+            <span class="nx">a</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="p">{</span>
+                <span class="nx">pageNum</span><span class="o">:</span> <span class="nx">max_page</span>
+            <span class="p">},</span> <span class="nx">num_page_click</span><span class="p">);</span>
+            <span class="nx">$num_page_bar</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nx">cur_page</span> <span class="o">+</span> <span class="nx">k</span> <span class="o">&gt;</span> <span class="nx">max_page</span><span class="p">)</span> <span class="p">{</span>
+                     <span class="c1">// 如果当前页是+k已经超过最大页的时候忽略当前循环，但是这个会造成当前那个页是倒数第三页且是最后一个按钮时，</span>
+                     <span class="c1">// 会造成最后一个按钮无法显示出來，所以在前面的条件是加入这个按钮                     continue;</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nx">cur_page</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="o">&amp;&amp;</span> <span class="nx">cur_page</span> <span class="o">==</span> <span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">$num_page_bar</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;&lt;span class=&#39;num_page current&#39;&gt;&quot;</span> <span class="o">+</span> <span class="nx">cur_page</span> <span class="o">+</span> <span class="s2">&quot;&lt;/span&gt;&quot;</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">cur_page</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&gt;=</span> <span class="mi">5</span> <span class="o">&amp;&amp;</span> <span class="nx">i</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;&lt;a class=&#39;num_page&#39;&gt;...&lt;/a&gt;&quot;</span><span class="p">);</span>
+            <span class="kd">var</span> <span class="nx">pageNum</span> <span class="o">=</span> <span class="nx">cur_page</span> <span class="o">-</span> <span class="mi">10</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="nx">cur_page</span> <span class="o">-</span> <span class="mi">10</span><span class="p">;</span>
+            <span class="nx">a</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="p">{</span>
+                <span class="nx">pageNum</span><span class="o">:</span> <span class="nx">pageNum</span>
+            <span class="p">},</span> <span class="nx">num_page_click</span><span class="p">);</span>
+            <span class="nx">$num_page_bar</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">max_page</span> <span class="o">-</span> <span class="nx">cur_page</span> <span class="o">&gt;=</span> <span class="mi">5</span> <span class="o">&amp;&amp;</span> <span class="nx">i</span> <span class="o">==</span> <span class="mi">8</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;&lt;a class=&#39;num_page&#39;&gt;...&lt;/a&gt;&quot;</span><span class="p">);</span>
+            <span class="kd">var</span> <span class="nx">pageNum</span> <span class="o">=</span> <span class="nx">cur_page</span> <span class="o">+</span> <span class="mi">10</span> <span class="o">&gt;</span> <span class="nx">max_page</span> <span class="o">?</span> <span class="nx">max_page</span> <span class="o">:</span> <span class="nx">cur_page</span> <span class="o">+</span> <span class="mi">10</span><span class="p">;</span>
+            <span class="nx">a</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="p">{</span>
+                <span class="nx">pageNum</span><span class="o">:</span> <span class="nx">pageNum</span>
+            <span class="p">},</span> <span class="nx">num_page_click</span><span class="p">);</span>
+            <span class="nx">$num_page_bar</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">==</span> <span class="mi">9</span> <span class="o">&amp;&amp;</span> <span class="nx">cur_page</span> <span class="o">!=</span> <span class="nx">max_page</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;&lt;a class=&#39;num_page&#39;&gt;&quot;</span> <span class="o">+</span> <span class="nx">max_page</span> <span class="o">+</span> <span class="s2">&quot;&lt;/a&gt;&quot;</span><span class="p">);</span>
+            <span class="nx">a</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="p">{</span>
+                <span class="nx">pageNum</span><span class="o">:</span> <span class="nx">max_page</span>
+            <span class="p">},</span> <span class="nx">num_page_click</span><span class="p">);</span>
+            <span class="nx">$num_page_bar</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">cur_page</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&gt;=</span> <span class="mi">5</span> <span class="o">&amp;&amp;</span> <span class="nx">i</span> <span class="o">&gt;=</span> <span class="mi">3</span> <span class="o">&amp;&amp;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">7</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nx">$num_page_bar</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;&lt;span class=&#39;num_page current&#39;&gt;&quot;</span> <span class="o">+</span> <span class="nx">cur_page</span> <span class="o">+</span> <span class="s2">&quot;&lt;/span&gt;&quot;</span><span class="p">);</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;&lt;a class=&#39;num_page&#39;&gt;&quot;</span> <span class="o">+</span> <span class="p">(</span><span class="nx">cur_page</span> <span class="o">+</span> <span class="nx">k</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&lt;/a&gt;&quot;</span><span class="p">);</span>
+                <span class="nx">a</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="p">{</span>
+                    <span class="nx">pageNum</span><span class="o">:</span> <span class="p">(</span><span class="nx">cur_page</span> <span class="o">+</span> <span class="nx">k</span><span class="p">)</span>
+                <span class="p">},</span> <span class="nx">num_page_click</span><span class="p">);</span>
+                <span class="nx">$num_page_bar</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+            <span class="p">}</span>
+
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;&lt;a class=&#39;num_page&#39;&gt;&quot;</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="s2">&quot;&lt;/a&gt;&quot;</span><span class="p">);</span>
+            <span class="nx">a</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="p">{</span>
+                <span class="nx">pageNum</span><span class="o">:</span> <span class="nx">i</span>
+            <span class="p">},</span> <span class="nx">num_page_click</span><span class="p">);</span>
+            <span class="nx">$num_page_bar</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">cur_page</span> <span class="o">+</span> <span class="nx">k</span> <span class="o">&lt;</span> <span class="nx">max_page</span> <span class="o">&amp;&amp;</span> <span class="nx">cur_page</span> <span class="o">+</span> <span class="nx">k</span> <span class="o">&gt;</span> <span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+                <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;&lt;a class=&#39;num_page&#39;&gt;&quot;</span> <span class="o">+</span> <span class="p">(</span><span class="nx">cur_page</span> <span class="o">+</span> <span class="nx">k</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&lt;/a&gt;&quot;</span><span class="p">);</span>
+                <span class="nx">a</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="p">{</span>
+                    <span class="nx">pageNum</span><span class="o">:</span> <span class="p">(</span><span class="nx">cur_page</span> <span class="o">+</span> <span class="nx">k</span><span class="p">)</span>
+                <span class="p">},</span> <span class="nx">num_page_click</span><span class="p">);</span>
+                <span class="nx">$num_page_bar</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+                                <span class="c1">// 下面的这段代码是输出前5个按钮的样式正常显示</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">cur_page</span> <span class="o">==</span> <span class="mi">3</span> <span class="o">&amp;&amp;</span> <span class="nx">i</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;&lt;a class=&#39;num_page&#39;&gt;&quot;</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="s2">&quot;&lt;/a&gt;&quot;</span><span class="p">);</span>
+            <span class="nx">a</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="p">{</span>
+                <span class="nx">pageNum</span><span class="o">:</span> <span class="nx">i</span>
+            <span class="p">},</span> <span class="nx">num_page_click</span><span class="p">);</span>
+            <span class="nx">$num_page_bar</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nx">cur_page</span> <span class="o">==</span> <span class="mi">4</span> <span class="o">&amp;&amp;</span> <span class="nx">i</span> <span class="o">&gt;=</span> <span class="mi">5</span> <span class="o">&amp;&amp;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">6</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;&lt;a class=&#39;num_page&#39;&gt;&quot;</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="s2">&quot;&lt;/a&gt;&quot;</span><span class="p">);</span>
+            <span class="nx">a</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="p">{</span>
+                <span class="nx">pageNum</span><span class="o">:</span> <span class="nx">i</span>
+            <span class="p">},</span> <span class="nx">num_page_click</span><span class="p">);</span>
+            <span class="nx">$num_page_bar</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nx">cur_page</span> <span class="o">==</span> <span class="mi">5</span> <span class="o">&amp;&amp;</span> <span class="nx">i</span> <span class="o">&gt;=</span> <span class="mi">6</span> <span class="o">&amp;&amp;</span> <span class="nx">i</span> <span class="o">&lt;=</span> <span class="mi">7</span><span class="p">)</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;&lt;a class=&#39;num_page&#39;&gt;&quot;</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">+</span> <span class="s2">&quot;&lt;/a&gt;&quot;</span><span class="p">);</span>
+            <span class="nx">a</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="p">{</span>
+                <span class="nx">pageNum</span><span class="o">:</span> <span class="nx">i</span>
+            <span class="p">},</span> <span class="nx">num_page_click</span><span class="p">);</span>
+            <span class="nx">$num_page_bar</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="nx">k</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>其实这是我现在第一次做web前端开发，并真正的接触jquery和javascript所以问题还很多，这个插件应该还有很多可以优化和修改的地方，但是以我现在的水平只能做到这样了！</p>
+    </div><!-- /.entry-content -->
+  </article>
+</section>
+      </section>
+      <footer>
+        <p><small>&copy; Turbidsoul's 小黑屋 &mdash; Theme based on Sundown by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <!-- Scale fix -->
+    <script>
+      var metas = document.getElementsByTagName('meta');
+      var i;
+      
+      if (navigator.userAgent.match(/iPhone/i)) {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+          }
+        }
+      
+        document.addEventListener("gesturestart", gestureStart, false);
+      }
+
+      function gestureStart() {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

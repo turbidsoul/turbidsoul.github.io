@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Turbidsoul's 小黑屋 - WebRTCTurbidsoul's 小黑屋</title>
+
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div><img src="http://blog.turbidsoul.me/pelican-blog/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/pelican-blog/">Turbidsoul's 小黑屋 </a></div>
+        <div class="sub-title"></div>
+
+<p>
+  <div class="view"><a href="http://blog.turbidsoul.me/pelican-blog/archives.html">Archives</a></div>
+</p>
+
+<!-- Social links -->
+<div class="social">
+<h4>Follow Me</h4>
+<ul>
+    <li><a href="https://plus.google.com/+TurbidsoulChen">Google+</a></li>
+    <li><a href="https://github.com/turbidsoul">Github</a></li>
+    <li><a href="https://twitter.com/Turbidsoul">Twitter</a></li>
+    <li><a href="https://facebook.com/turbidsoul">Facebook</a></li>
+    <li><a href="http://weibo.com/turbidsoul">微博</a></li>
+    <li><a href="http://instagram.com/turbidsoul">Instagram</a></li>
+</ul>
+</div>
+
+      </header>
+      <section>
+      <div class="front-title"><a href="http://blog.turbidsoul.me/pelican-blog/posts/websocketwebrtcshi-xian-shi-pin-tong-xun.html">WebSocket+WebRTC实现视频通讯</a></div>
+<p>
+<small>
+<abbr class="published" title="2013-02-28T00:00:00">
+  周四 28 二月 2013
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/webrtc.html">webrtc</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/websocket.html">websocket</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/python.html">python</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/websocketwebrtcshi-xian-shi-pin-tong-xun.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>这篇文章本来早就该写了，但是电脑坏了，在加上工作比较忙，所以就一直拖到今天。</p>
+<p>研究这玩意是因为公司需要做技术储备，所以在过年放假的时候就研究了一下，但是花的时间有点多，放假11天有7天，加上上班后的2天，一共是9天，其中花了2天时间研究WebSocket协议，又花了两天查看WebRTC的官方文档，搞明白WebRTC是如何运行，磕磕绊绊的直到调试成功可以俩人视频又花了快5天时间。</p>
+<p>别的不说了，下来说说我是如何做的，当然WebSocket使用的是python+twisted实现的，当然协议的解析是看网上的一篇文章【用Python实现一个简单的WebSocket服务器】，在自己改了一些代码，就算是简单的WebSocket服务器。当然我是在firefox19上测试通过的，chrome上并没有测试通过，没什么时间，只能等家里电脑好了之后在家里测试。</p>
+<p>首先来简单的说一些WebSocket协议:</p>
+<p><img alt="websocket" src="/file/images/websocket.png" /></p>
+<p>对于我这里来说 ：</p>
+<ul>
+<li>fin,rsv1,rsv2,rsv3分别是1000</li>
+<li>opcode是0001，表示发送的是文本</li>
+<li>mask是1，因为是最新协议所以是有掩码的</li>
+<li>payload len，表示的是数据的长度，他的位数是不固定的。他分别是有三种表示,7 bit, 7+16 bit, 7+64 bit。如果是小于126则是7bit ...</li></ul> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/pelican-blog/posts/websocketwebrtcshi-xian-shi-pin-tong-xun.html">read more...</a></div>
+      <hr />
+
+      </section>
+      <footer>
+        <p><small>&copy; Turbidsoul's 小黑屋 &mdash; Theme based on Sundown by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <!-- Scale fix -->
+    <script>
+      var metas = document.getElementsByTagName('meta');
+      var i;
+      
+      if (navigator.userAgent.match(/iPhone/i)) {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+          }
+        }
+      
+        document.addEventListener("gesturestart", gestureStart, false);
+      }
+
+      function gestureStart() {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

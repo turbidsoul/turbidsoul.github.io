@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>使用selenium进行web测试入门和使用WebDriver开发web测试代码入门Turbidsoul's 小黑屋</title>
+
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div><img src="http://blog.turbidsoul.me/pelican-blog/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/pelican-blog/">Turbidsoul's 小黑屋 </a></div>
+        <div class="sub-title"></div>
+
+<p>
+  <div class="view"><a href="http://blog.turbidsoul.me/pelican-blog/archives.html">Archives</a></div>
+</p>
+
+<!-- Social links -->
+<div class="social">
+<h4>Follow Me</h4>
+<ul>
+    <li><a href="https://plus.google.com/+TurbidsoulChen">Google+</a></li>
+    <li><a href="https://github.com/turbidsoul">Github</a></li>
+    <li><a href="https://twitter.com/Turbidsoul">Twitter</a></li>
+    <li><a href="https://facebook.com/turbidsoul">Facebook</a></li>
+    <li><a href="http://weibo.com/turbidsoul">微博</a></li>
+    <li><a href="http://instagram.com/turbidsoul">Instagram</a></li>
+</ul>
+</div>
+
+      </header>
+      <section>
+<section id="content" class="body">
+  <article>
+      <div class="article-title">
+        使用selenium进行web测试入门和使用WebDriver开发web测试代码入门
+      </div>
+
+    <div class="entry-content">
+<p>
+<small>
+<abbr class="published" title="2013-10-17T00:00:00">
+  周四 17 十月 2013
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/selenium.html">selenium</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/python.html">python</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/java.html">java</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/webdriver.html">webdriver</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/test.html">test</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/code.html">code</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/shi-yong-seleniumjin-xing-webce-shi-ru-men-he-shi-yong-webdriverkai-fa-webce-shi-dai-ma-ru-men.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>前段时间我们头在搞一个分布式测试，使用的就是 <strong>Selenium</strong> 可以坑太多，最后应该是放弃了，因为我没见到回音，说实话这东西是bug挺多，而且在firefox上的版本兼容也有很大的问题，不过这不是我们讨论的问题，我们这里要讨论的是使用它来做简单的web测试。</p>
+<h2>Selenium 入门</h2>
+<h4>安装</h4>
+<p>我使用的是 Firefox Aurora 现在的版本就是ff26,这下面是正常的，我不知道在每日编译版下是否正常，虽然我机子上也安装了，但是并没有在起下面做个测试，不过应该是没有问题的。</p>
+<p>在 <a href="about:addons">about:addons</a> 或者 <a href="http://addons.mozilla.org/">http://addons.mozilla.org/</a> 上搜索 <em>selenium</em> 点击安装，安装的时候同时还会附带安装几个其他的插件，这些都是 Selenium 的一些附属插件，我在之后的会有介绍。</p>
+<p>安装完之后可以在 <code>菜单 &gt;&gt; 工具 &gt;&gt; Selenium IDE</code> 打开或者在 <em>附加组建栏</em> 点击 Selenium IDE 按钮打开，如何附加组建栏没有，请自行添加。</p>
+<p><img alt="Selenium IDE 界面" src="/file/images/selenium1.jpg" title="Selenium IDE" /></p>
+<p>上图就是 Selenium IDE 界面，图最右边的红色圆形按钮就是录制按钮，一般在打开的时候这个那就就是按下的，所以可以直接录制。</p>
+<p>录制的方式很简单，当点击录制按钮之后就可以在网站的页面向普通浏览网页一样操作，Selenium会自动记录下操作我已经做了简单的几次点击操作，下面使我录制下来的代码：</p>
+<div class="highlight"><pre><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="cp">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span class="na">xml:lang=</span><span class="s">&quot;en&quot;</span> <span class="na">lang=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head</span> <span class="na">profile=</span><span class="s">&quot;http://selenium-ide.openqa.org/profiles/test-case&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;Content-Type&quot;</span> <span class="na">content=</span><span class="s">&quot;text/html; charset=UTF-8&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;selenium.base&quot;</span> <span class="na">href=</span><span class="s">&quot;http://www.kaoshidian.com/&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;title&gt;</span>New Test<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;table</span> <span class="na">cellpadding=</span><span class="s">&quot;1&quot;</span> <span class="na">cellspacing=</span><span class="s">&quot;1&quot;</span> <span class="na">border=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;thead&gt;</span>
+<span class="nt">&lt;tr&gt;&lt;td</span> <span class="na">rowspan=</span><span class="s">&quot;1&quot;</span> <span class="na">colspan=</span><span class="s">&quot;3&quot;</span><span class="nt">&gt;</span>New Test<span class="nt">&lt;/td&gt;&lt;/tr&gt;</span>
+<span class="nt">&lt;/thead&gt;&lt;tbody&gt;</span>
+<span class="nt">&lt;tr&gt;</span>
+    <span class="nt">&lt;td&gt;</span>open<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td&gt;</span>/<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td&gt;&lt;/td&gt;</span>
+<span class="nt">&lt;/tr&gt;</span>
+<span class="nt">&lt;tr&gt;</span>
+    <span class="nt">&lt;td&gt;</span>click<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td&gt;</span>css=div.wrap<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td&gt;&lt;/td&gt;</span>
+<span class="nt">&lt;/tr&gt;</span>
+<span class="nt">&lt;tr&gt;</span>
+    <span class="nt">&lt;td&gt;</span>clickAndWait<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td&gt;</span>link=课程中心<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td&gt;&lt;/td&gt;</span>
+<span class="nt">&lt;/tr&gt;</span>
+<span class="nt">&lt;tr&gt;</span>
+    <span class="nt">&lt;td&gt;</span>clickAndWait<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td&gt;</span>xpath=(//a[contains(text(),&#39;专业课一对一&#39;)])[2]<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td&gt;&lt;/td&gt;</span>
+<span class="nt">&lt;/tr&gt;</span>
+<span class="nt">&lt;tr&gt;</span>
+    <span class="nt">&lt;td&gt;</span>clickAndWait<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td&gt;</span>xpath=(//a[contains(text(),&#39;微直播&#39;)])[2]<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td&gt;&lt;/td&gt;</span>
+<span class="nt">&lt;/tr&gt;</span>
+<span class="nt">&lt;tr&gt;</span>
+    <span class="nt">&lt;td&gt;</span>clickAndWait<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td&gt;</span>link=精彩视频<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td&gt;&lt;/td&gt;</span>
+<span class="nt">&lt;/tr&gt;</span>
+
+<span class="nt">&lt;/tbody&gt;&lt;/table&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+
+
+<p>上面的代码就是录制后的代码，是html代码，当然也可以按照在这样的方法写出来，复制到Selenium中也是可以运行的。</p>
+<p>运行的方法很简单，菜单 Actions -&gt; Play entire test suite 就会把录制的脚本运行一边，同时我们也能在浏览器上看到运行的结果。</p>
+<p>Selenium可以完成我们在浏览器上的所有操作，因为它就是模拟我们浏览器的操作，所以登录等操作也是没有问题的。这就是Selenium的几本操作，更加复杂的可以自己去探索.</p>
+<p>Selenium也可以把录制的宏导出成其他代码，比如java,ruby,php,python,C#,XML等，导出的方法很简单，在菜单中的 文件 -&gt; Export Test Case 就可以看到导出的选项，但是要要导出这些代码，是需要有扩展支持的，一般这些扩展在安装 Selenium IDE 的时候都会提示一起安装，如果在这里没有看到的花，可以在<a href="http://addons.mozilla.org/">http://addons.mozilla.org</a>搜索，然后安装，重启firefox之后就可以了</p>
+<h2>Python</h2>
+<p>如何得到python 的测试代码呢？有两种，第一个就是通过Selenium中提供的导出的方法直接导出，另外一个就是自己编写python代码了。</p>
+<p>从Selenium可以导出两种，一种是基于<code>Webdriver</code>，另外一个就是基于<code>Remote Control</code>：</p>
+<div class="highlight"><pre><span class="c"># webdriver #</span>
+
+<span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.common.keys</span> <span class="kn">import</span> <span class="n">Keys</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.support.ui</span> <span class="kn">import</span> <span class="n">Select</span>
+<span class="kn">from</span> <span class="nn">selenium.common.exceptions</span> <span class="kn">import</span> <span class="n">NoSuchElementException</span>
+<span class="kn">import</span> <span class="nn">unittest</span><span class="o">,</span> <span class="nn">time</span><span class="o">,</span> <span class="nn">re</span>
+
+<span class="k">class</span> <span class="nc">TestWebdriver</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Firefox</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">implicitly_wait</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base_url</span> <span class="o">=</span> <span class="s">&quot;http://www.kaoshidian.com/&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">verificationErrors</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">accept_next_alert</span> <span class="o">=</span> <span class="bp">True</span>
+
+    <span class="k">def</span> <span class="nf">test_webdriver</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">driver</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span>
+        <span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base_url</span> <span class="o">+</span> <span class="s">&quot;/&quot;</span><span class="p">)</span>
+        <span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_css_selector</span><span class="p">(</span><span class="s">&quot;div.wrap&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+        <span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_link_text</span><span class="p">(</span><span class="s">u&quot;课程中心&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+        <span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="s">u&quot;(//a[contains(text(),&#39;专业课一对一&#39;)])[2]&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+        <span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_xpath</span><span class="p">(</span><span class="s">u&quot;(//a[contains(text(),&#39;微直播&#39;)])[2]&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+        <span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_link_text</span><span class="p">(</span><span class="s">u&quot;精彩视频&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">is_element_present</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">how</span><span class="p">,</span> <span class="n">what</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="n">how</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">what</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">NoSuchElementException</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span> <span class="k">return</span> <span class="bp">False</span>
+        <span class="k">return</span> <span class="bp">True</span>
+
+    <span class="k">def</span> <span class="nf">is_alert_present</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">switch_to_alert</span><span class="p">()</span>
+        <span class="k">except</span> <span class="n">NoAlertPresentException</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span> <span class="k">return</span> <span class="bp">False</span>
+        <span class="k">return</span> <span class="bp">True</span>
+
+    <span class="k">def</span> <span class="nf">close_alert_and_get_its_text</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">alert</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">switch_to_alert</span><span class="p">()</span>
+            <span class="n">alert_text</span> <span class="o">=</span> <span class="n">alert</span><span class="o">.</span><span class="n">text</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">accept_next_alert</span><span class="p">:</span>
+                <span class="n">alert</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">alert</span><span class="o">.</span><span class="n">dismiss</span><span class="p">()</span>
+            <span class="k">return</span> <span class="n">alert_text</span>
+        <span class="k">finally</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">accept_next_alert</span> <span class="o">=</span> <span class="bp">True</span>
+
+    <span class="k">def</span> <span class="nf">tearDown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">([],</span> <span class="bp">self</span><span class="o">.</span><span class="n">verificationErrors</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+
+<span class="c">#########################################################</span>
+
+<span class="c"># Remote Control #</span>
+
+<span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">selenium</span>
+<span class="kn">import</span> <span class="nn">unittest</span><span class="o">,</span> <span class="nn">time</span><span class="o">,</span> <span class="nn">re</span>
+
+<span class="k">class</span> <span class="nc">test_remote</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">verificationErrors</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span> <span class="o">=</span> <span class="n">selenium</span><span class="p">(</span><span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">4444</span><span class="p">,</span> <span class="s">&quot;*firefox x:/xxxxxxx/Mozilla Firefox/firefox.exe&quot;</span><span class="p">,</span> <span class="s">&quot;http://www.kaoshidian.com/&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">test_test_remote</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">sel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span>
+        <span class="n">sel</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">)</span>
+        <span class="n">sel</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="s">&quot;css=div.wrap&quot;</span><span class="p">)</span>
+        <span class="n">sel</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="s">u&quot;link=课程中心&quot;</span><span class="p">)</span>
+        <span class="n">sel</span><span class="o">.</span><span class="n">wait_for_page_to_load</span><span class="p">(</span><span class="s">&quot;30000&quot;</span><span class="p">)</span>
+        <span class="n">sel</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="s">u&quot;xpath=(//a[contains(text(),&#39;专业课一对一&#39;)])[2]&quot;</span><span class="p">)</span>
+        <span class="n">sel</span><span class="o">.</span><span class="n">wait_for_page_to_load</span><span class="p">(</span><span class="s">&quot;30000&quot;</span><span class="p">)</span>
+        <span class="n">sel</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="s">u&quot;xpath=(//a[contains(text(),&#39;微直播&#39;)])[2]&quot;</span><span class="p">)</span>
+        <span class="n">sel</span><span class="o">.</span><span class="n">wait_for_page_to_load</span><span class="p">(</span><span class="s">&quot;30000&quot;</span><span class="p">)</span>
+        <span class="n">sel</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="s">u&quot;link=精彩视频&quot;</span><span class="p">)</span>
+        <span class="n">sel</span><span class="o">.</span><span class="n">wait_for_page_to_load</span><span class="p">(</span><span class="s">&quot;30000&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">tearDown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">selenium</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">([],</span> <span class="bp">self</span><span class="o">.</span><span class="n">verificationErrors</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+
+<p>在运行这段代码之前，需要安装selenium的python包 <code>pip install selenium</code>,如果安装的时候出现<code>error: invalid command 'egg_info'</code>这个错误，则需要升级<code>Setuptools</code>,运行<code>pip install -upgrade setuptools</code>进行升级，如果运行代码的时候，虽然浏览器启动起来了但是没有打开网站之类的情况，则需要升级selenium或者降低安装的浏览器版本，可能是当前安装的版本太低了，和机子上的安装的浏览器版本不兼容。</p>
+<p>运行结果如下:</p>
+<div class="highlight"><pre><span class="nl">C:</span><span class="err">\</span><span class="n">Users</span><span class="err">\</span><span class="n">Turbidsoul</span><span class="err">\</span><span class="n">Desktop</span><span class="o">&gt;</span><span class="n">python</span> <span class="n">test_webdriver</span><span class="p">.</span><span class="n">py</span>
+<span class="p">.</span>
+<span class="o">----------------------------------------------------------------------</span>
+<span class="n">Ran</span> <span class="mi">1</span> <span class="n">test</span> <span class="n">in</span> <span class="mf">27.629</span><span class="n">s</span>
+
+<span class="n">OK</span>
+</pre></div>
+
+
+<p>对于Remote Control方式，在运行之前需要下载<a href="https://code.google.com/p/selenium/downloads/list">selenium-server-standalone-<version>.jar</a>,下载完成后，在命令行下运行<code>java -jar selenium-server-standalone-&lt;version&gt;.jar</code> 启动服务，启动成功后能看下如下信息：</p>
+<div class="highlight"><pre><span class="err">十月</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">2013</span> <span class="mi">11</span><span class="o">:</span><span class="mi">20</span><span class="o">:</span><span class="mi">28</span> <span class="err">下午</span> <span class="n">org</span><span class="p">.</span><span class="n">openqa</span><span class="p">.</span><span class="n">grid</span><span class="p">.</span><span class="n">selenium</span><span class="p">.</span><span class="n">GridLauncher</span> <span class="n">main</span>
+<span class="err">信息</span><span class="o">:</span> <span class="n">Launching</span> <span class="n">a</span> <span class="n">standalone</span> <span class="n">server</span>
+<span class="mi">3</span><span class="o">:</span><span class="mi">20</span><span class="o">:</span><span class="mf">30.219</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Java</span><span class="o">:</span> <span class="n">Oracle</span> <span class="n">Corporation</span> <span class="mf">21.0</span><span class="o">-</span><span class="n">b17</span>
+<span class="mi">3</span><span class="o">:</span><span class="mi">20</span><span class="o">:</span><span class="mf">30.221</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">OS</span><span class="o">:</span> <span class="n">Windows</span> <span class="mi">7</span> <span class="mf">6.1</span> <span class="n">x86</span>
+<span class="mi">3</span><span class="o">:</span><span class="mi">20</span><span class="o">:</span><span class="mf">30.229</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">v2</span><span class="mf">.37.0</span><span class="p">,</span> <span class="n">with</span> <span class="n">Core</span> <span class="n">v2</span><span class="mf">.37.0</span><span class="p">.</span> <span class="n">Built</span> <span class="n">from</span> <span class="n">revision</span> <span class="n">a7c61cb</span>
+<span class="mi">3</span><span class="o">:</span><span class="mi">20</span><span class="o">:</span><span class="mf">30.339</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Default</span> <span class="n">driver</span> <span class="n">org</span><span class="p">.</span><span class="n">openqa</span><span class="p">.</span><span class="n">selenium</span><span class="p">.</span><span class="n">iphone</span><span class="p">.</span><span class="n">IPhoneDriver</span> <span class="n">registration</span> <span class="n">is</span> <span class="n">skipped</span><span class="o">:</span> <span class="n">registration</span> <span class="n">capabilities</span> <span class="n">Capabilities</span> <span class="p">[{</span><span class="n">platform</span><span class="o">=</span><span class="n">AC</span><span class="p">,</span> <span class="n">browserName</span><span class="o">=</span><span class="n">iPad</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="p">}]</span> <span class="n">does</span> <span class="n">not</span> <span class="n">match</span> <span class="n">with</span> <span class="n">current</span> <span class="n">platform</span><span class="o">:</span> <span class="n">VISTA</span>
+<span class="mi">3</span><span class="o">:</span><span class="mi">20</span><span class="o">:</span><span class="mf">30.356</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Default</span> <span class="n">driver</span> <span class="n">org</span><span class="p">.</span><span class="n">openqa</span><span class="p">.</span><span class="n">selenium</span><span class="p">.</span><span class="n">iphone</span><span class="p">.</span><span class="n">IPhoneDriver</span> <span class="n">registration</span> <span class="n">is</span> <span class="n">skipped</span><span class="o">:</span> <span class="n">registration</span> <span class="n">capabilities</span> <span class="n">Capabilities</span> <span class="p">[{</span><span class="n">platform</span><span class="o">=</span><span class="n">AC</span><span class="p">,</span> <span class="n">browserName</span><span class="o">=</span><span class="n">iPhone</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="p">}]</span> <span class="n">does</span> <span class="n">not</span> <span class="n">match</span> <span class="n">with</span> <span class="n">current</span> <span class="n">platform</span><span class="o">:</span> <span class="n">VISTA</span>
+<span class="mi">3</span><span class="o">:</span><span class="mi">20</span><span class="o">:</span><span class="mf">30.407</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">RemoteWebDriver</span> <span class="n">instances</span> <span class="n">should</span> <span class="n">connect</span> <span class="n">to</span><span class="o">:</span> <span class="n">http</span><span class="o">:</span><span class="c1">//127.0.0.1:4444/wd/hub</span>
+<span class="mi">3</span><span class="o">:</span><span class="mi">20</span><span class="o">:</span><span class="mf">30.408</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Version</span> <span class="n">Jetty</span><span class="o">/</span><span class="mf">5.1</span><span class="p">.</span><span class="n">x</span>
+<span class="mi">3</span><span class="o">:</span><span class="mi">20</span><span class="o">:</span><span class="mf">30.409</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Started</span> <span class="n">HttpContext</span><span class="p">[</span><span class="o">/</span><span class="n">selenium</span><span class="o">-</span><span class="n">server</span><span class="o">/</span><span class="n">driver</span><span class="p">,</span><span class="o">/</span><span class="n">selenium</span><span class="o">-</span><span class="n">server</span><span class="o">/</span><span class="n">driver</span><span class="p">]</span>
+<span class="mi">3</span><span class="o">:</span><span class="mi">20</span><span class="o">:</span><span class="mf">30.410</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Started</span> <span class="n">HttpContext</span><span class="p">[</span><span class="o">/</span><span class="n">selenium</span><span class="o">-</span><span class="n">server</span><span class="p">,</span><span class="o">/</span><span class="n">selenium</span><span class="o">-</span><span class="n">server</span><span class="p">]</span>
+<span class="mi">3</span><span class="o">:</span><span class="mi">20</span><span class="o">:</span><span class="mf">30.410</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Started</span> <span class="n">HttpContext</span><span class="p">[</span><span class="o">/</span><span class="p">,</span><span class="o">/</span><span class="p">]</span>
+<span class="mi">3</span><span class="o">:</span><span class="mi">20</span><span class="o">:</span><span class="mf">30.553</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Started</span> <span class="n">org</span><span class="p">.</span><span class="n">openqa</span><span class="p">.</span><span class="n">jetty</span><span class="p">.</span><span class="n">jetty</span><span class="p">.</span><span class="n">servlet</span><span class="p">.</span><span class="n">ServletHandler</span><span class="err">@</span><span class="n">a450bb</span>
+<span class="mi">3</span><span class="o">:</span><span class="mi">20</span><span class="o">:</span><span class="mf">30.553</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Started</span> <span class="n">HttpContext</span><span class="p">[</span><span class="o">/</span><span class="n">wd</span><span class="p">,</span><span class="o">/</span><span class="n">wd</span><span class="p">]</span>
+<span class="mi">3</span><span class="o">:</span><span class="mi">20</span><span class="o">:</span><span class="mf">30.558</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Started</span> <span class="n">SocketListener</span> <span class="n">on</span> <span class="mf">0.0.0.0</span><span class="o">:</span><span class="mi">4444</span>
+<span class="mi">3</span><span class="o">:</span><span class="mi">20</span><span class="o">:</span><span class="mf">30.559</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Started</span> <span class="n">org</span><span class="p">.</span><span class="n">openqa</span><span class="p">.</span><span class="n">jetty</span><span class="p">.</span><span class="n">jetty</span><span class="p">.</span><span class="n">Server</span><span class="err">@</span><span class="mi">314585</span>
+</pre></div>
+
+
+<p>现在可以运行，Remote Control 那段代码，运行的时候会新打开两个firefox窗口，一个显示当前运行情况的控制台信息，另外一个就是现在我们网站页面，并且可以在运行 <em>selenium-server-standalong-<version>.jar</em> 的窗口看到如下信息：</p>
+<div class="highlight"><pre><span class="mi">23</span><span class="o">:</span><span class="mi">36</span><span class="o">:</span><span class="mf">03.707</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">creating</span> <span class="k">new</span> <span class="n">remote</span> <span class="n">session</span>
+<span class="mi">23</span><span class="o">:</span><span class="mi">36</span><span class="o">:</span><span class="mf">03.765</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Allocated</span> <span class="n">session</span> <span class="n">c096289dc3174e68b7be194a7bd27447</span> <span class="k">for</span> <span class="n">http</span><span class="o">://</span><span class="n">www</span><span class="o">.</span><span class="na">kaoshidian</span><span class="o">.</span><span class="na">com</span><span class="o">/,</span> <span class="n">launching</span><span class="o">...</span>
+<span class="n">jar</span><span class="o">:</span><span class="n">file</span><span class="o">:/</span><span class="n">E</span><span class="o">:/</span><span class="n">opensource</span><span class="sr">/selenium/selenium-server-standalone-2.37.0.jar!/</span><span class="n">customProfileDirCUSTFFCHROME</span>
+<span class="mi">23</span><span class="o">:</span><span class="mi">36</span><span class="o">:</span><span class="mf">03.925</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Preparing</span> <span class="n">Firefox</span> <span class="n">profile</span><span class="o">...</span>
+<span class="mi">23</span><span class="o">:</span><span class="mi">36</span><span class="o">:</span><span class="mf">08.889</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Launching</span> <span class="n">Firefox</span><span class="o">...</span>
+<span class="mi">23</span><span class="o">:</span><span class="mi">36</span><span class="o">:</span><span class="mf">15.537</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Got</span> <span class="n">result</span><span class="o">:</span> <span class="n">OK</span><span class="o">,</span><span class="n">c096289dc3174e68b7be194a7bd27447</span> <span class="n">on</span> <span class="n">session</span> <span class="n">c096289dc3174e68b7be194a7bd27447</span>
+<span class="mi">23</span><span class="o">:</span><span class="mi">36</span><span class="o">:</span><span class="mf">15.543</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Command</span> <span class="n">request</span><span class="o">:</span> <span class="n">open</span><span class="o">[/,</span> <span class="n">True</span><span class="o">]</span> <span class="n">on</span> <span class="n">session</span> <span class="n">c096289dc3174e68b7be194a7bd27447</span>
+<span class="mi">23</span><span class="o">:</span><span class="mi">36</span><span class="o">:</span><span class="mf">19.860</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Got</span> <span class="n">result</span><span class="o">:</span> <span class="n">OK</span> <span class="n">on</span> <span class="n">session</span> <span class="n">c096289dc3174e68b7be194a7bd27447</span>
+<span class="mi">23</span><span class="o">:</span><span class="mi">36</span><span class="o">:</span><span class="mf">19.866</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Command</span> <span class="n">request</span><span class="o">:</span> <span class="n">click</span><span class="o">[</span><span class="n">css</span><span class="o">=</span><span class="n">div</span><span class="o">.</span><span class="na">wrap</span><span class="o">,</span> <span class="o">]</span> <span class="n">on</span> <span class="n">session</span> <span class="n">c096289dc3174e68b7be194a7bd27447</span>
+<span class="mi">23</span><span class="o">:</span><span class="mi">36</span><span class="o">:</span><span class="mf">19.889</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Got</span> <span class="n">result</span><span class="o">:</span> <span class="n">OK</span> <span class="n">on</span> <span class="n">session</span> <span class="n">c096289dc3174e68b7be194a7bd27447</span>
+<span class="mi">23</span><span class="o">:</span><span class="mi">36</span><span class="o">:</span><span class="mf">19.893</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Command</span> <span class="n">request</span><span class="o">:</span> <span class="n">click</span><span class="o">[</span><span class="n">link</span><span class="o">=</span><span class="err">课程中心</span><span class="o">,</span> <span class="o">]</span> <span class="n">on</span> <span class="n">session</span> <span class="n">c096289dc3174e68b7be194a7bd27447</span>
+<span class="mi">23</span><span class="o">:</span><span class="mi">36</span><span class="o">:</span><span class="mf">19.926</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Got</span> <span class="n">result</span><span class="o">:</span> <span class="n">OK</span> <span class="n">on</span> <span class="n">session</span> <span class="n">c096289dc3174e68b7be194a7bd27447</span>
+<span class="mi">23</span><span class="o">:</span><span class="mi">36</span><span class="o">:</span><span class="mf">19.931</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Command</span> <span class="n">request</span><span class="o">:</span> <span class="n">waitForPageToLoad</span><span class="o">[</span><span class="mi">30000</span><span class="o">,</span> <span class="o">]</span> <span class="n">on</span> <span class="n">session</span> <span class="n">c096289dc3174e68b7be194a7bd27447</span>
+<span class="mi">23</span><span class="o">:</span><span class="mi">36</span><span class="o">:</span><span class="mf">21.832</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Got</span> <span class="n">result</span><span class="o">:</span> <span class="n">OK</span> <span class="n">on</span> <span class="n">session</span> <span class="n">c096289dc3174e68b7be194a7bd27447</span>
+<span class="mi">23</span><span class="o">:</span><span class="mi">36</span><span class="o">:</span><span class="mf">21.838</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Command</span> <span class="n">request</span><span class="o">:</span> <span class="n">click</span><span class="o">[</span><span class="n">xpath</span><span class="o">=(//</span><span class="n">a</span><span class="o">[</span><span class="n">contains</span><span class="o">(</span><span class="n">text</span><span class="o">(),</span><span class="s1">&#39;专业课一对一&#39;</span><span class="o">)])[</span><span class="mi">2</span><span class="o">],</span> <span class="o">]</span> <span class="n">on</span> <span class="n">session</span> <span class="n">c096289dc3174e68b7be194a7bd27447</span>
+<span class="mi">23</span><span class="o">:</span><span class="mi">36</span><span class="o">:</span><span class="mf">21.870</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Got</span> <span class="n">result</span><span class="o">:</span> <span class="n">OK</span> <span class="n">on</span> <span class="n">session</span> <span class="n">c096289dc3174e68b7be194a7bd27447</span>
+<span class="mi">23</span><span class="o">:</span><span class="mi">36</span><span class="o">:</span><span class="mf">21.876</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Command</span> <span class="n">request</span><span class="o">:</span> <span class="n">waitForPageToLoad</span><span class="o">[</span><span class="mi">30000</span><span class="o">,</span> <span class="o">]</span> <span class="n">on</span> <span class="n">session</span> <span class="n">c096289dc3174e68b7be194a7bd27447</span>
+<span class="mi">23</span><span class="o">:</span><span class="mi">36</span><span class="o">:</span><span class="mf">25.504</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Got</span> <span class="n">result</span><span class="o">:</span> <span class="n">OK</span> <span class="n">on</span> <span class="n">session</span> <span class="n">c096289dc3174e68b7be194a7bd27447</span>
+<span class="mi">23</span><span class="o">:</span><span class="mi">36</span><span class="o">:</span><span class="mf">25.509</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Command</span> <span class="n">request</span><span class="o">:</span> <span class="n">click</span><span class="o">[</span><span class="n">xpath</span><span class="o">=(//</span><span class="n">a</span><span class="o">[</span><span class="n">contains</span><span class="o">(</span><span class="n">text</span><span class="o">(),</span><span class="s1">&#39;微直播&#39;</span><span class="o">)])[</span><span class="mi">2</span><span class="o">],</span> <span class="o">]</span> <span class="n">on</span> <span class="n">session</span> <span class="n">c096289dc3174e68b7be194a7bd27447</span>
+<span class="mi">23</span><span class="o">:</span><span class="mi">36</span><span class="o">:</span><span class="mf">25.528</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Got</span> <span class="n">result</span><span class="o">:</span> <span class="n">OK</span> <span class="n">on</span> <span class="n">session</span> <span class="n">c096289dc3174e68b7be194a7bd27447</span>
+<span class="mi">23</span><span class="o">:</span><span class="mi">36</span><span class="o">:</span><span class="mf">25.534</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Command</span> <span class="n">request</span><span class="o">:</span> <span class="n">waitForPageToLoad</span><span class="o">[</span><span class="mi">30000</span><span class="o">,</span> <span class="o">]</span> <span class="n">on</span> <span class="n">session</span> <span class="n">c096289dc3174e68b7be194a7bd27447</span>
+<span class="mi">23</span><span class="o">:</span><span class="mi">36</span><span class="o">:</span><span class="mf">28.735</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Got</span> <span class="n">result</span><span class="o">:</span> <span class="n">OK</span> <span class="n">on</span> <span class="n">session</span> <span class="n">c096289dc3174e68b7be194a7bd27447</span>
+<span class="mi">23</span><span class="o">:</span><span class="mi">36</span><span class="o">:</span><span class="mf">28.740</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Command</span> <span class="n">request</span><span class="o">:</span> <span class="n">click</span><span class="o">[</span><span class="n">link</span><span class="o">=</span><span class="err">精彩视频</span><span class="o">,</span> <span class="o">]</span> <span class="n">on</span> <span class="n">session</span> <span class="n">c096289dc3174e68b7be194a7bd27447</span>
+<span class="mi">23</span><span class="o">:</span><span class="mi">36</span><span class="o">:</span><span class="mf">28.767</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Got</span> <span class="n">result</span><span class="o">:</span> <span class="n">OK</span> <span class="n">on</span> <span class="n">session</span> <span class="n">c096289dc3174e68b7be194a7bd27447</span>
+<span class="mi">23</span><span class="o">:</span><span class="mi">36</span><span class="o">:</span><span class="mf">28.773</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Command</span> <span class="n">request</span><span class="o">:</span> <span class="n">waitForPageToLoad</span><span class="o">[</span><span class="mi">30000</span><span class="o">,</span> <span class="o">]</span> <span class="n">on</span> <span class="n">session</span> <span class="n">c096289dc3174e68b7be194a7bd27447</span>
+<span class="mi">23</span><span class="o">:</span><span class="mi">36</span><span class="o">:</span><span class="mf">30.402</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Got</span> <span class="n">result</span><span class="o">:</span> <span class="n">OK</span> <span class="n">on</span> <span class="n">session</span> <span class="n">c096289dc3174e68b7be194a7bd27447</span>
+<span class="mi">23</span><span class="o">:</span><span class="mi">36</span><span class="o">:</span><span class="mf">30.408</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Command</span> <span class="n">request</span><span class="o">:</span> <span class="n">testComplete</span><span class="o">[,</span> <span class="o">]</span> <span class="n">on</span> <span class="n">session</span> <span class="n">c096289dc3174e68b7be194a7bd27447</span>
+<span class="mi">23</span><span class="o">:</span><span class="mi">36</span><span class="o">:</span><span class="mf">30.409</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Killing</span> <span class="n">Firefox</span><span class="o">...</span>
+<span class="mi">23</span><span class="o">:</span><span class="mi">36</span><span class="o">:</span><span class="mf">30.613</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Got</span> <span class="n">result</span><span class="o">:</span> <span class="n">OK</span> <span class="n">on</span> <span class="n">session</span> <span class="n">c096289dc3174e68b7be194a7bd27447</span>
+</pre></div>
+
+
+<p>上面显示的就是运行成功每一步之后服务端控制台显示的信息，如果没有出现这类情况而是出现一下的信息：</p>
+<div class="highlight"><pre><span class="mi">23</span><span class="o">:</span><span class="mi">24</span><span class="o">:</span><span class="mf">44.930</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Command</span> <span class="n">request</span><span class="o">:</span> <span class="n">getNewBrowserSession</span><span class="o">[*</span><span class="n">firefox3</span><span class="o">,</span> <span class="n">http</span><span class="o">://</span><span class="n">www</span><span class="o">.</span><span class="na">kaoshidian</span><span class="o">.</span><span class="na">com</span><span class="o">/,</span> <span class="o">]</span> <span class="n">on</span> <span class="n">session</span> <span class="kc">null</span>
+<span class="mi">23</span><span class="o">:</span><span class="mi">24</span><span class="o">:</span><span class="mf">44.931</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">creating</span> <span class="k">new</span> <span class="n">remote</span> <span class="n">session</span>
+<span class="mi">23</span><span class="o">:</span><span class="mi">24</span><span class="o">:</span><span class="mf">44.936</span> <span class="n">INFO</span> <span class="o">-</span> <span class="n">Got</span> <span class="n">result</span><span class="o">:</span> <span class="n">Failed</span> <span class="n">to</span> <span class="n">start</span> <span class="k">new</span> <span class="n">browser</span> <span class="n">session</span><span class="o">:</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">RuntimeException</span><span class="o">:</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">RuntimeException</span><span class="o">:</span> <span class="n">Firefox</span> <span class="mi">3</span> <span class="n">could</span> <span class="n">not</span> <span class="n">be</span> <span class="n">found</span> <span class="k">in</span> <span class="n">the</span> <span class="n">path</span><span class="o">!</span>
+<span class="n">Please</span> <span class="n">add</span> <span class="n">the</span> <span class="n">directory</span> <span class="n">containing</span> <span class="s1">&#39;&#39;</span><span class="n">firefox</span><span class="o">.</span><span class="na">exe</span><span class="s1">&#39;&#39;</span> <span class="n">to</span> <span class="n">your</span> <span class="n">PATH</span> <span class="n">environment</span>
+<span class="n">variable</span><span class="o">,</span> <span class="n">or</span> <span class="n">explicitly</span> <span class="n">specify</span> <span class="n">a</span> <span class="n">path</span> <span class="n">to</span> <span class="n">Firefox</span> <span class="mi">3</span> <span class="n">like</span> <span class="k">this</span><span class="o">:</span>
+<span class="o">*</span><span class="n">firefox3</span> <span class="n">c</span><span class="o">:\</span><span class="n">blah</span><span class="o">\</span><span class="n">firefox</span><span class="o">.</span><span class="na">exe</span> <span class="n">on</span> <span class="n">session</span> <span class="kc">null</span>
+</pre></div>
+
+
+<p>则是因为没有在环境变量中配置firefox的路径，不过这里不需要在环境变量里配置，只需要在<code>selenium("localhost", 4444, "*firefox x:/xxxxxx/Mozilla Firefox/firefox.exe", "http://www.kaoshidian.com/")</code> 声明即可，一般通过selenium生成的代码这里是 <code>selenium("localhost", 4444, "*chrome", "http://www.kaoshidian.com/")</code> 所以这里需要注意修改一下。</p>
+<h2>Java</h2>
+<p>Selenium导出的是也是分为Webdriver和Remote Control 两种，同时也基于junit3和4，在这里我就只做一个Webdriver的例子。</p>
+<p>我们先创建一个maven项目，然后在<code>pom.xml</code>文件中加入关于selenium的声明：</p>
+<div class="highlight"><pre><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.seleniumhq.selenium<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>selenium-java<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>2.37.1<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+
+
+<p>这里我不得不吐槽一下，这玩意居然依赖了这么多包，太坑爹。</p>
+<p>下来就是用Selenium IDE 导出java的测试代码：</p>
+<div class="highlight"><pre><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">example</span><span class="o">.</span><span class="na">tests</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.regex.Pattern</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.concurrent.TimeUnit</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">junit</span><span class="o">.</span><span class="na">Assert</span><span class="o">.*;</span>
+<span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">hamcrest</span><span class="o">.</span><span class="na">CoreMatchers</span><span class="o">.*;</span>
+<span class="kn">import</span> <span class="nn">org.openqa.selenium.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.openqa.selenium.firefox.FirefoxDriver</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.openqa.selenium.support.ui.Select</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">SeleniumTest</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="n">WebDriver</span> <span class="n">driver</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="n">String</span> <span class="n">baseUrl</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kt">boolean</span> <span class="n">acceptNextAlert</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="n">StringBuffer</span> <span class="n">verificationErrors</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuffer</span><span class="o">();</span>
+
+  <span class="nd">@Before</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setUp</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+    <span class="n">driver</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FirefoxDriver</span><span class="o">();</span>
+    <span class="n">baseUrl</span> <span class="o">=</span> <span class="s">&quot;http://www.kaoshidian.com/&quot;</span><span class="o">;</span>
+    <span class="n">driver</span><span class="o">.</span><span class="na">manage</span><span class="o">().</span><span class="na">timeouts</span><span class="o">().</span><span class="na">implicitlyWait</span><span class="o">(</span><span class="mi">30</span><span class="o">,</span> <span class="n">TimeUnit</span><span class="o">.</span><span class="na">SECONDS</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Test</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">test</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+    <span class="n">driver</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">baseUrl</span> <span class="o">+</span> <span class="s">&quot;/&quot;</span><span class="o">);</span>
+    <span class="n">driver</span><span class="o">.</span><span class="na">findElement</span><span class="o">(</span><span class="n">By</span><span class="o">.</span><span class="na">cssSelector</span><span class="o">(</span><span class="s">&quot;div.wrap&quot;</span><span class="o">)).</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">driver</span><span class="o">.</span><span class="na">findElement</span><span class="o">(</span><span class="n">By</span><span class="o">.</span><span class="na">linkText</span><span class="o">(</span><span class="s">&quot;课程中心&quot;</span><span class="o">)).</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">driver</span><span class="o">.</span><span class="na">findElement</span><span class="o">(</span><span class="n">By</span><span class="o">.</span><span class="na">xpath</span><span class="o">(</span><span class="s">&quot;(//a[contains(text(),&#39;专业课一对一&#39;)])[2]&quot;</span><span class="o">)).</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">driver</span><span class="o">.</span><span class="na">findElement</span><span class="o">(</span><span class="n">By</span><span class="o">.</span><span class="na">xpath</span><span class="o">(</span><span class="s">&quot;(//a[contains(text(),&#39;微直播&#39;)])[2]&quot;</span><span class="o">)).</span><span class="na">click</span><span class="o">();</span>
+    <span class="n">driver</span><span class="o">.</span><span class="na">findElement</span><span class="o">(</span><span class="n">By</span><span class="o">.</span><span class="na">linkText</span><span class="o">(</span><span class="s">&quot;精彩视频&quot;</span><span class="o">)).</span><span class="na">click</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="nd">@After</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">tearDown</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+    <span class="n">driver</span><span class="o">.</span><span class="na">quit</span><span class="o">();</span>
+    <span class="n">String</span> <span class="n">verificationErrorString</span> <span class="o">=</span> <span class="n">verificationErrors</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+    <span class="k">if</span> <span class="o">(!</span><span class="s">&quot;&quot;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">verificationErrorString</span><span class="o">))</span> <span class="o">{</span>
+      <span class="n">fail</span><span class="o">(</span><span class="n">verificationErrorString</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="kd">private</span> <span class="kt">boolean</span> <span class="nf">isElementPresent</span><span class="o">(</span><span class="n">By</span> <span class="n">by</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="n">driver</span><span class="o">.</span><span class="na">findElement</span><span class="o">(</span><span class="n">by</span><span class="o">);</span>
+      <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">NoSuchElementException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="kd">private</span> <span class="kt">boolean</span> <span class="nf">isAlertPresent</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="n">driver</span><span class="o">.</span><span class="na">switchTo</span><span class="o">().</span><span class="na">alert</span><span class="o">();</span>
+      <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">NoAlertPresentException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="kd">private</span> <span class="n">String</span> <span class="nf">closeAlertAndGetItsText</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="n">Alert</span> <span class="n">alert</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="na">switchTo</span><span class="o">().</span><span class="na">alert</span><span class="o">();</span>
+      <span class="n">String</span> <span class="n">alertText</span> <span class="o">=</span> <span class="n">alert</span><span class="o">.</span><span class="na">getText</span><span class="o">();</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">acceptNextAlert</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">alert</span><span class="o">.</span><span class="na">accept</span><span class="o">();</span>
+      <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+        <span class="n">alert</span><span class="o">.</span><span class="na">dismiss</span><span class="o">();</span>
+      <span class="o">}</span>
+      <span class="k">return</span> <span class="n">alertText</span><span class="o">;</span>
+    <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+      <span class="n">acceptNextAlert</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>上面的代码运行的是偶可能会跑错，指示说没有指定firefox的路径，所以我们需要指定一下路径，方法很简单，就是修改创建driver实例的地方，<code>new FirefoxDriver(new FirefoxBinary(new File("x:\\xxxxxxxxxxx\\Mozilla Firefox\\firefox.exe")), new FirefoxProfile());</code> 这样在运行就可以了，运行之后就能看到我们之前在运行python一样的结果。</p>
+<p>至于Remote Control我就不在这里在多说了，有兴趣的朋友可以自己去试一下，和python的Remote Control差不多的。</p>
+<h2>结论</h2>
+<p>Selenium其实还有支持很多，比如Ruby,PHP,Perl,Hashel,Javascript,Objective-C等语言，也支持Chrome,Opera,IE等主流的浏览器，不过在兼容性上我没发给出确切的答案，因为没有做过测试，但是我们头做这个的分布式测试时候，倒是深有体会。同时也在支持在android和iOS上的测试，在功能上还是很全面的，操作也简单，是web测试中上佳的选择。</p>
+    </div><!-- /.entry-content -->
+  </article>
+</section>
+      </section>
+      <footer>
+        <p><small>&copy; Turbidsoul's 小黑屋 &mdash; Theme based on Sundown by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <!-- Scale fix -->
+    <script>
+      var metas = document.getElementsByTagName('meta');
+      var i;
+      
+      if (navigator.userAgent.match(/iPhone/i)) {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+          }
+        }
+      
+        document.addEventListener("gesturestart", gestureStart, false);
+      }
+
+      function gestureStart() {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

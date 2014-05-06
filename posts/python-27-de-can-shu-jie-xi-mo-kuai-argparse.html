@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>python 2.7 的参数解析模块 argparseTurbidsoul's 小黑屋</title>
+
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div><img src="http://blog.turbidsoul.me/pelican-blog/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/pelican-blog/">Turbidsoul's 小黑屋 </a></div>
+        <div class="sub-title"></div>
+
+<p>
+  <div class="view"><a href="http://blog.turbidsoul.me/pelican-blog/archives.html">Archives</a></div>
+</p>
+
+<!-- Social links -->
+<div class="social">
+<h4>Follow Me</h4>
+<ul>
+    <li><a href="https://plus.google.com/+TurbidsoulChen">Google+</a></li>
+    <li><a href="https://github.com/turbidsoul">Github</a></li>
+    <li><a href="https://twitter.com/Turbidsoul">Twitter</a></li>
+    <li><a href="https://facebook.com/turbidsoul">Facebook</a></li>
+    <li><a href="http://weibo.com/turbidsoul">微博</a></li>
+    <li><a href="http://instagram.com/turbidsoul">Instagram</a></li>
+</ul>
+</div>
+
+      </header>
+      <section>
+<section id="content" class="body">
+  <article>
+      <div class="article-title">
+        python 2.7 的参数解析模块 argparse
+      </div>
+
+    <div class="entry-content">
+<p>
+<small>
+<abbr class="published" title="2013-09-27T00:00:00">
+  周五 27 九月 2013
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/python.html">python</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/code.html">code</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/argparse.html">argparse</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/python27.html">python27</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/python-27-de-can-shu-jie-xi-mo-kuai-argparse.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>今天下午没事，就优化了一下以前写的一些工作上用的小工具，当然大多数都是python写的命令行下的小工具，之前命令行参数都是自己解析，虽然不是什么复杂的事情，但是自己临时写出来的东西毕竟不如人家写出来的好，正好前短时间看到python2.7把 <strong>argparse</strong> 加入到了标准模块中，所以这次对这些工具的代码重构就是使用了 <strong>argparse</strong> 替代自己写的那个简陋名两行解析工具。</p>
+<h2>入门</h2>
+<p>上面已经说了在 <strong>Python 2.7</strong> 中已经内置了这个模块，所以就不用安装了。可以直接使用<code>import argparse</code>导入模块使用，我们先看一个简单的例子：</p>
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">argparse</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">&#39;test argparse&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;-s&#39;</span><span class="p">,</span> <span class="s">&#39;--start&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&#39;start number&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;-e&#39;</span><span class="p">,</span> <span class="s">&#39;--end&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&#39;end number&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
+<span class="go">usage: arg_test.py [-h] [-s START] [-e END]</span>
+
+<span class="go">test argparse</span>
+
+<span class="go">optional arguments:</span>
+<span class="go">  -h, --help            show this help message and exit</span>
+<span class="go">  -s START, --start START</span>
+<span class="go">                        start number</span>
+<span class="go">  -e END, --end END     end number</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">print_usage</span><span class="p">()</span>
+<span class="go">usage: arg_test.py [-h] [-s START] [-e END]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">start</span><span class="p">)</span>
+<span class="go">start: 1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">end</span><span class="p">)</span>
+<span class="go">end: 100</span>
+</pre></div>
+
+
+<p>简单的说一下这个例子:
+<em> <code>ArgumentParser</code> 这是解析器的入口，此链接<a href="http://docs.python.org/2/library/argparse.html#argumentparser-objects" title="ArgumentParser objects">argparse#argumentparser-objects</a>关于此class的参数说明。
+</em> <code>add_argument</code> 添加具体命令行参数，这是关于此方法<a href="http://docs.python.org/2/library/argparse.html#the-add-argument-method" title="The add_argument() method">argparse#the-add-argument-method</a>的说明
+<em> <code>print_help()</code> 和 <code>print_usage()</code> 这是打印帮助信息和usage，就是python xxxx.py -h 只有打印出的那些帮助信息
+</em> <code>parser.parse_args()</code> 这是解析命令行参数
+* <code>args.start</code> 和 <code>args.end</code> 这样是读取之前在上面用<code>add_argument</code>添加的参数，如果要读取没有添加的参数则会抛出一个异常, 例如:</p>
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">args</span><span class="o">.</span><span class="n">eee</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;E:\work\python\test\arg_test.py&quot;</span>, line <span class="m">21</span>, in <span class="n">&lt;module&gt;</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">eee</span><span class="p">)</span>
+<span class="gr">AttributeError</span>: <span class="n">&#39;Namespace&#39; object has no attribute &#39;eee&#39;</span>
+</pre></div>
+
+
+<p>这是最简单的例子，argparse 还可以定义参数组，必选参数，参数默认值，参数值类型等等，下来我们来慢慢的看这些是如何设置的。</p>
+<h4>ArgumentParser</h4>
+<p>prog：程序名，是usage后面的第一个字符串，就是上面例子的 <em>arg_test.py</em> 默认值是 sys.argv[0], 就是python脚本的名字.</p>
+<p>usage： 程序的用法。即使用<code>print_usage()</code>打印出来的信息.</p>
+<p>epilog：这也是一个帮助文档，但是显示在参数的文档的后面，通常会写一些程序使用例子.</p>
+<p>formatter_class：帮助文档的格式化，有三个值，<code>RawDescriptionHelpFormatter</code>、<code>RawTextHelpFormatter</code>、<code>ArgumentDefaultsHelpFormatter</code>，前两其实差不多，都会保持文档的格式，所不同的是第一个会对超长的参数文档进行 <strong>wrap</strong>，第二个不会。第三个参数就不会保持文档的格式了，但是他会显示出参数的默认者等信息，如下：</p>
+<div class="highlight"><pre><span class="go"># RawDescriptionHelpFormatter</span>
+<span class="go">usage: python arg_test.py [-h] [-s START] [-e END]</span>
+
+<span class="go">Please do not mess up this text!</span>
+<span class="go">--------------------------------</span>
+<span class="go">    I have indented it</span>
+<span class="go">    exaclty the way</span>
+<span class="go">    I want it</span>
+
+<span class="go">optional arguments:</span>
+<span class="go">  -h, --help            show this help message and exit</span>
+<span class="go">  -s START, --start START</span>
+<span class="go">                        start number aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span>
+<span class="go">                        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span>
+<span class="go">  -e END, --end END     end number</span>
+
+<span class="go">test argparse after</span>
+
+<span class="go"># RawTextHelpFormatter</span>
+<span class="go">usage: python arg_test.py [-h] [-s START] [-e END]</span>
+
+<span class="go">Please do not mess up this text!</span>
+<span class="go">--------------------------------</span>
+<span class="go">    I have indented it</span>
+<span class="go">    exaclty the way</span>
+<span class="go">    I want it</span>
+
+<span class="go">optional arguments:</span>
+<span class="go">  -h, --help            show this help message and exit</span>
+<span class="go">  -s START, --start START</span>
+<span class="go">                        start number aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span>
+<span class="go">  -e END, --end END     end number</span>
+
+<span class="go">test argparse after</span>
+
+<span class="go"># ArgumentDefaultsHelpFormatter</span>
+<span class="go">usage: python arg_test.py [-h] [-s START] [-e END]</span>
+
+<span class="go">Please do not mess up this text! -------------------------------- I have</span>
+<span class="go">indented it exaclty the way I want it</span>
+
+<span class="go">optional arguments:</span>
+<span class="go">  -h, --help            show this help message and exit</span>
+<span class="go">  -s START, --start START</span>
+<span class="go">                        start number aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span>
+<span class="go">                        aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa (default: 1)</span>
+<span class="go">  -e END, --end END     end number (default: 100)</span>
+
+<span class="go">test argparse after</span>
+</pre></div>
+
+
+<p>上面就是三种formatter_class的表现</p>
+<p>prefix_chars：参数前缀，默认是<code>-</code>。不过要注意的是，如果改成其他的符号，那么在使用<code>add_argument()</code> 方法添加参数的时候，参数的前缀要写成和prefix_chars一样，这里是可以声明多个前缀的。</p>
+<p>常用的参数就这些，剩下的几个并不是很常用，所以就不一一介绍，有兴趣的可以看一下官方的文档了解一下</p>
+<h4>add_argument()</h4>
+<ul>
+<li>name or flags: 参数名称或者是一个字符串列表，e.g.: <code>parser.add_argument('-f', '--foo')</code></li>
+<li>action: 指定参数的处理方式。</li>
+</ul>
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--p1&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&#39;store_true&#39;</span><span class="p">)</span> <span class="c"># 指定参数默认存储为True</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--p2&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&#39;store_false&#39;</span><span class="p">)</span> <span class="c"># 指定参数默认存储为False</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">&#39;--p1 --p2&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="gp">...</span>
+<span class="go">Namespace(p1=True, p2=False, p3=True)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">&#39;arg_test&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--p3&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&#39;append&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">&#39;--p3 1 --p3 2&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="gp">...</span>
+<span class="go">Namespace(p3=[&#39;1&#39;, &#39;2&#39;], types=None, v=None)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">&#39;arg_test&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--str&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">&#39;types&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&#39;append_const&#39;</span><span class="p">,</span> <span class="n">const</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--int&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">&#39;types&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&#39;append_const&#39;</span><span class="p">,</span> <span class="n">const</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">&#39;--str --int&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="gp">...</span>
+<span class="go">Namespace(types=[&lt;type &#39;str&#39;&gt;, &lt;type &#39;int&#39;&gt;], v=None)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">&#39;arg_test&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;-v&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&#39;count&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">&#39;--version&#39;</span><span class="p">])</span>
+<span class="gp">...</span>
+<span class="go">arg_test 1.0</span>
+</pre></div>
+
+
+<p>上面的是 <strong>argparse</strong> 为我们提供的预设一些action，当然也可以自定义action,  例如下面的代码：</p>
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">MyAction</span><span class="p">(</span><span class="n">argparse</span><span class="o">.</span><span class="n">Action</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parser</span><span class="p">,</span> <span class="n">namespace</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">option_string</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+<span class="gp">... </span>        <span class="k">print</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%r</span><span class="s">, </span><span class="si">%r</span><span class="s">, </span><span class="si">%r</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">namespace</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">option_string</span><span class="p">))</span>
+<span class="gp">... </span>        <span class="nb">setattr</span><span class="p">(</span><span class="n">namespace</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dest</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--p1&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="n">MyAction</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;p2&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="n">MyAction</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">&#39;1 --p1 2&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="gp">...</span>
+<span class="go">Namespace(p1=None, p2=None), &#39;1&#39;, None</span>
+<span class="go">Namespace(p1=None, p2=&#39;1&#39;), &#39;2&#39;, &#39;--p1&#39;</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">args</span>
+<span class="go">Namespace(p1=&#39;2&#39;, p2=&#39;1&#39;)</span>
+</pre></div>
+
+
+<ul>
+<li>nargs: 这是用来表示这个参数的值的数量。</li>
+</ul>
+<p>N，int，是一个整型数字，指定这个参数的值的个数</p>
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">&#39;argparse test&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--p1&#39;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
+<span class="gp">...</span>
+<span class="go">usage: -c [-h] [--p1 P1 P1]</span>
+
+<span class="go">argparse test</span>
+
+<span class="go">optional arguments:</span>
+<span class="go">  -h, --help  show this help message and exit</span>
+<span class="go">  --p1 P1 P1</span>
+</pre></div>
+
+
+<p>'?'， 表示0个或者1个</p>
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">&#39;argparse test&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--p1&#39;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s">&#39;?&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
+<span class="gp">...</span>
+<span class="go">usage: -c [-h] [--p1 [P1]]</span>
+
+<span class="go">argparse test</span>
+
+<span class="go">optional arguments:</span>
+<span class="go">  -h, --help  show this help message and exit</span>
+<span class="go">  --p1 [P1]</span>
+</pre></div>
+
+
+<p>'*', 表示0个或者多个</p>
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">&#39;argparse test&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--p1&#39;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s">&#39;*&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
+<span class="gp">...</span>
+<span class="go">usage: -c [-h] [--p1 [P1 [P1 ...]]]</span>
+
+<span class="go">argparse test</span>
+
+<span class="go">optional arguments:</span>
+<span class="go">  -h, --help          show this help message and exit</span>
+<span class="go">  --p1 [P1 [P1 ...]]</span>
+</pre></div>
+
+
+<p>'+', 和'*'有点相似，表示的是1个或者多个</p>
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">&#39;argparse test&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--p1&#39;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s">&#39;+&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
+<span class="gp">...</span>
+<span class="go">usage: -c [-h] [--p1 P1 [P1 ...]]</span>
+
+<span class="go">argparse test</span>
+
+<span class="go">optional arguments:</span>
+<span class="go">  -h, --help        show this help message and exit</span>
+<span class="go">  --p1 P1 [P1 ...]</span>
+</pre></div>
+
+
+<p>argparse.REMAINDER, 这个是表示把其余的参数都聚集成一个list</p>
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">&#39;argtest&#39;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s">&#39;argparse test&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--p1&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;p2&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;p3&#39;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">REMAINDER</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
+<span class="gp">...</span>
+<span class="go">usage: argtest [-h] [--p1 P1] p2 ...</span>
+
+<span class="go">argparse test</span>
+
+<span class="go">positional arguments:</span>
+<span class="go">  p2</span>
+<span class="go">  p3</span>
+
+<span class="go">optional arguments:</span>
+<span class="go">  -h, --help  show this help message and exit</span>
+<span class="go">  --p1 P1</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">&#39;--p1 a test b c d e&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="go">Namespace(p1=&#39;a&#39;, p2=&#39;test&#39;, p3=[&#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;])</span>
+</pre></div>
+
+
+<ul>
+<li>const，表示一个常量,const有三种形，如下面代码：</li>
+</ul>
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">&#39;argparse test&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--p1&#39;</span><span class="p">,</span> <span class="n">const</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&#39;store_const&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">([</span><span class="s">&quot;--p1&quot;</span><span class="p">])</span>
+<span class="gp">...</span>
+<span class="go">Namespace(p1=1)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">&#39;argparse test&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--p1&#39;</span><span class="p">,</span> <span class="n">const</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&#39;append_const&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">&quot;--p1 --p1&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="gp">...</span>
+<span class="go">Namespace(p1=[1, 1])</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">&#39;argparse test&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--p1&#39;</span><span class="p">,</span> <span class="n">const</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s">&#39;?&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">&quot;--p1&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="gp">...</span>
+<span class="go">Namespace(p1=1)</span>
+</pre></div>
+
+
+<ul>
+<li>default: 默认值，这里值说明一点，这个参数提供一个<code>argparse.SUPPESS</code>,如果命令行下没有这个参数，那么就不会有这个参数的属性，具体的区别，请看下面的代码：</li>
+</ul>
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">&#39;argparse test&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--p1&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">SUPPRESS</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">&quot;--p1 1&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="gp">...</span>
+<span class="go">Namespace(p1=&#39;1&#39;)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">&#39;argparse test&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--p1&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">SUPPRESS</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="gp">...</span>
+<span class="go">Namespace()</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">&#39;argparse test&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--p1&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="gp">...</span>
+<span class="go">Namespace(p1=None)</span>
+</pre></div>
+
+
+<ul>
+<li>type: 参数类型，也就是声明参数的类型，例如int,file(分为读和写，表示的方式不同),也可以自定义</li>
+</ul>
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">&#39;argparse test&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--source&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">file</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--target&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">argparse</span><span class="o">.</span><span class="n">FileType</span><span class="p">(</span><span class="s">&#39;w&#39;</span><span class="p">))</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">&quot;--p1 1 --source source.txt --target target.txt&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="gp">...</span>
+<span class="go">Namespace(p1=1, source=&lt;open file &#39;source.txt&#39;, mode &#39;r&#39; at 0x0496E6A8&gt;, target=&lt;open file &#39;target.txt&#39;, mode &#39;w&#39; at 0x0496E548&gt;)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">upper</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">s</span><span class="o">.</span><span class="n">isupper</span><span class="p">():</span>
+<span class="gp">... </span>        <span class="k">raise</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentTypeError</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%r</span><span class="s"> not a upper letter&#39;</span> <span class="o">%</span> <span class="n">s</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">s</span>
+<span class="gp">... </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">&#39;argtest&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--p1&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">upper</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">&#39;--p1 A&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="gp">...</span>
+<span class="go">Namespace(p1=&#39;A&#39;)</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">upper</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">s</span><span class="o">.</span><span class="n">isupper</span><span class="p">():</span>
+<span class="gp">... </span>        <span class="k">raise</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentTypeError</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%r</span><span class="s"> not a upper letter&#39;</span> <span class="o">%</span> <span class="n">s</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="k">return</span> <span class="n">s</span>
+<span class="gp">... </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">&#39;argtest&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--p1&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">upper</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">&#39;--p1 a&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="gp">...</span>
+<span class="go">usage: argtest [-h] [--p1 P1]</span>
+<span class="go">argtest: error: argument --p1: &#39;a&#39; not a upper letter</span>
+</pre></div>
+
+
+<ul>
+<li>choices: 提供给参数一组可选择的值，</li>
+</ul>
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">&#39;argtest&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--p1&#39;</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--p2&#39;</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
+<span class="gp">...</span>
+<span class="go">usage: argtest [-h] [--p1 {1,2,3}] [--p2 {1,3,5,7,9}]</span>
+
+<span class="go">optional arguments:</span>
+<span class="go">  -h, --help        show this help message and exit</span>
+<span class="go">  --p1 {1,2,3}</span>
+<span class="go">  --p2 {1,3,5,7,9}</span>
+</pre></div>
+
+
+<ul>
+<li>required: 为True时，表示这个参数是必须的，默认是False</li>
+<li>help: 参数的说明描述，当值为<code>argparse.SUPPRESS</code>时，这个参数在参数说明中不显示</li>
+<li>metavar: 对于这个参数我不知道如何解释，可以看一下他的<a href="http://docs.python.org/2/library/argparse.html#metavar" title="metavar">官方文档</a>和下面的代码应该就能理解。</li>
+</ul>
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">&#39;argtest&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;-s&#39;</span><span class="p">,</span> <span class="s">&#39;--start&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;-e&#39;</span><span class="p">,</span> <span class="s">&#39;--end&#39;</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="s">&#39;over&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;--p3&#39;</span><span class="p">,</span> <span class="n">metavar</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;p1&#39;</span><span class="p">,</span> <span class="s">&#39;p2&#39;</span><span class="p">])</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
+<span class="gp">...</span>
+<span class="go">usage: argtest [-h] [-s START] [-e over] [--p3 [&#39;p1&#39;, &#39;p2&#39;]]</span>
+
+<span class="go">optional arguments:</span>
+<span class="go">  -h, --help            show this help message and exit</span>
+<span class="go">  -s START, --start START</span>
+<span class="go">  -e over, --end over</span>
+<span class="go">  --p3 [&#39;p1&#39;, &#39;p2&#39;]</span>
+</pre></div>
+
+
+<ul>
+<li>dest 允许用户提供一个自定义的属性名，如下代码：</li>
+</ul>
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">&#39;argtest&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;-s&#39;</span><span class="p">,</span> <span class="s">&#39;--start&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">&#39;ss&#39;</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">print_help</span><span class="p">()</span>
+<span class="gp">...</span>
+<span class="go">usage: argtest [-h] [-s SS]</span>
+
+<span class="go">optional arguments:</span>
+<span class="go">  -h, --help         show this help message and exit</span>
+<span class="go">  -s SS, --start SS</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">&#39;-s a&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+<span class="gp">... </span><span class="n">Namespace</span><span class="p">(</span><span class="n">ss</span><span class="o">=</span><span class="s">&#39;a&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<h2>结论</h2>
+<p>argparse 还有很多其他功能，我这里之说了连个最常用的，当然我的小工具里也就用了这么多，如果还有兴趣可以自己试一试，python本身确实提供了很多不错的模块，有时候完全没有必要舍本逐末。</p>
+    </div><!-- /.entry-content -->
+  </article>
+</section>
+      </section>
+      <footer>
+        <p><small>&copy; Turbidsoul's 小黑屋 &mdash; Theme based on Sundown by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <!-- Scale fix -->
+    <script>
+      var metas = document.getElementsByTagName('meta');
+      var i;
+      
+      if (navigator.userAgent.match(/iPhone/i)) {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+          }
+        }
+      
+        document.addEventListener("gesturestart", gestureStart, false);
+      }
+
+      function gestureStart() {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

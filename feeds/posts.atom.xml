@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Turbidsoul's 小黑屋</title><link href="http://blog.turbidsoul.me/pelican-blog/" rel="alternate"></link><link href="http://blog.turbidsoul.me/pelican-blog/feeds/posts.atom.xml" rel="self"></link><id>http://blog.turbidsoul.me/pelican-blog/</id><updated>2014-04-30T00:00:00+08:00</updated><entry><title>Hello World!</title><link href="http://blog.turbidsoul.me/pelican-blog/posts/hello-world.html" rel="alternate"></link><updated>2014-04-30T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me/pelican-blog,2014-04-30:posts/hello-world.html</id><summary type="html">&lt;h2&gt;Hello World&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;hello world!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;斜体&lt;/em&gt;  &lt;strong&gt;粗体&lt;/strong&gt;  ~删除~&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;111&lt;/li&gt;
+&lt;li&gt;222&lt;/li&gt;
+&lt;li&gt;333&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Hello world!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;alert&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nx"&gt;alert&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Hello World!&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Table:&lt;/h3&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;name&lt;/th&gt;
+&lt;th&gt;age&lt;/th&gt;
+&lt;th&gt;description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Turbidsoul&lt;/td&gt;
+&lt;td&gt;30&lt;/td&gt;
+&lt;td&gt;Code Monkey&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Merge&lt;/td&gt;
+&lt;td&gt;22&lt;/td&gt;
+&lt;td&gt;PLMM&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</summary><category term="pelican"></category><category term="publishing"></category></entry><entry><title>我的魔兽世界，我的工作，我的生活</title><link href="http://blog.turbidsoul.me/pelican-blog/posts/wo-de-mo-shou-shi-jie-wo-de-gong-zuo-wo-de-sheng-huo.html" rel="alternate"></link><updated>2013-05-19T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me/pelican-blog,2013-05-19:posts/wo-de-mo-shou-shi-jie-wo-de-gong-zuo-wo-de-sheng-huo.html</id><summary type="html">&lt;h3&gt;WOW&lt;/h3&gt;
+&lt;p&gt;昨天重新安装的WOW，这是从上次电脑坏了之后4个月第一次玩WOW，依然还是这么喜欢，玩的很兴奋，一直玩到凌晨4点，其实一直都不甚明天自己为什么这么喜欢这个游戏，可能是吊丝心理什么的。&lt;/p&gt;
+&lt;p&gt;虽然不再象以前那样天天定时定点的下副本，带团，活动什么，但是可以休闲式的玩玩，打法无聊时光，和朋友聊天打屁，确实是很享受，很惬意的事情，四个月的工作、装修、搬家等等，确实让自己很疲惫，不过也确实很充实。&lt;/p&gt;
+&lt;h3&gt;工作&lt;/h3&gt;
+&lt;p&gt;最近工作上有点小不顺利，精神有点不够集中，总是出一些小错误，而且有点惫懒，也可能是新搬家搬的有点远，起床比以前早了一些，睡眠有些不足，也可能是马上29了，年纪大了？不管如何都要坚持下去，我还有很多想法都没有实现，所以我需要更加努力。&lt;/p&gt;
+&lt;h3&gt;生活&lt;/h3&gt;
+&lt;p&gt;其实最近两年生活算是不顺利了，一是爸妈年纪都大了，身体也都不是很好，尤其是老爸，我非常担心他，但是他又不听人劝，这样子总是让人很担心。&lt;/p&gt;
+&lt;p&gt;对于自己，说实话29岁说不想找个女朋友结婚那是假的，看到朋友、同事、同学，一个个的结婚生子，為人父母，自己也很有冲动，但是自己一个人冷静下来的时候也就反而不那么想了，总是考虑太多，有时候觉得自己是个优柔寡断的人，也可能是个拖延症患者，对于这事总是拖着不管，其实也能看出老爸很想报孙子，从表弟的儿子生了之后，他几乎天天都上看一看，就能看出来，但是让我去相亲我却怎么也做不到。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;其实对于自己现在的生活还算满意，有一份还算充实的工作，家庭的生活也算和谐，还有自己最爱的WOW，可以没事研究研究技术，也可而已玩玩游戏，可以写写blog，可以和家人聊聊天，这也就算是我希望的生活，因为我没有大老板那样志向，我就是希望自己和家人能过的轻轻松松，舒舒服服的。&lt;/p&gt;
+&lt;p&gt;这些年不管是生活还是工作也都算有点进步，也让自己的性格省有了变化，至少没有刚毕业时候的那种颓废。也有自己的目标，我现在就向自己的目标前进。&lt;/p&gt;</summary><category term="wow"></category><category term="work"></category><category term="闲聊"></category></entry></feed>

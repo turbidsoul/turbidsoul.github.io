@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Turbidsoul's 小黑屋 - itextTurbidsoul's 小黑屋</title>
+
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div><img src="http://blog.turbidsoul.me/pelican-blog/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/pelican-blog/">Turbidsoul's 小黑屋 </a></div>
+        <div class="sub-title"></div>
+
+<p>
+  <div class="view"><a href="http://blog.turbidsoul.me/pelican-blog/archives.html">Archives</a></div>
+</p>
+
+<!-- Social links -->
+<div class="social">
+<h4>Follow Me</h4>
+<ul>
+    <li><a href="https://plus.google.com/+TurbidsoulChen">Google+</a></li>
+    <li><a href="https://github.com/turbidsoul">Github</a></li>
+    <li><a href="https://twitter.com/Turbidsoul">Twitter</a></li>
+    <li><a href="https://facebook.com/turbidsoul">Facebook</a></li>
+    <li><a href="http://weibo.com/turbidsoul">微博</a></li>
+    <li><a href="http://instagram.com/turbidsoul">Instagram</a></li>
+</ul>
+</div>
+
+      </header>
+      <section>
+      <div class="front-title"><a href="http://blog.turbidsoul.me/pelican-blog/posts/itextzhong-wen-chu-li-wen-ti.html">IText中文处理问题！！！</a></div>
+<p>
+<small>
+<abbr class="published" title="2012-02-01T00:00:00">
+  周三 01 二月 2012
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/itext.html">itext</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/java.html">java</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/code.html">code</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/itextzhong-wen-chu-li-wen-ti.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <blockquote>
+<p>这篇文章是很早之前写的，是我在去第一个公司的时候遇到的问题</p>
+</blockquote>
+<p>这里说的IText中文处理问题，是指两种生成PDF文档是对中文处理的问题：</p>
+<ol>
+<li>是直接通过从数据库查询或者自己拼接中文字符串生成PDF文档。</li>
+<li>第二种是将一个HTML文档转换成PDF文档时的中文处理。</li>
+</ol>
+<p>首先说第一种：
+    这种很简单，我们只需为加上这样一句：</p>
+<div class="highlight"><pre><span class="n">BaseFont</span> <span class="n">bf</span> <span class="o">=</span> <span class="n">BaseFont</span><span class="o">.</span><span class="na">createFont</span><span class="o">(</span><span class="s">&quot;STSong-Light&quot;</span><span class="o">,</span><span class="s">&quot;UniGB-UCS2-H&quot;</span><span class="o">,</span><span class="n">BaseFont</span><span class="o">.</span><span class="na">NOT_EMBEDDED</span><span class="o">);</span>
+</pre></div>
+
+
+<p>在之后的给Document添加节点是为Paragraph设置字体时设置成BF就可以，如下：</p>
+<div class="highlight"><pre><span class="n">document</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Paragraph</span><span class="o">(</span><span class="s">&quot;混沌之神&quot;</span><span class="o">,</span> <span class="k">new</span> <span class="n">Font</span><span class="o">(</span><span class="n">bf</span><span class="o">)));</span>
+</pre></div>
+
+
+<p>源码：</p>
+<div class="highlight"><pre><span class="cm">/**</span>
+<span class="cm"> * 生成PDF文件解决中文的例子</span>
+<span class="cm"> *</span>
+<span class="cm"> * @throws DocumentException</span>
+<span class="cm"> * @author &lt;b&gt;Innate Solitary&lt;/b&gt;&lt;br /&gt;</span>
+<span class="cm"> *         创建时间：&lt;b&gt;2008-6-4 下午09:47:37&lt;/b&gt;&lt;br /&gt;</span>
+<span class="cm"> * @throws IOException</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void ...</span></pre></div> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/pelican-blog/posts/itextzhong-wen-chu-li-wen-ti.html">read more...</a></div>
+      <hr />
+
+      </section>
+      <footer>
+        <p><small>&copy; Turbidsoul's 小黑屋 &mdash; Theme based on Sundown by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <!-- Scale fix -->
+    <script>
+      var metas = document.getElementsByTagName('meta');
+      var i;
+      
+      if (navigator.userAgent.match(/iPhone/i)) {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+          }
+        }
+      
+        document.addEventListener("gesturestart", gestureStart, false);
+      }
+
+      function gestureStart() {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

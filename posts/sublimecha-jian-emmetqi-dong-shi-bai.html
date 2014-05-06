@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>sublime插件emmet启动失败Turbidsoul's 小黑屋</title>
+
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div><img src="http://blog.turbidsoul.me/pelican-blog/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/pelican-blog/">Turbidsoul's 小黑屋 </a></div>
+        <div class="sub-title"></div>
+
+<p>
+  <div class="view"><a href="http://blog.turbidsoul.me/pelican-blog/archives.html">Archives</a></div>
+</p>
+
+<!-- Social links -->
+<div class="social">
+<h4>Follow Me</h4>
+<ul>
+    <li><a href="https://plus.google.com/+TurbidsoulChen">Google+</a></li>
+    <li><a href="https://github.com/turbidsoul">Github</a></li>
+    <li><a href="https://twitter.com/Turbidsoul">Twitter</a></li>
+    <li><a href="https://facebook.com/turbidsoul">Facebook</a></li>
+    <li><a href="http://weibo.com/turbidsoul">微博</a></li>
+    <li><a href="http://instagram.com/turbidsoul">Instagram</a></li>
+</ul>
+</div>
+
+      </header>
+      <section>
+<section id="content" class="body">
+  <article>
+      <div class="article-title">
+        sublime插件emmet启动失败
+      </div>
+
+    <div class="entry-content">
+<p>
+<small>
+<abbr class="published" title="2013-06-05T00:00:00">
+  周三 05 六月 2013
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/sublime.html">sublime</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/python.html">python</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/emmet.html">emmet</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/sublimecha-jian-emmetqi-dong-shi-bai.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>最近发现我的sublime的emmet失效，查看了控制台，发现在sublime启动的失败，启动的时候报了如下的错误：</p>
+<div class="highlight"><pre><span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;.\sublime_plugin.py&quot;</span>, line <span class="m">62</span>, in <span class="n">reload_plugin</span>
+  File <span class="nb">&quot;.\emmet-plugin.py&quot;</span>, line <span class="m">710</span>, in <span class="n">&lt;module&gt;</span>
+    <span class="n">init</span><span class="p">()</span>
+  File <span class="nb">&quot;.\emmet-plugin.py&quot;</span>, line <span class="m">101</span>, in <span class="n">init</span>
+    <span class="n">update_settings</span><span class="p">()</span>
+  File <span class="nb">&quot;.\emmet-plugin.py&quot;</span>, line <span class="m">231</span>, in <span class="n">update_settings</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">js</span><span class="p">()</span>
+  File <span class="nb">&quot;.\emmet\context.py&quot;</span>, line <span class="m">178</span>, in <span class="n">js</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">eval_js_file</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+  File <span class="nb">&quot;.\emmet\context.py&quot;</span>, line <span class="m">235</span>, in <span class="n">eval_js_file</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">js</span><span class="p">()</span><span class="o">.</span><span class="n">eval</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">read_js_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">resolve_path</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="n">file_path</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="gr">Boost.Python.ArgumentError</span>: <span class="n">Python argument types in</span>
+<span class="go">    JSContext.eval(JSContext, str)</span>
+<span class="go">did not match C++ signature:</span>
+<span class="go">    eval(class CContext {lvalue}, class std::basic_string&lt;char,struct std::char_traits&lt;char&gt;,class std::allocator&lt;char&gt; &gt;)</span>
+</pre></div>
+
+
+<p>看着错误对着代码看了半天有点莫名其妙，就跑去<a href="https://github.com/sergeche/emmet-sublime/" title="Emmet (ex-Zen Coding) for Sublime Text">Github</a>上找找看有没有解决的办法，还别说真有一哥们遇到了同样的问题，<a href="https://github.com/sergeche/emmet-sublime/issues/320" title="emmet fails on startup">Emmet Issue #320</a>，Emmet的作者也对这个Issue给了解释和解决办法：</p>
+<blockquote>
+<p>For some reason, you have outdated PyV8 package. Try to quit ST editor, manually remove PyV8 folder from Packages and start ST again: it should load recent PyV8 package automatically</p>
+</blockquote>
+<p>大意就是说PyV8的版本过低，需要升级，解决的办法就是关闭sublime并删除sublime插件目录下的PyV8，然后在重启，重启之后sublime就会自动下载PyV8，下载好之后就能正常使用了。</p>
+    </div><!-- /.entry-content -->
+  </article>
+</section>
+      </section>
+      <footer>
+        <p><small>&copy; Turbidsoul's 小黑屋 &mdash; Theme based on Sundown by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <!-- Scale fix -->
+    <script>
+      var metas = document.getElementsByTagName('meta');
+      var i;
+      
+      if (navigator.userAgent.match(/iPhone/i)) {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+          }
+        }
+      
+        document.addEventListener("gesturestart", gestureStart, false);
+      }
+
+      function gestureStart() {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>python模块html2bbcodeTurbidsoul's 小黑屋</title>
+
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div><img src="http://blog.turbidsoul.me/pelican-blog/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/pelican-blog/">Turbidsoul's 小黑屋 </a></div>
+        <div class="sub-title"></div>
+
+<p>
+  <div class="view"><a href="http://blog.turbidsoul.me/pelican-blog/archives.html">Archives</a></div>
+</p>
+
+<!-- Social links -->
+<div class="social">
+<h4>Follow Me</h4>
+<ul>
+    <li><a href="https://plus.google.com/+TurbidsoulChen">Google+</a></li>
+    <li><a href="https://github.com/turbidsoul">Github</a></li>
+    <li><a href="https://twitter.com/Turbidsoul">Twitter</a></li>
+    <li><a href="https://facebook.com/turbidsoul">Facebook</a></li>
+    <li><a href="http://weibo.com/turbidsoul">微博</a></li>
+    <li><a href="http://instagram.com/turbidsoul">Instagram</a></li>
+</ul>
+</div>
+
+      </header>
+      <section>
+<section id="content" class="body">
+  <article>
+      <div class="article-title">
+        python模块html2bbcode
+      </div>
+
+    <div class="entry-content">
+<p>
+<small>
+<abbr class="published" title="2013-08-30T00:00:00">
+  周五 30 八月 2013
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/python.html">python</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/code.html">code</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/pythonmo-kuai-html2bbcode.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>公司最近在调整网站的模块，把网站的公告模块去掉，公告的数据移到Discuz做的论坛中，整体功能都很简单，写了一个python脚本，执行一下就能完成数据迁移。在数据迁移的过程中有个小问题，我们公告的正文是用富文本编辑器写的，代码是 <em>html</em> 代码，但是在Discuz中确是用 <em>bbcode</em> 所以就需要对公告正文进行转换，这里就要使用到python的一个模块: <strong>html2bbcode</strong></p>
+<h4>安装</h4>
+<p>执行:<code>pip install html2bbcode</code> 安装模块</p>
+<h4>使用</h4>
+<p>下面是<a href="https://bitbucket.org/amigo/html2bbcode" title="HTML to BBCode converter">bitbucket.org</a>的例子：</p>
+<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">HTML2BBCode</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">parser</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="s">&#39;&lt;ul&gt;&lt;li&gt;one&lt;/li&gt;&lt;li&gt;two&lt;/li&gt;&lt;/ul&gt;&#39;</span><span class="p">))</span>
+<span class="go">&#39;[list][li]one[/li][li]two[/li][/list]&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">parser</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="s">&#39;&lt;a href=&quot;http://google.com/&quot;&gt;Google&lt;/a&gt;&#39;</span><span class="p">))</span>
+<span class="go">&#39;[url=http://google.com/]Google[/url]&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">parser</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="s">&#39;&lt;img src=&quot;http://www.google.com/images/logo.png&quot;&gt;&#39;</span><span class="p">))</span>
+<span class="go">&#39;[img]http://www.google.com/images/logo.png[/img]&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">parser</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="s">&#39;&lt;em&gt;EM test&lt;/em&gt;&#39;</span><span class="p">))</span>
+<span class="go">&#39;[i]EM test[/i]&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">parser</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="s">&#39;&lt;strong&gt;Strong text&lt;/strong&gt;&#39;</span><span class="p">))</span>
+<span class="go">&#39;[b]Strong text[/b]&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">parser</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="s">&#39;&lt;code&gt;a = 10;&lt;/code&gt;&#39;</span><span class="p">))</span>
+<span class="go">&#39;[code]a = 10;[/code]&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">parser</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="s">&#39;&lt;blockquote&gt;Beautiful is better than ugly.&lt;/blockquote&gt;&#39;</span><span class="p">))</span>
+<span class="go">&#39;[quote]Beautiful is better than ugly.[/quote]&#39;</span>
+<span class="go">&quot;&quot;&quot;)</span>
+</pre></div>
+
+
+<h4><code>&lt;p&gt;</code> 标签的转换</h4>
+<p>在使用的时候发现，<em>html2bbcode</em> 不能对<code>&lt;p&gt;</code>标签进行转换，我们都知道在富文本编辑器中每一段文字都是用<code>&lt;p&gt;</code>包裹的，所以我们需要对<code>&lt;p&gt;</code>标签转换成<code>\n</code>，请看下面代码：</p>
+<div class="highlight"><pre><span class="k">if</span> <span class="ow">not</span> <span class="n">p</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">has_section</span><span class="p">(</span><span class="s">&#39;p&#39;</span><span class="p">):</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="s">&#39;p&#39;</span><span class="p">)</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s">&#39;p&#39;</span><span class="p">,</span> <span class="s">&#39;start&#39;</span><span class="p">,</span> <span class="s">&#39;</span><span class="se">\n</span><span class="s">      &#39;</span><span class="p">)</span>
+    <span class="n">p</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s">&#39;p&#39;</span><span class="p">,</span> <span class="s">&#39;end&#39;</span><span class="p">,</span> <span class="s">&#39;</span><span class="se">\n</span><span class="s">&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>上面的代码就是添加<code>&lt;p&gt;</code>转换配置，我这里，对开始标签做了换行和6个空格，结束标签是一个换行</p>
+<h4>结论</h4>
+<p>这其实是一个很简单的python模块，只是一个开始，我准备之后每次都会把使用的python模块写一个简单的介绍</p>
+    </div><!-- /.entry-content -->
+  </article>
+</section>
+      </section>
+      <footer>
+        <p><small>&copy; Turbidsoul's 小黑屋 &mdash; Theme based on Sundown by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <!-- Scale fix -->
+    <script>
+      var metas = document.getElementsByTagName('meta');
+      var i;
+      
+      if (navigator.userAgent.match(/iPhone/i)) {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+          }
+        }
+      
+        document.addEventListener("gesturestart", gestureStart, false);
+      }
+
+      function gestureStart() {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>jekyll的中文标题转换拼音解决方案Turbidsoul's 小黑屋</title>
+
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div><img src="http://blog.turbidsoul.me/pelican-blog/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/pelican-blog/">Turbidsoul's 小黑屋 </a></div>
+        <div class="sub-title"></div>
+
+<p>
+  <div class="view"><a href="http://blog.turbidsoul.me/pelican-blog/archives.html">Archives</a></div>
+</p>
+
+<!-- Social links -->
+<div class="social">
+<h4>Follow Me</h4>
+<ul>
+    <li><a href="https://plus.google.com/+TurbidsoulChen">Google+</a></li>
+    <li><a href="https://github.com/turbidsoul">Github</a></li>
+    <li><a href="https://twitter.com/Turbidsoul">Twitter</a></li>
+    <li><a href="https://facebook.com/turbidsoul">Facebook</a></li>
+    <li><a href="http://weibo.com/turbidsoul">微博</a></li>
+    <li><a href="http://instagram.com/turbidsoul">Instagram</a></li>
+</ul>
+</div>
+
+      </header>
+      <section>
+<section id="content" class="body">
+  <article>
+      <div class="article-title">
+        jekyll的中文标题转换拼音解决方案
+      </div>
+
+    <div class="entry-content">
+<p>
+<small>
+<abbr class="published" title="2013-05-23T00:00:00">
+  周四 23 五月 2013
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/jekyll.html">jekyll</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/code.html">code</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/ruby.html">ruby</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/jekyllde-zhong-wen-biao-ti-zhuan-huan-pin-yin-jie-jue-fang-an.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>整这个并不是什么刚需，纯粹是怕麻烦，直接把中文转换成拼音更方便一点。</p>
+<p>其实很简单，问题是出在Rakefile文件中，请看项目下的Rakefile的第52行：</p>
+<div class="highlight"><pre><span class="n">task</span> <span class="ss">:post</span> <span class="k">do</span>
+  <span class="nb">abort</span><span class="p">(</span><span class="s2">&quot;rake aborted: &#39;</span><span class="si">#{</span><span class="no">CONFIG</span><span class="o">[</span><span class="s1">&#39;posts&#39;</span><span class="o">]</span><span class="si">}</span><span class="s2">&#39; directory not found.&quot;</span><span class="p">)</span> <span class="k">unless</span> <span class="no">FileTest</span><span class="o">.</span><span class="n">directory?</span><span class="p">(</span><span class="no">CONFIG</span><span class="o">[</span><span class="s1">&#39;posts&#39;</span><span class="o">]</span><span class="p">)</span>
+  <span class="n">title</span> <span class="o">=</span> <span class="no">ENV</span><span class="o">[</span><span class="s2">&quot;title&quot;</span><span class="o">]</span> <span class="o">||</span> <span class="s2">&quot;new-post&quot;</span>
+  <span class="n">tags</span> <span class="o">=</span> <span class="no">ENV</span><span class="o">[</span><span class="s2">&quot;tags&quot;</span><span class="o">]</span> <span class="o">||</span> <span class="s2">&quot;[]&quot;</span>
+  <span class="n">category</span> <span class="o">=</span> <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;category&#39;</span><span class="o">]</span> <span class="o">||</span> <span class="s2">&quot;&quot;</span>
+  <span class="n">slug</span> <span class="o">=</span> <span class="n">title</span><span class="o">.</span><span class="n">downcase</span><span class="o">.</span><span class="n">strip</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/[^\w-]/</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+  <span class="k">begin</span>
+    <span class="n">date</span> <span class="o">=</span> <span class="p">(</span><span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;date&#39;</span><span class="o">]</span> <span class="p">?</span> <span class="no">Time</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;date&#39;</span><span class="o">]</span><span class="p">)</span> <span class="p">:</span> <span class="no">Time</span><span class="o">.</span><span class="n">now</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-%d&#39;</span><span class="p">)</span>
+  <span class="k">rescue</span> <span class="no">Exception</span> <span class="o">=&gt;</span> <span class="n">e</span>
+    <span class="nb">puts</span> <span class="s2">&quot;Error - date format must be YYYY-MM-DD, please check you typed it correctly!&quot;</span>
+    <span class="nb">exit</span> <span class="o">-</span><span class="mi">1</span>
+  <span class="k">end</span>
+  <span class="n">filename</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="no">CONFIG</span><span class="o">[</span><span class="s1">&#39;posts&#39;</span><span class="o">]</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">date</span><span class="si">}</span><span class="s2">-</span><span class="si">#{</span><span class="n">slug</span><span class="si">}</span><span class="s2">.</span><span class="si">#{</span><span class="no">CONFIG</span><span class="o">[</span><span class="s1">&#39;post_ext&#39;</span><span class="o">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="k">if</span> <span class="no">File</span><span class="o">.</span><span class="n">exist?</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="nb">abort</span><span class="p">(</span><span class="s2">&quot;rake aborted!&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">ask</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">#{</span><span class="n">filename</span><span class="si">}</span><span class="s2"> already exists. Do you want to overwrite?&quot;</span><span class="p">,</span> <span class="o">[</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="o">]</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;n&#39;</span>
+  <span class="k">end</span>
+
+  <span class="nb">puts</span> <span class="s2">&quot;Creating new post: </span><span class="si">#{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span>
+  <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">post</span><span class="o">|</span>
+    <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;---&quot;</span>
+    <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;layout: post&quot;</span>
+    <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;title: </span><span class="se">\&quot;</span><span class="si">#{</span><span class="n">title</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/-/</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">)</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2">&quot;</span>
+    <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s1">&#39;description: &quot;&quot;&#39;</span>
+    <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;category: &quot;</span>
+    <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;tags: []&quot;</span>
+    <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;---&quot;</span>
+    <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;{% include JB/setup %}&quot;</span>
+  <span class="k">end</span>
+<span class="k">end</span> <span class="c1"># task :post</span>
+</pre></div>
+
+
+<p>这是Rakefile中关于post的那段代码：<code>slug = title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')</code>，我们只需要在行代码之前加入对标题的转换就可以。</p>
+<p>汉字转拼音我用的是<a href="https://github.com/elvuel/hz2py">hz2py</a>,使用<code>gem install hz2py</code>就可以安装，使用也很简单：</p>
+<div class="highlight"><pre><span class="nb">require</span> <span class="s1">&#39;hz2py&#39;</span>
+
+<span class="no">Hz2py</span><span class="o">.</span><span class="n">do</span><span class="p">(</span><span class="s1">&#39;听说使用hz2py可以使jekyll支持中文标题，并转换成拼音&#39;</span><span class="p">,</span> <span class="ss">:join_with</span> <span class="o">=&gt;</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="ss">:to_simplified</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">)</span>
+
+<span class="c1"># 输出结果</span>
+<span class="c1"># ting-shuo-shi-yong-hz2py-ke-yi-shi-jekyll-zhi-chi-zhong-wen-biao-ti-,-bing-zhuan-huan-cheng-pin-yin</span>
+</pre></div>
+
+
+<p>我们只需要把这段代码加入到Rakefile中，就可以了，打开Rakefile在头部加入hz2py，即：<code>require 'hz2py'</code>,在<code>slug = title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')</code>上面加上<code>slug = Hz2py.do(title.encode('utf-8'), :join_with =&gt; '-', :to_simplified =&gt; true)</code>就可以了，下面是我修改所的代码片段，请输入被注释框起来的部分：</p>
+<div class="highlight"><pre><span class="n">task</span> <span class="ss">:post</span> <span class="k">do</span>
+  <span class="nb">abort</span><span class="p">(</span><span class="s2">&quot;rake aborted: &#39;</span><span class="si">#{</span><span class="no">CONFIG</span><span class="o">[</span><span class="s1">&#39;posts&#39;</span><span class="o">]</span><span class="si">}</span><span class="s2">&#39; directory not found.&quot;</span><span class="p">)</span> <span class="k">unless</span> <span class="no">FileTest</span><span class="o">.</span><span class="n">directory?</span><span class="p">(</span><span class="no">CONFIG</span><span class="o">[</span><span class="s1">&#39;posts&#39;</span><span class="o">]</span><span class="p">)</span>
+  <span class="n">title</span> <span class="o">=</span> <span class="no">ENV</span><span class="o">[</span><span class="s2">&quot;title&quot;</span><span class="o">]</span> <span class="o">||</span> <span class="s2">&quot;new-post&quot;</span>
+  <span class="n">tags</span> <span class="o">=</span> <span class="no">ENV</span><span class="o">[</span><span class="s2">&quot;tags&quot;</span><span class="o">]</span> <span class="o">||</span> <span class="s2">&quot;[]&quot;</span>
+  <span class="n">category</span> <span class="o">=</span> <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;category&#39;</span><span class="o">]</span> <span class="o">||</span> <span class="s2">&quot;&quot;</span>
+  <span class="c1">#--------------------------------------------------------------------------------------</span>
+  <span class="n">slug</span> <span class="o">=</span> <span class="no">Hz2py</span><span class="o">.</span><span class="n">do</span><span class="p">(</span><span class="n">title</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span> <span class="ss">:join_with</span> <span class="o">=&gt;</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="ss">:to_simplified</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">)</span>
+  <span class="n">slug</span> <span class="o">=</span> <span class="n">slug</span><span class="o">.</span><span class="n">downcase</span><span class="o">.</span><span class="n">strip</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/[^\w-]/</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+  <span class="c1">#--------------------------------------------------------------------------------------</span>
+  <span class="k">begin</span>
+    <span class="n">date</span> <span class="o">=</span> <span class="p">(</span><span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;date&#39;</span><span class="o">]</span> <span class="p">?</span> <span class="no">Time</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;date&#39;</span><span class="o">]</span><span class="p">)</span> <span class="p">:</span> <span class="no">Time</span><span class="o">.</span><span class="n">now</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-%d&#39;</span><span class="p">)</span>
+  <span class="k">rescue</span> <span class="no">Exception</span> <span class="o">=&gt;</span> <span class="n">e</span>
+    <span class="nb">puts</span> <span class="s2">&quot;Error - date format must be YYYY-MM-DD, please check you typed it correctly!&quot;</span>
+    <span class="nb">exit</span> <span class="o">-</span><span class="mi">1</span>
+  <span class="k">end</span>
+  <span class="n">filename</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="no">CONFIG</span><span class="o">[</span><span class="s1">&#39;posts&#39;</span><span class="o">]</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">date</span><span class="si">}</span><span class="s2">-</span><span class="si">#{</span><span class="n">slug</span><span class="si">}</span><span class="s2">.</span><span class="si">#{</span><span class="no">CONFIG</span><span class="o">[</span><span class="s1">&#39;post_ext&#39;</span><span class="o">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="k">if</span> <span class="no">File</span><span class="o">.</span><span class="n">exist?</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="nb">abort</span><span class="p">(</span><span class="s2">&quot;rake aborted!&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">ask</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">#{</span><span class="n">filename</span><span class="si">}</span><span class="s2"> already exists. Do you want to overwrite?&quot;</span><span class="p">,</span> <span class="o">[</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="o">]</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;n&#39;</span>
+  <span class="k">end</span>
+
+  <span class="nb">puts</span> <span class="s2">&quot;Creating new post: </span><span class="si">#{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span>
+  <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">post</span><span class="o">|</span>
+    <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;---&quot;</span>
+    <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;layout: post&quot;</span>
+    <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;title: </span><span class="se">\&quot;</span><span class="si">#{</span><span class="n">title</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/-/</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">)</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2">&quot;</span>
+    <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s1">&#39;description: &quot;&quot;&#39;</span>
+    <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;category: &quot;</span>
+    <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;tags: []&quot;</span>
+    <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;---&quot;</span>
+    <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;{% include JB/setup %}&quot;</span>
+  <span class="k">end</span>
+<span class="k">end</span> <span class="c1"># task :post</span>
+</pre></div>
+    </div><!-- /.entry-content -->
+  </article>
+</section>
+      </section>
+      <footer>
+        <p><small>&copy; Turbidsoul's 小黑屋 &mdash; Theme based on Sundown by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <!-- Scale fix -->
+    <script>
+      var metas = document.getElementsByTagName('meta');
+      var i;
+      
+      if (navigator.userAgent.match(/iPhone/i)) {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+          }
+        }
+      
+        document.addEventListener("gesturestart", gestureStart, false);
+      }
+
+      function gestureStart() {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

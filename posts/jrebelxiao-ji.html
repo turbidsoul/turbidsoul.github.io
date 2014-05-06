@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>JRebel小记Turbidsoul's 小黑屋</title>
+
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div><img src="http://blog.turbidsoul.me/pelican-blog/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/pelican-blog/">Turbidsoul's 小黑屋 </a></div>
+        <div class="sub-title"></div>
+
+<p>
+  <div class="view"><a href="http://blog.turbidsoul.me/pelican-blog/archives.html">Archives</a></div>
+</p>
+
+<!-- Social links -->
+<div class="social">
+<h4>Follow Me</h4>
+<ul>
+    <li><a href="https://plus.google.com/+TurbidsoulChen">Google+</a></li>
+    <li><a href="https://github.com/turbidsoul">Github</a></li>
+    <li><a href="https://twitter.com/Turbidsoul">Twitter</a></li>
+    <li><a href="https://facebook.com/turbidsoul">Facebook</a></li>
+    <li><a href="http://weibo.com/turbidsoul">微博</a></li>
+    <li><a href="http://instagram.com/turbidsoul">Instagram</a></li>
+</ul>
+</div>
+
+      </header>
+      <section>
+<section id="content" class="body">
+  <article>
+      <div class="article-title">
+        JRebel小记
+      </div>
+
+    <div class="entry-content">
+<p>
+<small>
+<abbr class="published" title="2012-12-15T00:00:00">
+  周六 15 十二月 2012
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/java.html">java</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/jrebel.html">jrebel</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/jrebelxiao-ji.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <blockquote>
+<p>首先我先承认我标题党了，其实完全算不上简述，只是我这两天使用JRebel的一点心得吧。 当然我用的是盗版啦，谁让我有一个高富帅的心却是一个吊丝的命呢。 至于如何破解什么的请自己到网上搜索。</p>
+</blockquote>
+<p>进入正题，我使用的是 eclipse 4.2+RunJettyRun(jetty当然是8喽)+JRebel5.1 ，不过我用的破解的JRebel是5.0的， 直接覆盖，完全没问题。</p>
+<p>首先说一下如何在通过RunJettyRun使用JRebel,其实很简单，只需要在启动的配置的 Arguments &gt; VM Arguments 中加入 “${jrebel_args}”就可以了， 这样在启动的时候就能看到JRebel启动：</p>
+<div class="highlight"><pre><span class="k">[2012-12-15 22:32:17]</span>
+<span class="err">[2012-12-15</span> <span class="err">22:32:17]</span> <span class="c1">#############################################################</span>
+<span class="k">[2012-12-15 22:32:17]</span>
+<span class="err">[2012-12-15</span> <span class="err">22:32:17]</span>  <span class="err">JRebel</span> <span class="err">5.0.0</span> <span class="err">(201206080930)</span>
+<span class="err">[2012-12-15</span> <span class="err">22:32:17]</span>  <span class="err">(c)</span> <span class="err">Copyright</span> <span class="err">ZeroTurnaround</span> <span class="err">OU,</span> <span class="err">Estonia,</span> <span class="err">Tartu.</span>
+<span class="k">[2012-12-15 22:32:17]</span>
+<span class="err">[2012-12-15</span> <span class="err">22:32:17]</span>  <span class="err">Over</span> <span class="err">the</span> <span class="err">last</span> <span class="err">1</span> <span class="err">days</span> <span class="err">JRebel</span> <span class="err">prevented</span>
+<span class="err">[2012-12-15</span> <span class="err">22:32:17]</span>  <span class="err">at</span> <span class="err">least</span> <span class="err">2</span> <span class="err">redeploys/restarts</span> <span class="err">saving</span> <span class="err">you</span> <span class="err">about</span> <span class="err">0.1</span> <span class="err">hours.</span>
+<span class="k">[2012-12-15 22:32:17]</span>
+<span class="err">[2012-12-15</span> <span class="err">22:32:17]</span>  <span class="err">This</span> <span class="err">product</span> <span class="err">is</span> <span class="err">licensed</span> <span class="err">to</span> <span class="err">Unlimited</span>
+<span class="err">[2012-12-15</span> <span class="err">22:32:17]</span>  <span class="err">For</span> <span class="err">FUN!</span> <span class="err">Unlimited!</span> <span class="err">Enjoy!</span>
+<span class="k">[2012-12-15 22:32:17]</span>
+<span class="err">[2012-12-15</span> <span class="err">22:32:17]</span>  <span class="err">The</span> <span class="err">following</span> <span class="err">plugins</span> <span class="err">are</span> <span class="err">disabled</span> <span class="err">at</span> <span class="err">the</span> <span class="err">moment:</span>
+<span class="na">[2012-12-15 22:32:17]  * Apache MyFaces plugin (set -Drebel.myfaces_plugin</span><span class="o">=</span><span class="s">true to enable)</span>
+<span class="na">[2012-12-15 22:32:17]  * Click plugin (set -Drebel.click_plugin</span><span class="o">=</span><span class="s">true to enable)</span>
+<span class="na">[2012-12-15 22:32:17]  * JRuby Plugin (set -Drebel.jruby_plugin</span><span class="o">=</span><span class="s">true to enable)</span>
+<span class="na">[2012-12-15 22:32:17]  * Jersey plugin (set -Drebel.jersey_plugin</span><span class="o">=</span><span class="s">true to enable)</span>
+<span class="na">[2012-12-15 22:32:17]  * Oracle ADF Core plugin (set -Drebel.adf_core_plugin</span><span class="o">=</span><span class="s">true to enable)</span>
+<span class="na">[2012-12-15 22:32:17]  * Oracle ADF Faces plugin (set -Drebel.adf_faces_plugin</span><span class="o">=</span><span class="s">true to enable)</span>
+<span class="na">[2012-12-15 22:32:17]  * Seam-Wicket plugin (set -Drebel.seam_wicket_plugin</span><span class="o">=</span><span class="s">true to enable)</span>
+<span class="na">[2012-12-15 22:32:17]  * WebObjects plugin (set -Drebel.webobjects_plugin</span><span class="o">=</span><span class="s">true to enable)</span>
+<span class="k">[2012-12-15 22:32:17]</span>
+<span class="err">[2012-12-15</span> <span class="err">22:32:17]</span> <span class="c1">#############################################################</span>
+<span class="k">[2012-12-15 22:32:17]</span>
+<span class="k">[2012-12-15 22:32:17]</span>
+<span class="err">[2012-12-15</span> <span class="err">22:32:17]</span> <span class="err">JRebel:</span> <span class="err">A</span> <span class="err">newer</span> <span class="err">version</span> <span class="err">&#39;5.1.1&#39;</span> <span class="err">is</span> <span class="err">available</span> <span class="err">for</span> <span class="err">download</span>
+<span class="err">[2012-12-15</span> <span class="err">22:32:17]</span> <span class="err">JRebel:</span> <span class="err">from</span> <span class="err">http://www.zeroturnaround.com/jrebel/upgrade/</span>
+<span class="k">[2012-12-15 22:32:17]</span>
+</pre></div>
+
+
+<p>当看到上面的信息就说明JRebel已经启动成功了，也就是说现在JRebel已经生效了。</p>
+<p>这样你可以去修改一下代码，当然你不会立即看到效果，因为JRebel是延迟加载的，也就是说当你运行到需要加载这个类的时候才会加载， 也就是在控制台上能看到下面的输出：</p>
+<div class="highlight"><pre><span class="p">[</span><span class="mi">2012</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">15</span> <span class="mi">22</span><span class="o">:</span><span class="mi">37</span><span class="o">:</span><span class="mi">43</span><span class="p">]</span> <span class="n">JRebel</span><span class="o">:</span> <span class="n">Reloading</span> <span class="n">class</span> <span class="err">&#39;</span><span class="n">cn</span><span class="p">.</span><span class="n">is</span><span class="p">.</span><span class="n">servlet</span><span class="p">.</span><span class="n">TestServlet</span><span class="err">&#39;</span><span class="p">.</span>
+</pre></div>
+
+
+<p>有了这句输出表示所修改的代码已经生效，当然如果修改的类里引用了很多其他的类的实例，在重新加载这个类的时候就会把这些类也加载一次， 如果这次操作还包含其他的一些操作，例如登录的权限验证，而修改的代码引用了和权限有关的类，比方说用户（User）， 那么JRebel也会把和User有关的类加载，加载的顺序和操作的顺序是一样的。</p>
+<p>如果在项目中使用的Spring或者Hibernate，可能还可以看到Spring或者Hibernate实体的加载日志，因为Spring和Hibernate的plugin默认是打开的。 在最上面发的日志中，能看到那些日志没有打开，但是看不到那些日志已经打开了，如果在要关闭Spring和Hibernate需要在VM Arguments中才入两个参数， -Drebel.spring_plugin=false, -Drebel.hiberate_plugin=false 加入这两个参数之后，就会在启动的未开启Plugin中看到。</p>
+<p>对于这类的热加载插件，还有另外一个就是DCEVM，个人觉得也不错，可惜已经两年没有更新了，只支持jdk1.6和jdk1.7-ea-b139之前的版，对于最新的完全无法使用。</p>
+<p>DCEVM和JRebel的区别在于：</p>
+<ul>
+<li>
+<p>DCEVM是JVM的插件，修改了jvm.dll，从虚拟机入手，效率上来说我觉得比JRebel好快， 但是缺点是如果加载的类有通过Spring注入的实例，很可能会变成null，因为类被重新实例话，但是不是通过Spring实例的， 所以没有为里面引用的其他类进行实例。这个问题并不是一定的，但是我曾经出现过这个问题，而且还不只一次，但是我没有细究， 可以肯定的是对于静态变量等是没有办法重新加载的。</p>
+</li>
+<li>
+<p>而JRebel是从ClassLoader入手的，JRebel在加载的时候会加载这类引用到的所有实例，这样就不会出现DCEVM中出现的问题， 而JRebel也有自己的问题，在某些时候修改的代码次数过多虎抛出一个异常，但是这个异常貌似并没有影响到不能运行，需要重新启动的情况， 也可能是我的类结构比较简单，所以没有影响，因为在网上搜到的别人的文章中有提到过这个异常，但是也没有说会有什么影响。</p>
+</li>
+</ul>
+<p>总的来说JRebel比DCEVM功能更全面，也强大，毕竟是商业软件，且价格不菲，如果环境允许的情况下还是花点钱买个正版的， 毕竟使用盗版也不是什么好事情，而且使用正版也是对软件作者的支持</p>
+    </div><!-- /.entry-content -->
+  </article>
+</section>
+      </section>
+      <footer>
+        <p><small>&copy; Turbidsoul's 小黑屋 &mdash; Theme based on Sundown by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <!-- Scale fix -->
+    <script>
+      var metas = document.getElementsByTagName('meta');
+      var i;
+      
+      if (navigator.userAgent.match(/iPhone/i)) {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+          }
+        }
+      
+        document.addEventListener("gesturestart", gestureStart, false);
+      }
+
+      function gestureStart() {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

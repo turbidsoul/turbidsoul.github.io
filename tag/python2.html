@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Turbidsoul's 小黑屋 - pythonTurbidsoul's 小黑屋</title>
+
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div><img src="http://blog.turbidsoul.me/pelican-blog/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/pelican-blog/">Turbidsoul's 小黑屋 </a></div>
+        <div class="sub-title"></div>
+
+<p>
+  <div class="view"><a href="http://blog.turbidsoul.me/pelican-blog/archives.html">Archives</a></div>
+</p>
+
+<!-- Social links -->
+<div class="social">
+<h4>Follow Me</h4>
+<ul>
+    <li><a href="https://plus.google.com/+TurbidsoulChen">Google+</a></li>
+    <li><a href="https://github.com/turbidsoul">Github</a></li>
+    <li><a href="https://twitter.com/Turbidsoul">Twitter</a></li>
+    <li><a href="https://facebook.com/turbidsoul">Facebook</a></li>
+    <li><a href="http://weibo.com/turbidsoul">微博</a></li>
+    <li><a href="http://instagram.com/turbidsoul">Instagram</a></li>
+</ul>
+</div>
+
+      </header>
+      <section>
+      <div class="front-title"><a href="http://blog.turbidsoul.me/pelican-blog/posts/sublimecha-jian-emmetqi-dong-shi-bai.html">sublime插件emmet启动失败</a></div>
+<p>
+<small>
+<abbr class="published" title="2013-06-05T00:00:00">
+  周三 05 六月 2013
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/sublime.html">sublime</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/python.html">python</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/emmet.html">emmet</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/sublimecha-jian-emmetqi-dong-shi-bai.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>最近发现我的sublime的emmet失效，查看了控制台，发现在sublime启动的失败，启动的时候报了如下的错误：</p>
+<div class="highlight"><pre><span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;.\sublime_plugin.py&quot;</span>, line <span class="m">62</span>, in <span class="n">reload_plugin</span>
+  File <span class="nb">&quot;.\emmet-plugin.py&quot;</span>, line <span class="m">710</span>, in <span class="n">&lt;module&gt;</span>
+    <span class="n">init</span><span class="p">()</span>
+  File <span class="nb">&quot;.\emmet-plugin.py&quot;</span>, line <span class="m">101</span>, in <span class="n">init</span>
+    <span class="n">update_settings</span><span class="p">()</span>
+  File <span class="nb">&quot;.\emmet-plugin.py&quot;</span>, line <span class="m">231</span>, in <span class="n">update_settings</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">js</span><span class="p">()</span>
+  File <span class="nb">&quot;.\emmet\context.py&quot;</span>, line <span class="m">178</span>, in <span class="n">js</span>
+    <span class="bp">self ...</span></pre></div> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/pelican-blog/posts/sublimecha-jian-emmetqi-dong-shi-bai.html">read more...</a></div>
+      <hr />
+      <div class="front-title"><a href="http://blog.turbidsoul.me/pelican-blog/posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html">python实现morse编码与解码</a></div>
+<p>
+<small>
+<abbr class="published" title="2013-06-04T00:00:00">
+  周二 04 六月 2013
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/python.html">python</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/morse.html">morse</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/code.html">code</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>写这个完全是闲着无聊，看了一片趣文<a href="http://blog.jobbole.com/40628/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=draft-created-on-20130531-at-1028-am">趣文：表白后女生发给我一串五层加密的密码</a> 这篇文章来源自百度贴吧的的有一个帖子<a href="http://tieba.baidu.com/f?kz=529691897">传送门</a>，文章的内容还是很欢乐的。</p>
+<p>言归正传，<a href="http://zh.wikipedia.org/zh/%E6%91%A9%E5%B0%94%E6%96%AF%E7%94%B5%E7%A0%81">Morse Code</a> 的算法是根据维基得来的，说白了就是键值对，编码解码也都是按照键值对进行匹配的。</p>
+<p>编码如下：</p>
+<div class="highlight"><pre><span class="n">__morse_code__</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&#39;A&#39;</span><span class="p">:</span> <span class="s">&#39;.-&#39;</span><span class="p">,</span> <span class="s">&#39;B&#39;</span><span class="p">:</span> <span class="s">&#39;-...&#39;</span><span class="p">,</span> <span class="s">&#39;C&#39;</span><span class="p">:</span> <span class="s">&#39;-.-.&#39;</span><span class="p">,</span> <span class="s">&#39;D&#39;</span><span class="p">:</span> <span class="s">&#39;-..&#39;</span><span class="p">,</span> <span class="s">&#39;E&#39;</span><span class="p">:</span> <span class="s">&#39;.&#39;</span><span class="p">,</span> <span class="s">&#39;F&#39;</span><span class="p">:</span> <span class="s">&#39;..-.&#39;</span><span class="p">,</span> <span class="s">&#39;G&#39;</span><span class="p">:</span> <span class="s">&#39;--.&#39;</span><span class="p">,</span>
+    <span class="s">&#39;H&#39;</span><span class="p">:</span> <span class="s">&#39;....&#39;</span><span class="p">,</span> <span class="s">&#39;I&#39;</span><span class="p">:</span> <span class="s">&#39;..&#39;</span><span class="p">,</span> <span class="s">&#39;J&#39;</span><span class="p">:</span> <span class="s">&#39;.---&#39;</span><span class="p">,</span> <span class="s">&#39;K&#39;</span><span class="p">:</span> <span class="s">&#39;-.-&#39;</span><span class="p">,</span> <span class="s">&#39;L&#39;</span><span class="p">:</span> <span class="s">&#39;.-..&#39;</span><span class="p">,</span> <span class="s">&#39;M&#39;</span><span class="p">:</span> <span class="s">&#39;--&#39;</span><span class="p">,</span> <span class="s">&#39;N&#39;</span><span class="p">:</span> <span class="s">&#39;-.&#39;</span><span class="p">,</span>
+    <span class="s">&#39;O&#39;</span><span class="p">:</span> <span class="s">&#39;---&#39;</span><span class="p">,</span> <span class="s">&#39;P&#39;</span><span class="p">:</span> <span class="s">&#39;.--.&#39;</span><span class="p">,</span> <span class="s">&#39;Q&#39;</span><span class="p">:</span> <span class="s">&#39;--.-&#39;</span><span class="p">,</span> <span class="s">&#39;R&#39;</span><span class="p">:</span> <span class="s">&#39;.-.&#39;</span><span class="p">,</span> <span class="s">&#39;S&#39;</span><span class="p">:</span> <span class="s">&#39;...&#39;</span><span class="p">,</span> <span class="s">&#39;T&#39;</span><span class="p">:</span> <span class="s">&#39;-&#39;</span><span class="p">,</span> <span class="s">&#39;U&#39;</span><span class="p">:</span> <span class="s">&#39;..-&#39;</span><span class="p">,</span>
+    <span class="s">&#39;V&#39;</span><span class="p">:</span> <span class="s">&#39;...-&#39;</span><span class="p">,</span> <span class="s">&#39;W&#39;</span><span class="p">:</span> <span class="s">&#39;.--&#39;</span><span class="p">,</span> <span class="s">&#39;X&#39;</span><span class="p">:</span> <span class="s">&#39;-..-&#39;</span><span class="p">,</span> <span class="s">&#39;Y&#39;</span><span class="p">:</span> <span class="s">&#39;-.--&#39;</span><span class="p">,</span> <span class="s">&#39;Z&#39;</span><span class="p">:</span> <span class="s">&#39;--..&#39;</span><span class="p">,</span>
+
+    <span class="s">&#39;1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;.----&#39;</span><span class="p">,</span> <span class="s">&#39;.-&#39;</span><span class="p">],</span> <span class="s">&#39;2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;..---&#39;</span><span class="p">,</span> <span class="s">&#39;..-&#39;</span><span class="p">],</span> <span class="s">&#39;3&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;...--&#39;</span><span class="p">,</span> <span class="s">&#39;...-&#39;</span><span class="p">],</span> <span class="s">&#39;4&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;....-&#39;</span><span class="p">,</span> <span class="s">&#39;....-&#39;</span><span class="p">],</span> <span class="s">&#39;5&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;.....&#39;</span><span class="p">,</span> <span class="s">&#39;.&#39;</span><span class="p">],</span>
+    <span class="s">&#39;6&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;-....&#39;</span><span class="p">,</span> <span class="s">&#39;-....&#39;</span><span class="p">],</span> <span class="s">&#39;7&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;--...&#39;</span><span class="p">,</span> <span class="s">&#39;-...&#39;</span><span class="p">],</span> <span class="s">&#39;8&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;---..&#39;</span><span class="p">,</span> <span class="s">&#39;-..&#39;</span><span class="p">],</span> <span class="s">&#39;9 ...</span></pre></div> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/pelican-blog/posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html">read more...</a></div>
+      <hr />
+      <div class="front-title"><a href="http://blog.turbidsoul.me/pelican-blog/posts/sublimezhi-xing-windowsming-ling-shi-wu-fa-shu-chu-zhong-wen-wen-ti.html">sublime执行windows命令时无法输出中文问题</a></div>
+<p>
+<small>
+<abbr class="published" title="2013-05-31T00:00:00">
+  周五 31 五月 2013
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/sublime.html">sublime</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/python.html">python</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/sublimezhi-xing-windowsming-ling-shi-wu-fa-shu-chu-zhong-wen-wen-ti.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>这是一个很简单的问题，我最近在研究jdk8，使用sublime自定义的编译方式运行，是编译运行的结果显示到sublime控制台上，但是这里如果运行的话会提示 <em>Decode error</em> 虽然没有太大的影响但是看着总是很难受，而且有时候也不太方便，所以就自己找出问题解决掉。</p>
+<p>解决的方式很简单，按 <strong>ctrl+shift+f</strong> 进入高级搜索，在 <strong>find</strong> 中填入 <em>Decode error</em> 在 <strong>where</strong> 中填入sublime的插件目录和要所搜的文件类型，如下：<code>D:\SublimeText\Data\Packages,*.py</code> 因为我们能确定到要搜索的东西在python的代码文件中，所以这里直接搜索 *<em>.py</em> 文件即可，等上几秒中就能看到搜索结果，结果如下：</p>
+<div class="highlight"><pre><span class="n">Searching</span> <span class="mi">8509</span> <span class="n">files</span> <span class="k">for</span> <span class="s">&quot;Decode error&quot;</span>
+
+<span class="nl">D:</span><span class="err">\</span><span class="n">SublimeText</span><span class="err">\</span><span class="n">Data</span><span class="err">\</span><span class="n">Packages</span><span class="err">\</span><span class="n">Default</span><span class="err">\</span><span class="n">exec</span><span class="p">.</span><span class="n">py</span><span class="o">:</span>
+  <span class="mi">181 ...</span></pre></div> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/pelican-blog/posts/sublimezhi-xing-windowsming-ling-shi-wu-fa-shu-chu-zhong-wen-wen-ti.html">read more...</a></div>
+      <hr />
+      <div class="front-title"><a href="http://blog.turbidsoul.me/pelican-blog/posts/misakapygmentsshi-xian-markdownsheng-cheng-htmlye-mian-bing-yu-fa-gao-liang.html">Misaka+pygments实现markdown生成html页面并语法高亮</a></div>
+<p>
+<small>
+<abbr class="published" title="2013-05-14T00:00:00">
+  周二 14 五月 2013
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/python.html">python</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/misaka.html">misaka</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/pygments.html">pygments</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/markdown.html">markdown</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/misakapygmentsshi-xian-markdownsheng-cheng-htmlye-mian-bing-yu-fa-gao-liang.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <h2>来由</h2>
+<p>最近新blog开发到文章页面生成这块，看上了GFM这样的方式，使用markdown编辑页面，也很适合程序猿。使用富文本编辑始终太重量级，并不适合程序猿写文章，所以我也很推崇jekyll，用他来写文章、blog确实很geek也很舒适。</p>
+<p>经过几次简单的测试，最后决定使用<code>Misaka</code>+<code>pygments</code>，下面我简单说一下实现方法。</p>
+<h2>开始之前</h2>
+<p>我的测试例子中使用到了三个包，分别是 web.py , Misaka , pygments ,如果在开始之前需要使用pip安装这三个包</p>
+<h3>Web.py</h3>
+<p><a href="http://webpy.org" title="web.py">Web.py</a>是python的一个轻量级web框架，我只是简单的使用了一下，有兴趣的人可以去它的<a href="http://webpy.org" title="web.py">官网</a>,它的官方有一个<a href="http://webpy.org/docs/0.3/tutorial.zh-cn" title="web.py tutorial">中文教程</a>说的很详细。</p>
+<p>我这里使用他做一个简单的web服务：</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">Index</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">GET</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&quot;Hello World!&quot;</span>
+<span class="n">urls</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s">&#39;/&#39;</span><span class="p">,</span> <span class="s">&#39;Index&#39;</span>
+<span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">app ...</span></pre></div> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/pelican-blog/posts/misakapygmentsshi-xian-markdownsheng-cheng-htmlye-mian-bing-yu-fa-gao-liang.html">read more...</a></div>
+      <hr />
+      <div class="front-title"><a href="http://blog.turbidsoul.me/pelican-blog/posts/fnshi-xian-wu-xian-ji-suan-deng-bi-ji-shu.html">fn实现无限计算等比级数</a></div>
+<p>
+<small>
+<abbr class="published" title="2013-04-28T00:00:00">
+  周日 28 四月 2013
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/python.html">python</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/arithmetic.html">arithmetic</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/functional.html">functional</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/fnshi-xian-wu-xian-ji-suan-deng-bi-ji-shu.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>今天看InfoQ上的一篇关于 <a href="http://www.infoq.com/cn/articles/fn.py-functional-programming-python">Fn.py</a> 的文章，Fn中的Stream可以实现无限序列，例如文章中的代码：</p>
+<div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="n">Stream</span><span class="p">()</span>
+<span class="n">fib</span> <span class="o">=</span> <span class="n">f</span> <span class="o">&lt;&lt;</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">drop</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">f</span><span class="p">))</span>
+</pre></div>
+
+
+<p>这是实现了一个无限的斐波那契数列，我根据这个实现了一个等比级数，等比级数的公式是f = b^(n-1), b是基数，n=1 f=1, n&gt;=2 f=b^(n-1)。</p>
+<p>我实现的方法使用了生成器：</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">geo_sequence</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">b</span> <span class="o">**</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">n ...</span></pre></div> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/pelican-blog/posts/fnshi-xian-wu-xian-ji-suan-deng-bi-ji-shu.html">read more...</a></div>
+      <hr />
+      <div class="front-title"><a href="http://blog.turbidsoul.me/pelican-blog/posts/pythonshi-xian-pai-lie-he-zu-he.html">Python实现排列和组合</a></div>
+<p>
+<small>
+<abbr class="published" title="2013-03-24T00:00:00">
+  周日 24 三月 2013
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/python.html">python</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/arithmetic.html">arithmetic</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/pythonshi-xian-pai-lie-he-zu-he.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>无事可做用python实现的的排列和组合的算法，顺便也复习以下2.7中yield的用法</p>
+<div class="highlight"><pre><span class="c"># coding: utf8</span>
+
+<span class="k">def</span> <span class="nf">perm</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)):</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">v</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">_items</span> <span class="o">=</span> <span class="n">items</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">items</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:]</span>
+            <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">perm</span><span class="p">(</span><span class="n">_items</span><span class="p">):</span>
+                <span class="k">yield</span> <span class="n">v</span> <span class="o">+</span> <span class="n">p</span>
+
+<span class="k">def</span> <span class="nf">comp ...</span></pre></div> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/pelican-blog/posts/pythonshi-xian-pai-lie-he-zu-he.html">read more...</a></div>
+      <hr />
+      <div class="front-title"><a href="http://blog.turbidsoul.me/pelican-blog/posts/websocketwebrtcshi-xian-shi-pin-tong-xun.html">WebSocket+WebRTC实现视频通讯</a></div>
+<p>
+<small>
+<abbr class="published" title="2013-02-28T00:00:00">
+  周四 28 二月 2013
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/webrtc.html">webrtc</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/websocket.html">websocket</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/python.html">python</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/websocketwebrtcshi-xian-shi-pin-tong-xun.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>这篇文章本来早就该写了，但是电脑坏了，在加上工作比较忙，所以就一直拖到今天。</p>
+<p>研究这玩意是因为公司需要做技术储备，所以在过年放假的时候就研究了一下，但是花的时间有点多，放假11天有7天，加上上班后的2天，一共是9天，其中花了2天时间研究WebSocket协议，又花了两天查看WebRTC的官方文档，搞明白WebRTC是如何运行，磕磕绊绊的直到调试成功可以俩人视频又花了快5天时间。</p>
+<p>别的不说了，下来说说我是如何做的，当然WebSocket使用的是python+twisted实现的，当然协议的解析是看网上的一篇文章【用Python实现一个简单的WebSocket服务器】，在自己改了一些代码，就算是简单的WebSocket服务器。当然我是在firefox19上测试通过的，chrome上并没有测试通过，没什么时间，只能等家里电脑好了之后在家里测试。</p>
+<p>首先来简单的说一些WebSocket协议:</p>
+<p><img alt="websocket" src="/file/images/websocket.png" /></p>
+<p>对于我这里来说 ：</p>
+<ul>
+<li>fin,rsv1,rsv2,rsv3分别是1000</li>
+<li>opcode是0001，表示发送的是文本</li>
+<li>mask是1，因为是最新协议所以是有掩码的</li>
+<li>payload len，表示的是数据的长度，他的位数是不固定的。他分别是有三种表示,7 bit, 7+16 bit, 7+64 bit。如果是小于126则是7bit ...</li></ul> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/pelican-blog/posts/websocketwebrtcshi-xian-shi-pin-tong-xun.html">read more...</a></div>
+      <hr />
+      <div class="front-title"><a href="http://blog.turbidsoul.me/pelican-blog/posts/kuai-su-ji-suan-er-jin-zhi-wei-1de-ge-shu.html">快速计算二进制位1的个数</a></div>
+<p>
+<small>
+<abbr class="published" title="2013-02-01T00:00:00">
+  周五 01 二月 2013
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/python.html">python</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/arithmetic.html">arithmetic</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/kuai-su-ji-suan-er-jin-zhi-wei-1de-ge-shu.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>昨天在G+上看到的一个算法题: &gt; Returns the number of 1bits in any integer, for example, bits(2) = 1, &gt; bits(3) = 2, bits(4) = 1, bits(5) = 2, bits(6) = 2, bits(7) = 3 我用python简单的实现了一下，实现的还是有点冗长，应该还能优化。</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">bits</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">f1</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">f2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">if ...</span></pre></div> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/pelican-blog/posts/kuai-su-ji-suan-er-jin-zhi-wei-1de-ge-shu.html">read more...</a></div>
+      <hr />
+
+<span class="paginator">
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/python.html">&laquo;</a>
+
+  Page 2 / 2
+</span>
+      </section>
+      <footer>
+        <p><small>&copy; Turbidsoul's 小黑屋 &mdash; Theme based on Sundown by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <!-- Scale fix -->
+    <script>
+      var metas = document.getElementsByTagName('meta');
+      var i;
+      
+      if (navigator.userAgent.match(/iPhone/i)) {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+          }
+        }
+      
+        document.addEventListener("gesturestart", gestureStart, false);
+      }
+
+      function gestureStart() {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

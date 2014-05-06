@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Turbidsoul's 小黑屋 - zeroTurbidsoul's 小黑屋</title>
+
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div><img src="http://blog.turbidsoul.me/pelican-blog/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/pelican-blog/">Turbidsoul's 小黑屋 </a></div>
+        <div class="sub-title"></div>
+
+<p>
+  <div class="view"><a href="http://blog.turbidsoul.me/pelican-blog/archives.html">Archives</a></div>
+</p>
+
+<!-- Social links -->
+<div class="social">
+<h4>Follow Me</h4>
+<ul>
+    <li><a href="https://plus.google.com/+TurbidsoulChen">Google+</a></li>
+    <li><a href="https://github.com/turbidsoul">Github</a></li>
+    <li><a href="https://twitter.com/Turbidsoul">Twitter</a></li>
+    <li><a href="https://facebook.com/turbidsoul">Facebook</a></li>
+    <li><a href="http://weibo.com/turbidsoul">微博</a></li>
+    <li><a href="http://instagram.com/turbidsoul">Instagram</a></li>
+</ul>
+</div>
+
+      </header>
+      <section>
+      <div class="front-title"><a href="http://blog.turbidsoul.me/pelican-blog/posts/cheng-xu-yuan-shu-xue-ling-de-gu-shi.html">程序员数学 - 零的故事</a></div>
+<p>
+<small>
+<abbr class="published" title="2013-08-14T00:00:00">
+  周三 14 八月 2013
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/math.html">math</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/zero.html">zero</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/reading.html">reading</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/notes.html">notes</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/cheng-xu-yuan-shu-xue-ling-de-gu-shi.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>之前买了几本关于数学的书，这两天看了《程序员数学》第一章 0的故事，以前只是知道0，却不知道0在数学中的作用和意义。</p>
+<h4>计数法</h4>
+<p>在10进制中，每一位的数字表示的是这一位上的个数，如书中的2503：</p>
+<blockquote>
+<p>2 =&gt; $2 xx 1000$ =&gt; $2 xx 10^3$</p>
+<p>5 =&gt; $5 xx 100$ =&gt; $5 xx 10^5$</p>
+<p>0 =&gt; $0 xx 10$ =&gt; $0 xx 10^1$</p>
+<p>3 =&gt; $3 xx 1$ =&gt; $3 xx 10^0$</p>
+</blockquote>
+<p>如上面引用中的，把每一行的结果加起来就是 <strong>2503</strong>，这里我觉得在中文中表示数字其实更准确： <em>两千五百零三</em> ，在每一位都表示了这一位的单位，在阅读上更容易理解和准确 ...</p> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/pelican-blog/posts/cheng-xu-yuan-shu-xue-ling-de-gu-shi.html">read more...</a></div>
+      <hr />
+
+      </section>
+      <footer>
+        <p><small>&copy; Turbidsoul's 小黑屋 &mdash; Theme based on Sundown by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <!-- Scale fix -->
+    <script>
+      var metas = document.getElementsByTagName('meta');
+      var i;
+      
+      if (navigator.userAgent.match(/iPhone/i)) {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+          }
+        }
+      
+        document.addEventListener("gesturestart", gestureStart, false);
+      }
+
+      function gestureStart() {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>sublime执行windows命令时无法输出中文问题Turbidsoul's 小黑屋</title>
+
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div><img src="http://blog.turbidsoul.me/pelican-blog/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/pelican-blog/">Turbidsoul's 小黑屋 </a></div>
+        <div class="sub-title"></div>
+
+<p>
+  <div class="view"><a href="http://blog.turbidsoul.me/pelican-blog/archives.html">Archives</a></div>
+</p>
+
+<!-- Social links -->
+<div class="social">
+<h4>Follow Me</h4>
+<ul>
+    <li><a href="https://plus.google.com/+TurbidsoulChen">Google+</a></li>
+    <li><a href="https://github.com/turbidsoul">Github</a></li>
+    <li><a href="https://twitter.com/Turbidsoul">Twitter</a></li>
+    <li><a href="https://facebook.com/turbidsoul">Facebook</a></li>
+    <li><a href="http://weibo.com/turbidsoul">微博</a></li>
+    <li><a href="http://instagram.com/turbidsoul">Instagram</a></li>
+</ul>
+</div>
+
+      </header>
+      <section>
+<section id="content" class="body">
+  <article>
+      <div class="article-title">
+        sublime执行windows命令时无法输出中文问题
+      </div>
+
+    <div class="entry-content">
+<p>
+<small>
+<abbr class="published" title="2013-05-31T00:00:00">
+  周五 31 五月 2013
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/sublime.html">sublime</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/python.html">python</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/sublimezhi-xing-windowsming-ling-shi-wu-fa-shu-chu-zhong-wen-wen-ti.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>这是一个很简单的问题，我最近在研究jdk8，使用sublime自定义的编译方式运行，是编译运行的结果显示到sublime控制台上，但是这里如果运行的话会提示 <em>Decode error</em> 虽然没有太大的影响但是看着总是很难受，而且有时候也不太方便，所以就自己找出问题解决掉。</p>
+<p>解决的方式很简单，按 <strong>ctrl+shift+f</strong> 进入高级搜索，在 <strong>find</strong> 中填入 <em>Decode error</em> 在 <strong>where</strong> 中填入sublime的插件目录和要所搜的文件类型，如下：<code>D:\SublimeText\Data\Packages,*.py</code> 因为我们能确定到要搜索的东西在python的代码文件中，所以这里直接搜索 *<em>.py</em> 文件即可，等上几秒中就能看到搜索结果，结果如下：</p>
+<div class="highlight"><pre><span class="n">Searching</span> <span class="mi">8509</span> <span class="n">files</span> <span class="k">for</span> <span class="s">&quot;Decode error&quot;</span>
+
+<span class="nl">D:</span><span class="err">\</span><span class="n">SublimeText</span><span class="err">\</span><span class="n">Data</span><span class="err">\</span><span class="n">Packages</span><span class="err">\</span><span class="n">Default</span><span class="err">\</span><span class="n">exec</span><span class="p">.</span><span class="n">py</span><span class="o">:</span>
+  <span class="mi">181</span>              <span class="n">str</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">encoding</span><span class="p">)</span>
+  <span class="mi">182</span>          <span class="n">except</span><span class="o">:</span>
+  <span class="mi">183</span><span class="o">:</span>             <span class="n">str</span> <span class="o">=</span> <span class="s">&quot;[Decode error - output not &quot;</span> <span class="o">+</span> <span class="n">self</span><span class="p">.</span><span class="n">encoding</span> <span class="o">+</span> <span class="s">&quot;]</span><span class="se">\n</span><span class="s">&quot;</span>
+  <span class="mi">184</span>              <span class="n">proc</span> <span class="o">=</span> <span class="n">None</span>
+  <span class="mi">185</span>
+
+<span class="nl">D:</span><span class="err">\</span><span class="n">SublimeText</span><span class="err">\</span><span class="n">Data</span><span class="err">\</span><span class="n">Packages</span><span class="err">\</span><span class="n">GoSublime</span><span class="err">\</span><span class="n">gosubl</span><span class="err">\</span><span class="n">gs</span><span class="p">.</span><span class="n">py</span><span class="o">:</span>
+  <span class="mi">672</span>       <span class="k">return</span> <span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">Unexpected</span> <span class="n">value</span> <span class="n">type</span><span class="err">&#39;</span><span class="p">)</span>
+  <span class="mi">673</span>   <span class="n">except</span> <span class="n">Exception</span> <span class="n">as</span> <span class="n">ex</span><span class="o">:</span>
+  <span class="mi">674</span><span class="o">:</span>      <span class="k">return</span> <span class="p">(</span><span class="k">default</span><span class="p">,</span> <span class="err">&#39;</span><span class="n">Decode</span> <span class="n">Error</span><span class="o">:</span> <span class="o">%</span><span class="n">s</span><span class="err">&#39;</span> <span class="o">%</span> <span class="n">ex</span><span class="p">)</span>
+  <span class="mi">675</span>
+  <span class="mi">676</span>  <span class="n">def</span> <span class="n">json_encode</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">:</span>
+</pre></div>
+
+
+<p>第一個就是我們需要修改的地方，直接上在183行上双击，就能打开文件并定位到需要修改的位置。</p>
+<p>从代码上看，sublime是对执行结果进行了解码，使用的编码是默认的编码，我这里默认的编码是 <strong>utf8</strong> 但是windows 中文版命令行执行结果的默认编码是 <strong>gbk</strong> 所以这里解码就会报错，所以我们要做的就是如果这里解码报错，则用gbk在解一次码就行了。</p>
+<p>这里的代码就修改成如下的样子：</p>
+<div class="highlight"><pre><span class="k">try</span><span class="p">:</span>
+    <span class="nb">str</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">encoding</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="nb">str</span> <span class="o">=</span> <span class="s">&quot;[Decode error - output not &quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoding</span> <span class="o">+</span> <span class="s">&quot;]</span><span class="se">\n</span><span class="s">&quot;</span>
+    <span class="nb">str</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&quot;gbk&quot;</span><span class="p">)</span>
+    <span class="n">proc</span> <span class="o">=</span> <span class="bp">None</span>
+</pre></div>
+
+
+<h4>结论</h4>
+<p>其实这样的做法并不是一个好的解决方案，就和jekyll解决中文问题一样，算是一种暴力的方式，但是暴力的方式通常都是最快最省时间的，但是这样的解决方法也容易埋下隐患。</p>
+    </div><!-- /.entry-content -->
+  </article>
+</section>
+      </section>
+      <footer>
+        <p><small>&copy; Turbidsoul's 小黑屋 &mdash; Theme based on Sundown by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <!-- Scale fix -->
+    <script>
+      var metas = document.getElementsByTagName('meta');
+      var i;
+      
+      if (navigator.userAgent.match(/iPhone/i)) {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+          }
+        }
+      
+        document.addEventListener("gesturestart", gestureStart, false);
+      }
+
+      function gestureStart() {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

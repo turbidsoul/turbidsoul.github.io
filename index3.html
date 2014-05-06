@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Turbidsoul's 小黑屋</title>
+
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div><img src="http://blog.turbidsoul.me/pelican-blog/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/pelican-blog/">Turbidsoul's 小黑屋 </a></div>
+        <div class="sub-title"></div>
+
+<p>
+  <div class="view"><a href="http://blog.turbidsoul.me/pelican-blog/archives.html">Archives</a></div>
+</p>
+
+<!-- Social links -->
+<div class="social">
+<h4>Follow Me</h4>
+<ul>
+    <li><a href="https://plus.google.com/+TurbidsoulChen">Google+</a></li>
+    <li><a href="https://github.com/turbidsoul">Github</a></li>
+    <li><a href="https://twitter.com/Turbidsoul">Twitter</a></li>
+    <li><a href="https://facebook.com/turbidsoul">Facebook</a></li>
+    <li><a href="http://weibo.com/turbidsoul">微博</a></li>
+    <li><a href="http://instagram.com/turbidsoul">Instagram</a></li>
+</ul>
+</div>
+
+      </header>
+      <section>
+      <div class="front-title"><a href="http://blog.turbidsoul.me/pelican-blog/posts/sublimezhi-xing-windowsming-ling-shi-wu-fa-shu-chu-zhong-wen-wen-ti.html">sublime执行windows命令时无法输出中文问题</a></div>
+<p>
+<small>
+<abbr class="published" title="2013-05-31T00:00:00">
+  周五 31 五月 2013
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/sublime.html">sublime</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/python.html">python</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/sublimezhi-xing-windowsming-ling-shi-wu-fa-shu-chu-zhong-wen-wen-ti.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>这是一个很简单的问题，我最近在研究jdk8，使用sublime自定义的编译方式运行，是编译运行的结果显示到sublime控制台上，但是这里如果运行的话会提示 <em>Decode error</em> 虽然没有太大的影响但是看着总是很难受，而且有时候也不太方便，所以就自己找出问题解决掉。</p>
+<p>解决的方式很简单，按 <strong>ctrl+shift+f</strong> 进入高级搜索，在 <strong>find</strong> 中填入 <em>Decode error</em> 在 <strong>where</strong> 中填入sublime的插件目录和要所搜的文件类型，如下：<code>D:\SublimeText\Data\Packages,*.py</code> 因为我们能确定到要搜索的东西在python的代码文件中，所以这里直接搜索 *<em>.py</em> 文件即可，等上几秒中就能看到搜索结果，结果如下：</p>
+<div class="highlight"><pre><span class="n">Searching</span> <span class="mi">8509</span> <span class="n">files</span> <span class="k">for</span> <span class="s">&quot;Decode error&quot;</span>
+
+<span class="nl">D:</span><span class="err">\</span><span class="n">SublimeText</span><span class="err">\</span><span class="n">Data</span><span class="err">\</span><span class="n">Packages</span><span class="err">\</span><span class="n">Default</span><span class="err">\</span><span class="n">exec</span><span class="p">.</span><span class="n">py</span><span class="o">:</span>
+  <span class="mi">181 ...</span></pre></div> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/pelican-blog/posts/sublimezhi-xing-windowsming-ling-shi-wu-fa-shu-chu-zhong-wen-wen-ti.html">read more...</a></div>
+      <hr />
+      <div class="front-title"><a href="http://blog.turbidsoul.me/pelican-blog/posts/jdk8xin-te-xing-calendarbuilder.html">JDK8新特性 Calendar.Builder</a></div>
+<p>
+<small>
+<abbr class="published" title="2013-05-29T00:00:00">
+  周三 29 五月 2013
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/java.html">java</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/jdk8.html">jdk8</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/jdk8xin-te-xing-calendarbuilder.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>5月23号，Oracle 发布了 jdk8 <strong>M7</strong> 版，这是一个<a href="http://openjdk.java.net/projects/jdk8/milestones#Feature_Complete">Feature Complete</a>，就是说它已经把所有特性和功能都加入。在翻看 <strong>M7</strong> 的文档时发现了 <a href="http://download.java.net/jdk8/docs/api/java/util/Locale.Builder.html" title="Locale.Builder"><em>Locale.Builder</em></a> ，在jdk7的时候加入过一个类似的：<a href="http://download.java.net/jdk8/docs/api/java/util/Locale.Builder.html" title="Locale.Builder"><em>Locale.Builder</em></a>, 下面我们来看看 <a href="http://download.java.net/jdk8/docs/api/java/util/Calendar.Builder.html" title="Calendar.Builder"><em>Calendar.Builder</em></a>。</p>
+<h4>允许单语句设置</h4>
+<p>允许使用 <a href="http://download.java.net/jdk8/docs/api/java/util/Calendar.Builder.html#set(int,%20int)" title="set(int, int)"><code>set(int, int)</code></a> 方法，为指定的Field设置值，如下：</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">java.util.Calendar</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.text.SimpleDateFormat</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">static</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">Calendar</span><span class="o">.*;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">testSingleStatement</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">Calendar</span> <span class="n">cal</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Calendar ...</span></pre></div> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/pelican-blog/posts/jdk8xin-te-xing-calendarbuilder.html">read more...</a></div>
+      <hr />
+      <div class="front-title"><a href="http://blog.turbidsoul.me/pelican-blog/posts/jekyllde-zhong-wen-biao-ti-zhuan-huan-pin-yin-jie-jue-fang-an.html">jekyll的中文标题转换拼音解决方案</a></div>
+<p>
+<small>
+<abbr class="published" title="2013-05-23T00:00:00">
+  周四 23 五月 2013
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/jekyll.html">jekyll</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/code.html">code</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/ruby.html">ruby</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/jekyllde-zhong-wen-biao-ti-zhuan-huan-pin-yin-jie-jue-fang-an.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>整这个并不是什么刚需，纯粹是怕麻烦，直接把中文转换成拼音更方便一点。</p>
+<p>其实很简单，问题是出在Rakefile文件中，请看项目下的Rakefile的第52行：</p>
+<div class="highlight"><pre><span class="n">task</span> <span class="ss">:post</span> <span class="k">do</span>
+  <span class="nb">abort</span><span class="p">(</span><span class="s2">&quot;rake aborted: &#39;</span><span class="si">#{</span><span class="no">CONFIG</span><span class="o">[</span><span class="s1">&#39;posts&#39;</span><span class="o">]</span><span class="si">}</span><span class="s2">&#39; directory not found.&quot;</span><span class="p">)</span> <span class="k">unless</span> <span class="no">FileTest</span><span class="o">.</span><span class="n">directory?</span><span class="p">(</span><span class="no">CONFIG</span><span class="o">[</span><span class="s1">&#39;posts&#39;</span><span class="o">]</span><span class="p">)</span>
+  <span class="n">title</span> <span class="o">=</span> <span class="no">ENV</span><span class="o">[</span><span class="s2">&quot;title&quot;</span><span class="o">]</span> <span class="o">||</span> <span class="s2">&quot;new-post&quot;</span>
+  <span class="n">tags</span> <span class="o">=</span> <span class="no">ENV</span><span class="o">[</span><span class="s2">&quot;tags&quot;</span><span class="o">]</span> <span class="o">||</span> <span class="s2">&quot;[]&quot;</span>
+  <span class="n">category</span> <span class="o">=</span> <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;category&#39;</span><span class="o">]</span> <span class="o">||</span> <span class="s2">&quot;&quot;</span>
+  <span class="n">slug</span> <span class="o">=</span> <span class="n">title</span><span class="o">.</span><span class="n">downcase</span><span class="o">.</span><span class="n">strip</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/[^\w-]/</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+  <span class="k">begin</span>
+    <span class="n">date</span> <span class="o">=</span> <span class="p">(</span><span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;date&#39;</span><span class="o">]</span> <span class="p">?</span> <span class="no">Time</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;date&#39;</span><span class="o">]</span><span class="p">)</span> <span class="p">:</span> <span class="no">Time</span><span class="o">.</span><span class="n">now</span><span class="p">)</span><span class="o">.</span><span class="n">strftime ...</span></pre></div> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/pelican-blog/posts/jekyllde-zhong-wen-biao-ti-zhuan-huan-pin-yin-jie-jue-fang-an.html">read more...</a></div>
+      <hr />
+      <div class="front-title"><a href="http://blog.turbidsoul.me/pelican-blog/posts/wo-de-mo-shou-shi-jie-wo-de-gong-zuo-wo-de-sheng-huo.html">我的魔兽世界，我的工作，我的生活</a></div>
+<p>
+<small>
+<abbr class="published" title="2013-05-19T00:00:00">
+  周日 19 五月 2013
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/wow.html">wow</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/work.html">work</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/xian-liao.html">闲聊</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/wo-de-mo-shou-shi-jie-wo-de-gong-zuo-wo-de-sheng-huo.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <h3>WOW</h3>
+<p>昨天重新安装的WOW，这是从上次电脑坏了之后4个月第一次玩WOW，依然还是这么喜欢，玩的很兴奋，一直玩到凌晨4点，其实一直都不甚明天自己为什么这么喜欢这个游戏，可能是吊丝心理什么的。</p>
+<p>虽然不再象以前那样天天定时定点的下副本，带团，活动什么，但是可以休闲式的玩玩，打法无聊时光，和朋友聊天打屁，确实是很享受，很惬意的事情，四个月的工作、装修、搬家等等，确实让自己很疲惫，不过也确实很充实。</p>
+<h3>工作</h3>
+<p>最近工作上有点小不顺利，精神有点不够集中，总是出一些小错误，而且有点惫懒，也可能是新搬家搬的有点远，起床比以前早了一些，睡眠有些不足，也可能是马上29了，年纪大了？不管如何都要坚持下去，我还有很多想法都没有实现，所以我需要更加努力。</p>
+<h3>生活</h3>
+<p>其实最近两年生活算是不顺利了，一是爸妈年纪都大了，身体也都不是很好，尤其是老爸，我非常担心他，但是他又不听人劝，这样子总是让人很担心。</p>
+<p>对于自己，说实话29岁说不想找个女朋友结婚那是假的，看到朋友、同事、同学，一个个的结婚生子，為人父母，自己也很有冲动 ...</p> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/pelican-blog/posts/wo-de-mo-shou-shi-jie-wo-de-gong-zuo-wo-de-sheng-huo.html">read more...</a></div>
+      <hr />
+      <div class="front-title"><a href="http://blog.turbidsoul.me/pelican-blog/posts/tu-qian-wan-cheng.html">徒迁完成</a></div>
+<p>
+<small>
+<abbr class="published" title="2013-05-17T00:00:00">
+  周五 17 五月 2013
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/jekyll.html">jekyll</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/xian-liao.html">闲聊</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/tu-qian-wan-cheng.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>昨天晚上睡觉前把之前blog的有关技术文章都搬迁到了这里，今早在那里发了最后一个blog算是告别，从今天开始就在这里发blog。</p>
+<hr />
+<p>这几天连着下雨，天气阴凉，但是我的心情并不是很好，不知道是不是因为新搬家到这里不适应，这里算是西安比较偏远的地方了，从小都生活在二环内，不管房子换几处，都会在二环以内活动，买了房子却跑到了三环外面，可能是心理不适应。索引最近脾气有点暴躁，虽然几年的工作已经把我的脾气磨的差不多了但是还是差点忍不住。</p>
+<hr />
+<p>这短时间需要把blog的首页整理以下，加入一些自我介绍，首页重新布局，做成类似简历一样的</p> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/pelican-blog/posts/tu-qian-wan-cheng.html">read more...</a></div>
+      <hr />
+      <div class="front-title"><a href="http://blog.turbidsoul.me/pelican-blog/posts/zai-jekyllshang-de-di-ge-post.html">在jekyll上的第一个Post</a></div>
+<p>
+<small>
+<abbr class="published" title="2013-05-15T00:00:00">
+  周三 15 五月 2013
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/xian-liao.html">闲聊</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/blog.html">blog</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/zai-jekyllshang-de-di-ge-post.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>几经考虑最后还是决定搬家到这里来，我觉得<code>appengine</code> 太重量级了，我并不喜欢，我喜欢轻量级的东西，jekyll更适合我。</p>
+<p>这几天有时间就会把其他几个blog的文章都搬过来，虽然我的技术很烂，但是这些都是我在工作中遇到的问题，是积累，也是升华，所以还是要花些时间搬过来的。</p> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/pelican-blog/posts/zai-jekyllshang-de-di-ge-post.html">read more...</a></div>
+      <hr />
+      <div class="front-title"><a href="http://blog.turbidsoul.me/pelican-blog/posts/misakapygmentsshi-xian-markdownsheng-cheng-htmlye-mian-bing-yu-fa-gao-liang.html">Misaka+pygments实现markdown生成html页面并语法高亮</a></div>
+<p>
+<small>
+<abbr class="published" title="2013-05-14T00:00:00">
+  周二 14 五月 2013
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/python.html">python</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/misaka.html">misaka</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/pygments.html">pygments</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/markdown.html">markdown</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/misakapygmentsshi-xian-markdownsheng-cheng-htmlye-mian-bing-yu-fa-gao-liang.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <h2>来由</h2>
+<p>最近新blog开发到文章页面生成这块，看上了GFM这样的方式，使用markdown编辑页面，也很适合程序猿。使用富文本编辑始终太重量级，并不适合程序猿写文章，所以我也很推崇jekyll，用他来写文章、blog确实很geek也很舒适。</p>
+<p>经过几次简单的测试，最后决定使用<code>Misaka</code>+<code>pygments</code>，下面我简单说一下实现方法。</p>
+<h2>开始之前</h2>
+<p>我的测试例子中使用到了三个包，分别是 web.py , Misaka , pygments ,如果在开始之前需要使用pip安装这三个包</p>
+<h3>Web.py</h3>
+<p><a href="http://webpy.org" title="web.py">Web.py</a>是python的一个轻量级web框架，我只是简单的使用了一下，有兴趣的人可以去它的<a href="http://webpy.org" title="web.py">官网</a>,它的官方有一个<a href="http://webpy.org/docs/0.3/tutorial.zh-cn" title="web.py tutorial">中文教程</a>说的很详细。</p>
+<p>我这里使用他做一个简单的web服务：</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="nc">Index</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">GET</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&quot;Hello World!&quot;</span>
+<span class="n">urls</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s">&#39;/&#39;</span><span class="p">,</span> <span class="s">&#39;Index&#39;</span>
+<span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">app ...</span></pre></div> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/pelican-blog/posts/misakapygmentsshi-xian-markdownsheng-cheng-htmlye-mian-bing-yu-fa-gao-liang.html">read more...</a></div>
+      <hr />
+      <div class="front-title"><a href="http://blog.turbidsoul.me/pelican-blog/posts/ru-he-pei-zhi-zai-nginxhe-casshang-pei-zhi-ssl.html">如何配置在nginx和cas上配置ssl？</a></div>
+<p>
+<small>
+<abbr class="published" title="2013-05-08T00:00:00">
+  周三 08 五月 2013
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/nginx.html">nginx</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/cas.html">cas</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/ssl.html">ssl</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/java.html">java</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/https.html">https</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/ru-he-pei-zhi-zai-nginxhe-casshang-pei-zhi-ssl.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>公司准备对登录服务采用https，而登录服务采用的是cas，前段的是用nginx代理， 所以就有了之后的几个问题。</p>
+<p><strong>主要碰到了下面3个问题</strong> ：</p>
+<ol>
+<li>nginx中配置ssl</li>
+<li>cas中开启ssl</li>
+<li>java中导入证书</li>
+</ol>
+<hr />
+<p>首先是生成我们的证书，我使用的是openssl：</p>
+<ol>
+<li>首先是生成私钥： openssl genrsa -out server.key</li>
+<li>接下来要生成CSR文件： openssl req -new -key server.key -out server.csr</li>
+<li>最后就是生成证书文件： openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt</li>
+</ol>
+<p>这里有我一个笔记是openssl的简单教程：<a href="https://www.evernote.com/shard/s25/sh/233c0eda-2f70-4756-8907-50dc0bff82c2/92861a2bd473f1d703bcead620080d27">openssl简单教程</a></p>
+<hr />
+<p>生成证书后，就可以配置nginx了，打开nginx.conf，加入以下几行:</p>
+<div class="highlight"><pre><span class="k">listen</span>                 <span class="mi">443 ...</span></pre></div> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/pelican-blog/posts/ru-he-pei-zhi-zai-nginxhe-casshang-pei-zhi-ssl.html">read more...</a></div>
+      <hr />
+      <div class="front-title"><a href="http://blog.turbidsoul.me/pelican-blog/posts/fnshi-xian-wu-xian-ji-suan-deng-bi-ji-shu.html">fn实现无限计算等比级数</a></div>
+<p>
+<small>
+<abbr class="published" title="2013-04-28T00:00:00">
+  周日 28 四月 2013
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/python.html">python</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/arithmetic.html">arithmetic</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/functional.html">functional</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/fnshi-xian-wu-xian-ji-suan-deng-bi-ji-shu.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>今天看InfoQ上的一篇关于 <a href="http://www.infoq.com/cn/articles/fn.py-functional-programming-python">Fn.py</a> 的文章，Fn中的Stream可以实现无限序列，例如文章中的代码：</p>
+<div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="n">Stream</span><span class="p">()</span>
+<span class="n">fib</span> <span class="o">=</span> <span class="n">f</span> <span class="o">&lt;&lt;</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">drop</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">f</span><span class="p">))</span>
+</pre></div>
+
+
+<p>这是实现了一个无限的斐波那契数列，我根据这个实现了一个等比级数，等比级数的公式是f = b^(n-1), b是基数，n=1 f=1, n&gt;=2 f=b^(n-1)。</p>
+<p>我实现的方法使用了生成器：</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">geo_sequence</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">b</span> <span class="o">**</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">n ...</span></pre></div> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/pelican-blog/posts/fnshi-xian-wu-xian-ji-suan-deng-bi-ji-shu.html">read more...</a></div>
+      <hr />
+      <div class="front-title"><a href="http://blog.turbidsoul.me/pelican-blog/posts/pythonshi-xian-pai-lie-he-zu-he.html">Python实现排列和组合</a></div>
+<p>
+<small>
+<abbr class="published" title="2013-03-24T00:00:00">
+  周日 24 三月 2013
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/python.html">python</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/arithmetic.html">arithmetic</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/pythonshi-xian-pai-lie-he-zu-he.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>无事可做用python实现的的排列和组合的算法，顺便也复习以下2.7中yield的用法</p>
+<div class="highlight"><pre><span class="c"># coding: utf8</span>
+
+<span class="k">def</span> <span class="nf">perm</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)):</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">v</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">_items</span> <span class="o">=</span> <span class="n">items</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">items</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:]</span>
+            <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">perm</span><span class="p">(</span><span class="n">_items</span><span class="p">):</span>
+                <span class="k">yield</span> <span class="n">v</span> <span class="o">+</span> <span class="n">p</span>
+
+<span class="k">def</span> <span class="nf">comp ...</span></pre></div> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/pelican-blog/posts/pythonshi-xian-pai-lie-he-zu-he.html">read more...</a></div>
+      <hr />
+
+<span class="paginator">
+    <a href="http://blog.turbidsoul.me/pelican-blog/index2.html">&laquo;</a>
+
+  Page 3 / 5
+    <a href="http://blog.turbidsoul.me/pelican-blog/index4.html">&raquo;</a>
+</span>
+      </section>
+      <footer>
+        <p><small>&copy; Turbidsoul's 小黑屋 &mdash; Theme based on Sundown by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <!-- Scale fix -->
+    <script>
+      var metas = document.getElementsByTagName('meta');
+      var i;
+      
+      if (navigator.userAgent.match(/iPhone/i)) {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+          }
+        }
+      
+        document.addEventListener("gesturestart", gestureStart, false);
+      }
+
+      function gestureStart() {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

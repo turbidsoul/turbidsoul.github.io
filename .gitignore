@@ -8,3 +8,10 @@ _theme_packages/*
 !.gitkeep
 _run.bat
 _build.bat
+
+output/*
+
+*.sublime-project
+*.sublime-workspace
+
+*.pyc

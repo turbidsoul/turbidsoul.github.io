@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Nginx实现文件下载自动打包成zip文件Turbidsoul's 小黑屋</title>
+
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div><img src="http://blog.turbidsoul.me/pelican-blog/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/pelican-blog/">Turbidsoul's 小黑屋 </a></div>
+        <div class="sub-title"></div>
+
+<p>
+  <div class="view"><a href="http://blog.turbidsoul.me/pelican-blog/archives.html">Archives</a></div>
+</p>
+
+<!-- Social links -->
+<div class="social">
+<h4>Follow Me</h4>
+<ul>
+    <li><a href="https://plus.google.com/+TurbidsoulChen">Google+</a></li>
+    <li><a href="https://github.com/turbidsoul">Github</a></li>
+    <li><a href="https://twitter.com/Turbidsoul">Twitter</a></li>
+    <li><a href="https://facebook.com/turbidsoul">Facebook</a></li>
+    <li><a href="http://weibo.com/turbidsoul">微博</a></li>
+    <li><a href="http://instagram.com/turbidsoul">Instagram</a></li>
+</ul>
+</div>
+
+      </header>
+      <section>
+<section id="content" class="body">
+  <article>
+      <div class="article-title">
+        Nginx实现文件下载自动打包成zip文件
+      </div>
+
+    <div class="entry-content">
+<p>
+<small>
+<abbr class="published" title="2014-01-26T00:00:00">
+  周日 26 一月 2014
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/nginx.html">nginx</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/python.html">python</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/nginxshi-xian-wen-jian-xia-zai-zi-dong-da-bao-cheng-zipwen-jian.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <h2>来源和介绍</h2>
+<p>问题的来源是需要对已有的资料在下载的时候进行添加广告，但是对于doc文件操作麻烦的情况，采用在下载的时候将广告文件和资料一起打包成zip文件.</p>
+<p>在apache服务器中有个mod_zip的模块就是完成这个功能，同样nginx有大神已经实现了这个模块，我们只需要拿来用就可以了:<a href="https://github.com/evanmiller/mod_zip">mod_zip</a></p>
+<h2>应用</h2>
+<p>此模块并不是nginx的默认模块所以需要用户自己编译安装。</p>
+<p>安装完成之后，不需要修改任何nginx的任何配置，完成打包都在服务点返回的信息中，下面请看我用python实现的示例：</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">bottle</span> <span class="kn">import</span> <span class="n">run</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">response</span>
+<span class="nd">@route</span><span class="p">(</span><span class="s">&#39;/download&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">download</span><span class="p">():</span>
+    <span class="n">response</span><span class="o">.</span><span class="n">set_header</span><span class="p">(</span><span class="s">&#39;X-Archive-Files&#39;</span><span class="p">,</span> <span class="s">&#39;zip&#39;</span><span class="p">)</span>
+    <span class="n">response</span><span class="o">.</span><span class="n">set_header</span><span class="p">(</span><span class="s">&#39;Content-Type&#39;</span><span class="p">,</span> <span class="s">&#39;application/octet-stream&#39;</span><span class="p">)</span>
+    <span class="n">response</span><span class="o">.</span><span class="n">set_header</span><span class="p">(</span><span class="s">&#39;X-Accel-Chareset&#39;</span><span class="p">,</span> <span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
+    <span class="n">response</span><span class="o">.</span><span class="n">set_header</span><span class="p">(</span><span class="s">&#39;Content-Disposition&#39;</span><span class="p">,</span> <span class="s">r&quot;attachment; filename*=test.zip&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s">&quot;&quot;&quot;618792700 135 /test.lua 4.lua</span>
+<span class="s">3521768339 2865 /ngx_openresty-1.4.2.8/README 5.txt&quot;&quot;&quot;</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s">&#39;192.168.1.196&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">9000</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">reloader</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+
+
+<p>这里需要主意两点：</p>
+<ol>
+<li>response.set_header('X-Archive-Files', 'zip') 这一行就是告诉nginx需要打包成zip文件</li>
+<li>就是return返回的那个多行字符串,这里是告诉nginx都要打包那些文件，一行表示一个文件，这里一共四个字段，按顺序依次是 CRC32校验值， 文件大小，源文件路径，打包之后的文件名。</li>
+</ol>
+<p>对于第二点还需要在说明一下：</p>
+<ul>
+<li>CRC32的校验值并不是必须的，如果没有可以用'-'代替，但不能什么都不写</li>
+<li>原文件的路径是相对nginx设置的路径的绝对路径，即就是nginx的root设置的路径，如果没有设置那就是/*/nginx/html这个路径。</li>
+<li>nginx中设置root的时候需要把放置在location外面，放置里面是无法生效的。</li>
+<li>如果源文件的路径是错误的，那么会产生一个404错误或者下载下来的文件无法解压的损坏文件。</li>
+</ul>
+    </div><!-- /.entry-content -->
+  </article>
+</section>
+      </section>
+      <footer>
+        <p><small>&copy; Turbidsoul's 小黑屋 &mdash; Theme based on Sundown by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <!-- Scale fix -->
+    <script>
+      var metas = document.getElementsByTagName('meta');
+      var i;
+      
+      if (navigator.userAgent.match(/iPhone/i)) {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+          }
+        }
+      
+        document.addEventListener("gesturestart", gestureStart, false);
+      }
+
+      function gestureStart() {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

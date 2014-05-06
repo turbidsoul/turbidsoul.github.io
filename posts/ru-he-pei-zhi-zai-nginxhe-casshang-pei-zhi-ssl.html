@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>如何配置在nginx和cas上配置ssl？Turbidsoul's 小黑屋</title>
+
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div><img src="http://blog.turbidsoul.me/pelican-blog/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/pelican-blog/">Turbidsoul's 小黑屋 </a></div>
+        <div class="sub-title"></div>
+
+<p>
+  <div class="view"><a href="http://blog.turbidsoul.me/pelican-blog/archives.html">Archives</a></div>
+</p>
+
+<!-- Social links -->
+<div class="social">
+<h4>Follow Me</h4>
+<ul>
+    <li><a href="https://plus.google.com/+TurbidsoulChen">Google+</a></li>
+    <li><a href="https://github.com/turbidsoul">Github</a></li>
+    <li><a href="https://twitter.com/Turbidsoul">Twitter</a></li>
+    <li><a href="https://facebook.com/turbidsoul">Facebook</a></li>
+    <li><a href="http://weibo.com/turbidsoul">微博</a></li>
+    <li><a href="http://instagram.com/turbidsoul">Instagram</a></li>
+</ul>
+</div>
+
+      </header>
+      <section>
+<section id="content" class="body">
+  <article>
+      <div class="article-title">
+        如何配置在nginx和cas上配置ssl？
+      </div>
+
+    <div class="entry-content">
+<p>
+<small>
+<abbr class="published" title="2013-05-08T00:00:00">
+  周三 08 五月 2013
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/nginx.html">nginx</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/cas.html">cas</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/ssl.html">ssl</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/java.html">java</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/https.html">https</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/ru-he-pei-zhi-zai-nginxhe-casshang-pei-zhi-ssl.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>公司准备对登录服务采用https，而登录服务采用的是cas，前段的是用nginx代理， 所以就有了之后的几个问题。</p>
+<p><strong>主要碰到了下面3个问题</strong> ：</p>
+<ol>
+<li>nginx中配置ssl</li>
+<li>cas中开启ssl</li>
+<li>java中导入证书</li>
+</ol>
+<hr />
+<p>首先是生成我们的证书，我使用的是openssl：</p>
+<ol>
+<li>首先是生成私钥： openssl genrsa -out server.key</li>
+<li>接下来要生成CSR文件： openssl req -new -key server.key -out server.csr</li>
+<li>最后就是生成证书文件： openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt</li>
+</ol>
+<p>这里有我一个笔记是openssl的简单教程：<a href="https://www.evernote.com/shard/s25/sh/233c0eda-2f70-4756-8907-50dc0bff82c2/92861a2bd473f1d703bcead620080d27">openssl简单教程</a></p>
+<hr />
+<p>生成证书后，就可以配置nginx了，打开nginx.conf，加入以下几行:</p>
+<div class="highlight"><pre><span class="k">listen</span>                 <span class="mi">443</span> <span class="s">ssl</span><span class="p">;</span>
+<span class="k">ssl</span>                    <span class="no">on</span><span class="p">;</span>
+<span class="k">ssl_certificate</span>        <span class="s">login.cert</span><span class="p">;</span>
+<span class="k">ssl_certificate_key</span>    <span class="s">login.key</span><span class="p">;</span>
+</pre></div>
+
+
+<p>加入这几行配置后，重载nginx， nginx上ssl就可以生效了，这时用普通的http访问会无法访问， 必须使用https访问，第一次访问firefox会提示证书不信任。</p>
+<hr />
+<p>接下来是在cas中开启ssl的支持，虽然这一步很简单，但是具体我也不甚了解，因为cas是其他同事负责的， 我只是按照他说的去做，所以我说的文件路径或者文件名和cas的原生项目会有不通。接下来我简单说以下如何配置：</p>
+<p>先找到<code>WEB-INFO/spring-configuration</code>下的配置文件, <code>ticketGrantingTicketCookieGenerator.xml</code> 和 <code>warnCookieGenerator.xml</code></p>
+<p>打开文件 <code>ticketGrantingTicketCookieGenerator.xml</code></p>
+<div class="highlight"><pre><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.springframework.org/schema/beans&quot;</span>
+   <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+   <span class="na">xmlns:p=</span><span class="s">&quot;http://www.springframework.org/schema/p&quot;</span>
+   <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;description&gt;</span>
+        Defines the cookie that stores the TicketGrantingTicket.  You most likely should never modify these (especially the &quot;secure&quot; property).
+        You can change the name if you want to make it harder for people to guess.
+    <span class="nt">&lt;/description&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&quot;ticketGrantingTicketCookieGenerator&quot;</span> <span class="na">class=</span><span class="s">&quot;org.jasig.cas.web.support.CookieRetrievingCookieGenerator&quot;</span>
+        <span class="na">p:cookieSecure=</span><span class="s">&quot;false&quot;</span>
+        <span class="na">p:cookieMaxAge=</span><span class="s">&quot;-1&quot;</span>
+        <span class="na">p:cookieName=</span><span class="s">&quot;CASTGC&quot;</span>
+        <span class="na">p:cookiePath=</span><span class="s">&quot;/cas&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/beans&gt;</span>
+</pre></div>
+
+
+<p>修改<code>p:cookieSecure="false"</code>的值为<code>true</code></p>
+<p>打开<code>warnCookieGenerator.xml</code>:</p>
+<div class="highlight"><pre><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+<span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.springframework.org/schema/beans&quot;</span>
+   <span class="na">xmlns:xsi=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+   <span class="na">xmlns:p=</span><span class="s">&quot;http://www.springframework.org/schema/p&quot;</span>
+   <span class="na">xsi:schemaLocation=</span><span class="s">&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd&quot;</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;description&gt;</span>
+   This Spring Configuration file describes the cookie used to store the WARN parameter so that a user is warned whenever the CAS service
+   is used.  You would modify this if you wanted to change the cookie path or the name.
+   <span class="nt">&lt;/description&gt;</span>
+
+   <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&quot;warnCookieGenerator&quot;</span> <span class="na">class=</span><span class="s">&quot;org.jasig.cas.web.support.CookieRetrievingCookieGenerator&quot;</span>
+      <span class="na">p:cookieSecure=</span><span class="s">&quot;false&quot;</span>
+      <span class="na">p:cookieMaxAge=</span><span class="s">&quot;-1&quot;</span>
+      <span class="na">p:cookieName=</span><span class="s">&quot;CASPRIVACY&quot;</span>
+      <span class="na">p:cookiePath=</span><span class="s">&quot;/cas&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/beans&gt;</span>
+</pre></div>
+
+
+<p>修改<code>p:cookieSecure="false"</code> 的值为<code>true</code>。</p>
+<p>修改这两个之后就可以把cas的包放入tomcat中启动tomcat。</p>
+<p>经过上面两部其实按正常情况下已经可以访问了，但是在登录的时候， 进入cas的登录页面进行登录，登录成功后返回的时候会抛出异常，对于这个异常我不甚理解， 但是我在google上所有得到的结果是这时java的一个bug，不过已经给出了解决方法.</p>
+<p>下载下面的代码： <a href="https://gist.github.com/turbidsoul/5506661">InstallCert.java</a></p>
+<script src="https://gist.github.com/turbidsoul/5506661.js"></script>
+
+<p>编译之后使用使用下面命令执行以下：<code>java InstallCert cas.xxxxx.com</code></p>
+<p>https://login.xxxx.com 是你配置了ssl的服务的那个域名</p>
+<p>执行完后会在当前目录下生成jssecacerts的文件，把文件copy到<code>jdk1.7.0_10\jre\lib\security</code>目录下 重新启动服务即可。或者在java的启动参数中加入<code>-Djavax.net.ssl.trustStore=F:/work/Java/jssecacerts</code>, 重新启动也是可行的，我使用的后面这个方法，前面的那个我没有测试，不过应该不会有问题。</p>
+<p>到这里就算是把ssl配置完成了，其实并没有什么复杂的东西，就是最后java这个问题让我找了很常时间。 最后在java的社区中找到解决办法，可以这个类的源码文件的下载链接还失效了，在google中找了半天才找到个完整的。</p>
+    </div><!-- /.entry-content -->
+  </article>
+</section>
+      </section>
+      <footer>
+        <p><small>&copy; Turbidsoul's 小黑屋 &mdash; Theme based on Sundown by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <!-- Scale fix -->
+    <script>
+      var metas = document.getElementsByTagName('meta');
+      var i;
+      
+      if (navigator.userAgent.match(/iPhone/i)) {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+          }
+        }
+      
+        document.addEventListener("gesturestart", gestureStart, false);
+      }
+
+      function gestureStart() {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

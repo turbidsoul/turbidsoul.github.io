@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Turbidsoul's 小黑屋 - awkTurbidsoul's 小黑屋</title>
+
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div><img src="http://blog.turbidsoul.me/pelican-blog/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/pelican-blog/">Turbidsoul's 小黑屋 </a></div>
+        <div class="sub-title"></div>
+
+<p>
+  <div class="view"><a href="http://blog.turbidsoul.me/pelican-blog/archives.html">Archives</a></div>
+</p>
+
+<!-- Social links -->
+<div class="social">
+<h4>Follow Me</h4>
+<ul>
+    <li><a href="https://plus.google.com/+TurbidsoulChen">Google+</a></li>
+    <li><a href="https://github.com/turbidsoul">Github</a></li>
+    <li><a href="https://twitter.com/Turbidsoul">Twitter</a></li>
+    <li><a href="https://facebook.com/turbidsoul">Facebook</a></li>
+    <li><a href="http://weibo.com/turbidsoul">微博</a></li>
+    <li><a href="http://instagram.com/turbidsoul">Instagram</a></li>
+</ul>
+</div>
+
+      </header>
+      <section>
+      <div class="front-title"><a href="http://blog.turbidsoul.me/pelican-blog/posts/shi-yong-awkzuo-shi-shi-de-tong-ji.html">使用awk做实时的统计</a></div>
+<p>
+<small>
+<abbr class="published" title="2014-04-10T00:00:00">
+  周四 10 四月 2014
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/linux.html">linux</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/awk.html">awk</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/shi-yong-awkzuo-shi-shi-de-tong-ji.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <h2>缘由</h2>
+<p>之前头让搞一个24小时内帖子或者视频的点击量，当时为了省事，就随便写了一个，虽然是实时的，但是却没有满足 <strong>24小时内</strong> 这个条件, 数据会在每天0点清零重新计算，前几天被头发现了，所以就只能从新写一个了。</p>
+<p>思来想去最后还是决定用<code>awk</code>解析日志来完成这个功能，这样最简单。</p>
+<h2>之前的准备</h2>
+<p>AWK是贝尔实验室1977年搞出来的文本出现神器，所以有必要做个简单的介绍，大家请看这三篇文章:<a href="http://coolshell.cn/articles/9070.html" title="AWK 简明教程">AWK 简明教程</a>, <a href="http://www.cnblogs.com/chengmo/archive/2010/10/08/1845913.html" title="linux awk 内置函数详细介绍（实例）">linux awk 内置函数详细介绍（实例）</a>, <a href="http://www.colorfuldays.org/linux/good_awk_tutorial/" title="很好的awk教程 ">awk教程</a></p>
+<p>这三篇文章是前置的知识，有必要简单的看一下，最开始我觉得awk有点麻烦，写了一些之后我发现他和<code>lua</code>一样的简单。</p>
+<h2>代码分析</h2>
+<p>我们的要求是，分别统计出 <em>thread</em>, <em>resource</em>, <em>video</em>, _article_中，没一个的点击量</p>
+<div class="highlight"><pre><span class="nx">BEGIN</span> <span class="p">{</span>
+    <span class="nb">FS</span><span class="o">=</span><span class="s2">&quot;,;&quot;</span> <span class="c1"># 我的日志中的分隔符是 `,;` 所以这里要给`FS` 指定一下，因为默认值是`Tab` 或者 `Space ...</span></pre></div> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/pelican-blog/posts/shi-yong-awkzuo-shi-shi-de-tong-ji.html">read more...</a></div>
+      <hr />
+
+      </section>
+      <footer>
+        <p><small>&copy; Turbidsoul's 小黑屋 &mdash; Theme based on Sundown by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <!-- Scale fix -->
+    <script>
+      var metas = document.getElementsByTagName('meta');
+      var i;
+      
+      if (navigator.userAgent.match(/iPhone/i)) {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+          }
+        }
+      
+        document.addEventListener("gesturestart", gestureStart, false);
+      }
+
+      function gestureStart() {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

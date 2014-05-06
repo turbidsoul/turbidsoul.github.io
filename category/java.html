@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Turbidsoul's 小黑屋 - JavaTurbidsoul's 小黑屋</title>
+
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div><img src="http://blog.turbidsoul.me/pelican-blog/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/pelican-blog/">Turbidsoul's 小黑屋 </a></div>
+        <div class="sub-title"></div>
+
+<p>
+  <div class="view"><a href="http://blog.turbidsoul.me/pelican-blog/archives.html">Archives</a></div>
+</p>
+
+<!-- Social links -->
+<div class="social">
+<h4>Follow Me</h4>
+<ul>
+    <li><a href="https://plus.google.com/+TurbidsoulChen">Google+</a></li>
+    <li><a href="https://github.com/turbidsoul">Github</a></li>
+    <li><a href="https://twitter.com/Turbidsoul">Twitter</a></li>
+    <li><a href="https://facebook.com/turbidsoul">Facebook</a></li>
+    <li><a href="http://weibo.com/turbidsoul">微博</a></li>
+    <li><a href="http://instagram.com/turbidsoul">Instagram</a></li>
+</ul>
+</div>
+
+      </header>
+      <section>
+      <div class="front-title"><a href="http://blog.turbidsoul.me/pelican-blog/posts/ge-csscuo-wu-yin-qi-de-maven-stackoverflowerror.html">一个css错误引起的maven StackOverflowError</a></div>
+<p>
+<small>
+<abbr class="published" title="2013-06-18T00:00:00">
+  周二 18 六月 2013
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/java.html">java</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/maven.html">maven</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/css.html">css</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/ge-csscuo-wu-yin-qi-de-maven-stackoverflowerror.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>这个问题是我的一个失误造成的，这是上一片文章的后续，我在使用正则做文本替换的时候没有注意到，这个正则在主干上是正常的，但是在分支上执行的时候使一行css少了一个引号，这个问题在浏览器中是暴露不出来的，之后在maven打包的时候对文件做压缩的时候才会出现，下面我们来看看是什么样的问题。</p>
+<p>我们项目使用的是 <a href="https://github.com/davidB/yuicompressor-maven-plugin" title="yuicompressor-maven-plugin">yuicompressor-maven-plugin</a> 做js和css的压缩，在压缩的过程中出现了下面的错误：</p>
+<div class="highlight"><pre><span class="o">---------------------------------------------------</span>
+<span class="n">constituent</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">:</span> <span class="n">file</span><span class="o">:/</span><span class="n">E</span><span class="o">:/</span><span class="n">opensource</span><span class="o">/</span><span class="n">apache</span><span class="o">/</span><span class="n">maven</span><span class="o">-</span><span class="mf">2.2.1</span><span class="p">.</span><span class="n">RELEASE</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">aether</span><span class="o">-</span><span class="n">api</span><span class="o">-</span><span class="mf">1.13.1</span><span class="p">.</span><span class="n">jar</span>
+<span class="n">constituent</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">:</span> <span class="n">file</span><span class="o">:/</span><span class="n">E</span><span class="o">:/</span><span class="n">opensource</span><span class="o">/</span><span class="n">apache</span><span class="o">/</span><span class="n">maven</span><span class="o">-</span><span class="mf">2.2.1</span><span class="p">.</span><span class="n">RELEASE</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">aether</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">wagon</span><span class="o">-</span><span class="mf">1.13.1</span><span class="p">.</span><span class="n">jar</span>
+<span class="n">constituent ...</span></pre></div> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/pelican-blog/posts/ge-csscuo-wu-yin-qi-de-maven-stackoverflowerror.html">read more...</a></div>
+      <hr />
+      <div class="front-title"><a href="http://blog.turbidsoul.me/pelican-blog/posts/jdk8xin-te-xing-calendarbuilder.html">JDK8新特性 Calendar.Builder</a></div>
+<p>
+<small>
+<abbr class="published" title="2013-05-29T00:00:00">
+  周三 29 五月 2013
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/java.html">java</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/jdk8.html">jdk8</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/jdk8xin-te-xing-calendarbuilder.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>5月23号，Oracle 发布了 jdk8 <strong>M7</strong> 版，这是一个<a href="http://openjdk.java.net/projects/jdk8/milestones#Feature_Complete">Feature Complete</a>，就是说它已经把所有特性和功能都加入。在翻看 <strong>M7</strong> 的文档时发现了 <a href="http://download.java.net/jdk8/docs/api/java/util/Locale.Builder.html" title="Locale.Builder"><em>Locale.Builder</em></a> ，在jdk7的时候加入过一个类似的：<a href="http://download.java.net/jdk8/docs/api/java/util/Locale.Builder.html" title="Locale.Builder"><em>Locale.Builder</em></a>, 下面我们来看看 <a href="http://download.java.net/jdk8/docs/api/java/util/Calendar.Builder.html" title="Calendar.Builder"><em>Calendar.Builder</em></a>。</p>
+<h4>允许单语句设置</h4>
+<p>允许使用 <a href="http://download.java.net/jdk8/docs/api/java/util/Calendar.Builder.html#set(int,%20int)" title="set(int, int)"><code>set(int, int)</code></a> 方法，为指定的Field设置值，如下：</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">java.util.Calendar</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.text.SimpleDateFormat</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">static</span> <span class="n">java</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">Calendar</span><span class="o">.*;</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">String</span> <span class="nf">testSingleStatement</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">Calendar</span> <span class="n">cal</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Calendar ...</span></pre></div> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/pelican-blog/posts/jdk8xin-te-xing-calendarbuilder.html">read more...</a></div>
+      <hr />
+      <div class="front-title"><a href="http://blog.turbidsoul.me/pelican-blog/posts/opensslhe-java-aessuan-fa-de-de-wen-ti.html">OpenSSL和Java AES算法的的问题</a></div>
+<p>
+<small>
+<abbr class="published" title="2013-03-13T00:00:00">
+  周三 13 三月 2013
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/openssl.html">openssl</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/java.html">java</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/aes.html">aes</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/arithmetic.html">arithmetic</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/opensslhe-java-aessuan-fa-de-de-wen-ti.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>开篇第一句话我想说， <strong>OpenSSL不支持与Java的对接</strong> ，这是多么蛋疼的一句话，不过确实是这样，原因是在c中的填充方式和Java中的填充方式不一样，Java不支持c中的/0的填充方式。</p>
+<p>具体信息请查看：<a href="http://blog.csdn.net/rocketball/article/details/6575677">OpenSSL和JAVA AES算法的问题总结</a></p>
+<p>至于我为什么会写这篇文章呢，是我们的项目中有部分在网络传输的内容需要加密，所以就选用了AES的，服务端使用的是<a href="http://openresty.org/">openresty</a> 这是淘宝的一个大牛写的，他里面集成了LuaJit， 加密的部分使用的是resty.aes，而resty使用的是OpenSSL的C代码实现的加密解密。为了和OpenSSL实现对接，我就蛋疼的去简单的链接了下OpenSSL，在上面的文章中才指导OpenSSL并不支持Java，查了无数人的文章，很多人都对这个问题很苦恼，最后在 stackoverflow 里找到了一个大牛给出了一个解码的实现 <a href="http://stackoverflow.com/questions/11783062/how-to-decrypt-an-encrypted-file-in-java-with-openssl-with-aes">stackoverflow </a>我根据这位大牛的代码简单的修改了一下，就做成了我需要的代码：</p>
+<script src="https://gist.github.com/turbidsoul/5227012.js"></script>
+
+<p>最后我想吐槽一下lua5.1居然不支持位运算，要5.2才支持，好吧，openresty集成的就是5.1所以我在实现lua的16位编码解码果然蛋疼了一下。</p> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/pelican-blog/posts/opensslhe-java-aessuan-fa-de-de-wen-ti.html">read more...</a></div>
+      <hr />
+      <div class="front-title"><a href="http://blog.turbidsoul.me/pelican-blog/posts/ftpde-portmo-shi-pasvmo-shi-fxpxie-yi-he-zai-javazhong-shi-yong-shi-de-xie-wen-ti.html">FTP的PORT模式，PASV模式， FXP协议和在java中使用时的一些问题</a></div>
+<p>
+<small>
+<abbr class="published" title="2012-12-29T00:00:00">
+  周六 29 十二月 2012
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/ftp.html">ftp</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/port.html">port</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/pasv.html">pasv</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/fxp.html">fxp</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/java.html">java</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/ftpde-portmo-shi-pasvmo-shi-fxpxie-yi-he-zai-javazhong-shi-yong-shi-de-xie-wen-ti.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>这是最近一礼拜遇到的一个很头疼的问题，由于我们的系统需要需要用到ftp的fxp进行两个ftp服务器之间进行数据传输。 但是就是在这上出现了让我很郁闷的问题，连着几天，一个坑接一个坑，连续解决了5，6个问题，到今天下午才算是把所有问题解决。</p>
+<p>在讲述我遇到的问题之前我们先了解下几个概念：</p>
+<p>首先是PORT模式和PASV模式，也就是FTP的主动模式和被动模式：</p>
+<ul>
+<li>
+<p>主动模式的FTP连接建立要遵循以下步骤：</p>
+<ol>
+<li>客户端打开一个随机的端口（端口号大于1024，在这里，我们称它为x），同时一个FTP进程连接至服务器的21号命令端口。此时，源端口为随机端口x，在客户端，远程端口为21，在服务器。</li>
+<li>客户端开始监听端口（x+1），同时向服务器发送一个端口命令（通过服务器的21号命令端口），此命令告诉服务器客户端正在监听的端口号并且已准备好从此端口接收数据。这个端口就是我们所知的数据端口。</li>
+<li>服务器打开20号源端口并且建立和客户端数据端口的连接。此时，源端口为20，远程数据端口为（x+1）。</li>
+<li>客户端通过本地的数据端口建立一个和服务器20号端口的连接，然后向服务器发送一个应答，告诉服务器它已经建立好了一个连接。</li>
+</ol>
+</li>
+<li>
+<p>被动模式FTP: 为了解决服务器发起到客户的连接的问题，人们开发了一种不同的FTP连接方式。这就是所谓的被动方式，或者叫做PASV，当客户端通知服务器它处于被动模式时才启用。 在被动方式FTP中，命令连接和数据连接都由客户端发起，这样就可以解决从服务器到客户端的数据端口的入方向连接被防火墙过滤掉的问题。 当开启一个 FTP连接时，客户端打开两个任意的非特权本地端口 ...</p></li></ul> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/pelican-blog/posts/ftpde-portmo-shi-pasvmo-shi-fxpxie-yi-he-zai-javazhong-shi-yong-shi-de-xie-wen-ti.html">read more...</a></div>
+      <hr />
+      <div class="front-title"><a href="http://blog.turbidsoul.me/pelican-blog/posts/jrebelxiao-ji.html">JRebel小记</a></div>
+<p>
+<small>
+<abbr class="published" title="2012-12-15T00:00:00">
+  周六 15 十二月 2012
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/java.html">java</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/jrebel.html">jrebel</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/jrebelxiao-ji.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <blockquote>
+<p>首先我先承认我标题党了，其实完全算不上简述，只是我这两天使用JRebel的一点心得吧。 当然我用的是盗版啦，谁让我有一个高富帅的心却是一个吊丝的命呢。 至于如何破解什么的请自己到网上搜索。</p>
+</blockquote>
+<p>进入正题，我使用的是 eclipse 4.2+RunJettyRun(jetty当然是8喽)+JRebel5.1 ，不过我用的破解的JRebel是5.0的， 直接覆盖，完全没问题。</p>
+<p>首先说一下如何在通过RunJettyRun使用JRebel,其实很简单，只需要在启动的配置的 Arguments &gt; VM Arguments 中加入 “${jrebel_args}”就可以了， 这样在启动的时候就能看到JRebel启动：</p>
+<div class="highlight"><pre><span class="k">[2012-12-15 22:32:17]</span>
+<span class="err">[2012-12-15</span> <span class="err">22:32:17]</span> <span class="c1">#############################################################</span>
+<span class="k">[2012-12-15 22:32:17]</span>
+<span class="err">[2012-12-15</span> <span class="err">22:32:17]</span>  <span class="err">JRebel</span> <span class="err">5.0.0</span> <span class="err">(201206080930 ...</span></pre></div> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/pelican-blog/posts/jrebelxiao-ji.html">read more...</a></div>
+      <hr />
+      <div class="front-title"><a href="http://blog.turbidsoul.me/pelican-blog/posts/springpei-zhi-wen-jian-jia-zai-de-yi-wen-he-annotationjia-zai-de-wen-ti.html">Spring配置文件加载的疑问和annotation加载的问题</a></div>
+<p>
+<small>
+<abbr class="published" title="2012-02-24T00:00:00">
+  周五 24 二月 2012
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/java.html">java</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/sprint.html">sprint</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/annotation.html">annotation</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/springpei-zhi-wen-jian-jia-zai-de-yi-wen-he-annotationjia-zai-de-wen-ti.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>前几天在做一个异步的模块，简单点说就是上传文件后，后台异步解析，前台定时请求解析的日志，并显示，算是一个实时的给用户看到解析的情况和日志，很简单的一个工作，但是我却遇到了一个让我郁闷了2天的问题。</p>
+<p>问题的起因是在我做完所有工作后发现异步没有执行，也就是说文件的解析方法是同步运行的，也就是说先解析文件，解析完毕后在返回页面，页面才能请求到解析的日志，但是这会已经解析完了文件，没有达打到之前的需求。</p>
+<p>这 里先简单的说下Spring异步的用法，Spring异步的用法很简单，在需要异步的方法加上annotation  <code>@Async</code> 声明自方法是异步调用的，同时还要在方法所在类上加上annotation <code>@Service</code>或<code>@Component</code> 在Spring在加载的时候可以扫描到这个类，然后需要在配置文件中加入<code>&lt;task:annotation-driven /&gt;</code>，这样就可以在Spring启动的时候，将异步处理器加入全局中，并在调用到有@Async的时候，异步调用。</p>
+<p>上面简单说了下如何配置Spring异步，现在我说下我的问题，问题很简单就是配置类Spring 异步，并且确定配置正确，但是异步配置没有起效！问什么呢？我百思不得其解，没有办法，那就debug跟踪Spring的源代码。</p>
+<p>在 debug的了几次之后，见到那的了解了Spring配置文件加载的方式，很简单，先加载<code>application-context ...</code></p> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/pelican-blog/posts/springpei-zhi-wen-jian-jia-zai-de-yi-wen-he-annotationjia-zai-de-wen-ti.html">read more...</a></div>
+      <hr />
+      <div class="front-title"><a href="http://blog.turbidsoul.me/pelican-blog/posts/java8de-bi-bao-lambdayu-ju-xiao-tan.html">java8的闭包Lambda语句小探</a></div>
+<p>
+<small>
+<abbr class="published" title="2012-02-14T00:00:00">
+  周二 14 二月 2012
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/java.html">java</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/lambda.html">lambda</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/closure.html">closure</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/code.html">code</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/java8de-bi-bao-lambdayu-ju-xiao-tan.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>这是我上个礼拜相对较闲的时候自己做的简单测试，应为那天正好在oschina上看到jdk1.8发布了开发者预览版，正好左右没事，就去下了一个，实验了一下java 的闭包。</p>
+<p>java 闭包，也就是Lambda表达式，和python中的lambda是一样的，语法也挺相似：</p>
+<div class="highlight"><pre><span class="n">String</span> <span class="n">result</span> <span class="o">=</span> <span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="s">&quot;Hello, &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">&quot;!&quot;</span><span class="o">;</span>
+</pre></div>
+
+
+<p>下面我们来看个具体的例子：</p>
+<p>首先定义一个接口:</p>
+<div class="highlight"><pre><span class="kd">interface</span> <span class="nc">Lamb</span> <span class="o">{</span>
+    <span class="n">String</span> <span class="nf">str</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>之后我们就能在main方法中写下面的代码，编译并运行：</p>
+<div class="highlight"><pre><span class="n">Lamb</span> <span class="n">str</span> <span class="o">=</span> <span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="s">&quot;Hello, &quot;</span> <span class="o">+</span> <span class="n">name</span><span class="o">;</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str</span><span class="o">.</span><span class="na">str</span><span class="o">(</span><span class="s">&quot;aaa&quot;</span><span class="o">));</span>
+</pre></div>
+
+
+<p>运行结果：
+<code>Hello, aaa</code>
+上面是最简单的hello world！</p>
+<p>在看一个多参数的例子:</p>
+<div class="highlight"><pre><span class="kd">interface</span> <span class="nc">MathLamb</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="nf">add ...</span></pre></div> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/pelican-blog/posts/java8de-bi-bao-lambdayu-ju-xiao-tan.html">read more...</a></div>
+      <hr />
+      <div class="front-title"><a href="http://blog.turbidsoul.me/pelican-blog/posts/itextzhong-wen-chu-li-wen-ti.html">IText中文处理问题！！！</a></div>
+<p>
+<small>
+<abbr class="published" title="2012-02-01T00:00:00">
+  周三 01 二月 2012
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/itext.html">itext</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/java.html">java</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/code.html">code</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/itextzhong-wen-chu-li-wen-ti.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <blockquote>
+<p>这篇文章是很早之前写的，是我在去第一个公司的时候遇到的问题</p>
+</blockquote>
+<p>这里说的IText中文处理问题，是指两种生成PDF文档是对中文处理的问题：</p>
+<ol>
+<li>是直接通过从数据库查询或者自己拼接中文字符串生成PDF文档。</li>
+<li>第二种是将一个HTML文档转换成PDF文档时的中文处理。</li>
+</ol>
+<p>首先说第一种：
+    这种很简单，我们只需为加上这样一句：</p>
+<div class="highlight"><pre><span class="n">BaseFont</span> <span class="n">bf</span> <span class="o">=</span> <span class="n">BaseFont</span><span class="o">.</span><span class="na">createFont</span><span class="o">(</span><span class="s">&quot;STSong-Light&quot;</span><span class="o">,</span><span class="s">&quot;UniGB-UCS2-H&quot;</span><span class="o">,</span><span class="n">BaseFont</span><span class="o">.</span><span class="na">NOT_EMBEDDED</span><span class="o">);</span>
+</pre></div>
+
+
+<p>在之后的给Document添加节点是为Paragraph设置字体时设置成BF就可以，如下：</p>
+<div class="highlight"><pre><span class="n">document</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Paragraph</span><span class="o">(</span><span class="s">&quot;混沌之神&quot;</span><span class="o">,</span> <span class="k">new</span> <span class="n">Font</span><span class="o">(</span><span class="n">bf</span><span class="o">)));</span>
+</pre></div>
+
+
+<p>源码：</p>
+<div class="highlight"><pre><span class="cm">/**</span>
+<span class="cm"> * 生成PDF文件解决中文的例子</span>
+<span class="cm"> *</span>
+<span class="cm"> * @throws DocumentException</span>
+<span class="cm"> * @author &lt;b&gt;Innate Solitary&lt;/b&gt;&lt;br /&gt;</span>
+<span class="cm"> *         创建时间：&lt;b&gt;2008-6-4 下午09:47:37&lt;/b&gt;&lt;br /&gt;</span>
+<span class="cm"> * @throws IOException</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void ...</span></pre></div> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/pelican-blog/posts/itextzhong-wen-chu-li-wen-ti.html">read more...</a></div>
+      <hr />
+      <div class="front-title"><a href="http://blog.turbidsoul.me/pelican-blog/posts/shu-morphiacha-xun-you-hua-he-ca-pi-gu.html">树，morphia，查询，优化和擦屁股！</a></div>
+<p>
+<small>
+<abbr class="published" title="2012-01-13T00:00:00">
+  周五 13 一月 2012
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/java.html">java</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/morphia.html">morphia</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/mongo.html">mongo</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/code.html">code</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/shu-morphiacha-xun-you-hua-he-ca-pi-gu.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>前天和昨天一直都在忙后台CMS树的优化和一些bug的修改，不过主要精力放在了树的优化上。</p>
+<p>后台数据较多的树有两个，都是和视频相 关的，我们的树用的是dwz的树，但是这是一个同步树，也就是说，这个树是一次性取出数据，通过freemarker构建成html代码，然后在由dwz 渲染成树，在数据量小的时候还不觉得有什么，但是数据量一大就会发现，后台服务端数据查询还不用什么，但是dwz渲染那是一个慢啊，后来我一个同事找了个 jquery的一个异步树，然后由我来对树进行更换。</p>
+<p>在换掉dwz的树之后发现，虽然加载数据的速度提升很大，但是在某些数据量略大的节点上依然会有查询很慢的问题，长一点的有要到7－8秒的时间。这样长的时间主要是因为3个方面：</p>
+<ol>
+<li>第一个就是dwz的树是同步树，在接收完数据之后，才进行树的渲染，在数据量略微大的话，渲染的效率就很低，而且我们的树是5级的，五层循环下来，基本上要循环过百万次，在firefox和chrome下测试发现，虽然chrome的js渲染速度快，但是效果并不明显</li>
+<li>第二个就是mongodb的问题，但是问题不在与mongodb上，而在于我们的查询上，几个树加载慢的表都冗余了大量的数据，这些数据在树的显示上都没有用，一个树需要的只有一个id和name两个字段，所以在查询上带出了太多的无用数据。</li>
+<li>第三个就是在网络传输上，这个问题其实和第二个是一样的，从mongodb带出了太多的无用数据，而且是一次性全部数据都查寻来，这样就会造成数据越多查询越慢，网络的传输上压力就越大，到最后就是服务器崩掉 ...</li></ol> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/pelican-blog/posts/shu-morphiacha-xun-you-hua-he-ca-pi-gu.html">read more...</a></div>
+      <hr />
+      <div class="front-title"><a href="http://blog.turbidsoul.me/pelican-blog/posts/guan-yu-morphiazai-cun-chu-rong-yu-lei-de-shi-hou-chu-xian-de-ge-wen-ti.html">关于Morphia在存储冗余类的时候出现的一个问题？</a></div>
+<p>
+<small>
+<abbr class="published" title="2012-01-05T00:00:00">
+  周四 05 一月 2012
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/java.html">java</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/morphia.html">morphia</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/code.html">code</a>, 
+    <a href="http://blog.turbidsoul.me/pelican-blog/tag/mongo.html">mongo</a>, 
+ -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/guan-yu-morphiazai-cun-chu-rong-yu-lei-de-shi-hou-chu-xian-de-ge-wen-ti.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>昨天中午临吃午饭前，我对系统的业务功能代码进行重构之后，准备测试一下，通过就去吃饭，但是发生了一个让我很意外的问题，就是在存储的时候，系统 报出来，类型转换异常（<code>java.lang.ClassCaseException</code>）或者是这么一个错误信息（<code>object is not an instance of declaring class</code>），很纠结因为之前这里测试都好好的，而且给内容组，视频组和测试组部署的测试环境，还在正常运行，一时想不通那里出了问题。</p>
+<p>在 经过几次debug跟踪之后发现，每次报错都是在，存储FreeCourse和FreeVideo两个类是发生的问题，我仔细回忆 了，从上次重部署测试环境到出问题之间修改的代码，中间都没有什么问题，只有一个地方和其他人写的代码略有不一样，就是：其他人在写list类型的属性 时，默认是给空值的，但是我会给他们new一个size为0的ArrayList，这是我的一个喜欢，是为了避免出现一些因为疏忽而发生的问题，但是如果 只是这样不应该会有问题。</p>
+<p>我 又仔细的看了一边相关业务代码和实体类的代码，所有代码中都没有问题，但是有一点和其他人的不同，就是我的FreeVideo下有个字段 videoInfos他的类型是 ...</p> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/pelican-blog/posts/guan-yu-morphiazai-cun-chu-rong-yu-lei-de-shi-hou-chu-xian-de-ge-wen-ti.html">read more...</a></div>
+      <hr />
+
+      </section>
+      <footer>
+        <p><small>&copy; Turbidsoul's 小黑屋 &mdash; Theme based on Sundown by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <!-- Scale fix -->
+    <script>
+      var metas = document.getElementsByTagName('meta');
+      var i;
+      
+      if (navigator.userAgent.match(/iPhone/i)) {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+          }
+        }
+      
+        document.addEventListener("gesturestart", gestureStart, false);
+      }
+
+      function gestureStart() {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
