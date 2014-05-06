@@ -15,3 +15,5 @@ output/*
 *.sublime-workspace
 
 *.pyc
+
+*.pid
