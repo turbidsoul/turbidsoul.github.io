@@ -1,49 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Turbidsoul's 小黑屋</title><link href="http://blog.turbidsoul.me/pelican-blog/" rel="alternate"></link><link href="http://blog.turbidsoul.me/pelican-blog/feeds/all.atom.xml" rel="self"></link><id>http://blog.turbidsoul.me/pelican-blog/</id><updated>2014-04-30T00:00:00+08:00</updated><entry><title>Hello World!</title><link href="http://blog.turbidsoul.me/pelican-blog/posts/hello-world.html" rel="alternate"></link><updated>2014-04-30T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me/pelican-blog,2014-04-30:posts/hello-world.html</id><summary type="html">&lt;h2&gt;Hello World&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;hello world!&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;em&gt;斜体&lt;/em&gt;  &lt;strong&gt;粗体&lt;/strong&gt;  ~删除~&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;111&lt;/li&gt;
-&lt;li&gt;222&lt;/li&gt;
-&lt;li&gt;333&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
-    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Hello world!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="n"&gt;foo&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Turbidsoul's 小黑屋</title><link href="http://blog.turbidsoul.me/pelican-blog/" rel="alternate"></link><link href="http://blog.turbidsoul.me/pelican-blog/feeds/all.atom.xml" rel="self"></link><id>http://blog.turbidsoul.me/pelican-blog/</id><updated>2014-04-30T00:00:00+08:00</updated><entry><title>从Jekyll迁移blog到pelican</title><link href="http://blog.turbidsoul.me/pelican-blog/posts/cong-jekyllqian-yi-blogdao-pelican.html" rel="alternate"></link><updated>2014-04-30T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me/pelican-blog,2014-04-30:posts/cong-jekyllqian-yi-blogdao-pelican.html</id><summary type="html">&lt;p&gt;这次是一次小的迁移，其实也就是把blog生成器从&lt;code&gt;jekyll&lt;/code&gt;切换到了&lt;code&gt;pelican&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;至于为什么呢，主要是工作忙，从jekyll升级到2.0之后，在本地就不能测试运行，而且还有各种编码问题，一直没有时间去收拾。
+另外一个原因就是我现在主要使用的是&lt;code&gt;python&lt;/code&gt;做开发，所以使用pelican更加的顺手一些。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;从jekyll到pelican并没有什么特别的地方，主要有两点需要改动的：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;是所有的post文件的头需要变化，如下：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;---&lt;/span&gt;
+&lt;span class="nl"&gt;layout:&lt;/span&gt; &lt;span class="n"&gt;news_item&lt;/span&gt;
+&lt;span class="nl"&gt;title:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Jekyll 1.0.0 Released&amp;quot;&lt;/span&gt;
+&lt;span class="nl"&gt;date:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;2013-05-06 02:12:52 +0200&amp;quot;&lt;/span&gt;
+&lt;span class="nl"&gt;author:&lt;/span&gt; &lt;span class="n"&gt;parkr&lt;/span&gt;
+&lt;span class="nl"&gt;version:&lt;/span&gt; &lt;span class="mf"&gt;1.0.0&lt;/span&gt;
+&lt;span class="nl"&gt;categories:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;release&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="o"&gt;---&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;alert&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="nx"&gt;alert&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Hello World!&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nl"&gt;title:&lt;/span&gt; &lt;span class="err"&gt;关于读书&lt;/span&gt;
+&lt;span class="nl"&gt;category:&lt;/span&gt; &lt;span class="err"&gt;闲聊&lt;/span&gt;
+&lt;span class="nl"&gt;tags:&lt;/span&gt; &lt;span class="err"&gt;闲聊&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;math&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;code&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;programer&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;developer&lt;/span&gt;
+&lt;span class="nl"&gt;Author:&lt;/span&gt; &lt;span class="n"&gt;Turbidsoul&lt;/span&gt;
+&lt;span class="nl"&gt;Date:&lt;/span&gt; &lt;span class="mi"&gt;2013&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mo"&gt;07&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;29&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h3&gt;Table:&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;name&lt;/th&gt;
-&lt;th&gt;age&lt;/th&gt;
-&lt;th&gt;description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Turbidsoul&lt;/td&gt;
-&lt;td&gt;30&lt;/td&gt;
-&lt;td&gt;Code Monkey&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Merge&lt;/td&gt;
-&lt;td&gt;22&lt;/td&gt;
-&lt;td&gt;PLMM&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;</summary><category term="pelican"></category><category term="publishing"></category></entry><entry><title>ffmpeg,rtmpdump和nginx rtmp实现录屏，直播和录制</title><link href="http://blog.turbidsoul.me/pelican-blog/posts/ffmpegrtmpdumphe-nginx-rtmpshi-xian-lu-ping-zhi-bo-he-lu-zhi.html" rel="alternate"></link><updated>2014-04-19T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me/pelican-blog,2014-04-19:posts/ffmpegrtmpdumphe-nginx-rtmpshi-xian-lu-ping-zhi-bo-he-lu-zhi.html</id><summary type="html">&lt;p&gt;公司最近在做视频直播的项目，我这里分配到对直播的视频进行录制，录制的方式是通过rtmpdump对rtmp的视频流进行录制&lt;/p&gt;
+&lt;p&gt;上面的是jekyll，下面的是pelican&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;是注意文件的生成路径，pelican默认是把文件生成到output中，我这里dev环境下是在output中，但是publish下确实直接在根目录下，这样目录看着有点乱，但是我喜欢这样子&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这次这个还只能算是半成品，因为评论还没有想好用那个，不过我可能考虑用国内的评论系统，还在考虑中。。。。。&lt;/p&gt;</summary><category term="pelican"></category><category term="jekyll"></category></entry><entry><title>ffmpeg,rtmpdump和nginx rtmp实现录屏，直播和录制</title><link href="http://blog.turbidsoul.me/pelican-blog/posts/ffmpegrtmpdumphe-nginx-rtmpshi-xian-lu-ping-zhi-bo-he-lu-zhi.html" rel="alternate"></link><updated>2014-04-19T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me/pelican-blog,2014-04-19:posts/ffmpegrtmpdumphe-nginx-rtmpshi-xian-lu-ping-zhi-bo-he-lu-zhi.html</id><summary type="html">&lt;p&gt;公司最近在做视频直播的项目，我这里分配到对直播的视频进行录制，录制的方式是通过rtmpdump对rtmp的视频流进行录制&lt;/p&gt;
 &lt;h2&gt;前置的知识&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;ffmpeg: &lt;a href="http://ffmpeg.org/ffmpeg.html"&gt;http://ffmpeg.org/ffmpeg.html&lt;/a&gt;&lt;/li&gt;
