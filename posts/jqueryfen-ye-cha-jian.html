@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Jquery分页插件Turbidsoul's 小黑屋</title>
 
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/main.css">
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/pygment_trac.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,12 +15,12 @@
   <body>
     <div class="wrapper">
       <header>
-        <div><img src="http://blog.turbidsoul.me/pelican-blog/images/avatar.jpg" class="grv-img"/></div>
-        <div class="title"><a href="http://blog.turbidsoul.me/pelican-blog/">Turbidsoul's 小黑屋 </a></div>
+        <div><img src="http://blog.turbidsoul.me/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/">Turbidsoul's 小黑屋 </a></div>
         <div class="sub-title"></div>
 
 <p>
-  <div class="view"><a href="http://blog.turbidsoul.me/pelican-blog/archives.html">Archives</a></div>
+  <div class="view"><a href="http://blog.turbidsoul.me/archives.html">Archives</a></div>
 </p>
 
 <!-- Social links -->
@@ -51,10 +51,10 @@
   周三 07 十二月 2011
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/pelican-blog/tag/jquery.html">jquery</a>, 
-    <a href="http://blog.turbidsoul.me/pelican-blog/tag/javascript.html">javascript</a>, 
-    <a href="http://blog.turbidsoul.me/pelican-blog/tag/code.html">code</a>, 
- -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/jqueryfen-ye-cha-jian.html" rel="bookmark">permalink</a>)
+    <a href="http://blog.turbidsoul.me/tag/jquery.html">jquery</a>, 
+    <a href="http://blog.turbidsoul.me/tag/javascript.html">javascript</a>, 
+    <a href="http://blog.turbidsoul.me/tag/code.html">code</a>, 
+ -- (<a href="http://blog.turbidsoul.me/posts/jqueryfen-ye-cha-jian.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>我们头不让我们使用外面的页面特效脚本，因为页面加载的时候使用太多的不相关页面会影响页面加载的速度。so，只能自己动手去写一个分页插件。</p>
 <p>今天没有在公司，没有截到效果图，不过没有关系，我可以说一下我的实现思路，我会在后面把效果图补上。</p>
@@ -147,6 +147,7 @@
                      <span class="c1">// 会造成最后一个按钮无法显示出來，所以在前面的条件是加入这个按钮                     continue;</span>
         <span class="p">}</span>
 
+
         <span class="k">if</span> <span class="p">(</span><span class="nx">cur_page</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="o">&amp;&amp;</span> <span class="nx">cur_page</span> <span class="o">==</span> <span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">$num_page_bar</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;&lt;span class=&#39;num_page current&#39;&gt;&quot;</span> <span class="o">+</span> <span class="nx">cur_page</span> <span class="o">+</span> <span class="s2">&quot;&lt;/span&gt;&quot;</span><span class="p">);</span>
         <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">cur_page</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&gt;=</span> <span class="mi">5</span> <span class="o">&amp;&amp;</span> <span class="nx">i</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
@@ -219,6 +220,7 @@
             <span class="p">},</span> <span class="nx">num_page_click</span><span class="p">);</span>
             <span class="nx">$num_page_bar</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
         <span class="p">}</span>
+
 
         <span class="nx">k</span><span class="o">++</span><span class="p">;</span>
     <span class="p">}</span>

@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>python 2.7 的参数解析模块 argparseTurbidsoul's 小黑屋</title>
 
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/main.css">
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/pygment_trac.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,12 +15,12 @@
   <body>
     <div class="wrapper">
       <header>
-        <div><img src="http://blog.turbidsoul.me/pelican-blog/images/avatar.jpg" class="grv-img"/></div>
-        <div class="title"><a href="http://blog.turbidsoul.me/pelican-blog/">Turbidsoul's 小黑屋 </a></div>
+        <div><img src="http://blog.turbidsoul.me/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/">Turbidsoul's 小黑屋 </a></div>
         <div class="sub-title"></div>
 
 <p>
-  <div class="view"><a href="http://blog.turbidsoul.me/pelican-blog/archives.html">Archives</a></div>
+  <div class="view"><a href="http://blog.turbidsoul.me/archives.html">Archives</a></div>
 </p>
 
 <!-- Social links -->
@@ -51,11 +51,11 @@
   周五 27 九月 2013
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/pelican-blog/tag/python.html">python</a>, 
-    <a href="http://blog.turbidsoul.me/pelican-blog/tag/code.html">code</a>, 
-    <a href="http://blog.turbidsoul.me/pelican-blog/tag/argparse.html">argparse</a>, 
-    <a href="http://blog.turbidsoul.me/pelican-blog/tag/python27.html">python27</a>, 
- -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/python-27-de-can-shu-jie-xi-mo-kuai-argparse.html" rel="bookmark">permalink</a>)
+    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
+    <a href="http://blog.turbidsoul.me/tag/code.html">code</a>, 
+    <a href="http://blog.turbidsoul.me/tag/argparse.html">argparse</a>, 
+    <a href="http://blog.turbidsoul.me/tag/python27.html">python27</a>, 
+ -- (<a href="http://blog.turbidsoul.me/posts/python-27-de-can-shu-jie-xi-mo-kuai-argparse.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>今天下午没事，就优化了一下以前写的一些工作上用的小工具，当然大多数都是python写的命令行下的小工具，之前命令行参数都是自己解析，虽然不是什么复杂的事情，但是自己临时写出来的东西毕竟不如人家写出来的好，正好前短时间看到python2.7把 <strong>argparse</strong> 加入到了标准模块中，所以这次对这些工具的代码重构就是使用了 <strong>argparse</strong> 替代自己写的那个简陋名两行解析工具。</p>
 <h2>入门</h2>
@@ -353,6 +353,7 @@
 <span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="s">&quot;--p1 1 --source source.txt --target target.txt&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
 <span class="gp">...</span>
 <span class="go">Namespace(p1=1, source=&lt;open file &#39;source.txt&#39;, mode &#39;r&#39; at 0x0496E6A8&gt;, target=&lt;open file &#39;target.txt&#39;, mode &#39;w&#39; at 0x0496E548&gt;)</span>
+
 
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">upper</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">s</span><span class="o">.</span><span class="n">isupper</span><span class="p">():</span>

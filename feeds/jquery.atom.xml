@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Turbidsoul's 小黑屋</title><link href="http://blog.turbidsoul.me/pelican-blog/" rel="alternate"></link><link href="http://blog.turbidsoul.me/pelican-blog/feeds/jquery.atom.xml" rel="self"></link><id>http://blog.turbidsoul.me/pelican-blog/</id><updated>2011-12-07T00:00:00+08:00</updated><entry><title>Jquery分页插件</title><link href="http://blog.turbidsoul.me/pelican-blog/posts/jqueryfen-ye-cha-jian.html" rel="alternate"></link><updated>2011-12-07T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me/pelican-blog,2011-12-07:posts/jqueryfen-ye-cha-jian.html</id><summary type="html">&lt;p&gt;我们头不让我们使用外面的页面特效脚本，因为页面加载的时候使用太多的不相关页面会影响页面加载的速度。so，只能自己动手去写一个分页插件。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Turbidsoul's 小黑屋</title><link href="http://blog.turbidsoul.me/" rel="alternate"></link><link href="http://blog.turbidsoul.me/feeds/jquery.atom.xml" rel="self"></link><id>http://blog.turbidsoul.me/</id><updated>2011-12-07T00:00:00+08:00</updated><entry><title>Jquery分页插件</title><link href="http://blog.turbidsoul.me/posts/jqueryfen-ye-cha-jian.html" rel="alternate"></link><updated>2011-12-07T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me,2011-12-07:posts/jqueryfen-ye-cha-jian.html</id><summary type="html">&lt;p&gt;我们头不让我们使用外面的页面特效脚本，因为页面加载的时候使用太多的不相关页面会影响页面加载的速度。so，只能自己动手去写一个分页插件。&lt;/p&gt;
 &lt;p&gt;今天没有在公司，没有截到效果图，不过没有关系，我可以说一下我的实现思路，我会在后面把效果图补上。&lt;/p&gt;
 &lt;p&gt;这个插件有两个主要方法refresh_data和refresh_num_bar，这两个方法是用来刷新，首页，末页，上一页，下一页，以及在这些中间的数字按钮的样式变化。&lt;/p&gt;
 &lt;p&gt;首先是refresh_data：&lt;/p&gt;
@@ -90,6 +90,7 @@
                      &lt;span class="c1"&gt;// 会造成最后一个按钮无法显示出來，所以在前面的条件是加入这个按钮                     continue;&lt;/span&gt;
         &lt;span class="p"&gt;}&lt;/span&gt;
 
+
         &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;cur_page&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nx"&gt;cur_page&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
             &lt;span class="nx"&gt;$num_page_bar&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;lt;span class=&amp;#39;num_page current&amp;#39;&amp;gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;cur_page&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;lt;/span&amp;gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
         &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;cur_page&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
@@ -163,13 +164,14 @@
             &lt;span class="nx"&gt;$num_page_bar&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
         &lt;span class="p"&gt;}&lt;/span&gt;
 
+
         &lt;span class="nx"&gt;k&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
     &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="p"&gt;};&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;其实这是我现在第一次做web前端开发，并真正的接触jquery和javascript所以问题还很多，这个插件应该还有很多可以优化和修改的地方，但是以我现在的水平只能做到这样了！&lt;/p&gt;</summary><category term="jquery"></category><category term="javascript"></category><category term="code"></category></entry><entry><title>开发jquery插件</title><link href="http://blog.turbidsoul.me/pelican-blog/posts/develop-jquery-plugin.html" rel="alternate"></link><updated>2011-12-01T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me/pelican-blog,2011-12-01:posts/develop-jquery-plugin.html</id><summary type="html">&lt;p&gt;公司网站首页广告位需要一个鼠标悬浮切换的特效，但是公司不让使用jquery已经实现过的特效，而公司的这方面的高手又没有时间做，所以只能自己去实现一个这样的特效插件。&lt;/p&gt;
+&lt;p&gt;其实这是我现在第一次做web前端开发，并真正的接触jquery和javascript所以问题还很多，这个插件应该还有很多可以优化和修改的地方，但是以我现在的水平只能做到这样了！&lt;/p&gt;</summary><category term="jquery"></category><category term="javascript"></category><category term="code"></category></entry><entry><title>开发jquery插件</title><link href="http://blog.turbidsoul.me/posts/develop-jquery-plugin.html" rel="alternate"></link><updated>2011-12-01T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me,2011-12-01:posts/develop-jquery-plugin.html</id><summary type="html">&lt;p&gt;公司网站首页广告位需要一个鼠标悬浮切换的特效，但是公司不让使用jquery已经实现过的特效，而公司的这方面的高手又没有时间做，所以只能自己去实现一个这样的特效插件。&lt;/p&gt;
 &lt;p&gt;下面是先说下JQuery 插件大概的结构:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;// 这里这个匿名函数，是为了避免冲突&lt;/span&gt;
 &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;

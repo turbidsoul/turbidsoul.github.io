@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>python实现ldap和rtx之间的组织和用户数据同步Turbidsoul's 小黑屋</title>
 
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/main.css">
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/pygment_trac.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,12 +15,12 @@
   <body>
     <div class="wrapper">
       <header>
-        <div><img src="http://blog.turbidsoul.me/pelican-blog/images/avatar.jpg" class="grv-img"/></div>
-        <div class="title"><a href="http://blog.turbidsoul.me/pelican-blog/">Turbidsoul's 小黑屋 </a></div>
+        <div><img src="http://blog.turbidsoul.me/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/">Turbidsoul's 小黑屋 </a></div>
         <div class="sub-title"></div>
 
 <p>
-  <div class="view"><a href="http://blog.turbidsoul.me/pelican-blog/archives.html">Archives</a></div>
+  <div class="view"><a href="http://blog.turbidsoul.me/archives.html">Archives</a></div>
 </p>
 
 <!-- Social links -->
@@ -51,11 +51,11 @@
   周一 15 七月 2013
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/pelican-blog/tag/python.html">python</a>, 
-    <a href="http://blog.turbidsoul.me/pelican-blog/tag/ldap.html">ldap</a>, 
-    <a href="http://blog.turbidsoul.me/pelican-blog/tag/rtx.html">rtx</a>, 
-    <a href="http://blog.turbidsoul.me/pelican-blog/tag/win32com.html">win32com</a>, 
- -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/pythonshi-xian-ldaphe-rtxzhi-jian-de-zu-zhi-he-yong-hu-shu-ju-tong-bu.html" rel="bookmark">permalink</a>)
+    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
+    <a href="http://blog.turbidsoul.me/tag/ldap.html">ldap</a>, 
+    <a href="http://blog.turbidsoul.me/tag/rtx.html">rtx</a>, 
+    <a href="http://blog.turbidsoul.me/tag/win32com.html">win32com</a>, 
+ -- (<a href="http://blog.turbidsoul.me/posts/pythonshi-xian-ldaphe-rtxzhi-jian-de-zu-zhi-he-yong-hu-shu-ju-tong-bu.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>最近公司正在准备使用 <strong>AD</strong> ( <strong><a href="https://zh.wikipedia.org/wiki/Active_Directory" title="Active Directory">Activate Directory</a></strong> )服务来进行公司员工的帐号管理，这样就避免不了需要对AD的帐号和<a href="http://rtx.tencent.com/rtx/index.shtml" title="RTX">RTX</a>的帐号和组织关系进行同步，所以才有了这篇文章。</p>
 <h4>Python-Ldap</h4>
@@ -118,6 +118,7 @@
 
 <span class="k">print</span><span class="p">(</span><span class="n">rootobj</span><span class="o">.</span><span class="n">QueryUserState</span><span class="p">(</span><span class="s">&#39;lp&#39;</span><span class="p">))</span>
 <span class="k">print</span><span class="p">(</span><span class="n">rootobj</span><span class="o">.</span><span class="n">QueryUsersByState</span><span class="p">(</span><span class="s">&#39;online&#39;</span><span class="p">))</span>
+
 
 <span class="n">um</span> <span class="o">=</span> <span class="n">rootobj</span><span class="o">.</span><span class="n">UserManager</span>
 <span class="k">print</span><span class="p">(</span><span class="n">um</span><span class="o">.</span><span class="n">GetUserBasicInfo</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
@@ -190,6 +191,7 @@
 
         <span class="k">return</span> <span class="nf">createAuthenticationInfo</span><span class="o">(</span><span class="n">token</span><span class="o">,</span> <span class="n">username</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span> <span class="n">ctx</span><span class="o">);</span>
     <span class="o">}</span>
+
 
     <span class="nd">@Override</span>
     <span class="kd">protected</span> <span class="n">AuthenticationInfo</span> <span class="nf">doGetAuthenticationInfo</span><span class="o">(</span><span class="n">AuthenticationToken</span> <span class="n">token</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">AuthenticationException</span> <span class="o">{</span>

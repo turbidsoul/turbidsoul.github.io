@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>一个css错误引起的maven StackOverflowErrorTurbidsoul's 小黑屋</title>
 
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/main.css">
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/pygment_trac.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,12 +15,12 @@
   <body>
     <div class="wrapper">
       <header>
-        <div><img src="http://blog.turbidsoul.me/pelican-blog/images/avatar.jpg" class="grv-img"/></div>
-        <div class="title"><a href="http://blog.turbidsoul.me/pelican-blog/">Turbidsoul's 小黑屋 </a></div>
+        <div><img src="http://blog.turbidsoul.me/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/">Turbidsoul's 小黑屋 </a></div>
         <div class="sub-title"></div>
 
 <p>
-  <div class="view"><a href="http://blog.turbidsoul.me/pelican-blog/archives.html">Archives</a></div>
+  <div class="view"><a href="http://blog.turbidsoul.me/archives.html">Archives</a></div>
 </p>
 
 <!-- Social links -->
@@ -51,10 +51,10 @@
   周二 18 六月 2013
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/pelican-blog/tag/java.html">java</a>, 
-    <a href="http://blog.turbidsoul.me/pelican-blog/tag/maven.html">maven</a>, 
-    <a href="http://blog.turbidsoul.me/pelican-blog/tag/css.html">css</a>, 
- -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/ge-csscuo-wu-yin-qi-de-maven-stackoverflowerror.html" rel="bookmark">permalink</a>)
+    <a href="http://blog.turbidsoul.me/tag/java.html">java</a>, 
+    <a href="http://blog.turbidsoul.me/tag/maven.html">maven</a>, 
+    <a href="http://blog.turbidsoul.me/tag/css.html">css</a>, 
+ -- (<a href="http://blog.turbidsoul.me/posts/ge-csscuo-wu-yin-qi-de-maven-stackoverflowerror.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>这个问题是我的一个失误造成的，这是上一片文章的后续，我在使用正则做文本替换的时候没有注意到，这个正则在主干上是正常的，但是在分支上执行的时候使一行css少了一个引号，这个问题在浏览器中是暴露不出来的，之后在maven打包的时候对文件做压缩的时候才会出现，下面我们来看看是什么样的问题。</p>
 <p>我们项目使用的是 <a href="https://github.com/davidB/yuicompressor-maven-plugin" title="yuicompressor-maven-plugin">yuicompressor-maven-plugin</a> 做js和css的压缩，在压缩的过程中出现了下面的错误：</p>

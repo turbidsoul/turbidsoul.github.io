@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Turbidsoul's 小黑屋 - python27Turbidsoul's 小黑屋</title>
 
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/main.css">
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/pygment_trac.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,12 +15,12 @@
   <body>
     <div class="wrapper">
       <header>
-        <div><img src="http://blog.turbidsoul.me/pelican-blog/images/avatar.jpg" class="grv-img"/></div>
-        <div class="title"><a href="http://blog.turbidsoul.me/pelican-blog/">Turbidsoul's 小黑屋 </a></div>
+        <div><img src="http://blog.turbidsoul.me/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/">Turbidsoul's 小黑屋 </a></div>
         <div class="sub-title"></div>
 
 <p>
-  <div class="view"><a href="http://blog.turbidsoul.me/pelican-blog/archives.html">Archives</a></div>
+  <div class="view"><a href="http://blog.turbidsoul.me/archives.html">Archives</a></div>
 </p>
 
 <!-- Social links -->
@@ -38,18 +38,18 @@
 
       </header>
       <section>
-      <div class="front-title"><a href="http://blog.turbidsoul.me/pelican-blog/posts/python-27-de-can-shu-jie-xi-mo-kuai-argparse.html">python 2.7 的参数解析模块 argparse</a></div>
+      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/python-27-de-can-shu-jie-xi-mo-kuai-argparse.html">python 2.7 的参数解析模块 argparse</a></div>
 <p>
 <small>
 <abbr class="published" title="2013-09-27T00:00:00">
   周五 27 九月 2013
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/pelican-blog/tag/python.html">python</a>, 
-    <a href="http://blog.turbidsoul.me/pelican-blog/tag/code.html">code</a>, 
-    <a href="http://blog.turbidsoul.me/pelican-blog/tag/argparse.html">argparse</a>, 
-    <a href="http://blog.turbidsoul.me/pelican-blog/tag/python27.html">python27</a>, 
- -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/python-27-de-can-shu-jie-xi-mo-kuai-argparse.html" rel="bookmark">permalink</a>)
+    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
+    <a href="http://blog.turbidsoul.me/tag/code.html">code</a>, 
+    <a href="http://blog.turbidsoul.me/tag/argparse.html">argparse</a>, 
+    <a href="http://blog.turbidsoul.me/tag/python27.html">python27</a>, 
+ -- (<a href="http://blog.turbidsoul.me/posts/python-27-de-can-shu-jie-xi-mo-kuai-argparse.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>今天下午没事，就优化了一下以前写的一些工作上用的小工具，当然大多数都是python写的命令行下的小工具，之前命令行参数都是自己解析，虽然不是什么复杂的事情，但是自己临时写出来的东西毕竟不如人家写出来的好，正好前短时间看到python2.7把 <strong>argparse</strong> 加入到了标准模块中，所以这次对这些工具的代码重构就是使用了 <strong>argparse</strong> 替代自己写的那个简陋名两行解析工具。</p>
 <h2>入门</h2>
@@ -58,7 +58,7 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">&#39;test argparse&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;-s&#39;</span><span class="p">,</span> <span class="s">&#39;--start&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&#39;start number&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;-e&#39;</span><span class="p">,</span> <span class="s">&#39;--end&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&#39;end ...</span></pre></div> 
-      <div class="read-more"><a href="http://blog.turbidsoul.me/pelican-blog/posts/python-27-de-can-shu-jie-xi-mo-kuai-argparse.html">read more...</a></div>
+      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/python-27-de-can-shu-jie-xi-mo-kuai-argparse.html">read more...</a></div>
       <hr />
 
       </section>

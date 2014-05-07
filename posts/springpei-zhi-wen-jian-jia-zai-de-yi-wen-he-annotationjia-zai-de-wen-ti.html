@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Spring配置文件加载的疑问和annotation加载的问题Turbidsoul's 小黑屋</title>
 
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/main.css">
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/pygment_trac.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,12 +15,12 @@
   <body>
     <div class="wrapper">
       <header>
-        <div><img src="http://blog.turbidsoul.me/pelican-blog/images/avatar.jpg" class="grv-img"/></div>
-        <div class="title"><a href="http://blog.turbidsoul.me/pelican-blog/">Turbidsoul's 小黑屋 </a></div>
+        <div><img src="http://blog.turbidsoul.me/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/">Turbidsoul's 小黑屋 </a></div>
         <div class="sub-title"></div>
 
 <p>
-  <div class="view"><a href="http://blog.turbidsoul.me/pelican-blog/archives.html">Archives</a></div>
+  <div class="view"><a href="http://blog.turbidsoul.me/archives.html">Archives</a></div>
 </p>
 
 <!-- Social links -->
@@ -51,10 +51,10 @@
   周五 24 二月 2012
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/pelican-blog/tag/java.html">java</a>, 
-    <a href="http://blog.turbidsoul.me/pelican-blog/tag/sprint.html">sprint</a>, 
-    <a href="http://blog.turbidsoul.me/pelican-blog/tag/annotation.html">annotation</a>, 
- -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/springpei-zhi-wen-jian-jia-zai-de-yi-wen-he-annotationjia-zai-de-wen-ti.html" rel="bookmark">permalink</a>)
+    <a href="http://blog.turbidsoul.me/tag/java.html">java</a>, 
+    <a href="http://blog.turbidsoul.me/tag/sprint.html">sprint</a>, 
+    <a href="http://blog.turbidsoul.me/tag/annotation.html">annotation</a>, 
+ -- (<a href="http://blog.turbidsoul.me/posts/springpei-zhi-wen-jian-jia-zai-de-yi-wen-he-annotationjia-zai-de-wen-ti.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>前几天在做一个异步的模块，简单点说就是上传文件后，后台异步解析，前台定时请求解析的日志，并显示，算是一个实时的给用户看到解析的情况和日志，很简单的一个工作，但是我却遇到了一个让我郁闷了2天的问题。</p>
 <p>问题的起因是在我做完所有工作后发现异步没有执行，也就是说文件的解析方法是同步运行的，也就是说先解析文件，解析完毕后在返回页面，页面才能请求到解析的日志，但是这会已经解析完了文件，没有达打到之前的需求。</p>

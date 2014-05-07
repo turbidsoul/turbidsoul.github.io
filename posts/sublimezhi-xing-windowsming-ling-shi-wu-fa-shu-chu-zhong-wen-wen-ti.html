@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>sublime执行windows命令时无法输出中文问题Turbidsoul's 小黑屋</title>
 
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/main.css">
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/pygment_trac.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,12 +15,12 @@
   <body>
     <div class="wrapper">
       <header>
-        <div><img src="http://blog.turbidsoul.me/pelican-blog/images/avatar.jpg" class="grv-img"/></div>
-        <div class="title"><a href="http://blog.turbidsoul.me/pelican-blog/">Turbidsoul's 小黑屋 </a></div>
+        <div><img src="http://blog.turbidsoul.me/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/">Turbidsoul's 小黑屋 </a></div>
         <div class="sub-title"></div>
 
 <p>
-  <div class="view"><a href="http://blog.turbidsoul.me/pelican-blog/archives.html">Archives</a></div>
+  <div class="view"><a href="http://blog.turbidsoul.me/archives.html">Archives</a></div>
 </p>
 
 <!-- Social links -->
@@ -51,9 +51,9 @@
   周五 31 五月 2013
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/pelican-blog/tag/sublime.html">sublime</a>, 
-    <a href="http://blog.turbidsoul.me/pelican-blog/tag/python.html">python</a>, 
- -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/sublimezhi-xing-windowsming-ling-shi-wu-fa-shu-chu-zhong-wen-wen-ti.html" rel="bookmark">permalink</a>)
+    <a href="http://blog.turbidsoul.me/tag/sublime.html">sublime</a>, 
+    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
+ -- (<a href="http://blog.turbidsoul.me/posts/sublimezhi-xing-windowsming-ling-shi-wu-fa-shu-chu-zhong-wen-wen-ti.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>这是一个很简单的问题，我最近在研究jdk8，使用sublime自定义的编译方式运行，是编译运行的结果显示到sublime控制台上，但是这里如果运行的话会提示 <em>Decode error</em> 虽然没有太大的影响但是看着总是很难受，而且有时候也不太方便，所以就自己找出问题解决掉。</p>
 <p>解决的方式很简单，按 <strong>ctrl+shift+f</strong> 进入高级搜索，在 <strong>find</strong> 中填入 <em>Decode error</em> 在 <strong>where</strong> 中填入sublime的插件目录和要所搜的文件类型，如下：<code>D:\SublimeText\Data\Packages,*.py</code> 因为我们能确定到要搜索的东西在python的代码文件中，所以这里直接搜索 *<em>.py</em> 文件即可，等上几秒中就能看到搜索结果，结果如下：</p>

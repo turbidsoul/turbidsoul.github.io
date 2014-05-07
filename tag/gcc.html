@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Turbidsoul's 小黑屋 - gccTurbidsoul's 小黑屋</title>
 
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/main.css">
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/pelican-blog/theme/css/pygment_trac.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,12 +15,12 @@
   <body>
     <div class="wrapper">
       <header>
-        <div><img src="http://blog.turbidsoul.me/pelican-blog/images/avatar.jpg" class="grv-img"/></div>
-        <div class="title"><a href="http://blog.turbidsoul.me/pelican-blog/">Turbidsoul's 小黑屋 </a></div>
+        <div><img src="http://blog.turbidsoul.me/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/">Turbidsoul's 小黑屋 </a></div>
         <div class="sub-title"></div>
 
 <p>
-  <div class="view"><a href="http://blog.turbidsoul.me/pelican-blog/archives.html">Archives</a></div>
+  <div class="view"><a href="http://blog.turbidsoul.me/archives.html">Archives</a></div>
 </p>
 
 <!-- Social links -->
@@ -38,18 +38,18 @@
 
       </header>
       <section>
-      <div class="front-title"><a href="http://blog.turbidsoul.me/pelican-blog/posts/python-332-mingw-gcc-471-an-zhuang-misakamo-kuai-shi-bian-yi-bao-cuo.html">python 3.3.2 mingw gcc 4.7.1 安装misaka模块时编译报错</a></div>
+      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/python-332-mingw-gcc-471-an-zhuang-misakamo-kuai-shi-bian-yi-bao-cuo.html">python 3.3.2 mingw gcc 4.7.1 安装misaka模块时编译报错</a></div>
 <p>
 <small>
 <abbr class="published" title="2013-08-16T00:00:00">
   周五 16 八月 2013
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/pelican-blog/tag/python.html">python</a>, 
-    <a href="http://blog.turbidsoul.me/pelican-blog/tag/python33.html">python33</a>, 
-    <a href="http://blog.turbidsoul.me/pelican-blog/tag/mingw.html">mingw</a>, 
-    <a href="http://blog.turbidsoul.me/pelican-blog/tag/gcc.html">gcc</a>, 
- -- (<a href="http://blog.turbidsoul.me/pelican-blog/posts/python-332-mingw-gcc-471-an-zhuang-misakamo-kuai-shi-bian-yi-bao-cuo.html" rel="bookmark">permalink</a>)
+    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
+    <a href="http://blog.turbidsoul.me/tag/python33.html">python33</a>, 
+    <a href="http://blog.turbidsoul.me/tag/mingw.html">mingw</a>, 
+    <a href="http://blog.turbidsoul.me/tag/gcc.html">gcc</a>, 
+ -- (<a href="http://blog.turbidsoul.me/posts/python-332-mingw-gcc-471-an-zhuang-misakamo-kuai-shi-bian-yi-bao-cuo.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>今天安装在 <strong>python3.3.2</strong> 下安装 <strong>misaka</strong>  编译的时候报出了一个编译错误 <em>gcc: error: unrecognized command line option '-mno-cygwin'</em></p>
 <p>解决的办法很简单，在 <strong>gcc 4.7</strong> 不支持 <strong>-mno-cygwin</strong> 选项，所以我们只需要把这个选项在编译的时候去掉就行了。</p>
@@ -57,7 +57,7 @@
 <div class="highlight"><pre><span class="bp">self</span><span class="o">.</span><span class="n">set_executables</span><span class="p">(</span><span class="n">compiler</span><span class="o">=</span><span class="s">&#39;gcc -mno-cygwin -O -Wall&#39;</span><span class="p">,</span>
                      <span class="n">compiler_so</span><span class="o">=</span><span class="s">&#39;gcc -mno-cygwin -mdll -O -Wall&#39;</span><span class="p">,</span>
                      <span class="n">compiler_cxx</span><span class="o">=</span><span class="s">&#39;g++ -mno-cygwin -O -Wall ...</span></pre></div> 
-      <div class="read-more"><a href="http://blog.turbidsoul.me/pelican-blog/posts/python-332-mingw-gcc-471-an-zhuang-misakamo-kuai-shi-bian-yi-bao-cuo.html">read more...</a></div>
+      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/python-332-mingw-gcc-471-an-zhuang-misakamo-kuai-shi-bian-yi-bao-cuo.html">read more...</a></div>
       <hr />
 
       </section>
