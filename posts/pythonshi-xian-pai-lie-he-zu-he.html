@@ -47,8 +47,8 @@
     <div class="entry-content">
 <p>
 <small>
-<abbr class="published" title="2013-03-24T00:00:00">
-  周日 24 三月 2013
+<abbr class="published" title="2013-03-24">
+  2013年 三月 24日 周日
 </abbr> | 
   tags: 
     <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
@@ -57,7 +57,6 @@
 </small>
 </p>      <p>无事可做用python实现的的排列和组合的算法，顺便也复习以下2.7中yield的用法</p>
 <div class="highlight"><pre><span class="c"># coding: utf8</span>
-
 
 <span class="k">def</span> <span class="nf">perm</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">n</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
@@ -70,7 +69,6 @@
             <span class="n">_items</span> <span class="o">=</span> <span class="n">items</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">items</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:]</span>
             <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">perm</span><span class="p">(</span><span class="n">_items</span><span class="p">):</span>
                 <span class="k">yield</span> <span class="n">v</span> <span class="o">+</span> <span class="n">p</span>
-
 
 <span class="k">def</span> <span class="nf">comp</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">n</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>

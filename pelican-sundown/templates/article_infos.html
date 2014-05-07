@@ -1,6 +1,6 @@
 <p>
 <small>
-<abbr class="published" title="{{ article.date.isoformat() }}">
+<abbr class="published" title="{{ article.date.strftime('%Y-%m-%d') }}">
   {{ article.locale_date }}
 </abbr> | 
 {% include 'taglist.html' %} -- (<a href="{{ SITEURL }}/{{ article.url

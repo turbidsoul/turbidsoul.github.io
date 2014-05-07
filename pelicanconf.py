@@ -14,6 +14,7 @@ PAGE_DIR='pages/'
 OUTPUT_PATH=''
 
 TIMEZONE = 'Asia/Chongqing'
+DEFAULT_DATE_FORMAT='%Y年 %B %d日 %a'
 
 DEFAULT_LANG = u'cn'
 

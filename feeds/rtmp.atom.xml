@@ -2,6 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Turbidsoul's 小黑屋</title><link href="http://blog.turbidsoul.me/" rel="alternate"></link><link href="http://blog.turbidsoul.me/feeds/rtmp.atom.xml" rel="self"></link><id>http://blog.turbidsoul.me/</id><updated>2014-04-19T00:00:00+08:00</updated><entry><title>ffmpeg,rtmpdump和nginx rtmp实现录屏，直播和录制</title><link href="http://blog.turbidsoul.me/posts/ffmpegrtmpdumphe-nginx-rtmpshi-xian-lu-ping-zhi-bo-he-lu-zhi.html" rel="alternate"></link><updated>2014-04-19T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me,2014-04-19:posts/ffmpegrtmpdumphe-nginx-rtmpshi-xian-lu-ping-zhi-bo-he-lu-zhi.html</id><summary type="html">&lt;p&gt;公司最近在做视频直播的项目，我这里分配到对直播的视频进行录制，录制的方式是通过rtmpdump对rtmp的视频流进行录制&lt;/p&gt;
 &lt;h2&gt;前置的知识&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;ffmpeg: &lt;a href="http://ffmpeg.org/ffmpeg.html"&gt;http://ffmpeg.org/ffmpeg.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;rtmpdump:&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="ffmpeg"></category><category term="rtmp"></category><category term="rtmpdump"></category><category term="nginx"></category></entry></feed>
+&lt;li&gt;&lt;a href="http://ffmpeg.org/ffmpeg.html"&gt;ffmpeg&lt;/a&gt;: 用于实现把录屏工具发出的视频和音频流，转换成我们需要的格式，然后发送到rtmp中转服务器上。&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://rtmpdump.mplayerhq.hu/"&gt;rtmpdump&lt;/a&gt;: 用于实现视频的录制，从rtmp的中转服务器接受到视频流，并把视频流保存成flv文件&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/arut/nginx-rtmp-module"&gt;nginx-rtmp-module&lt;/a&gt;:  用户rtmp中转服务，虽然他可以做很多功能，但是我这里只是使用了这一个&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/rdp/screen-capture-recorder-to-video-windows-free"&gt;screen capture&lt;/a&gt;: windows下的开源屏幕录制工具&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;首先，我们安装ffmpeg, rtmpdump和nginx-rtmp-module:&lt;/p&gt;
+&lt;p&gt;这里我使用的&lt;a href="http://ffmpeg.zeranoe.com/builds/"&gt;ffmpeg&lt;/a&gt;和&lt;a href="http://rtmpdump.mplayerhq.hu/download/rtmpdump-2.4-git-010913-windows.zip"&gt;rtmpdump&lt;/a&gt;都是windows版的，虽然和linux下的有所区别，但是在这里并没有使用到这些区别。&lt;/p&gt;
+&lt;p&gt;nginx是在windows下的虚拟机中的linux下编译的，因为windows编译这玩意是在太麻烦了，我是在不想编译第二次。&lt;/p&gt;</summary><category term="ffmpeg"></category><category term="rtmp"></category><category term="rtmpdump"></category><category term="nginx"></category></entry></feed>

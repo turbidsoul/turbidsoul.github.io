@@ -47,8 +47,8 @@
     <div class="entry-content">
 <p>
 <small>
-<abbr class="published" title="2013-05-14T00:00:00">
-  周二 14 五月 2013
+<abbr class="published" title="2013-05-14">
+  2013年 五月 14日 周二
 </abbr> | 
   tags: 
     <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
@@ -120,7 +120,6 @@
 
 <span class="c"># Create a custom renderer</span>
 
-
 <span class="k">class</span> <span class="nc">BleepRenderer</span><span class="p">(</span><span class="n">HtmlRenderer</span><span class="p">,</span> <span class="n">SmartyPants</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="nf">block_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">lang</span><span class="p">):</span>
@@ -189,7 +188,6 @@
 <span class="kn">from</span> <span class="nn">pygments.lexers</span> <span class="kn">import</span> <span class="n">get_lexer_by_name</span>
 <span class="kn">from</span> <span class="nn">pygments.formatters</span> <span class="kn">import</span> <span class="n">HtmlFormatter</span>
 
-
 <span class="k">class</span> <span class="nc">SyntaxHighlightRenderer</span><span class="p">(</span><span class="n">HtmlRenderer</span><span class="p">,</span> <span class="n">SmartyPants</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="nf">block_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">lang</span><span class="p">):</span>
@@ -199,7 +197,6 @@
         <span class="n">formatter</span> <span class="o">=</span> <span class="n">HtmlFormatter</span><span class="p">(</span>
             <span class="n">linenos</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s">&quot;vim&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s">&quot;</span><span class="si">%s</span><span class="s"> code&quot;</span> <span class="o">%</span> <span class="n">lang</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">highlight</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">lexer</span><span class="p">,</span> <span class="n">formatter</span><span class="p">)</span>
-
 
 <span class="k">class</span> <span class="nc">Index</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="n">html_tempalte</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>

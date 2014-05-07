@@ -41,8 +41,8 @@
       <div class="front-title"><a href="http://blog.turbidsoul.me/posts/ffmpegrtmpdumphe-nginx-rtmpshi-xian-lu-ping-zhi-bo-he-lu-zhi.html">ffmpeg,rtmpdump和nginx rtmp实现录屏，直播和录制</a></div>
 <p>
 <small>
-<abbr class="published" title="2014-04-19T00:00:00">
-  周六 19 四月 2014
+<abbr class="published" title="2014-04-19">
+  2014年 四月 19日 周六
 </abbr> | 
   tags: 
     <a href="http://blog.turbidsoul.me/tag/ffmpeg.html">ffmpeg</a>, 
@@ -54,16 +54,21 @@
 </p>      <p>公司最近在做视频直播的项目，我这里分配到对直播的视频进行录制，录制的方式是通过rtmpdump对rtmp的视频流进行录制</p>
 <h2>前置的知识</h2>
 <ul>
-<li>ffmpeg: <a href="http://ffmpeg.org/ffmpeg.html">http://ffmpeg.org/ffmpeg.html</a></li>
-<li>rtmpdump:</li>
-</ul> 
+<li><a href="http://ffmpeg.org/ffmpeg.html">ffmpeg</a>: 用于实现把录屏工具发出的视频和音频流，转换成我们需要的格式，然后发送到rtmp中转服务器上。</li>
+<li><a href="http://rtmpdump.mplayerhq.hu/">rtmpdump</a>: 用于实现视频的录制，从rtmp的中转服务器接受到视频流，并把视频流保存成flv文件</li>
+<li><a href="https://github.com/arut/nginx-rtmp-module">nginx-rtmp-module</a>:  用户rtmp中转服务，虽然他可以做很多功能，但是我这里只是使用了这一个</li>
+<li><a href="https://github.com/rdp/screen-capture-recorder-to-video-windows-free">screen capture</a>: windows下的开源屏幕录制工具</li>
+</ul>
+<p>首先，我们安装ffmpeg, rtmpdump和nginx-rtmp-module:</p>
+<p>这里我使用的<a href="http://ffmpeg.zeranoe.com/builds/">ffmpeg</a>和<a href="http://rtmpdump.mplayerhq.hu/download/rtmpdump-2.4-git-010913-windows.zip">rtmpdump</a>都是windows版的，虽然和linux下的有所区别，但是在这里并没有使用到这些区别。</p>
+<p>nginx是在windows下的虚拟机中的linux下编译的，因为windows编译这玩意是在太麻烦了，我是在不想编译第二次。</p> 
       <div class="read-more"><a href="http://blog.turbidsoul.me/posts/ffmpegrtmpdumphe-nginx-rtmpshi-xian-lu-ping-zhi-bo-he-lu-zhi.html">read more...</a></div>
       <hr />
       <div class="front-title"><a href="http://blog.turbidsoul.me/posts/nginxshi-xian-wen-jian-xia-zai-zi-dong-da-bao-cheng-zipwen-jian.html">Nginx实现文件下载自动打包成zip文件</a></div>
 <p>
 <small>
-<abbr class="published" title="2014-01-26T00:00:00">
-  周日 26 一月 2014
+<abbr class="published" title="2014-01-26">
+  2014年 一月 26日 周日
 </abbr> | 
   tags: 
     <a href="http://blog.turbidsoul.me/tag/nginx.html">nginx</a>, 
@@ -89,8 +94,8 @@
       <div class="front-title"><a href="http://blog.turbidsoul.me/posts/nginxuwsgibottlepypei-zhi-bu-shu-pythonying-yong.html">nginx,uwsgi,bottlepy配置部署python应用</a></div>
 <p>
 <small>
-<abbr class="published" title="2013-11-13T00:00:00">
-  周三 13 十一月 2013
+<abbr class="published" title="2013-11-13">
+  2013年 十一月 13日 周三
 </abbr> | 
   tags: 
     <a href="http://blog.turbidsoul.me/tag/nginx.html">nginx</a>, 
@@ -112,8 +117,8 @@
       <div class="front-title"><a href="http://blog.turbidsoul.me/posts/ru-he-pei-zhi-zai-nginxhe-casshang-pei-zhi-ssl.html">如何配置在nginx和cas上配置ssl？</a></div>
 <p>
 <small>
-<abbr class="published" title="2013-05-08T00:00:00">
-  周三 08 五月 2013
+<abbr class="published" title="2013-05-08">
+  2013年 五月 08日 周三
 </abbr> | 
   tags: 
     <a href="http://blog.turbidsoul.me/tag/nginx.html">nginx</a>, 
