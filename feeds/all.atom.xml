@@ -40,7 +40,42 @@
 &lt;/ul&gt;
 &lt;p&gt;首先，我们安装ffmpeg, rtmpdump和nginx-rtmp-module:&lt;/p&gt;
 &lt;p&gt;这里我使用的&lt;a href="http://ffmpeg.zeranoe.com/builds/"&gt;ffmpeg&lt;/a&gt;和&lt;a href="http://rtmpdump.mplayerhq.hu/download/rtmpdump-2.4-git-010913-windows.zip"&gt;rtmpdump&lt;/a&gt;都是windows版的，虽然和linux下的有所区别，但是在这里并没有使用到这些区别。&lt;/p&gt;
-&lt;p&gt;nginx是在windows下的虚拟机中的linux下编译的，因为windows编译这玩意是在太麻烦了，我是在不想编译第二次。&lt;/p&gt;</summary><category term="ffmpeg"></category><category term="rtmp"></category><category term="rtmpdump"></category><category term="nginx"></category></entry><entry><title>使用awk做实时的统计</title><link href="http://blog.turbidsoul.me/posts/shi-yong-awkzuo-shi-shi-de-tong-ji.html" rel="alternate"></link><updated>2014-04-10T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me,2014-04-10:posts/shi-yong-awkzuo-shi-shi-de-tong-ji.html</id><summary type="html">&lt;h2&gt;缘由&lt;/h2&gt;
+&lt;p&gt;nginx是在windows下的虚拟机中的linux下编译的，因为windows编译这玩意是在太麻烦了，我实在不想编译第二次。&lt;/p&gt;
+&lt;h2&gt;ffmpeg 的简单使用&lt;/h2&gt;
+&lt;p&gt;首先我们需要查看以下我们的自己上的设备信息，使用下面的命令:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;ffmpeg&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;list_devices&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="n"&gt;dshow&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="n"&gt;dummy&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;输出如下结果：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="go"&gt;ffmpeg version N-63013-g4cdea92 Copyright (c) 2000-2014 the FFmpeg developers&lt;/span&gt;
+&lt;span class="go"&gt;  built on May  6 2014 22:09:20 with gcc 4.8.2 (GCC)&lt;/span&gt;
+&lt;span class="go"&gt;  configuration: --enable-gpl --enable-version3 --disable-w32threads --enable-avisynth --enable-bzlib --enable-fontconfig --enable-frei0r --enable-gnutls --enable-iconv --enable-libass --enable-libbluray --enable-libcaca --enable-libfreetype --enable-libgsm --enable-libilbc --enable-libmodplug --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-libopus --enable-librtmp --enable-libschroedinger --enable-libsoxr --enable-libspeex --enable-libtheora --enable-libtwolame --enable-libvidstab --enable-libvo-aacenc --enable-libvo-amrwbenc --enable-libvorbis --enable-libvpx --enable-libwavpack --enable-libx264 --enable-libx265 --enable-libxavs --enable-libxvid --enable-decklink --enable-zlib&lt;/span&gt;
+&lt;span class="go"&gt;  libavutil      52. 81.100 / 52. 81.100&lt;/span&gt;
+&lt;span class="go"&gt;  libavcodec     55. 60.103 / 55. 60.103&lt;/span&gt;
+&lt;span class="go"&gt;  libavformat    55. 37.102 / 55. 37.102&lt;/span&gt;
+&lt;span class="go"&gt;  libavdevice    55. 13.101 / 55. 13.101&lt;/span&gt;
+&lt;span class="go"&gt;  libavfilter     4.  5.100 /  4.  5.100&lt;/span&gt;
+&lt;span class="go"&gt;  libswscale      2.  6.100 /  2.  6.100&lt;/span&gt;
+&lt;span class="go"&gt;  libswresample   0. 18.100 /  0. 18.100&lt;/span&gt;
+&lt;span class="go"&gt;  libpostproc    52.  3.100 / 52.  3.100&lt;/span&gt;
+&lt;span class="go"&gt;[dshow @ 00000000029f0e20] DirectShow video devices&lt;/span&gt;
+&lt;span class="go"&gt;[dshow @ 00000000029f0e20]  &amp;quot;screen-capture-recorder&amp;quot;&lt;/span&gt;
+&lt;span class="go"&gt;[dshow @ 00000000029f0e20] DirectShow audio devices&lt;/span&gt;
+&lt;span class="go"&gt;[dshow @ 00000000029f0e20]  &amp;quot;FrontMic (Realtek High Definiti&amp;quot;&lt;/span&gt;
+&lt;span class="go"&gt;[dshow @ 00000000029f0e20]  &amp;quot;virtual-audio-capturer&amp;quot;&lt;/span&gt;
+&lt;span class="go"&gt;[dshow @ 00000000029f0e20]  &amp;quot;Realtek Digital Input (Realtek &amp;quot;&lt;/span&gt;
+&lt;span class="go"&gt;dummy: Immediate exit requested&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;DirectShow video devices下面的是视频设备，DirectShow audio devices是音频设备，ffmpeg录制就需要从这些设备上得到视频和音频的流.&lt;/p&gt;
+&lt;p&gt;下面我们看以下ffmpeg如果从这些设备中录制视频。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;ffmpeg&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="n"&gt;dshow&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="n"&gt;video&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;screen-capture-recorder&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;audio&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;FrontMic (Realtek High Definiti&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="n"&gt;flv&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;flv&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;这杨就可以把录屏和通过麦克风说话的声音都录下来，保存成flv，当然这里也可以使用更加丰富的参数来调整视频，使视频更清醒，声音也更响亮，不过这些都不在本文的讨论范围，所以就不在这里多少，有兴趣的华可以去&lt;a href="http://ffmpeg.org/documentation.html"&gt;http://ffmpeg.org/documentation.html&lt;/a&gt;上详细的查看。&lt;/p&gt;</summary><category term="ffmpeg"></category><category term="rtmp"></category><category term="rtmpdump"></category><category term="nginx"></category></entry><entry><title>使用awk做实时的统计</title><link href="http://blog.turbidsoul.me/posts/shi-yong-awkzuo-shi-shi-de-tong-ji.html" rel="alternate"></link><updated>2014-04-10T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me,2014-04-10:posts/shi-yong-awkzuo-shi-shi-de-tong-ji.html</id><summary type="html">&lt;h2&gt;缘由&lt;/h2&gt;
 &lt;p&gt;之前头让搞一个24小时内帖子或者视频的点击量，当时为了省事，就随便写了一个，虽然是实时的，但是却没有满足 &lt;strong&gt;24小时内&lt;/strong&gt; 这个条件, 数据会在每天0点清零重新计算，前几天被头发现了，所以就只能从新写一个了。&lt;/p&gt;
 &lt;p&gt;思来想去最后还是决定用&lt;code&gt;awk&lt;/code&gt;解析日志来完成这个功能，这样最简单。&lt;/p&gt;
 &lt;h2&gt;之前的准备&lt;/h2&gt;

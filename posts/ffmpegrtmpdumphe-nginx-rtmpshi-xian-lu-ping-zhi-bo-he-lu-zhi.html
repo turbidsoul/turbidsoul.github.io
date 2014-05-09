@@ -67,7 +67,42 @@
 </ul>
 <p>首先，我们安装ffmpeg, rtmpdump和nginx-rtmp-module:</p>
 <p>这里我使用的<a href="http://ffmpeg.zeranoe.com/builds/">ffmpeg</a>和<a href="http://rtmpdump.mplayerhq.hu/download/rtmpdump-2.4-git-010913-windows.zip">rtmpdump</a>都是windows版的，虽然和linux下的有所区别，但是在这里并没有使用到这些区别。</p>
-<p>nginx是在windows下的虚拟机中的linux下编译的，因为windows编译这玩意是在太麻烦了，我是在不想编译第二次。</p>
+<p>nginx是在windows下的虚拟机中的linux下编译的，因为windows编译这玩意是在太麻烦了，我实在不想编译第二次。</p>
+<h2>ffmpeg 的简单使用</h2>
+<p>首先我们需要查看以下我们的自己上的设备信息，使用下面的命令:</p>
+<div class="highlight"><pre><span class="n">ffmpeg</span> <span class="o">-</span><span class="n">list_devices</span> <span class="nb">true</span> <span class="o">-</span><span class="n">f</span> <span class="n">dshow</span> <span class="o">-</span><span class="n">i</span> <span class="n">dummy</span>
+</pre></div>
+
+
+<p>输出如下结果：</p>
+<div class="highlight"><pre><span class="go">ffmpeg version N-63013-g4cdea92 Copyright (c) 2000-2014 the FFmpeg developers</span>
+<span class="go">  built on May  6 2014 22:09:20 with gcc 4.8.2 (GCC)</span>
+<span class="go">  configuration: --enable-gpl --enable-version3 --disable-w32threads --enable-avisynth --enable-bzlib --enable-fontconfig --enable-frei0r --enable-gnutls --enable-iconv --enable-libass --enable-libbluray --enable-libcaca --enable-libfreetype --enable-libgsm --enable-libilbc --enable-libmodplug --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenjpeg --enable-libopus --enable-librtmp --enable-libschroedinger --enable-libsoxr --enable-libspeex --enable-libtheora --enable-libtwolame --enable-libvidstab --enable-libvo-aacenc --enable-libvo-amrwbenc --enable-libvorbis --enable-libvpx --enable-libwavpack --enable-libx264 --enable-libx265 --enable-libxavs --enable-libxvid --enable-decklink --enable-zlib</span>
+<span class="go">  libavutil      52. 81.100 / 52. 81.100</span>
+<span class="go">  libavcodec     55. 60.103 / 55. 60.103</span>
+<span class="go">  libavformat    55. 37.102 / 55. 37.102</span>
+<span class="go">  libavdevice    55. 13.101 / 55. 13.101</span>
+<span class="go">  libavfilter     4.  5.100 /  4.  5.100</span>
+<span class="go">  libswscale      2.  6.100 /  2.  6.100</span>
+<span class="go">  libswresample   0. 18.100 /  0. 18.100</span>
+<span class="go">  libpostproc    52.  3.100 / 52.  3.100</span>
+<span class="go">[dshow @ 00000000029f0e20] DirectShow video devices</span>
+<span class="go">[dshow @ 00000000029f0e20]  &quot;screen-capture-recorder&quot;</span>
+<span class="go">[dshow @ 00000000029f0e20] DirectShow audio devices</span>
+<span class="go">[dshow @ 00000000029f0e20]  &quot;FrontMic (Realtek High Definiti&quot;</span>
+<span class="go">[dshow @ 00000000029f0e20]  &quot;virtual-audio-capturer&quot;</span>
+<span class="go">[dshow @ 00000000029f0e20]  &quot;Realtek Digital Input (Realtek &quot;</span>
+<span class="go">dummy: Immediate exit requested</span>
+</pre></div>
+
+
+<p>DirectShow video devices下面的是视频设备，DirectShow audio devices是音频设备，ffmpeg录制就需要从这些设备上得到视频和音频的流.</p>
+<p>下面我们看以下ffmpeg如果从这些设备中录制视频。</p>
+<div class="highlight"><pre><span class="n">ffmpeg</span> <span class="o">-</span><span class="n">f</span> <span class="n">dshow</span> <span class="o">-</span><span class="n">i</span> <span class="n">video</span><span class="o">=</span><span class="s">&quot;screen-capture-recorder&quot;</span><span class="o">:</span><span class="n">audio</span><span class="o">=</span><span class="s">&quot;FrontMic (Realtek High Definiti&quot;</span> <span class="o">-</span><span class="n">f</span> <span class="n">flv</span> <span class="n">test</span><span class="p">.</span><span class="n">flv</span>
+</pre></div>
+
+
+<p>这杨就可以把录屏和通过麦克风说话的声音都录下来，保存成flv，当然这里也可以使用更加丰富的参数来调整视频，使视频更清醒，声音也更响亮，不过这些都不在本文的讨论范围，所以就不在这里多少，有兴趣的华可以去<a href="http://ffmpeg.org/documentation.html">http://ffmpeg.org/documentation.html</a>上详细的查看。</p>
     </div><!-- /.entry-content -->
   </article>
 </section>
