@@ -63,13 +63,13 @@
 <p>这里我使用的<a href="http://ffmpeg.zeranoe.com/builds/">ffmpeg</a>和<a href="http://rtmpdump.mplayerhq.hu/download/rtmpdump-2.4-git-010913-windows.zip">rtmpdump</a>都是windows版的，虽然和linux下的有所区别，但是在这里并没有使用到这些区别。</p>
 <p>nginx是在windows下的虚拟机中的linux下编译的，因为windows编译这玩意是在太麻烦了，我实在不想编译第二次。</p>
 <h2>ffmpeg 的简单使用</h2>
-<p>首先我们需要查看以下我们的自己上的设备信息，使用下面的命令:</p>
+<p>首先我们需要查看以下我们的自己上的设备信息，在安装了screen capture recorder之后就可以使用下面的命令:</p>
 <div class="highlight"><pre><span class="n">ffmpeg</span> <span class="o">-</span><span class="n">list_devices</span> <span class="nb">true</span> <span class="o">-</span><span class="n">f</span> <span class="n">dshow</span> <span class="o">-</span><span class="n">i</span> <span class="n">dummy</span>
 </pre></div>
 
 
 <p>输出如下结果：</p>
-<div class="highlight"><pre><span class="go">ffmpeg version N-63013-g4cdea92 Copyright (c) 2000-2014 ...</span></pre></div> 
+<div class="highlight"><pre><span class="go">ffmpeg version N-63013-g4cdea92 Copyright ...</span></pre></div> 
       <div class="read-more"><a href="http://blog.turbidsoul.me/posts/ffmpegrtmpdumphe-nginx-rtmpshi-xian-lu-ping-zhi-bo-he-lu-zhi.html">read more...</a></div>
       <hr />
       <div class="front-title"><a href="http://blog.turbidsoul.me/posts/nginxshi-xian-wen-jian-xia-zai-zi-dong-da-bao-cheng-zipwen-jian.html">Nginx实现文件下载自动打包成zip文件</a></div>
