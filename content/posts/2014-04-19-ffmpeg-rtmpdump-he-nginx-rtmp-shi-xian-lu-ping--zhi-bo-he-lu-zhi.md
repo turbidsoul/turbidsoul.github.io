@@ -143,5 +143,63 @@ rtmpdump的使用就是如此的简单
 
 我在实际的使用过程中遇到了一个疑问，就是当视频的发送端崩溃或者死机，造成视频流中断，再次发送的时候会发送一个新的视频流，但是rtmpdump无法分辨这个新视频流，他会把这个视频流继续添加在文件后面，保存成一个文件而不是一个新的视频文件。相反对于网络中断而视频的发送端没有中断这种问题是可以处理的，不过中间可能会出现画面定在网络中断的那个时间点上，知道网络再次恢复。
 
-不过这个问题是可以通过程序的方式解决的，在python的库中有一个**[flvlib](https://pypi.python.org/pypi/flvlib/0.1.13)**的库，可以处理这类问题
+不过这个问题是可以通过程序的方式解决的，在python的库中有一个**[flvlib](https://pypi.python.org/pypi/flvlib/0.1.13)**的库可以处理这类问题,请看下面的代码：
 
+```python
+def split_flv(f):
+    if isinstance(f, str):
+        f = open(f, 'rb')
+    flv = tags.FLV(f)
+    path, ext = os.path.splitext(f.name)
+    output_template = path + "_%d" + ext
+    input_flv = open(f.name, 'rb')
+    output_flv = None
+    split_index = 0;
+    filelist = []
+    for tag in flv.iter_tags():
+        if isinstance(tag, tags.ScriptTag) and tag.timestamp == 0:
+            if output_flv:
+                output_flv.close()
+            output_flv = open(output_template % split_index, 'wb')
+            filelist.append(output_flv.name)
+            split_index += 1
+            output_flv.write(tags.create_flv_header(flv.has_audio, flv.has_video))
+            output_flv.write(tags.create_script_tag('onMetaData', tag.variable, tag.timestamp))
+        elif isinstance(tag, tags.VideoTag):
+            input_flv.seek(tag.offset + 11)
+            data = input_flv.read(tag.size)
+            newtag = tags.create_flv_tag(9, data, tag.timestamp)
+            output_flv.write(newtag)
+        elif isinstance(tag, tags.AudioTag):
+            input_flv.seek(tag.offset + 11)
+            data = input_flv.read(tag.size)
+            newtag = tags.create_flv_tag(8, data, tag.timestamp)
+            output_flv.write(newtag)
+    output_flv.close()
+    input_flv.close()
+    return filelist
+
+
+
+def concat_flv(filelist, src_file):
+    tempf = tempfile.TemporaryFile('w+b', delete=False)
+    tempf.writelines(["file '%s'\n" % f for f in filelist])
+    tempf.close()
+    curdir = os.path.dirname(__file__)
+    cmd = 'ffmpeg'
+    if platform.system() == 'Windows':
+        cmd = '"' + os.path.join(curdir, 'rtmpdump/ffmpeg.exe') + '"'
+    src_file_name, src_file_ext = os.path.splitext(src_file)
+    output_file = src_file_name + "_concat" + src_file_ext
+    cmd += ' -f concat -i ' + tempf.name + ' -y -c copy ' + output_file
+    p = subprocess.Popen(cmd, shell=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    output = p.communicate()
+    logger.info(output[0])
+    return (output_file, None)
+```
+
+这两段代码就是先把视频分割开，然后在连接到一起生成一个新文件。
+
+## 总结 ##
+
+这是我解决直播直播的一个测试方案，因为公司的直播系统还没有起来，所以我采用了这样一中思路测试模拟直播测试我的录制系统。

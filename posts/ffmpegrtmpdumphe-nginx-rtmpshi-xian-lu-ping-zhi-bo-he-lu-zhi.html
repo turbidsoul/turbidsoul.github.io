@@ -171,7 +171,63 @@
 <p>rtmpdump的使用就是如此的简单</p>
 <h4>问题</h4>
 <p>我在实际的使用过程中遇到了一个疑问，就是当视频的发送端崩溃或者死机，造成视频流中断，再次发送的时候会发送一个新的视频流，但是rtmpdump无法分辨这个新视频流，他会把这个视频流继续添加在文件后面，保存成一个文件而不是一个新的视频文件。相反对于网络中断而视频的发送端没有中断这种问题是可以处理的，不过中间可能会出现画面定在网络中断的那个时间点上，知道网络再次恢复。</p>
-<p>不过这个问题是可以通过程序的方式解决的，在python的库中有一个<strong><a href="https://pypi.python.org/pypi/flvlib/0.1.13">flvlib</a></strong>的库，可以处理这类问题</p>
+<p>不过这个问题是可以通过程序的方式解决的，在python的库中有一个<strong><a href="https://pypi.python.org/pypi/flvlib/0.1.13">flvlib</a></strong>的库可以处理这类问题,请看下面的代码：</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">split_flv</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s">&#39;rb&#39;</span><span class="p">)</span>
+    <span class="n">flv</span> <span class="o">=</span> <span class="n">tags</span><span class="o">.</span><span class="n">FLV</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">path</span><span class="p">,</span> <span class="n">ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="n">output_template</span> <span class="o">=</span> <span class="n">path</span> <span class="o">+</span> <span class="s">&quot;_</span><span class="si">%d</span><span class="s">&quot;</span> <span class="o">+</span> <span class="n">ext</span>
+    <span class="n">input_flv</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s">&#39;rb&#39;</span><span class="p">)</span>
+    <span class="n">output_flv</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="n">split_index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">filelist</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">flv</span><span class="o">.</span><span class="n">iter_tags</span><span class="p">():</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="n">tags</span><span class="o">.</span><span class="n">ScriptTag</span><span class="p">)</span> <span class="ow">and</span> <span class="n">tag</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">output_flv</span><span class="p">:</span>
+                <span class="n">output_flv</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="n">output_flv</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_template</span> <span class="o">%</span> <span class="n">split_index</span><span class="p">,</span> <span class="s">&#39;wb&#39;</span><span class="p">)</span>
+            <span class="n">filelist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">output_flv</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="n">split_index</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">output_flv</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">tags</span><span class="o">.</span><span class="n">create_flv_header</span><span class="p">(</span><span class="n">flv</span><span class="o">.</span><span class="n">has_audio</span><span class="p">,</span> <span class="n">flv</span><span class="o">.</span><span class="n">has_video</span><span class="p">))</span>
+            <span class="n">output_flv</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">tags</span><span class="o">.</span><span class="n">create_script_tag</span><span class="p">(</span><span class="s">&#39;onMetaData&#39;</span><span class="p">,</span> <span class="n">tag</span><span class="o">.</span><span class="n">variable</span><span class="p">,</span> <span class="n">tag</span><span class="o">.</span><span class="n">timestamp</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="n">tags</span><span class="o">.</span><span class="n">VideoTag</span><span class="p">):</span>
+            <span class="n">input_flv</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="n">tag</span><span class="o">.</span><span class="n">offset</span> <span class="o">+</span> <span class="mi">11</span><span class="p">)</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">input_flv</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">tag</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+            <span class="n">newtag</span> <span class="o">=</span> <span class="n">tags</span><span class="o">.</span><span class="n">create_flv_tag</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">tag</span><span class="o">.</span><span class="n">timestamp</span><span class="p">)</span>
+            <span class="n">output_flv</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">newtag</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="n">tags</span><span class="o">.</span><span class="n">AudioTag</span><span class="p">):</span>
+            <span class="n">input_flv</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="n">tag</span><span class="o">.</span><span class="n">offset</span> <span class="o">+</span> <span class="mi">11</span><span class="p">)</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">input_flv</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">tag</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+            <span class="n">newtag</span> <span class="o">=</span> <span class="n">tags</span><span class="o">.</span><span class="n">create_flv_tag</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">tag</span><span class="o">.</span><span class="n">timestamp</span><span class="p">)</span>
+            <span class="n">output_flv</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">newtag</span><span class="p">)</span>
+    <span class="n">output_flv</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">input_flv</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">filelist</span>
+
+
+
+<span class="k">def</span> <span class="nf">concat_flv</span><span class="p">(</span><span class="n">filelist</span><span class="p">,</span> <span class="n">src_file</span><span class="p">):</span>
+    <span class="n">tempf</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">TemporaryFile</span><span class="p">(</span><span class="s">&#39;w+b&#39;</span><span class="p">,</span> <span class="n">delete</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">tempf</span><span class="o">.</span><span class="n">writelines</span><span class="p">([</span><span class="s">&quot;file &#39;</span><span class="si">%s</span><span class="s">&#39;</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">filelist</span><span class="p">])</span>
+    <span class="n">tempf</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">curdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">)</span>
+    <span class="n">cmd</span> <span class="o">=</span> <span class="s">&#39;ffmpeg&#39;</span>
+    <span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="o">==</span> <span class="s">&#39;Windows&#39;</span><span class="p">:</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s">&#39;&quot;&#39;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">curdir</span><span class="p">,</span> <span class="s">&#39;rtmpdump/ffmpeg.exe&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39;&quot;&#39;</span>
+    <span class="n">src_file_name</span><span class="p">,</span> <span class="n">src_file_ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">src_file</span><span class="p">)</span>
+    <span class="n">output_file</span> <span class="o">=</span> <span class="n">src_file_name</span> <span class="o">+</span> <span class="s">&quot;_concat&quot;</span> <span class="o">+</span> <span class="n">src_file_ext</span>
+    <span class="n">cmd</span> <span class="o">+=</span> <span class="s">&#39; -f concat -i &#39;</span> <span class="o">+</span> <span class="n">tempf</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s">&#39; -y -c copy &#39;</span> <span class="o">+</span> <span class="n">output_file</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">communicate</span><span class="p">()</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+</pre></div>
+
+
+<p>这两段代码就是先把视频分割开，然后在连接到一起生成一个新文件。</p>
+<h2>总结</h2>
+<p>这是我解决直播直播的一个测试方案，因为公司的直播系统还没有起来，所以我采用了这样一中思路测试模拟直播测试我的录制系统。</p>
     </div><!-- /.entry-content -->
   </article>
 </section>
