@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>关于Morphia在存储冗余类的时候出现的一个问题？Turbidsoul's 小黑屋</title>
+
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div><img src="http://blog.turbidsoul.me/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/">Turbidsoul's 小黑屋 </a></div>
+        <div class="sub-title"></div>
+
+<p>
+    <div class="view"><a href="http://blog.turbidsoul.me/pages/guan-yu-wo.html">关于我</a></div>
+  <div class="view"><a href="http://blog.turbidsoul.me/archives.html">Archives</a></div>
+</p>
+
+<!-- Social links -->
+<div class="social">
+<h4>Follow Me</h4>
+<ul>
+    <li><a href="https://plus.google.com/+TurbidsoulChen">Google+</a></li>
+    <li><a href="https://github.com/turbidsoul">Github</a></li>
+    <li><a href="https://twitter.com/Turbidsoul">Twitter</a></li>
+    <li><a href="https://facebook.com/turbidsoul">Facebook</a></li>
+    <li><a href="http://weibo.com/turbidsoul">微博</a></li>
+    <li><a href="http://instagram.com/turbidsoul">Instagram</a></li>
+</ul>
+</div>
+
+      </header>
+      <section>
+<section id="content" class="body">
+  <article>
+      <div class="article-title">
+        关于Morphia在存储冗余类的时候出现的一个问题？
+      </div>
+
+    <div class="entry-content">
+<p>
+<small>
+<abbr class="published" title="2012-01-05">
+  2012年 一月 05日 周四
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/tag/java.html">java</a>, 
+    <a href="http://blog.turbidsoul.me/tag/morphia.html">morphia</a>, 
+    <a href="http://blog.turbidsoul.me/tag/code.html">code</a>, 
+    <a href="http://blog.turbidsoul.me/tag/mongo.html">mongo</a>, 
+ -- (<a href="http://blog.turbidsoul.me/posts/guan-yu-morphiazai-cun-chu-rong-yu-lei-de-shi-hou-chu-xian-de-yi-ge-wen-ti.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>昨天中午临吃午饭前，我对系统的业务功能代码进行重构之后，准备测试一下，通过就去吃饭，但是发生了一个让我很意外的问题，就是在存储的时候，系统 报出来，类型转换异常（<code>java.lang.ClassCaseException</code>）或者是这么一个错误信息（<code>object is not an instance of declaring class</code>），很纠结因为之前这里测试都好好的，而且给内容组，视频组和测试组部署的测试环境，还在正常运行，一时想不通那里出了问题。</p>
+<p>在 经过几次debug跟踪之后发现，每次报错都是在，存储FreeCourse和FreeVideo两个类是发生的问题，我仔细回忆 了，从上次重部署测试环境到出问题之间修改的代码，中间都没有什么问题，只有一个地方和其他人写的代码略有不一样，就是：其他人在写list类型的属性 时，默认是给空值的，但是我会给他们new一个size为0的ArrayList，这是我的一个喜欢，是为了避免出现一些因为疏忽而发生的问题，但是如果 只是这样不应该会有问题。</p>
+<p>我 又仔细的看了一边相关业务代码和实体类的代码，所有代码中都没有问题，但是有一点和其他人的不同，就是我的FreeVideo下有个字段 videoInfos他的类型是<code>List&lt;VideoInfo&gt;</code>，而VideoInfo只有一个地方和其他的实体类不一样，就是没有去继承实 体类的基类MongoBaseEntity，但是这样也不应该有问题，但是问题应该和存储VideoInfo有关。</p>
+<p>刚刚忘记说了我们系统 的 基本情况，现在这里简单的补充一下，我们使用的是mongodb，使用morphia做mongodb的数据操作，为了方便数据的查询，我在 FreeCourse冗余了FreeVideo，在FreeVideo冗余VideoInfo，FreeCourse包含多个 FreeVideo，FreeVideo包含多个VideoInfo，是个3层的1对多关系。</p>
+<p>所以我继续深入的跟踪在存储 FreeCourse和FreeVideo时存储VideoInfo时的情况，在跟踪到存储冗余的VideoInfo时发现，在存储的时候回去调用一些方 法，这些方法的功能是处理BigDecimal，但是在VideoInfo中没有这些方法，而是在MongoBaseEntity中有这些方法，且这些方 法都加了<code>@PrePersist</code>，<code>@PostPersist</code>，<code>@PreLoad</code>等注解，也就是说只有继承了MongoBaseEntity的实体在存储前 后会调用这些方法，但是VideoInfo并没有继承MongoBaseEntity拿也就不应该调用这些方法啊，什么会去调用这些方法的？这个问题让我 很疑惑！</p>
+<p>在几次跟踪之后融然无果的情况下，去找了我的头（也就是我们的技术经理），他也用同样的方法得到了同样的结论，但是他之后又跟踪 了 在服务器启动的时候Morphia对实体类的加载情况（不得不佩服下俺头，俺为啥就么想到呢）在跟踪Morphia在启动时对实体类的加载的时候发 现，Morphia会对每个实体类添加被注解的那些方法，而对非MongoBaseEntity子类则不处理，但是有个很奇怪地方我没有理解<code>com.google.code.morphia.mapping.MappedClass</code>的134行：</p>
+<div class="highlight"><pre><span class="k">for</span> <span class="o">(</span><span class="n">Class</span><span class="o">&lt;?&gt;</span> <span class="n">cls</span> <span class="o">:</span> <span class="n">lifecycleClasses</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">for</span> <span class="o">(</span><span class="n">Method</span> <span class="n">m</span> <span class="o">:</span> <span class="n">ReflectionUtils</span><span class="o">.</span><span class="na">getDeclaredAndInheritedMethods</span><span class="o">(</span><span class="n">cls</span><span class="o">))</span> <span class="o">{</span>
+    <span class="k">for</span><span class="o">(</span><span class="n">Class</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">Annotation</span><span class="o">&gt;</span> <span class="n">c</span> <span class="o">:</span> <span class="n">lifecycleAnnotations</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">m</span><span class="o">.</span><span class="na">isAnnotationPresent</span><span class="o">(</span><span class="n">c</span><span class="o">))</span> <span class="o">{</span>
+        <span class="n">addLifecycleEventMethod</span><span class="o">(</span><span class="n">c</span><span class="o">,</span> <span class="n">m</span><span class="o">,</span> <span class="n">cls</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">clazz</span><span class="o">)</span> <span class="o">?</span> <span class="kc">null</span> <span class="o">:</span> <span class="n">cls</span><span class="o">);</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>在调用addLifecycleEventMethod的时候最后一个参数一定是空，虽然不知道是不是这个地方的问题，但是觉得很奇怪，我们先不管这里，先继续下去，在后面的跟踪当中并没有看到morphia为VideoInfo添加MongoBaseEntity中的注解方法，到这里发现貌似错误和morphia的实体类加载没有关系，拿是那里的问题呢？不得以我们有回到原点，再次跟踪了在存储FreeCourse代码，这次有一个被之前忽略的问题！</p>
+<p>在跟踪到com.google.code.morphia.mapping.MappedClass的904行：</p>
+<div class="highlight"><pre><span class="n">mc</span><span class="o">.</span><span class="na">callLifecycleMethods</span><span class="o">(</span><span class="n">PostPersist</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">ent</span><span class="o">,</span> <span class="n">dbO</span><span class="o">,</span> <span class="n">mapr</span><span class="o">);</span>
+</pre></div>
+
+
+<p>即上面哪行代码的时候，有两个参数让我注意到，第一个是entity他是FreeCourse，第二个是ent他缺失VideoInfo，在进入callLiftcycleMoethods方法内,跟踪到306行有下面两张截图：</p>
+<p><img alt="FzwYz" src="/file/images/FzwYz.png" />
+<img alt="KSLXG" src="/file/images/KSLXG.png" /></p>
+<p>下面两个图第一个是method.invoke方法的entity参数的值是VideoInfo，第二章图是method那个方法在调用，可以看到是MongoBaseEntity下的注解方法，也就是处理数据存储前后的事件方法。这里的VideoInfo是FreeCourse下冗余的FreeVideo下冗余的VideoInfo的数据。</p>
+<p>从这里可以看到，morphia在存储冗余数据的时候，回去调用其上层类的注解方法，但是却是在使用method的invoke方法进行调用，并没有处理如果被冗余的实体如果没有次注解方法的问题，所以抛出了一个类型异常，在之后的测试发现这个异常并不影响morphia的存储，数据依然可以正确的保存到数据库中，不明白morphia为什么要这么做，既然没有影响存储，为什么还要抛出一个异常，难道只是为了提醒使用者，这样的结构是一个危险的方法，需要使用者自己进行处理？不管是什么原因，我最后的解决办法是为VideoInfo继承了MongoBaseEnity这样就不会在报出那个异常了。</p>
+    </div><!-- /.entry-content -->
+  </article>
+</section>
+      </section>
+      <footer>
+        <p><small>&copy; Turbidsoul's 小黑屋 &mdash; Theme based on Sundown by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <!-- Scale fix -->
+    <script>
+      var metas = document.getElementsByTagName('meta');
+      var i;
+      
+      if (navigator.userAgent.match(/iPhone/i)) {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+          }
+        }
+      
+        document.addEventListener("gesturestart", gestureStart, false);
+      }
+
+      function gestureStart() {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

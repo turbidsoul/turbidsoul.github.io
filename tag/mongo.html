@@ -20,6 +20,7 @@
         <div class="sub-title"></div>
 
 <p>
+    <div class="view"><a href="http://blog.turbidsoul.me/pages/guan-yu-wo.html">关于我</a></div>
   <div class="view"><a href="http://blog.turbidsoul.me/archives.html">Archives</a></div>
 </p>
 
@@ -60,7 +61,7 @@
 <li>第三个就是在网络传输上，这个问题其实和第二个是一样的，从mongodb带出了太多的无用数据，而且是一次性全部数据都查寻来，这样就会造成数据越多查询越慢，网络的传输上压力就越大，到最后就是服务器崩掉 ...</li></ol> 
       <div class="read-more"><a href="http://blog.turbidsoul.me/posts/shu-morphiacha-xun-you-hua-he-ca-pi-gu.html">read more...</a></div>
       <hr />
-      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/guan-yu-morphiazai-cun-chu-rong-yu-lei-de-shi-hou-chu-xian-de-ge-wen-ti.html">关于Morphia在存储冗余类的时候出现的一个问题？</a></div>
+      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/guan-yu-morphiazai-cun-chu-rong-yu-lei-de-shi-hou-chu-xian-de-yi-ge-wen-ti.html">关于Morphia在存储冗余类的时候出现的一个问题？</a></div>
 <p>
 <small>
 <abbr class="published" title="2012-01-05">
@@ -71,12 +72,12 @@
     <a href="http://blog.turbidsoul.me/tag/morphia.html">morphia</a>, 
     <a href="http://blog.turbidsoul.me/tag/code.html">code</a>, 
     <a href="http://blog.turbidsoul.me/tag/mongo.html">mongo</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/guan-yu-morphiazai-cun-chu-rong-yu-lei-de-shi-hou-chu-xian-de-ge-wen-ti.html" rel="bookmark">permalink</a>)
+ -- (<a href="http://blog.turbidsoul.me/posts/guan-yu-morphiazai-cun-chu-rong-yu-lei-de-shi-hou-chu-xian-de-yi-ge-wen-ti.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>昨天中午临吃午饭前，我对系统的业务功能代码进行重构之后，准备测试一下，通过就去吃饭，但是发生了一个让我很意外的问题，就是在存储的时候，系统 报出来，类型转换异常（<code>java.lang.ClassCaseException</code>）或者是这么一个错误信息（<code>object is not an instance of declaring class</code>），很纠结因为之前这里测试都好好的，而且给内容组，视频组和测试组部署的测试环境，还在正常运行，一时想不通那里出了问题。</p>
 <p>在 经过几次debug跟踪之后发现，每次报错都是在，存储FreeCourse和FreeVideo两个类是发生的问题，我仔细回忆 了，从上次重部署测试环境到出问题之间修改的代码，中间都没有什么问题，只有一个地方和其他人写的代码略有不一样，就是：其他人在写list类型的属性 时，默认是给空值的，但是我会给他们new一个size为0的ArrayList，这是我的一个喜欢，是为了避免出现一些因为疏忽而发生的问题，但是如果 只是这样不应该会有问题。</p>
 <p>我 又仔细的看了一边相关业务代码和实体类的代码，所有代码中都没有问题，但是有一点和其他人的不同，就是我的FreeVideo下有个字段 videoInfos他的类型是 ...</p> 
-      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/guan-yu-morphiazai-cun-chu-rong-yu-lei-de-shi-hou-chu-xian-de-ge-wen-ti.html">read more...</a></div>
+      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/guan-yu-morphiazai-cun-chu-rong-yu-lei-de-shi-hou-chu-xian-de-yi-ge-wen-ti.html">read more...</a></div>
       <hr />
 
       </section>
