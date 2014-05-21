@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>FTP的PORT模式，PASV模式， FXP协议和在java中使用时的一些问题Turbidsoul's 小黑屋</title>
 
-    <link rel="stylesheet" href="/theme/css/main.css">
-    <link rel="stylesheet" href="/theme/css/pygment_trac.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,12 +15,13 @@
   <body>
     <div class="wrapper">
       <header>
-        <div><img src="/images/avatar.jpg" class="grv-img"/></div>
-        <div class="title"><a href="/">Turbidsoul's 小黑屋 </a></div>
+        <div><img src="http://blog.turbidsoul.me/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/">Turbidsoul's 小黑屋 </a></div>
         <div class="sub-title"></div>
 
 <p>
-  <div class="view"><a href="/archives.html">Archives</a></div>
+    <div class="view"><a href="http://blog.turbidsoul.me/pages/guan-yu-wo.html">关于我</a></div>
+  <div class="view"><a href="http://blog.turbidsoul.me/archives.html">Archives</a></div>
 </p>
 
 <!-- Social links -->
@@ -35,7 +36,7 @@
     <li><a href="http://instagram.com/turbidsoul">Instagram</a></li>
 </ul>
 </div>
-<div id="upto-calendar-container-cVJOKO" class="upto-calendar-plugin"><script>!function(c,b,a){function d(h){var e=document.getElementById("upto-calendar-container-"+c),f=document.createElement("SCRIPT"),g="http://upto.com/js/embed.js";f.onreadystatechange=function(){if(f.readyState==="loaded"||f.readyState==="complete"){f.onreadystatechange=null;h()}};f.onload=function(){h()};f.setAttribute("src",g);e.parentNode.insertBefore(f,e)}d(function(){upto.init(c,b,a)})}("cVJOKO",["CpFO"],{"template":"3"});</script></div>
+
       </header>
       <section>
 <section id="content" class="body">
@@ -51,12 +52,12 @@
   2012年 十二月 29日 周六
 </abbr> | 
   tags: 
-    <a href="/tag/ftp.html">ftp</a>, 
-    <a href="/tag/port.html">port</a>, 
-    <a href="/tag/pasv.html">pasv</a>, 
-    <a href="/tag/fxp.html">fxp</a>, 
-    <a href="/tag/java.html">java</a>, 
- -- (<a href="/posts/ftpde-portmo-shi-pasvmo-shi-fxpxie-yi-he-zai-javazhong-shi-yong-shi-de-xie-wen-ti.html" rel="bookmark">permalink</a>)
+    <a href="http://blog.turbidsoul.me/tag/ftp.html">ftp</a>, 
+    <a href="http://blog.turbidsoul.me/tag/port.html">port</a>, 
+    <a href="http://blog.turbidsoul.me/tag/pasv.html">pasv</a>, 
+    <a href="http://blog.turbidsoul.me/tag/fxp.html">fxp</a>, 
+    <a href="http://blog.turbidsoul.me/tag/java.html">java</a>, 
+ -- (<a href="http://blog.turbidsoul.me/posts/ftpde-portmo-shi-pasvmo-shi-fxpxie-yi-he-zai-javazhong-shi-yong-shi-de-xie-wen-ti.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>这是最近一礼拜遇到的一个很头疼的问题，由于我们的系统需要需要用到ftp的fxp进行两个ftp服务器之间进行数据传输。 但是就是在这上出现了让我很郁闷的问题，连着几天，一个坑接一个坑，连续解决了5，6个问题，到今天下午才算是把所有问题解决。</p>
 <p>在讲述我遇到的问题之前我们先了解下几个概念：</p>
@@ -118,6 +119,21 @@
 <p>我们在调试中还发现，vsftpd是不能同时启动两种模式的，不然在执行命令的时候会返回一个5XX的错误，只能启动主动或者被动模式，网上的一些文章发的配置信息很多都是主被动同时启动的，我认为这是错的，但是我有一点很疑惑我们的serv-u使用的是默认配置， 这种的配置貌似既是主动也是被动，有点不理解，也就是说客户端连接的时候需要什么模式就会切换到什么模式。</p>
 <p>还想提醒一下不论什么程序，只要是在程序中使用FTP操作的，需要注意FTP是否支持一些命令，比方说vsftpd就不支持mlst这个命令，还有serv-u默认配置下，是不能使用list命令的，会返回425错误，但是serv-u支持mlst命令，等等各种问题。 下午在闲下来的时候在和同事讨论这个问题的时候，得到结论是：FTP的协议规范可能太简单，很多服务器的开发者，对协议支持的都不太一样，虽然大部分功能是一样的，但是在一些细节上有很大的差别，这些差别和可能就是我们需要进行攻关的地方。 当然我们也在这里拌了好几天，一个问题一个问题的解决，虽然耽误了很多时间但是收获也很多。</p>
     </div><!-- /.entry-content -->
+<div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'Turbidsoul'; // required: replace example with your forum shortname
+        var disqus_identifier = "posts/ftpde-portmo-shi-pasvmo-shi-fxpxie-yi-he-zai-javazhong-shi-yong-shi-de-xie-wen-ti.html";
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
   </article>
 </section>
       </section>

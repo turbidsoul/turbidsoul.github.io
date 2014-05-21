@@ -70,6 +70,21 @@
 <p>我 现在无法给出具体的时间数据，因为我手上没有未优化的代码，但是在优化之前我清楚的记得，生成一次树的时间是几十秒甚至几分钟，加了异步树之后每次只加载 当前点击的节点，所以体验上好了很多，但是在打开节点下的时候，因为数据量有点大（大概有1k行的样子），虽然看着不多，但是这个表冗余了很多数据，说是 一千行，但是实际的数据可能会多几十倍，甚至过百倍，所以在只抓取id和name的时候，数据提升了很大，从8－15秒提升到了40－80ms，当然这里 面数值下线都是在chrome中测试的结果，在这里不得不在此赞叹一下V8引擎，真的是太TMD的快了。</p>
 <p>在最后的吐槽中，我实在是想骂娘，这代码是谁写的，让哥抗了一天没吃饭，一直到下午6点才做完去吃饭，饿死哥了！</p>
     </div><!-- /.entry-content -->
+<div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'Turbidsoul'; // required: replace example with your forum shortname
+        var disqus_identifier = "posts/shu-morphiacha-xun-you-hua-he-ca-pi-gu.html";
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
   </article>
 </section>
       </section>
