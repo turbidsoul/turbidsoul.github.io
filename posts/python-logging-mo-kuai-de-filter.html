@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>python logging 模块的 filterTurbidsoul's 小黑屋</title>
 
-    <link rel="stylesheet" href="/theme/css/main.css">
-    <link rel="stylesheet" href="/theme/css/pygment_trac.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,13 +15,13 @@
   <body>
     <div class="wrapper">
       <header>
-        <div><img src="/images/avatar.jpg" class="grv-img"/></div>
-        <div class="title"><a href="/">Turbidsoul's 小黑屋 </a></div>
+        <div><img src="http://blog.turbidsoul.me/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/">Turbidsoul's 小黑屋 </a></div>
         <div class="sub-title"></div>
 
 <p>
-    <div class="view"><a href="/pages/guan-yu-wo.html">关于我</a></div>
-  <div class="view"><a href="/archives.html">Archives</a></div>
+    <div class="view"><a href="http://blog.turbidsoul.me/pages/guan-yu-wo.html">关于我</a></div>
+  <div class="view"><a href="http://blog.turbidsoul.me/archives.html">Archives</a></div>
 </p>
 
 <!-- Social links -->
@@ -52,11 +52,11 @@
   2013年 十一月 22日 周五
 </abbr> | 
   tags: 
-    <a href="/tag/python.html">python</a>, 
-    <a href="/tag/logging.html">logging</a>, 
-    <a href="/tag/filter.html">filter</a>, 
-    <a href="/tag/code.html">code</a>, 
- -- (<a href="/posts/python-logging-mo-kuai-de-filter.html" rel="bookmark">permalink</a>)
+    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
+    <a href="http://blog.turbidsoul.me/tag/logging.html">logging</a>, 
+    <a href="http://blog.turbidsoul.me/tag/filter.html">filter</a>, 
+    <a href="http://blog.turbidsoul.me/tag/code.html">code</a>, 
+ -- (<a href="http://blog.turbidsoul.me/posts/python-logging-mo-kuai-de-filter.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>前两天同事问我，如果针对不同的IP记录日志，并把更具IP记录到不同的日志文件中，在网上搜了一下这个问题，有很多人都在问，我查了一下python的logging的api，发现有个filter的，这个filter可以根据日志的信息来决定这条日志是否记录到日志文件中，下面来说说如果实现这个功能。</p>
 <p>通常我们配置日志都是如下代码：</p>
@@ -160,6 +160,38 @@
 
 <p>这是我的nginx的access.log中的一段日志，我用这段日志来做测试，最终得到的结果和我最初预设的是一样的，我在这里就不再贴出测试的结果，有兴趣的朋友可以自己测试一下。</p>
     </div><!-- /.entry-content -->
+    <!-- <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'Turbidsoul'; // required: replace example with your forum shortname
+        var disqus_identifier = "posts/python-logging-mo-kuai-de-filter.html";
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+ -->
+    <div id="commentswrap">
+      <div id="comments"></div>
+    </div>
+    
+    <script src="https://apis.google.com/js/plusone.js"></script>
+    <script>
+        $(document).ready(function () {
+            gapi.comments.render('comments', {
+                href: window.location,
+                width: '600',
+                first_party_property: 'BLOGGER',
+                view_type: 'FILTERED_POSTMOD'
+            });
+    });
+    </script>
+
   </article>
 </section>
       </section>

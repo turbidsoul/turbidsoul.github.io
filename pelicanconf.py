@@ -52,7 +52,7 @@ GRV_URL='/images/avatar.jpg'
 
 
 PLUGIN_PATH= os.path.join(curdir, 'pelican-plugins')
-PLUGINS = ['gravatar']
+PLUGINS = ['gravatar', 'googleplus_comments']
 
 
 AUTHOR_EMAIL='sccn.sq@gmail.com'

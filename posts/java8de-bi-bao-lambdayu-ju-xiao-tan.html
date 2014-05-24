@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>java8的闭包Lambda语句小探Turbidsoul's 小黑屋</title>
 
-    <link rel="stylesheet" href="/theme/css/main.css">
-    <link rel="stylesheet" href="/theme/css/pygment_trac.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,13 +15,13 @@
   <body>
     <div class="wrapper">
       <header>
-        <div><img src="/images/avatar.jpg" class="grv-img"/></div>
-        <div class="title"><a href="/">Turbidsoul's 小黑屋 </a></div>
+        <div><img src="http://blog.turbidsoul.me/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/">Turbidsoul's 小黑屋 </a></div>
         <div class="sub-title"></div>
 
 <p>
-    <div class="view"><a href="/pages/guan-yu-wo.html">关于我</a></div>
-  <div class="view"><a href="/archives.html">Archives</a></div>
+    <div class="view"><a href="http://blog.turbidsoul.me/pages/guan-yu-wo.html">关于我</a></div>
+  <div class="view"><a href="http://blog.turbidsoul.me/archives.html">Archives</a></div>
 </p>
 
 <!-- Social links -->
@@ -52,11 +52,11 @@
   2012年 二月 14日 周二
 </abbr> | 
   tags: 
-    <a href="/tag/java.html">java</a>, 
-    <a href="/tag/lambda.html">lambda</a>, 
-    <a href="/tag/closure.html">closure</a>, 
-    <a href="/tag/code.html">code</a>, 
- -- (<a href="/posts/java8de-bi-bao-lambdayu-ju-xiao-tan.html" rel="bookmark">permalink</a>)
+    <a href="http://blog.turbidsoul.me/tag/java.html">java</a>, 
+    <a href="http://blog.turbidsoul.me/tag/lambda.html">lambda</a>, 
+    <a href="http://blog.turbidsoul.me/tag/closure.html">closure</a>, 
+    <a href="http://blog.turbidsoul.me/tag/code.html">code</a>, 
+ -- (<a href="http://blog.turbidsoul.me/posts/java8de-bi-bao-lambdayu-ju-xiao-tan.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>这是我上个礼拜相对较闲的时候自己做的简单测试，应为那天正好在oschina上看到jdk1.8发布了开发者预览版，正好左右没事，就去下了一个，实验了一下java 的闭包。</p>
 <p>java 闭包，也就是Lambda表达式，和python中的lambda是一样的，语法也挺相似：</p>
@@ -123,6 +123,38 @@
 <p>1 2 3 4 5 6 7 8</p>
 <p>这三个例子都很简单，但是最近几天都比较忙，没有时间继续研究下去，有点可惜！</p>
     </div><!-- /.entry-content -->
+    <!-- <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'Turbidsoul'; // required: replace example with your forum shortname
+        var disqus_identifier = "posts/java8de-bi-bao-lambdayu-ju-xiao-tan.html";
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+ -->
+    <div id="commentswrap">
+      <div id="comments"></div>
+    </div>
+    
+    <script src="https://apis.google.com/js/plusone.js"></script>
+    <script>
+        $(document).ready(function () {
+            gapi.comments.render('comments', {
+                href: window.location,
+                width: '600',
+                first_party_property: 'BLOGGER',
+                view_type: 'FILTERED_POSTMOD'
+            });
+    });
+    </script>
+
   </article>
 </section>
       </section>

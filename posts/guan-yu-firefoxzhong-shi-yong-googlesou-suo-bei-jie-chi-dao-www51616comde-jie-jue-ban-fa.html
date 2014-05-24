@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>关于firefox中使用google搜索被劫持到www5.1616.com的解决办法！Turbidsoul's 小黑屋</title>
 
-    <link rel="stylesheet" href="/theme/css/main.css">
-    <link rel="stylesheet" href="/theme/css/pygment_trac.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,13 +15,13 @@
   <body>
     <div class="wrapper">
       <header>
-        <div><img src="/images/avatar.jpg" class="grv-img"/></div>
-        <div class="title"><a href="/">Turbidsoul's 小黑屋 </a></div>
+        <div><img src="http://blog.turbidsoul.me/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/">Turbidsoul's 小黑屋 </a></div>
         <div class="sub-title"></div>
 
 <p>
-    <div class="view"><a href="/pages/guan-yu-wo.html">关于我</a></div>
-  <div class="view"><a href="/archives.html">Archives</a></div>
+    <div class="view"><a href="http://blog.turbidsoul.me/pages/guan-yu-wo.html">关于我</a></div>
+  <div class="view"><a href="http://blog.turbidsoul.me/archives.html">Archives</a></div>
 </p>
 
 <!-- Social links -->
@@ -52,9 +52,9 @@
   2012年 三月 16日 周五
 </abbr> | 
   tags: 
-    <a href="/tag/firefox.html">firefox</a>, 
-    <a href="/tag/google.html">google</a>, 
- -- (<a href="/posts/guan-yu-firefoxzhong-shi-yong-googlesou-suo-bei-jie-chi-dao-www51616comde-jie-jue-ban-fa.html" rel="bookmark">permalink</a>)
+    <a href="http://blog.turbidsoul.me/tag/firefox.html">firefox</a>, 
+    <a href="http://blog.turbidsoul.me/tag/google.html">google</a>, 
+ -- (<a href="http://blog.turbidsoul.me/posts/guan-yu-firefoxzhong-shi-yong-googlesou-suo-bei-jie-chi-dao-www51616comde-jie-jue-ban-fa.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>这个问题也是我今天早上发现的，搜索东西的时候发现先进入www5.1616.net然后在跳转到google中，感觉像是被劫持了，于是我就在 google上搜索了www5.1616.net发现很多人都有这个问题，而且但是绝大多数都认为是DNS被劫持的问题，但是我觉得不是这样，因为很多人 都和我的情况一样，出现问题的只有他一个，同一局域网下的别人都正常，同一社区下的只有个别的人有这个问题，并不是大面积出现，而且我只有Firefox 有问题，chrome和IE9都正常，所以我肯定是firefox的问题。</p>
 <p>后面我有简单的试了几次，发现https下不存在这种现象所以我象应该是他修改我的某些search相关文件，其实在firefox中和search有关的文件就几个，常用的人也都知道：</p>
@@ -93,6 +93,38 @@
 <p>然 后进入，上面列出第五点下，打开google.xml，把url的属性template修改会原来的值,即 为:http://www.google.com/search然后保存就行了，然后重启firefox，再试试应该已经解决了问题，可能这不是唯一的解 决办法，但是是一个根除的办法，我还没有找到是什么东西修改了这些文件，我也喜欢有人能找到这个东西，并更不出来！</p>
 <p><strong>在上面月光的文章中已经说了google已经启动了https所以我也希望大家都使用https上网，这样更安全一点。</strong></p>
     </div><!-- /.entry-content -->
+    <!-- <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'Turbidsoul'; // required: replace example with your forum shortname
+        var disqus_identifier = "posts/guan-yu-firefoxzhong-shi-yong-googlesou-suo-bei-jie-chi-dao-www51616comde-jie-jue-ban-fa.html";
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+ -->
+    <div id="commentswrap">
+      <div id="comments"></div>
+    </div>
+    
+    <script src="https://apis.google.com/js/plusone.js"></script>
+    <script>
+        $(document).ready(function () {
+            gapi.comments.render('comments', {
+                href: window.location,
+                width: '600',
+                first_party_property: 'BLOGGER',
+                view_type: 'FILTERED_POSTMOD'
+            });
+    });
+    </script>
+
   </article>
 </section>
       </section>
