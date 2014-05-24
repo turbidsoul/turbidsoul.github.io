@@ -11,6 +11,15 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-MML-AM_HTMLorMML-full"> </script>
+    <script type="text/javascript">
+      MathJax.Hub.Config({
+        asciimath2jax: {
+          delimiters: [['$','$'], ['`','`']]
+        }
+      });
+    </script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   </head>
   <body>
     <div class="wrapper">
@@ -386,8 +395,9 @@
 <p>至于Remote Control我就不在这里在多说了，有兴趣的朋友可以自己去试一下，和python的Remote Control差不多的。</p>
 <h2>结论</h2>
 <p>Selenium其实还有支持很多，比如Ruby,PHP,Perl,Hashel,Javascript,Objective-C等语言，也支持Chrome,Opera,IE等主流的浏览器，不过在兼容性上我没发给出确切的答案，因为没有做过测试，但是我们头做这个的分布式测试时候，倒是深有体会。同时也在支持在android和iOS上的测试，在功能上还是很全面的，操作也简单，是web测试中上佳的选择。</p>
+<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="Turbidsoul">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
     </div><!-- /.entry-content -->
-<div id="disqus_thread"></div>
+    <!-- <div id="disqus_thread"></div>
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
         var disqus_shortname = 'Turbidsoul'; // required: replace example with your forum shortname
@@ -402,6 +412,23 @@
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+ -->
+    <div id="commentswrap">
+      <div id="comments"></div>
+    </div>
+    
+    <script src="https://apis.google.com/js/plusone.js"></script>
+    <script>
+        $(document).ready(function () {
+            gapi.comments.render('comments', {
+                href: window.location,
+                width: '600',
+                first_party_property: 'BLOGGER',
+                view_type: 'FILTERED_POSTMOD'
+            });
+    });
+    </script>
+
   </article>
 </section>
       </section>

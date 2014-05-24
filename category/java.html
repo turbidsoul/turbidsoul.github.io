@@ -11,6 +11,15 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-MML-AM_HTMLorMML-full"> </script>
+    <script type="text/javascript">
+      MathJax.Hub.Config({
+        asciimath2jax: {
+          delimiters: [['$','$'], ['`','`']]
+        }
+      });
+    </script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   </head>
   <body>
     <div class="wrapper">
@@ -39,7 +48,7 @@
 
       </header>
       <section>
-      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/yi-ge-csscuo-wu-yin-qi-de-maven-stackoverflowerror.html">一个css错误引起的maven StackOverflowError</a></div>
+      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/ge-csscuo-wu-yin-qi-de-maven-stackoverflowerror.html">一个css错误引起的maven StackOverflowError</a></div>
 <p>
 <small>
 <abbr class="published" title="2013-06-18">
@@ -49,7 +58,7 @@
     <a href="http://blog.turbidsoul.me/tag/java.html">java</a>, 
     <a href="http://blog.turbidsoul.me/tag/maven.html">maven</a>, 
     <a href="http://blog.turbidsoul.me/tag/css.html">css</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/yi-ge-csscuo-wu-yin-qi-de-maven-stackoverflowerror.html" rel="bookmark">permalink</a>)
+ -- (<a href="http://blog.turbidsoul.me/posts/ge-csscuo-wu-yin-qi-de-maven-stackoverflowerror.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>这个问题是我的一个失误造成的，这是上一片文章的后续，我在使用正则做文本替换的时候没有注意到，这个正则在主干上是正常的，但是在分支上执行的时候使一行css少了一个引号，这个问题在浏览器中是暴露不出来的，之后在maven打包的时候对文件做压缩的时候才会出现，下面我们来看看是什么样的问题。</p>
 <p>我们项目使用的是 <a href="https://github.com/davidB/yuicompressor-maven-plugin" title="yuicompressor-maven-plugin">yuicompressor-maven-plugin</a> 做js和css的压缩，在压缩的过程中出现了下面的错误：</p>
@@ -57,7 +66,7 @@
 <span class="n">constituent</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">:</span> <span class="n">file</span><span class="o">:/</span><span class="n">E</span><span class="o">:/</span><span class="n">opensource</span><span class="o">/</span><span class="n">apache</span><span class="o">/</span><span class="n">maven</span><span class="o">-</span><span class="mf">2.2.1</span><span class="p">.</span><span class="n">RELEASE</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">aether</span><span class="o">-</span><span class="n">api</span><span class="o">-</span><span class="mf">1.13.1</span><span class="p">.</span><span class="n">jar</span>
 <span class="n">constituent</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">:</span> <span class="n">file</span><span class="o">:/</span><span class="n">E</span><span class="o">:/</span><span class="n">opensource</span><span class="o">/</span><span class="n">apache</span><span class="o">/</span><span class="n">maven</span><span class="o">-</span><span class="mf">2.2.1</span><span class="p">.</span><span class="n">RELEASE</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">aether</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">wagon</span><span class="o">-</span><span class="mf">1.13.1</span><span class="p">.</span><span class="n">jar</span>
 <span class="n">constituent ...</span></pre></div> 
-      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/yi-ge-csscuo-wu-yin-qi-de-maven-stackoverflowerror.html">read more...</a></div>
+      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/ge-csscuo-wu-yin-qi-de-maven-stackoverflowerror.html">read more...</a></div>
       <hr />
       <div class="front-title"><a href="http://blog.turbidsoul.me/posts/jdk8xin-te-xing-calendarbuilder.html">JDK8新特性 Calendar.Builder</a></div>
 <p>
@@ -102,7 +111,7 @@
 <p>最后我想吐槽一下lua5.1居然不支持位运算，要5.2才支持，好吧，openresty集成的就是5.1所以我在实现lua的16位编码解码果然蛋疼了一下。</p> 
       <div class="read-more"><a href="http://blog.turbidsoul.me/posts/opensslhe-java-aessuan-fa-de-de-wen-ti.html">read more...</a></div>
       <hr />
-      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/ftpde-portmo-shi-pasvmo-shi-fxpxie-yi-he-zai-javazhong-shi-yong-shi-de-yi-xie-wen-ti.html">FTP的PORT模式，PASV模式， FXP协议和在java中使用时的一些问题</a></div>
+      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/ftpde-portmo-shi-pasvmo-shi-fxpxie-yi-he-zai-javazhong-shi-yong-shi-de-xie-wen-ti.html">FTP的PORT模式，PASV模式， FXP协议和在java中使用时的一些问题</a></div>
 <p>
 <small>
 <abbr class="published" title="2012-12-29">
@@ -114,7 +123,7 @@
     <a href="http://blog.turbidsoul.me/tag/pasv.html">pasv</a>, 
     <a href="http://blog.turbidsoul.me/tag/fxp.html">fxp</a>, 
     <a href="http://blog.turbidsoul.me/tag/java.html">java</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/ftpde-portmo-shi-pasvmo-shi-fxpxie-yi-he-zai-javazhong-shi-yong-shi-de-yi-xie-wen-ti.html" rel="bookmark">permalink</a>)
+ -- (<a href="http://blog.turbidsoul.me/posts/ftpde-portmo-shi-pasvmo-shi-fxpxie-yi-he-zai-javazhong-shi-yong-shi-de-xie-wen-ti.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>这是最近一礼拜遇到的一个很头疼的问题，由于我们的系统需要需要用到ftp的fxp进行两个ftp服务器之间进行数据传输。 但是就是在这上出现了让我很郁闷的问题，连着几天，一个坑接一个坑，连续解决了5，6个问题，到今天下午才算是把所有问题解决。</p>
 <p>在讲述我遇到的问题之前我们先了解下几个概念：</p>
@@ -131,7 +140,7 @@
 </li>
 <li>
 <p>被动模式FTP: 为了解决服务器发起到客户的连接的问题，人们开发了一种不同的FTP连接方式。这就是所谓的被动方式，或者叫做PASV，当客户端通知服务器它处于被动模式时才启用。 在被动方式FTP中，命令连接和数据连接都由客户端发起，这样就可以解决从服务器到客户端的数据端口的入方向连接被防火墙过滤掉的问题。 当开启一个 FTP连接时，客户端打开两个任意的非特权本地端口 ...</p></li></ul> 
-      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/ftpde-portmo-shi-pasvmo-shi-fxpxie-yi-he-zai-javazhong-shi-yong-shi-de-yi-xie-wen-ti.html">read more...</a></div>
+      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/ftpde-portmo-shi-pasvmo-shi-fxpxie-yi-he-zai-javazhong-shi-yong-shi-de-xie-wen-ti.html">read more...</a></div>
       <hr />
       <div class="front-title"><a href="http://blog.turbidsoul.me/posts/jrebelxiao-ji.html">JRebel小记</a></div>
 <p>
@@ -280,7 +289,7 @@
 <li>第三个就是在网络传输上，这个问题其实和第二个是一样的，从mongodb带出了太多的无用数据，而且是一次性全部数据都查寻来，这样就会造成数据越多查询越慢，网络的传输上压力就越大，到最后就是服务器崩掉 ...</li></ol> 
       <div class="read-more"><a href="http://blog.turbidsoul.me/posts/shu-morphiacha-xun-you-hua-he-ca-pi-gu.html">read more...</a></div>
       <hr />
-      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/guan-yu-morphiazai-cun-chu-rong-yu-lei-de-shi-hou-chu-xian-de-yi-ge-wen-ti.html">关于Morphia在存储冗余类的时候出现的一个问题？</a></div>
+      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/guan-yu-morphiazai-cun-chu-rong-yu-lei-de-shi-hou-chu-xian-de-ge-wen-ti.html">关于Morphia在存储冗余类的时候出现的一个问题？</a></div>
 <p>
 <small>
 <abbr class="published" title="2012-01-05">
@@ -291,12 +300,12 @@
     <a href="http://blog.turbidsoul.me/tag/morphia.html">morphia</a>, 
     <a href="http://blog.turbidsoul.me/tag/code.html">code</a>, 
     <a href="http://blog.turbidsoul.me/tag/mongo.html">mongo</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/guan-yu-morphiazai-cun-chu-rong-yu-lei-de-shi-hou-chu-xian-de-yi-ge-wen-ti.html" rel="bookmark">permalink</a>)
+ -- (<a href="http://blog.turbidsoul.me/posts/guan-yu-morphiazai-cun-chu-rong-yu-lei-de-shi-hou-chu-xian-de-ge-wen-ti.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>昨天中午临吃午饭前，我对系统的业务功能代码进行重构之后，准备测试一下，通过就去吃饭，但是发生了一个让我很意外的问题，就是在存储的时候，系统 报出来，类型转换异常（<code>java.lang.ClassCaseException</code>）或者是这么一个错误信息（<code>object is not an instance of declaring class</code>），很纠结因为之前这里测试都好好的，而且给内容组，视频组和测试组部署的测试环境，还在正常运行，一时想不通那里出了问题。</p>
 <p>在 经过几次debug跟踪之后发现，每次报错都是在，存储FreeCourse和FreeVideo两个类是发生的问题，我仔细回忆 了，从上次重部署测试环境到出问题之间修改的代码，中间都没有什么问题，只有一个地方和其他人写的代码略有不一样，就是：其他人在写list类型的属性 时，默认是给空值的，但是我会给他们new一个size为0的ArrayList，这是我的一个喜欢，是为了避免出现一些因为疏忽而发生的问题，但是如果 只是这样不应该会有问题。</p>
 <p>我 又仔细的看了一边相关业务代码和实体类的代码，所有代码中都没有问题，但是有一点和其他人的不同，就是我的FreeVideo下有个字段 videoInfos他的类型是 ...</p> 
-      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/guan-yu-morphiazai-cun-chu-rong-yu-lei-de-shi-hou-chu-xian-de-yi-ge-wen-ti.html">read more...</a></div>
+      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/guan-yu-morphiazai-cun-chu-rong-yu-lei-de-shi-hou-chu-xian-de-ge-wen-ti.html">read more...</a></div>
       <hr />
 
       </section>

@@ -11,6 +11,15 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-MML-AM_HTMLorMML-full"> </script>
+    <script type="text/javascript">
+      MathJax.Hub.Config({
+        asciimath2jax: {
+          delimiters: [['$','$'], ['`','`']]
+        }
+      });
+    </script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   </head>
   <body>
     <div class="wrapper">
@@ -121,7 +130,6 @@
 
 <span class="c"># Create a custom renderer</span>
 
-
 <span class="k">class</span> <span class="nc">BleepRenderer</span><span class="p">(</span><span class="n">HtmlRenderer</span><span class="p">,</span> <span class="n">SmartyPants</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="nf">block_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">lang</span><span class="p">):</span>
@@ -190,7 +198,6 @@
 <span class="kn">from</span> <span class="nn">pygments.lexers</span> <span class="kn">import</span> <span class="n">get_lexer_by_name</span>
 <span class="kn">from</span> <span class="nn">pygments.formatters</span> <span class="kn">import</span> <span class="n">HtmlFormatter</span>
 
-
 <span class="k">class</span> <span class="nc">SyntaxHighlightRenderer</span><span class="p">(</span><span class="n">HtmlRenderer</span><span class="p">,</span> <span class="n">SmartyPants</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="nf">block_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">lang</span><span class="p">):</span>
@@ -200,7 +207,6 @@
         <span class="n">formatter</span> <span class="o">=</span> <span class="n">HtmlFormatter</span><span class="p">(</span>
             <span class="n">linenos</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s">&quot;vim&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s">&quot;</span><span class="si">%s</span><span class="s"> code&quot;</span> <span class="o">%</span> <span class="n">lang</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">highlight</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">lexer</span><span class="p">,</span> <span class="n">formatter</span><span class="p">)</span>
-
 
 <span class="k">class</span> <span class="nc">Index</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="n">html_tempalte</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
@@ -278,8 +284,9 @@
 <blockquote>
 <p>在命令下运行: <code>python test.py 1234</code>之后使用 <a href="http://localhost:1234">http://localhost:1234</a>)就能访问,并且看到结果</p>
 </blockquote>
+<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="Turbidsoul">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
     </div><!-- /.entry-content -->
-<div id="disqus_thread"></div>
+    <!-- <div id="disqus_thread"></div>
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
         var disqus_shortname = 'Turbidsoul'; // required: replace example with your forum shortname
@@ -294,6 +301,23 @@
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+ -->
+    <div id="commentswrap">
+      <div id="comments"></div>
+    </div>
+    
+    <script src="https://apis.google.com/js/plusone.js"></script>
+    <script>
+        $(document).ready(function () {
+            gapi.comments.render('comments', {
+                href: window.location,
+                width: '600',
+                first_party_property: 'BLOGGER',
+                view_type: 'FILTERED_POSTMOD'
+            });
+    });
+    </script>
+
   </article>
 </section>
       </section>

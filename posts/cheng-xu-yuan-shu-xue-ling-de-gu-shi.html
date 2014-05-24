@@ -11,6 +11,15 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-MML-AM_HTMLorMML-full"> </script>
+    <script type="text/javascript">
+      MathJax.Hub.Config({
+        asciimath2jax: {
+          delimiters: [['$','$'], ['`','`']]
+        }
+      });
+    </script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   </head>
   <body>
     <div class="wrapper">
@@ -91,8 +100,9 @@
 </ul>
 <h4>结论</h4>
 <p>在书中，人类为了超越极限不断的简化计数方法，将大为题分解一个个小的单元，即便在现代我们做软件工程的，也是把一个项目分解成若干的模块，分给不同的小组，项目组在把这个模块分解成若干个小单元，分给每个小组成员，这也是这本书的主旨之一。</p>
+<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="Turbidsoul">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
     </div><!-- /.entry-content -->
-<div id="disqus_thread"></div>
+    <!-- <div id="disqus_thread"></div>
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
         var disqus_shortname = 'Turbidsoul'; // required: replace example with your forum shortname
@@ -107,6 +117,23 @@
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+ -->
+    <div id="commentswrap">
+      <div id="comments"></div>
+    </div>
+    
+    <script src="https://apis.google.com/js/plusone.js"></script>
+    <script>
+        $(document).ready(function () {
+            gapi.comments.render('comments', {
+                href: window.location,
+                width: '600',
+                first_party_property: 'BLOGGER',
+                view_type: 'FILTERED_POSTMOD'
+            });
+    });
+    </script>
+
   </article>
 </section>
       </section>

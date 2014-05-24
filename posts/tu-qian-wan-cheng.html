@@ -11,6 +11,15 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-MML-AM_HTMLorMML-full"> </script>
+    <script type="text/javascript">
+      MathJax.Hub.Config({
+        asciimath2jax: {
+          delimiters: [['$','$'], ['`','`']]
+        }
+      });
+    </script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   </head>
   <body>
     <div class="wrapper">
@@ -61,8 +70,9 @@
 <p>这几天连着下雨，天气阴凉，但是我的心情并不是很好，不知道是不是因为新搬家到这里不适应，这里算是西安比较偏远的地方了，从小都生活在二环内，不管房子换几处，都会在二环以内活动，买了房子却跑到了三环外面，可能是心理不适应。索引最近脾气有点暴躁，虽然几年的工作已经把我的脾气磨的差不多了但是还是差点忍不住。</p>
 <hr />
 <p>这短时间需要把blog的首页整理以下，加入一些自我介绍，首页重新布局，做成类似简历一样的</p>
+<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="Turbidsoul">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
     </div><!-- /.entry-content -->
-<div id="disqus_thread"></div>
+    <!-- <div id="disqus_thread"></div>
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
         var disqus_shortname = 'Turbidsoul'; // required: replace example with your forum shortname
@@ -77,6 +87,23 @@
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+ -->
+    <div id="commentswrap">
+      <div id="comments"></div>
+    </div>
+    
+    <script src="https://apis.google.com/js/plusone.js"></script>
+    <script>
+        $(document).ready(function () {
+            gapi.comments.render('comments', {
+                href: window.location,
+                width: '600',
+                first_party_property: 'BLOGGER',
+                view_type: 'FILTERED_POSTMOD'
+            });
+    });
+    </script>
+
   </article>
 </section>
       </section>

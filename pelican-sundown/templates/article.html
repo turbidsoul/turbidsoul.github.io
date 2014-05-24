@@ -12,7 +12,11 @@
       {{ article.content }}
       {% include 'twitter.html' %}
     </div><!-- /.entry-content -->
-    {% include 'disqus_script.html' %}
+    <!-- {% include 'disqus_script.html' %} -->
+    <div id="commentswrap">
+      <div id="comments"></div>
+    </div>
+    {{article.metadata.googleplus_comments}}
   </article>
 </section>
 {% endblock %}

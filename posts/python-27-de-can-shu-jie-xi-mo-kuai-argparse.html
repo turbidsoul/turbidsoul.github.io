@@ -11,6 +11,15 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-MML-AM_HTMLorMML-full"> </script>
+    <script type="text/javascript">
+      MathJax.Hub.Config({
+        asciimath2jax: {
+          delimiters: [['$','$'], ['`','`']]
+        }
+      });
+    </script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   </head>
   <body>
     <div class="wrapper">
@@ -355,7 +364,6 @@
 <span class="gp">...</span>
 <span class="go">Namespace(p1=1, source=&lt;open file &#39;source.txt&#39;, mode &#39;r&#39; at 0x0496E6A8&gt;, target=&lt;open file &#39;target.txt&#39;, mode &#39;w&#39; at 0x0496E548&gt;)</span>
 
-
 <span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">upper</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
 <span class="gp">... </span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">s</span><span class="o">.</span><span class="n">isupper</span><span class="p">():</span>
 <span class="gp">... </span>        <span class="k">raise</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentTypeError</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%r</span><span class="s"> not a upper letter&#39;</span> <span class="o">%</span> <span class="n">s</span><span class="p">)</span>
@@ -437,8 +445,9 @@
 
 <h2>结论</h2>
 <p>argparse 还有很多其他功能，我这里之说了连个最常用的，当然我的小工具里也就用了这么多，如果还有兴趣可以自己试一试，python本身确实提供了很多不错的模块，有时候完全没有必要舍本逐末。</p>
+<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="Turbidsoul">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
     </div><!-- /.entry-content -->
-<div id="disqus_thread"></div>
+    <!-- <div id="disqus_thread"></div>
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
         var disqus_shortname = 'Turbidsoul'; // required: replace example with your forum shortname
@@ -453,6 +462,23 @@
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+ -->
+    <div id="commentswrap">
+      <div id="comments"></div>
+    </div>
+    
+    <script src="https://apis.google.com/js/plusone.js"></script>
+    <script>
+        $(document).ready(function () {
+            gapi.comments.render('comments', {
+                href: window.location,
+                width: '600',
+                first_party_property: 'BLOGGER',
+                view_type: 'FILTERED_POSTMOD'
+            });
+    });
+    </script>
+
   </article>
 </section>
       </section>

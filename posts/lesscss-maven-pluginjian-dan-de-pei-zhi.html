@@ -11,6 +11,15 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-MML-AM_HTMLorMML-full"> </script>
+    <script type="text/javascript">
+      MathJax.Hub.Config({
+        asciimath2jax: {
+          delimiters: [['$','$'], ['`','`']]
+        }
+      });
+    </script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   </head>
   <body>
     <div class="wrapper">
@@ -131,8 +140,9 @@
 <p>还有另外一个插件<a href="http://code.google.com/p/wro4j/" title="Web Resource Optimizer for Java">wro4j</a>，这个插件的功能更为强大，支持css，js合并，压缩，less文件编译，合并，压缩等等丰富的功能，也支持自定义的processor但是如果要实现上面说的应该也要自己实现processor，我并没有看到官方文档或者jboss上介绍，而且官方文档关于less的内容太少，而且做到这里，发现我们的项目使用less之后需要变动的东西太多，主要来自css书写的问题，很多时候为了兼容ie，写了一些非标准的css代码，修改成less之后需要话大量的时间去修正，所以就放弃了less，还是决定采用之前的方案处理。</p>
 <p>这里有一个关于wro4j的例子，有兴趣的朋友可以看一下：
 <a href="https://github.com/jbosstools/m2e-wro4j/wiki/Sample-twitter-bootstrap-project">https://github.com/jbosstools/m2e-wro4j/wiki/Sample-twitter-bootstrap-project</a></p>
+<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="Turbidsoul">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
     </div><!-- /.entry-content -->
-<div id="disqus_thread"></div>
+    <!-- <div id="disqus_thread"></div>
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
         var disqus_shortname = 'Turbidsoul'; // required: replace example with your forum shortname
@@ -147,6 +157,23 @@
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+ -->
+    <div id="commentswrap">
+      <div id="comments"></div>
+    </div>
+    
+    <script src="https://apis.google.com/js/plusone.js"></script>
+    <script>
+        $(document).ready(function () {
+            gapi.comments.render('comments', {
+                href: window.location,
+                width: '600',
+                first_party_property: 'BLOGGER',
+                view_type: 'FILTERED_POSTMOD'
+            });
+    });
+    </script>
+
   </article>
 </section>
       </section>
