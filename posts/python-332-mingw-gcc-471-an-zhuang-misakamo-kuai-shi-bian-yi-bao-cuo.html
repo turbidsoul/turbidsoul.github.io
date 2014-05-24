@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>python 3.3.2 mingw gcc 4.7.1 安装misaka模块时编译报错Turbidsoul's 小黑屋</title>
 
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
+    <link rel="stylesheet" href="/theme/css/main.css">
+    <link rel="stylesheet" href="/theme/css/pygment_trac.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,13 +15,13 @@
   <body>
     <div class="wrapper">
       <header>
-        <div><img src="http://blog.turbidsoul.me/images/avatar.jpg" class="grv-img"/></div>
-        <div class="title"><a href="http://blog.turbidsoul.me/">Turbidsoul's 小黑屋 </a></div>
+        <div><img src="/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="/">Turbidsoul's 小黑屋 </a></div>
         <div class="sub-title"></div>
 
 <p>
-    <div class="view"><a href="http://blog.turbidsoul.me/pages/guan-yu-wo.html">关于我</a></div>
-  <div class="view"><a href="http://blog.turbidsoul.me/archives.html">Archives</a></div>
+    <div class="view"><a href="/pages/guan-yu-wo.html">关于我</a></div>
+  <div class="view"><a href="/archives.html">Archives</a></div>
 </p>
 
 <!-- Social links -->
@@ -52,11 +52,11 @@
   2013年 八月 16日 周五
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
-    <a href="http://blog.turbidsoul.me/tag/python33.html">python33</a>, 
-    <a href="http://blog.turbidsoul.me/tag/mingw.html">mingw</a>, 
-    <a href="http://blog.turbidsoul.me/tag/gcc.html">gcc</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/python-332-mingw-gcc-471-an-zhuang-misakamo-kuai-shi-bian-yi-bao-cuo.html" rel="bookmark">permalink</a>)
+    <a href="/tag/python.html">python</a>, 
+    <a href="/tag/python33.html">python33</a>, 
+    <a href="/tag/mingw.html">mingw</a>, 
+    <a href="/tag/gcc.html">gcc</a>, 
+ -- (<a href="/posts/python-332-mingw-gcc-471-an-zhuang-misakamo-kuai-shi-bian-yi-bao-cuo.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>今天安装在 <strong>python3.3.2</strong> 下安装 <strong>misaka</strong>  编译的时候报出了一个编译错误 <em>gcc: error: unrecognized command line option '-mno-cygwin'</em></p>
 <p>解决的办法很简单，在 <strong>gcc 4.7</strong> 不支持 <strong>-mno-cygwin</strong> 选项，所以我们只需要把这个选项在编译的时候去掉就行了。</p>
@@ -73,21 +73,6 @@
 
 <p>把代码中的 <strong>-mno-cygwin</strong> 去掉即可。</p>
     </div><!-- /.entry-content -->
-<div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'Turbidsoul'; // required: replace example with your forum shortname
-        var disqus_identifier = "posts/python-332-mingw-gcc-471-an-zhuang-misakamo-kuai-shi-bian-yi-bao-cuo.html";
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
   </article>
 </section>
       </section>

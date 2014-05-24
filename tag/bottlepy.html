@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Turbidsoul's 小黑屋 - bottlepyTurbidsoul's 小黑屋</title>
 
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
+    <link rel="stylesheet" href="/theme/css/main.css">
+    <link rel="stylesheet" href="/theme/css/pygment_trac.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,13 +15,13 @@
   <body>
     <div class="wrapper">
       <header>
-        <div><img src="http://blog.turbidsoul.me/images/avatar.jpg" class="grv-img"/></div>
-        <div class="title"><a href="http://blog.turbidsoul.me/">Turbidsoul's 小黑屋 </a></div>
+        <div><img src="/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="/">Turbidsoul's 小黑屋 </a></div>
         <div class="sub-title"></div>
 
 <p>
-    <div class="view"><a href="http://blog.turbidsoul.me/pages/guan-yu-wo.html">关于我</a></div>
-  <div class="view"><a href="http://blog.turbidsoul.me/archives.html">Archives</a></div>
+    <div class="view"><a href="/pages/guan-yu-wo.html">关于我</a></div>
+  <div class="view"><a href="/archives.html">Archives</a></div>
 </p>
 
 <!-- Social links -->
@@ -39,19 +39,19 @@
 
       </header>
       <section>
-      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/nginxuwsgibottlepypei-zhi-bu-shu-pythonying-yong.html">nginx,uwsgi,bottlepy配置部署python应用</a></div>
+      <div class="front-title"><a href="/posts/nginxuwsgibottlepypei-zhi-bu-shu-pythonying-yong.html">nginx,uwsgi,bottlepy配置部署python应用</a></div>
 <p>
 <small>
 <abbr class="published" title="2013-11-13">
   2013年 十一月 13日 周三
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/tag/nginx.html">nginx</a>, 
-    <a href="http://blog.turbidsoul.me/tag/uwsgi.html">uwsgi</a>, 
-    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
-    <a href="http://blog.turbidsoul.me/tag/web.html">web</a>, 
-    <a href="http://blog.turbidsoul.me/tag/bottlepy.html">bottlepy</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/nginxuwsgibottlepypei-zhi-bu-shu-pythonying-yong.html" rel="bookmark">permalink</a>)
+    <a href="/tag/nginx.html">nginx</a>, 
+    <a href="/tag/uwsgi.html">uwsgi</a>, 
+    <a href="/tag/python.html">python</a>, 
+    <a href="/tag/web.html">web</a>, 
+    <a href="/tag/bottlepy.html">bottlepy</a>, 
+ -- (<a href="/posts/nginxuwsgibottlepypei-zhi-bu-shu-pythonying-yong.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>这几天一直在写一个用户行为分析出席清晰代码的工具，我的本意是想把这个用python做成一个独立的应用，但是这么做其实是比较麻烦和有一定难度的，因为用户的行为分析是和要我们主数据库结合做的，如果做成独立应用的话需要从主库中找出大量的数据，这样会影响效率，所以就把用户端分析和cms系统做到以前，前期的日志清洗和数据初期简单的分析做到一个python实现的一个离线工具，这个不是我这篇blog的重点，这次的重点是如何使用nginx，uwsgi，python部署web应用，这只是这次工作的题外话，但是我认为这是这个用户行为分析模块将来的方向，所以研究留用计数备忘和初期探索。</p>
 <h2>搭建环境</h2>
@@ -60,7 +60,7 @@
 <code>pip install uwsgi bottlepy</code></p>
 <p>arch linux 默认python应该是3.3.2，所以需要安装<em>pythonbrew</em>然后在来安装2.7.5,至于pythonbrew如何安装，请自行搜索，安装其实很简单。至于nginx默认是支持uwsgi，所以不需要特别安装其他的插件。</p>
 <p>其实也可以通过<code>pacman -S uwsgi</code>来安装但是这个是不支持python的，所以需要用户pip安装uwsgi，才能支持python至于 ...</p> 
-      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/nginxuwsgibottlepypei-zhi-bu-shu-pythonying-yong.html">read more...</a></div>
+      <div class="read-more"><a href="/posts/nginxuwsgibottlepypei-zhi-bu-shu-pythonying-yong.html">read more...</a></div>
       <hr />
 
       </section>

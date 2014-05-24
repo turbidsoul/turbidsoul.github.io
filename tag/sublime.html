@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Turbidsoul's 小黑屋 - sublimeTurbidsoul's 小黑屋</title>
 
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
+    <link rel="stylesheet" href="/theme/css/main.css">
+    <link rel="stylesheet" href="/theme/css/pygment_trac.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,13 +15,13 @@
   <body>
     <div class="wrapper">
       <header>
-        <div><img src="http://blog.turbidsoul.me/images/avatar.jpg" class="grv-img"/></div>
-        <div class="title"><a href="http://blog.turbidsoul.me/">Turbidsoul's 小黑屋 </a></div>
+        <div><img src="/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="/">Turbidsoul's 小黑屋 </a></div>
         <div class="sub-title"></div>
 
 <p>
-    <div class="view"><a href="http://blog.turbidsoul.me/pages/guan-yu-wo.html">关于我</a></div>
-  <div class="view"><a href="http://blog.turbidsoul.me/archives.html">Archives</a></div>
+    <div class="view"><a href="/pages/guan-yu-wo.html">关于我</a></div>
+  <div class="view"><a href="/archives.html">Archives</a></div>
 </p>
 
 <!-- Social links -->
@@ -39,17 +39,17 @@
 
       </header>
       <section>
-      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/sublimecha-jian-emmetqi-dong-shi-bai.html">sublime插件emmet启动失败</a></div>
+      <div class="front-title"><a href="/posts/sublimecha-jian-emmetqi-dong-shi-bai.html">sublime插件emmet启动失败</a></div>
 <p>
 <small>
 <abbr class="published" title="2013-06-05">
   2013年 六月 05日 周三
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/tag/sublime.html">sublime</a>, 
-    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
-    <a href="http://blog.turbidsoul.me/tag/emmet.html">emmet</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/sublimecha-jian-emmetqi-dong-shi-bai.html" rel="bookmark">permalink</a>)
+    <a href="/tag/sublime.html">sublime</a>, 
+    <a href="/tag/python.html">python</a>, 
+    <a href="/tag/emmet.html">emmet</a>, 
+ -- (<a href="/posts/sublimecha-jian-emmetqi-dong-shi-bai.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>最近发现我的sublime的emmet失效，查看了控制台，发现在sublime启动的失败，启动的时候报了如下的错误：</p>
 <div class="highlight"><pre><span class="gt">Traceback (most recent call last):</span>
@@ -62,18 +62,18 @@
     <span class="n">ctx</span><span class="o">.</span><span class="n">js</span><span class="p">()</span>
   File <span class="nb">&quot;.\emmet\context.py&quot;</span>, line <span class="m">178</span>, in <span class="n">js</span>
     <span class="bp">self ...</span></pre></div> 
-      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/sublimecha-jian-emmetqi-dong-shi-bai.html">read more...</a></div>
+      <div class="read-more"><a href="/posts/sublimecha-jian-emmetqi-dong-shi-bai.html">read more...</a></div>
       <hr />
-      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/sublimezhi-xing-windowsming-ling-shi-wu-fa-shu-chu-zhong-wen-wen-ti.html">sublime执行windows命令时无法输出中文问题</a></div>
+      <div class="front-title"><a href="/posts/sublimezhi-xing-windowsming-ling-shi-wu-fa-shu-chu-zhong-wen-wen-ti.html">sublime执行windows命令时无法输出中文问题</a></div>
 <p>
 <small>
 <abbr class="published" title="2013-05-31">
   2013年 五月 31日 周五
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/tag/sublime.html">sublime</a>, 
-    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/sublimezhi-xing-windowsming-ling-shi-wu-fa-shu-chu-zhong-wen-wen-ti.html" rel="bookmark">permalink</a>)
+    <a href="/tag/sublime.html">sublime</a>, 
+    <a href="/tag/python.html">python</a>, 
+ -- (<a href="/posts/sublimezhi-xing-windowsming-ling-shi-wu-fa-shu-chu-zhong-wen-wen-ti.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>这是一个很简单的问题，我最近在研究jdk8，使用sublime自定义的编译方式运行，是编译运行的结果显示到sublime控制台上，但是这里如果运行的话会提示 <em>Decode error</em> 虽然没有太大的影响但是看着总是很难受，而且有时候也不太方便，所以就自己找出问题解决掉。</p>
 <p>解决的方式很简单，按 <strong>ctrl+shift+f</strong> 进入高级搜索，在 <strong>find</strong> 中填入 <em>Decode error</em> 在 <strong>where</strong> 中填入sublime的插件目录和要所搜的文件类型，如下：<code>D:\SublimeText\Data\Packages,*.py</code> 因为我们能确定到要搜索的东西在python的代码文件中，所以这里直接搜索 *<em>.py</em> 文件即可，等上几秒中就能看到搜索结果，结果如下：</p>
@@ -81,7 +81,7 @@
 
 <span class="nl">D:</span><span class="err">\</span><span class="n">SublimeText</span><span class="err">\</span><span class="n">Data</span><span class="err">\</span><span class="n">Packages</span><span class="err">\</span><span class="n">Default</span><span class="err">\</span><span class="n">exec</span><span class="p">.</span><span class="n">py</span><span class="o">:</span>
   <span class="mi">181 ...</span></pre></div> 
-      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/sublimezhi-xing-windowsming-ling-shi-wu-fa-shu-chu-zhong-wen-wen-ti.html">read more...</a></div>
+      <div class="read-more"><a href="/posts/sublimezhi-xing-windowsming-ling-shi-wu-fa-shu-chu-zhong-wen-wen-ti.html">read more...</a></div>
       <hr />
 
       </section>

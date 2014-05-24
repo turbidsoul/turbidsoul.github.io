@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Turbidsoul's 小黑屋 - nginxTurbidsoul's 小黑屋</title>
 
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
+    <link rel="stylesheet" href="/theme/css/main.css">
+    <link rel="stylesheet" href="/theme/css/pygment_trac.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,13 +15,13 @@
   <body>
     <div class="wrapper">
       <header>
-        <div><img src="http://blog.turbidsoul.me/images/avatar.jpg" class="grv-img"/></div>
-        <div class="title"><a href="http://blog.turbidsoul.me/">Turbidsoul's 小黑屋 </a></div>
+        <div><img src="/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="/">Turbidsoul's 小黑屋 </a></div>
         <div class="sub-title"></div>
 
 <p>
-    <div class="view"><a href="http://blog.turbidsoul.me/pages/guan-yu-wo.html">关于我</a></div>
-  <div class="view"><a href="http://blog.turbidsoul.me/archives.html">Archives</a></div>
+    <div class="view"><a href="/pages/guan-yu-wo.html">关于我</a></div>
+  <div class="view"><a href="/archives.html">Archives</a></div>
 </p>
 
 <!-- Social links -->
@@ -39,18 +39,18 @@
 
       </header>
       <section>
-      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/ffmpegrtmpdumphe-nginx-rtmpshi-xian-lu-ping-zhi-bo-he-lu-zhi.html">ffmpeg,rtmpdump和nginx rtmp实现录屏，直播和录制</a></div>
+      <div class="front-title"><a href="/posts/ffmpegrtmpdumphe-nginx-rtmpshi-xian-lu-ping-zhi-bo-he-lu-zhi.html">ffmpeg,rtmpdump和nginx rtmp实现录屏，直播和录制</a></div>
 <p>
 <small>
 <abbr class="published" title="2014-04-19">
   2014年 四月 19日 周六
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/tag/ffmpeg.html">ffmpeg</a>, 
-    <a href="http://blog.turbidsoul.me/tag/rtmp.html">rtmp</a>, 
-    <a href="http://blog.turbidsoul.me/tag/rtmpdump.html">rtmpdump</a>, 
-    <a href="http://blog.turbidsoul.me/tag/nginx.html">nginx</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/ffmpegrtmpdumphe-nginx-rtmpshi-xian-lu-ping-zhi-bo-he-lu-zhi.html" rel="bookmark">permalink</a>)
+    <a href="/tag/ffmpeg.html">ffmpeg</a>, 
+    <a href="/tag/rtmp.html">rtmp</a>, 
+    <a href="/tag/rtmpdump.html">rtmpdump</a>, 
+    <a href="/tag/nginx.html">nginx</a>, 
+ -- (<a href="/posts/ffmpegrtmpdumphe-nginx-rtmpshi-xian-lu-ping-zhi-bo-he-lu-zhi.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>公司最近在做视频直播的项目，我这里分配到对直播的视频进行录制，录制的方式是通过rtmpdump对rtmp的视频流进行录制</p>
 <h2>前置的知识</h2>
@@ -71,18 +71,18 @@
 
 <p>输出如下结果：</p>
 <div class="highlight"><pre><span class="go">ffmpeg version N-63013-g4cdea92 Copyright ...</span></pre></div> 
-      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/ffmpegrtmpdumphe-nginx-rtmpshi-xian-lu-ping-zhi-bo-he-lu-zhi.html">read more...</a></div>
+      <div class="read-more"><a href="/posts/ffmpegrtmpdumphe-nginx-rtmpshi-xian-lu-ping-zhi-bo-he-lu-zhi.html">read more...</a></div>
       <hr />
-      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/nginxshi-xian-wen-jian-xia-zai-zi-dong-da-bao-cheng-zipwen-jian.html">Nginx实现文件下载自动打包成zip文件</a></div>
+      <div class="front-title"><a href="/posts/nginxshi-xian-wen-jian-xia-zai-zi-dong-da-bao-cheng-zipwen-jian.html">Nginx实现文件下载自动打包成zip文件</a></div>
 <p>
 <small>
 <abbr class="published" title="2014-01-26">
   2014年 一月 26日 周日
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/tag/nginx.html">nginx</a>, 
-    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/nginxshi-xian-wen-jian-xia-zai-zi-dong-da-bao-cheng-zipwen-jian.html" rel="bookmark">permalink</a>)
+    <a href="/tag/nginx.html">nginx</a>, 
+    <a href="/tag/python.html">python</a>, 
+ -- (<a href="/posts/nginxshi-xian-wen-jian-xia-zai-zi-dong-da-bao-cheng-zipwen-jian.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <h2>来源和介绍</h2>
 <p>问题的来源是需要对已有的资料在下载的时候进行添加广告，但是对于doc文件操作麻烦的情况，采用在下载的时候将广告文件和资料一起打包成zip文件.</p>
@@ -98,21 +98,21 @@
     <span class="n">response</span><span class="o">.</span><span class="n">set_header</span><span class="p">(</span><span class="s">&#39;X-Accel-Chareset&#39;</span><span class="p">,</span> <span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
     <span class="n">response</span><span class="o">.</span><span class="n">set_header</span><span class="p">(</span><span class="s">&#39;Content-Disposition&#39;</span><span class="p">,</span> <span class="s">r&quot;attachment; filename*=test.zip&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="s">&quot;&quot;&quot;618792700 135 /test.lua ...</span></pre></div> 
-      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/nginxshi-xian-wen-jian-xia-zai-zi-dong-da-bao-cheng-zipwen-jian.html">read more...</a></div>
+      <div class="read-more"><a href="/posts/nginxshi-xian-wen-jian-xia-zai-zi-dong-da-bao-cheng-zipwen-jian.html">read more...</a></div>
       <hr />
-      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/nginxuwsgibottlepypei-zhi-bu-shu-pythonying-yong.html">nginx,uwsgi,bottlepy配置部署python应用</a></div>
+      <div class="front-title"><a href="/posts/nginxuwsgibottlepypei-zhi-bu-shu-pythonying-yong.html">nginx,uwsgi,bottlepy配置部署python应用</a></div>
 <p>
 <small>
 <abbr class="published" title="2013-11-13">
   2013年 十一月 13日 周三
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/tag/nginx.html">nginx</a>, 
-    <a href="http://blog.turbidsoul.me/tag/uwsgi.html">uwsgi</a>, 
-    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
-    <a href="http://blog.turbidsoul.me/tag/web.html">web</a>, 
-    <a href="http://blog.turbidsoul.me/tag/bottlepy.html">bottlepy</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/nginxuwsgibottlepypei-zhi-bu-shu-pythonying-yong.html" rel="bookmark">permalink</a>)
+    <a href="/tag/nginx.html">nginx</a>, 
+    <a href="/tag/uwsgi.html">uwsgi</a>, 
+    <a href="/tag/python.html">python</a>, 
+    <a href="/tag/web.html">web</a>, 
+    <a href="/tag/bottlepy.html">bottlepy</a>, 
+ -- (<a href="/posts/nginxuwsgibottlepypei-zhi-bu-shu-pythonying-yong.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>这几天一直在写一个用户行为分析出席清晰代码的工具，我的本意是想把这个用python做成一个独立的应用，但是这么做其实是比较麻烦和有一定难度的，因为用户的行为分析是和要我们主数据库结合做的，如果做成独立应用的话需要从主库中找出大量的数据，这样会影响效率，所以就把用户端分析和cms系统做到以前，前期的日志清洗和数据初期简单的分析做到一个python实现的一个离线工具，这个不是我这篇blog的重点，这次的重点是如何使用nginx，uwsgi，python部署web应用，这只是这次工作的题外话，但是我认为这是这个用户行为分析模块将来的方向，所以研究留用计数备忘和初期探索。</p>
 <h2>搭建环境</h2>
@@ -121,21 +121,21 @@
 <code>pip install uwsgi bottlepy</code></p>
 <p>arch linux 默认python应该是3.3.2，所以需要安装<em>pythonbrew</em>然后在来安装2.7.5,至于pythonbrew如何安装，请自行搜索，安装其实很简单。至于nginx默认是支持uwsgi，所以不需要特别安装其他的插件。</p>
 <p>其实也可以通过<code>pacman -S uwsgi</code>来安装但是这个是不支持python的，所以需要用户pip安装uwsgi，才能支持python至于 ...</p> 
-      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/nginxuwsgibottlepypei-zhi-bu-shu-pythonying-yong.html">read more...</a></div>
+      <div class="read-more"><a href="/posts/nginxuwsgibottlepypei-zhi-bu-shu-pythonying-yong.html">read more...</a></div>
       <hr />
-      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/ru-he-pei-zhi-zai-nginxhe-casshang-pei-zhi-ssl.html">如何配置在nginx和cas上配置ssl？</a></div>
+      <div class="front-title"><a href="/posts/ru-he-pei-zhi-zai-nginxhe-casshang-pei-zhi-ssl.html">如何配置在nginx和cas上配置ssl？</a></div>
 <p>
 <small>
 <abbr class="published" title="2013-05-08">
   2013年 五月 08日 周三
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/tag/nginx.html">nginx</a>, 
-    <a href="http://blog.turbidsoul.me/tag/cas.html">cas</a>, 
-    <a href="http://blog.turbidsoul.me/tag/ssl.html">ssl</a>, 
-    <a href="http://blog.turbidsoul.me/tag/java.html">java</a>, 
-    <a href="http://blog.turbidsoul.me/tag/https.html">https</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/ru-he-pei-zhi-zai-nginxhe-casshang-pei-zhi-ssl.html" rel="bookmark">permalink</a>)
+    <a href="/tag/nginx.html">nginx</a>, 
+    <a href="/tag/cas.html">cas</a>, 
+    <a href="/tag/ssl.html">ssl</a>, 
+    <a href="/tag/java.html">java</a>, 
+    <a href="/tag/https.html">https</a>, 
+ -- (<a href="/posts/ru-he-pei-zhi-zai-nginxhe-casshang-pei-zhi-ssl.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>公司准备对登录服务采用https，而登录服务采用的是cas，前段的是用nginx代理， 所以就有了之后的几个问题。</p>
 <p><strong>主要碰到了下面3个问题</strong> ：</p>
@@ -155,7 +155,7 @@
 <hr />
 <p>生成证书后，就可以配置nginx了，打开nginx.conf，加入以下几行:</p>
 <div class="highlight"><pre><span class="k">listen</span>                 <span class="mi">443 ...</span></pre></div> 
-      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/ru-he-pei-zhi-zai-nginxhe-casshang-pei-zhi-ssl.html">read more...</a></div>
+      <div class="read-more"><a href="/posts/ru-he-pei-zhi-zai-nginxhe-casshang-pei-zhi-ssl.html">read more...</a></div>
       <hr />
 
       </section>

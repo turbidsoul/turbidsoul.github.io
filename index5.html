@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Turbidsoul's 小黑屋</title>
 
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
+    <link rel="stylesheet" href="/theme/css/main.css">
+    <link rel="stylesheet" href="/theme/css/pygment_trac.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,13 +15,13 @@
   <body>
     <div class="wrapper">
       <header>
-        <div><img src="http://blog.turbidsoul.me/images/avatar.jpg" class="grv-img"/></div>
-        <div class="title"><a href="http://blog.turbidsoul.me/">Turbidsoul's 小黑屋 </a></div>
+        <div><img src="/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="/">Turbidsoul's 小黑屋 </a></div>
         <div class="sub-title"></div>
 
 <p>
-    <div class="view"><a href="http://blog.turbidsoul.me/pages/guan-yu-wo.html">关于我</a></div>
-  <div class="view"><a href="http://blog.turbidsoul.me/archives.html">Archives</a></div>
+    <div class="view"><a href="/pages/guan-yu-wo.html">关于我</a></div>
+  <div class="view"><a href="/archives.html">Archives</a></div>
 </p>
 
 <!-- Social links -->
@@ -39,17 +39,17 @@
 
       </header>
       <section>
-      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/itextzhong-wen-chu-li-wen-ti.html">IText中文处理问题！！！</a></div>
+      <div class="front-title"><a href="/posts/itextzhong-wen-chu-li-wen-ti.html">IText中文处理问题！！！</a></div>
 <p>
 <small>
 <abbr class="published" title="2012-02-01">
   2012年 二月 01日 周三
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/tag/itext.html">itext</a>, 
-    <a href="http://blog.turbidsoul.me/tag/java.html">java</a>, 
-    <a href="http://blog.turbidsoul.me/tag/code.html">code</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/itextzhong-wen-chu-li-wen-ti.html" rel="bookmark">permalink</a>)
+    <a href="/tag/itext.html">itext</a>, 
+    <a href="/tag/java.html">java</a>, 
+    <a href="/tag/code.html">code</a>, 
+ -- (<a href="/posts/itextzhong-wen-chu-li-wen-ti.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <blockquote>
 <p>这篇文章是很早之前写的，是我在去第一个公司的时候遇到的问题</p>
@@ -80,20 +80,20 @@
 <span class="cm"> * @throws IOException</span>
 <span class="cm"> */</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void ...</span></pre></div> 
-      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/itextzhong-wen-chu-li-wen-ti.html">read more...</a></div>
+      <div class="read-more"><a href="/posts/itextzhong-wen-chu-li-wen-ti.html">read more...</a></div>
       <hr />
-      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/shu-morphiacha-xun-you-hua-he-ca-pi-gu.html">树，morphia，查询，优化和擦屁股！</a></div>
+      <div class="front-title"><a href="/posts/shu-morphiacha-xun-you-hua-he-ca-pi-gu.html">树，morphia，查询，优化和擦屁股！</a></div>
 <p>
 <small>
 <abbr class="published" title="2012-01-13">
   2012年 一月 13日 周五
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/tag/java.html">java</a>, 
-    <a href="http://blog.turbidsoul.me/tag/morphia.html">morphia</a>, 
-    <a href="http://blog.turbidsoul.me/tag/mongo.html">mongo</a>, 
-    <a href="http://blog.turbidsoul.me/tag/code.html">code</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/shu-morphiacha-xun-you-hua-he-ca-pi-gu.html" rel="bookmark">permalink</a>)
+    <a href="/tag/java.html">java</a>, 
+    <a href="/tag/morphia.html">morphia</a>, 
+    <a href="/tag/mongo.html">mongo</a>, 
+    <a href="/tag/code.html">code</a>, 
+ -- (<a href="/posts/shu-morphiacha-xun-you-hua-he-ca-pi-gu.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>前天和昨天一直都在忙后台CMS树的优化和一些bug的修改，不过主要精力放在了树的优化上。</p>
 <p>后台数据较多的树有两个，都是和视频相 关的，我们的树用的是dwz的树，但是这是一个同步树，也就是说，这个树是一次性取出数据，通过freemarker构建成html代码，然后在由dwz 渲染成树，在数据量小的时候还不觉得有什么，但是数据量一大就会发现，后台服务端数据查询还不用什么，但是dwz渲染那是一个慢啊，后来我一个同事找了个 jquery的一个异步树，然后由我来对树进行更换。</p>
@@ -102,37 +102,37 @@
 <li>第一个就是dwz的树是同步树，在接收完数据之后，才进行树的渲染，在数据量略微大的话，渲染的效率就很低，而且我们的树是5级的，五层循环下来，基本上要循环过百万次，在firefox和chrome下测试发现，虽然chrome的js渲染速度快，但是效果并不明显</li>
 <li>第二个就是mongodb的问题，但是问题不在与mongodb上，而在于我们的查询上，几个树加载慢的表都冗余了大量的数据，这些数据在树的显示上都没有用，一个树需要的只有一个id和name两个字段，所以在查询上带出了太多的无用数据。</li>
 <li>第三个就是在网络传输上，这个问题其实和第二个是一样的，从mongodb带出了太多的无用数据，而且是一次性全部数据都查寻来，这样就会造成数据越多查询越慢，网络的传输上压力就越大，到最后就是服务器崩掉 ...</li></ol> 
-      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/shu-morphiacha-xun-you-hua-he-ca-pi-gu.html">read more...</a></div>
+      <div class="read-more"><a href="/posts/shu-morphiacha-xun-you-hua-he-ca-pi-gu.html">read more...</a></div>
       <hr />
-      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/guan-yu-morphiazai-cun-chu-rong-yu-lei-de-shi-hou-chu-xian-de-yi-ge-wen-ti.html">关于Morphia在存储冗余类的时候出现的一个问题？</a></div>
+      <div class="front-title"><a href="/posts/guan-yu-morphiazai-cun-chu-rong-yu-lei-de-shi-hou-chu-xian-de-yi-ge-wen-ti.html">关于Morphia在存储冗余类的时候出现的一个问题？</a></div>
 <p>
 <small>
 <abbr class="published" title="2012-01-05">
   2012年 一月 05日 周四
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/tag/java.html">java</a>, 
-    <a href="http://blog.turbidsoul.me/tag/morphia.html">morphia</a>, 
-    <a href="http://blog.turbidsoul.me/tag/code.html">code</a>, 
-    <a href="http://blog.turbidsoul.me/tag/mongo.html">mongo</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/guan-yu-morphiazai-cun-chu-rong-yu-lei-de-shi-hou-chu-xian-de-yi-ge-wen-ti.html" rel="bookmark">permalink</a>)
+    <a href="/tag/java.html">java</a>, 
+    <a href="/tag/morphia.html">morphia</a>, 
+    <a href="/tag/code.html">code</a>, 
+    <a href="/tag/mongo.html">mongo</a>, 
+ -- (<a href="/posts/guan-yu-morphiazai-cun-chu-rong-yu-lei-de-shi-hou-chu-xian-de-yi-ge-wen-ti.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>昨天中午临吃午饭前，我对系统的业务功能代码进行重构之后，准备测试一下，通过就去吃饭，但是发生了一个让我很意外的问题，就是在存储的时候，系统 报出来，类型转换异常（<code>java.lang.ClassCaseException</code>）或者是这么一个错误信息（<code>object is not an instance of declaring class</code>），很纠结因为之前这里测试都好好的，而且给内容组，视频组和测试组部署的测试环境，还在正常运行，一时想不通那里出了问题。</p>
 <p>在 经过几次debug跟踪之后发现，每次报错都是在，存储FreeCourse和FreeVideo两个类是发生的问题，我仔细回忆 了，从上次重部署测试环境到出问题之间修改的代码，中间都没有什么问题，只有一个地方和其他人写的代码略有不一样，就是：其他人在写list类型的属性 时，默认是给空值的，但是我会给他们new一个size为0的ArrayList，这是我的一个喜欢，是为了避免出现一些因为疏忽而发生的问题，但是如果 只是这样不应该会有问题。</p>
 <p>我 又仔细的看了一边相关业务代码和实体类的代码，所有代码中都没有问题，但是有一点和其他人的不同，就是我的FreeVideo下有个字段 videoInfos他的类型是 ...</p> 
-      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/guan-yu-morphiazai-cun-chu-rong-yu-lei-de-shi-hou-chu-xian-de-yi-ge-wen-ti.html">read more...</a></div>
+      <div class="read-more"><a href="/posts/guan-yu-morphiazai-cun-chu-rong-yu-lei-de-shi-hou-chu-xian-de-yi-ge-wen-ti.html">read more...</a></div>
       <hr />
-      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/jqueryfen-ye-cha-jian.html">Jquery分页插件</a></div>
+      <div class="front-title"><a href="/posts/jqueryfen-ye-cha-jian.html">Jquery分页插件</a></div>
 <p>
 <small>
 <abbr class="published" title="2011-12-07">
   2011年 十二月 07日 周三
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/tag/jquery.html">jquery</a>, 
-    <a href="http://blog.turbidsoul.me/tag/javascript.html">javascript</a>, 
-    <a href="http://blog.turbidsoul.me/tag/code.html">code</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/jqueryfen-ye-cha-jian.html" rel="bookmark">permalink</a>)
+    <a href="/tag/jquery.html">jquery</a>, 
+    <a href="/tag/javascript.html">javascript</a>, 
+    <a href="/tag/code.html">code</a>, 
+ -- (<a href="/posts/jqueryfen-ye-cha-jian.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>我们头不让我们使用外面的页面特效脚本，因为页面加载的时候使用太多的不相关页面会影响页面加载的速度。so，只能自己动手去写一个分页插件。</p>
 <p>今天没有在公司，没有截到效果图，不过没有关系，我可以说一下我的实现思路，我会在后面把效果图补上。</p>
@@ -147,19 +147,19 @@
         <span class="p">});</span>
         <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="s1">&#39;.reply_comment_btn&#39;</span><span class="p">).</span><span class="nx">bind</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">parent ...</span></pre></div> 
-      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/jqueryfen-ye-cha-jian.html">read more...</a></div>
+      <div class="read-more"><a href="/posts/jqueryfen-ye-cha-jian.html">read more...</a></div>
       <hr />
-      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/develop-jquery-plugin.html">开发jquery插件</a></div>
+      <div class="front-title"><a href="/posts/develop-jquery-plugin.html">开发jquery插件</a></div>
 <p>
 <small>
 <abbr class="published" title="2011-12-01">
   2011年 十二月 01日 周四
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/tag/jquery.html">jquery</a>, 
-    <a href="http://blog.turbidsoul.me/tag/javascript.html">javascript</a>, 
-    <a href="http://blog.turbidsoul.me/tag/code.html">code</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/develop-jquery-plugin.html" rel="bookmark">permalink</a>)
+    <a href="/tag/jquery.html">jquery</a>, 
+    <a href="/tag/javascript.html">javascript</a>, 
+    <a href="/tag/code.html">code</a>, 
+ -- (<a href="/posts/develop-jquery-plugin.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>公司网站首页广告位需要一个鼠标悬浮切换的特效，但是公司不让使用jquery已经实现过的特效，而公司的这方面的高手又没有时间做，所以只能自己去实现一个这样的特效插件。</p>
 <p>下面是先说下JQuery 插件大概的结构:</p>
@@ -180,11 +180,11 @@
 
 <p>本来想把代码大概的说下的，但是觉得这个插件很简单，没有什么值得特别说说的，jquery的 插件结构就项上面说的那样，一个插件名，对应一个具体的实现，在function里写插件的具体代码，这些东西在网上被人都快说烂了，但是我觉得有些说的 实在不清晰，至少我没看明白，我在这里不像说太多的，有时候对于程序员来说具体的代码，比一本书更管用！</p>
 <p>源代码：<a href="http://www.rayfile.com/zh-cn/files/b82a5e82-1a71-11e1-88b6-0015c55db73d/">jquery_plugin.7z</a></p> 
-      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/develop-jquery-plugin.html">read more...</a></div>
+      <div class="read-more"><a href="/posts/develop-jquery-plugin.html">read more...</a></div>
       <hr />
 
 <span class="paginator">
-    <a href="http://blog.turbidsoul.me/index4.html">&laquo;</a>
+    <a href="/index4.html">&laquo;</a>
 
   Page 5 / 5
 </span>

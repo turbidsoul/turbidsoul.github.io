@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>如何配置在nginx和cas上配置ssl？Turbidsoul's 小黑屋</title>
 
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
+    <link rel="stylesheet" href="/theme/css/main.css">
+    <link rel="stylesheet" href="/theme/css/pygment_trac.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,13 +15,13 @@
   <body>
     <div class="wrapper">
       <header>
-        <div><img src="http://blog.turbidsoul.me/images/avatar.jpg" class="grv-img"/></div>
-        <div class="title"><a href="http://blog.turbidsoul.me/">Turbidsoul's 小黑屋 </a></div>
+        <div><img src="/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="/">Turbidsoul's 小黑屋 </a></div>
         <div class="sub-title"></div>
 
 <p>
-    <div class="view"><a href="http://blog.turbidsoul.me/pages/guan-yu-wo.html">关于我</a></div>
-  <div class="view"><a href="http://blog.turbidsoul.me/archives.html">Archives</a></div>
+    <div class="view"><a href="/pages/guan-yu-wo.html">关于我</a></div>
+  <div class="view"><a href="/archives.html">Archives</a></div>
 </p>
 
 <!-- Social links -->
@@ -52,12 +52,12 @@
   2013年 五月 08日 周三
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/tag/nginx.html">nginx</a>, 
-    <a href="http://blog.turbidsoul.me/tag/cas.html">cas</a>, 
-    <a href="http://blog.turbidsoul.me/tag/ssl.html">ssl</a>, 
-    <a href="http://blog.turbidsoul.me/tag/java.html">java</a>, 
-    <a href="http://blog.turbidsoul.me/tag/https.html">https</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/ru-he-pei-zhi-zai-nginxhe-casshang-pei-zhi-ssl.html" rel="bookmark">permalink</a>)
+    <a href="/tag/nginx.html">nginx</a>, 
+    <a href="/tag/cas.html">cas</a>, 
+    <a href="/tag/ssl.html">ssl</a>, 
+    <a href="/tag/java.html">java</a>, 
+    <a href="/tag/https.html">https</a>, 
+ -- (<a href="/posts/ru-he-pei-zhi-zai-nginxhe-casshang-pei-zhi-ssl.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>公司准备对登录服务采用https，而登录服务采用的是cas，前段的是用nginx代理， 所以就有了之后的几个问题。</p>
 <p><strong>主要碰到了下面3个问题</strong> ：</p>
@@ -138,21 +138,6 @@
 <p>执行完后会在当前目录下生成jssecacerts的文件，把文件copy到<code>jdk1.7.0_10\jre\lib\security</code>目录下 重新启动服务即可。或者在java的启动参数中加入<code>-Djavax.net.ssl.trustStore=F:/work/Java/jssecacerts</code>, 重新启动也是可行的，我使用的后面这个方法，前面的那个我没有测试，不过应该不会有问题。</p>
 <p>到这里就算是把ssl配置完成了，其实并没有什么复杂的东西，就是最后java这个问题让我找了很常时间。 最后在java的社区中找到解决办法，可以这个类的源码文件的下载链接还失效了，在google中找了半天才找到个完整的。</p>
     </div><!-- /.entry-content -->
-<div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'Turbidsoul'; // required: replace example with your forum shortname
-        var disqus_identifier = "posts/ru-he-pei-zhi-zai-nginxhe-casshang-pei-zhi-ssl.html";
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
   </article>
 </section>
       </section>

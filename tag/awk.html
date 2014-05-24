@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Turbidsoul's 小黑屋 - awkTurbidsoul's 小黑屋</title>
 
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
+    <link rel="stylesheet" href="/theme/css/main.css">
+    <link rel="stylesheet" href="/theme/css/pygment_trac.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,13 +15,13 @@
   <body>
     <div class="wrapper">
       <header>
-        <div><img src="http://blog.turbidsoul.me/images/avatar.jpg" class="grv-img"/></div>
-        <div class="title"><a href="http://blog.turbidsoul.me/">Turbidsoul's 小黑屋 </a></div>
+        <div><img src="/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="/">Turbidsoul's 小黑屋 </a></div>
         <div class="sub-title"></div>
 
 <p>
-    <div class="view"><a href="http://blog.turbidsoul.me/pages/guan-yu-wo.html">关于我</a></div>
-  <div class="view"><a href="http://blog.turbidsoul.me/archives.html">Archives</a></div>
+    <div class="view"><a href="/pages/guan-yu-wo.html">关于我</a></div>
+  <div class="view"><a href="/archives.html">Archives</a></div>
 </p>
 
 <!-- Social links -->
@@ -39,16 +39,16 @@
 
       </header>
       <section>
-      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/shi-yong-awkzuo-shi-shi-de-tong-ji.html">使用awk做实时的统计</a></div>
+      <div class="front-title"><a href="/posts/shi-yong-awkzuo-shi-shi-de-tong-ji.html">使用awk做实时的统计</a></div>
 <p>
 <small>
 <abbr class="published" title="2014-04-10">
   2014年 四月 10日 周四
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/tag/linux.html">linux</a>, 
-    <a href="http://blog.turbidsoul.me/tag/awk.html">awk</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/shi-yong-awkzuo-shi-shi-de-tong-ji.html" rel="bookmark">permalink</a>)
+    <a href="/tag/linux.html">linux</a>, 
+    <a href="/tag/awk.html">awk</a>, 
+ -- (<a href="/posts/shi-yong-awkzuo-shi-shi-de-tong-ji.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <h2>缘由</h2>
 <p>之前头让搞一个24小时内帖子或者视频的点击量，当时为了省事，就随便写了一个，虽然是实时的，但是却没有满足 <strong>24小时内</strong> 这个条件, 数据会在每天0点清零重新计算，前几天被头发现了，所以就只能从新写一个了。</p>
@@ -60,7 +60,7 @@
 <p>我们的要求是，分别统计出 <em>thread</em>, <em>resource</em>, <em>video</em>, _article_中，没一个的点击量</p>
 <div class="highlight"><pre><span class="nx">BEGIN</span> <span class="p">{</span>
     <span class="nb">FS</span><span class="o">=</span><span class="s2">&quot;,;&quot;</span> <span class="c1"># 我的日志中的分隔符是 `,;` 所以这里要给`FS` 指定一下，因为默认值是`Tab` 或者 `Space ...</span></pre></div> 
-      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/shi-yong-awkzuo-shi-shi-de-tong-ji.html">read more...</a></div>
+      <div class="read-more"><a href="/posts/shi-yong-awkzuo-shi-shi-de-tong-ji.html">read more...</a></div>
       <hr />
 
       </section>

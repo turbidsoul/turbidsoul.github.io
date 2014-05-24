@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Turbidsoul's 小黑屋 - PythonTurbidsoul's 小黑屋</title>
 
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
+    <link rel="stylesheet" href="/theme/css/main.css">
+    <link rel="stylesheet" href="/theme/css/pygment_trac.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,13 +15,13 @@
   <body>
     <div class="wrapper">
       <header>
-        <div><img src="http://blog.turbidsoul.me/images/avatar.jpg" class="grv-img"/></div>
-        <div class="title"><a href="http://blog.turbidsoul.me/">Turbidsoul's 小黑屋 </a></div>
+        <div><img src="/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="/">Turbidsoul's 小黑屋 </a></div>
         <div class="sub-title"></div>
 
 <p>
-    <div class="view"><a href="http://blog.turbidsoul.me/pages/guan-yu-wo.html">关于我</a></div>
-  <div class="view"><a href="http://blog.turbidsoul.me/archives.html">Archives</a></div>
+    <div class="view"><a href="/pages/guan-yu-wo.html">关于我</a></div>
+  <div class="view"><a href="/archives.html">Archives</a></div>
 </p>
 
 <!-- Social links -->
@@ -39,18 +39,18 @@
 
       </header>
       <section>
-      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/python-logging-mo-kuai-de-filter.html">python logging 模块的 filter</a></div>
+      <div class="front-title"><a href="/posts/python-logging-mo-kuai-de-filter.html">python logging 模块的 filter</a></div>
 <p>
 <small>
 <abbr class="published" title="2013-11-22">
   2013年 十一月 22日 周五
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
-    <a href="http://blog.turbidsoul.me/tag/logging.html">logging</a>, 
-    <a href="http://blog.turbidsoul.me/tag/filter.html">filter</a>, 
-    <a href="http://blog.turbidsoul.me/tag/code.html">code</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/python-logging-mo-kuai-de-filter.html" rel="bookmark">permalink</a>)
+    <a href="/tag/python.html">python</a>, 
+    <a href="/tag/logging.html">logging</a>, 
+    <a href="/tag/filter.html">filter</a>, 
+    <a href="/tag/code.html">code</a>, 
+ -- (<a href="/posts/python-logging-mo-kuai-de-filter.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>前两天同事问我，如果针对不同的IP记录日志，并把更具IP记录到不同的日志文件中，在网上搜了一下这个问题，有很多人都在问，我查了一下python的logging的api，发现有个filter的，这个filter可以根据日志的信息来决定这条日志是否记录到日志文件中，下面来说说如果实现这个功能。</p>
 <p>通常我们配置日志都是如下代码：</p>
@@ -67,21 +67,21 @@
 
 
 <p>这是我们通常用来配置记录日志到文件的代码 ...</p> 
-      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/python-logging-mo-kuai-de-filter.html">read more...</a></div>
+      <div class="read-more"><a href="/posts/python-logging-mo-kuai-de-filter.html">read more...</a></div>
       <hr />
-      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/nginxuwsgibottlepypei-zhi-bu-shu-pythonying-yong.html">nginx,uwsgi,bottlepy配置部署python应用</a></div>
+      <div class="front-title"><a href="/posts/nginxuwsgibottlepypei-zhi-bu-shu-pythonying-yong.html">nginx,uwsgi,bottlepy配置部署python应用</a></div>
 <p>
 <small>
 <abbr class="published" title="2013-11-13">
   2013年 十一月 13日 周三
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/tag/nginx.html">nginx</a>, 
-    <a href="http://blog.turbidsoul.me/tag/uwsgi.html">uwsgi</a>, 
-    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
-    <a href="http://blog.turbidsoul.me/tag/web.html">web</a>, 
-    <a href="http://blog.turbidsoul.me/tag/bottlepy.html">bottlepy</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/nginxuwsgibottlepypei-zhi-bu-shu-pythonying-yong.html" rel="bookmark">permalink</a>)
+    <a href="/tag/nginx.html">nginx</a>, 
+    <a href="/tag/uwsgi.html">uwsgi</a>, 
+    <a href="/tag/python.html">python</a>, 
+    <a href="/tag/web.html">web</a>, 
+    <a href="/tag/bottlepy.html">bottlepy</a>, 
+ -- (<a href="/posts/nginxuwsgibottlepypei-zhi-bu-shu-pythonying-yong.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>这几天一直在写一个用户行为分析出席清晰代码的工具，我的本意是想把这个用python做成一个独立的应用，但是这么做其实是比较麻烦和有一定难度的，因为用户的行为分析是和要我们主数据库结合做的，如果做成独立应用的话需要从主库中找出大量的数据，这样会影响效率，所以就把用户端分析和cms系统做到以前，前期的日志清洗和数据初期简单的分析做到一个python实现的一个离线工具，这个不是我这篇blog的重点，这次的重点是如何使用nginx，uwsgi，python部署web应用，这只是这次工作的题外话，但是我认为这是这个用户行为分析模块将来的方向，所以研究留用计数备忘和初期探索。</p>
 <h2>搭建环境</h2>
@@ -90,20 +90,20 @@
 <code>pip install uwsgi bottlepy</code></p>
 <p>arch linux 默认python应该是3.3.2，所以需要安装<em>pythonbrew</em>然后在来安装2.7.5,至于pythonbrew如何安装，请自行搜索，安装其实很简单。至于nginx默认是支持uwsgi，所以不需要特别安装其他的插件。</p>
 <p>其实也可以通过<code>pacman -S uwsgi</code>来安装但是这个是不支持python的，所以需要用户pip安装uwsgi，才能支持python至于 ...</p> 
-      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/nginxuwsgibottlepypei-zhi-bu-shu-pythonying-yong.html">read more...</a></div>
+      <div class="read-more"><a href="/posts/nginxuwsgibottlepypei-zhi-bu-shu-pythonying-yong.html">read more...</a></div>
       <hr />
-      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/python-27-de-can-shu-jie-xi-mo-kuai-argparse.html">python 2.7 的参数解析模块 argparse</a></div>
+      <div class="front-title"><a href="/posts/python-27-de-can-shu-jie-xi-mo-kuai-argparse.html">python 2.7 的参数解析模块 argparse</a></div>
 <p>
 <small>
 <abbr class="published" title="2013-09-27">
   2013年 九月 27日 周五
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
-    <a href="http://blog.turbidsoul.me/tag/code.html">code</a>, 
-    <a href="http://blog.turbidsoul.me/tag/argparse.html">argparse</a>, 
-    <a href="http://blog.turbidsoul.me/tag/python27.html">python27</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/python-27-de-can-shu-jie-xi-mo-kuai-argparse.html" rel="bookmark">permalink</a>)
+    <a href="/tag/python.html">python</a>, 
+    <a href="/tag/code.html">code</a>, 
+    <a href="/tag/argparse.html">argparse</a>, 
+    <a href="/tag/python27.html">python27</a>, 
+ -- (<a href="/posts/python-27-de-can-shu-jie-xi-mo-kuai-argparse.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>今天下午没事，就优化了一下以前写的一些工作上用的小工具，当然大多数都是python写的命令行下的小工具，之前命令行参数都是自己解析，虽然不是什么复杂的事情，但是自己临时写出来的东西毕竟不如人家写出来的好，正好前短时间看到python2.7把 <strong>argparse</strong> 加入到了标准模块中，所以这次对这些工具的代码重构就是使用了 <strong>argparse</strong> 替代自己写的那个简陋名两行解析工具。</p>
 <h2>入门</h2>
@@ -112,18 +112,18 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">&#39;test argparse&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;-s&#39;</span><span class="p">,</span> <span class="s">&#39;--start&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&#39;start number&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;-e&#39;</span><span class="p">,</span> <span class="s">&#39;--end&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&#39;end ...</span></pre></div> 
-      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/python-27-de-can-shu-jie-xi-mo-kuai-argparse.html">read more...</a></div>
+      <div class="read-more"><a href="/posts/python-27-de-can-shu-jie-xi-mo-kuai-argparse.html">read more...</a></div>
       <hr />
-      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/pythonmo-kuai-html2bbcode.html">python模块html2bbcode</a></div>
+      <div class="front-title"><a href="/posts/pythonmo-kuai-html2bbcode.html">python模块html2bbcode</a></div>
 <p>
 <small>
 <abbr class="published" title="2013-08-30">
   2013年 八月 30日 周五
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
-    <a href="http://blog.turbidsoul.me/tag/code.html">code</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/pythonmo-kuai-html2bbcode.html" rel="bookmark">permalink</a>)
+    <a href="/tag/python.html">python</a>, 
+    <a href="/tag/code.html">code</a>, 
+ -- (<a href="/posts/pythonmo-kuai-html2bbcode.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>公司最近在调整网站的模块，把网站的公告模块去掉，公告的数据移到Discuz做的论坛中，整体功能都很简单，写了一个python脚本，执行一下就能完成数据迁移。在数据迁移的过程中有个小问题，我们公告的正文是用富文本编辑器写的，代码是 <em>html</em> 代码，但是在Discuz中确是用 <em>bbcode</em> 所以就需要对公告正文进行转换，这里就要使用到python的一个模块: <strong>html2bbcode</strong></p>
 <h4>安装</h4>
@@ -134,20 +134,20 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">parser</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="s">&#39;&lt;ul&gt;&lt;li&gt;one&lt;/li&gt;&lt;li&gt;two&lt;/li&gt;&lt;/ul&gt;&#39;</span><span class="p">))</span>
 <span class="go">&#39;[list][li]one[/li][li]two[/li][/list]&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">parser ...</span></pre></div> 
-      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/pythonmo-kuai-html2bbcode.html">read more...</a></div>
+      <div class="read-more"><a href="/posts/pythonmo-kuai-html2bbcode.html">read more...</a></div>
       <hr />
-      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/python-332-mingw-gcc-471-an-zhuang-misakamo-kuai-shi-bian-yi-bao-cuo.html">python 3.3.2 mingw gcc 4.7.1 安装misaka模块时编译报错</a></div>
+      <div class="front-title"><a href="/posts/python-332-mingw-gcc-471-an-zhuang-misakamo-kuai-shi-bian-yi-bao-cuo.html">python 3.3.2 mingw gcc 4.7.1 安装misaka模块时编译报错</a></div>
 <p>
 <small>
 <abbr class="published" title="2013-08-16">
   2013年 八月 16日 周五
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
-    <a href="http://blog.turbidsoul.me/tag/python33.html">python33</a>, 
-    <a href="http://blog.turbidsoul.me/tag/mingw.html">mingw</a>, 
-    <a href="http://blog.turbidsoul.me/tag/gcc.html">gcc</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/python-332-mingw-gcc-471-an-zhuang-misakamo-kuai-shi-bian-yi-bao-cuo.html" rel="bookmark">permalink</a>)
+    <a href="/tag/python.html">python</a>, 
+    <a href="/tag/python33.html">python33</a>, 
+    <a href="/tag/mingw.html">mingw</a>, 
+    <a href="/tag/gcc.html">gcc</a>, 
+ -- (<a href="/posts/python-332-mingw-gcc-471-an-zhuang-misakamo-kuai-shi-bian-yi-bao-cuo.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>今天安装在 <strong>python3.3.2</strong> 下安装 <strong>misaka</strong>  编译的时候报出了一个编译错误 <em>gcc: error: unrecognized command line option '-mno-cygwin'</em></p>
 <p>解决的办法很简单，在 <strong>gcc 4.7</strong> 不支持 <strong>-mno-cygwin</strong> 选项，所以我们只需要把这个选项在编译的时候去掉就行了。</p>
@@ -155,20 +155,20 @@
 <div class="highlight"><pre><span class="bp">self</span><span class="o">.</span><span class="n">set_executables</span><span class="p">(</span><span class="n">compiler</span><span class="o">=</span><span class="s">&#39;gcc -mno-cygwin -O -Wall&#39;</span><span class="p">,</span>
                      <span class="n">compiler_so</span><span class="o">=</span><span class="s">&#39;gcc -mno-cygwin -mdll -O -Wall&#39;</span><span class="p">,</span>
                      <span class="n">compiler_cxx</span><span class="o">=</span><span class="s">&#39;g++ -mno-cygwin -O -Wall ...</span></pre></div> 
-      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/python-332-mingw-gcc-471-an-zhuang-misakamo-kuai-shi-bian-yi-bao-cuo.html">read more...</a></div>
+      <div class="read-more"><a href="/posts/python-332-mingw-gcc-471-an-zhuang-misakamo-kuai-shi-bian-yi-bao-cuo.html">read more...</a></div>
       <hr />
-      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/pythonshi-xian-ldaphe-rtxzhi-jian-de-zu-zhi-he-yong-hu-shu-ju-tong-bu.html">python实现ldap和rtx之间的组织和用户数据同步</a></div>
+      <div class="front-title"><a href="/posts/pythonshi-xian-ldaphe-rtxzhi-jian-de-zu-zhi-he-yong-hu-shu-ju-tong-bu.html">python实现ldap和rtx之间的组织和用户数据同步</a></div>
 <p>
 <small>
 <abbr class="published" title="2013-07-15">
   2013年 七月 15日 周一
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
-    <a href="http://blog.turbidsoul.me/tag/ldap.html">ldap</a>, 
-    <a href="http://blog.turbidsoul.me/tag/rtx.html">rtx</a>, 
-    <a href="http://blog.turbidsoul.me/tag/win32com.html">win32com</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/pythonshi-xian-ldaphe-rtxzhi-jian-de-zu-zhi-he-yong-hu-shu-ju-tong-bu.html" rel="bookmark">permalink</a>)
+    <a href="/tag/python.html">python</a>, 
+    <a href="/tag/ldap.html">ldap</a>, 
+    <a href="/tag/rtx.html">rtx</a>, 
+    <a href="/tag/win32com.html">win32com</a>, 
+ -- (<a href="/posts/pythonshi-xian-ldaphe-rtxzhi-jian-de-zu-zhi-he-yong-hu-shu-ju-tong-bu.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>最近公司正在准备使用 <strong>AD</strong> ( <strong><a href="https://zh.wikipedia.org/wiki/Active_Directory" title="Active Directory">Activate Directory</a></strong> )服务来进行公司员工的帐号管理，这样就避免不了需要对AD的帐号和<a href="http://rtx.tencent.com/rtx/index.shtml" title="RTX">RTX</a>的帐号和组织关系进行同步，所以才有了这篇文章。</p>
 <h4>Python-Ldap</h4>
@@ -181,20 +181,20 @@
 <span class="n">l</span> <span class="o">=</span> <span class="n">ldap</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">ldap_host</span><span class="p">,</span> <span class="n">ldap_port</span><span class="p">)</span>
     <span class="n">l</span><span class="o">.</span><span class="n">simple_bind_s</span><span class="p">(</span><span class="n">ldap_who</span><span class="p">,</span> <span class="n">ldap_cred</span><span class="p">)</span>
     <span class="n">result_id</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">ldap_baseondn ...</span></pre></div> 
-      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/pythonshi-xian-ldaphe-rtxzhi-jian-de-zu-zhi-he-yong-hu-shu-ju-tong-bu.html">read more...</a></div>
+      <div class="read-more"><a href="/posts/pythonshi-xian-ldaphe-rtxzhi-jian-de-zu-zhi-he-yong-hu-shu-ju-tong-bu.html">read more...</a></div>
       <hr />
-      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/pythonshi-xian-ming-ling-xing-xia-zai-jin-du-tiao.html">python实现命令行下载进度条</a></div>
+      <div class="front-title"><a href="/posts/pythonshi-xian-ming-ling-xing-xia-zai-jin-du-tiao.html">python实现命令行下载进度条</a></div>
 <p>
 <small>
 <abbr class="published" title="2013-06-23">
   2013年 六月 23日 周日
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
-    <a href="http://blog.turbidsoul.me/tag/cmd.html">cmd</a>, 
-    <a href="http://blog.turbidsoul.me/tag/ftp.html">ftp</a>, 
-    <a href="http://blog.turbidsoul.me/tag/progressbar.html">progressbar</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/pythonshi-xian-ming-ling-xing-xia-zai-jin-du-tiao.html" rel="bookmark">permalink</a>)
+    <a href="/tag/python.html">python</a>, 
+    <a href="/tag/cmd.html">cmd</a>, 
+    <a href="/tag/ftp.html">ftp</a>, 
+    <a href="/tag/progressbar.html">progressbar</a>, 
+ -- (<a href="/posts/pythonshi-xian-ming-ling-xing-xia-zai-jin-du-tiao.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>这是昨晚下班之后同事问我的一个问题，不过当时已经7点，如果在不出公司就会赶不上最后一趟公交车，所以就给同事说回家研究研究礼拜一给他答案，昨晚无事就看了一下。</p>
 <h4>需要用到的模块</h4>
@@ -211,20 +211,20 @@
 <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">51</span><span class="p">):</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;Computing: [</span><span class="si">%s%s</span><span class="s">] </span><span class="si">%i%%</span><span class="se">\r</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="s">&#39;#&#39;</span> <span class="o">*</span> <span class="n">x</span> <span class="p">,</span> <span class="s">&#39;-&#39;</span> <span class="o">*</span> <span class="p">(</span><span class="mi">50</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="p">,</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">))</span>
     <span class="n">sys</span><span class="o">.</span><span class="n">stdout ...</span></pre></div> 
-      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/pythonshi-xian-ming-ling-xing-xia-zai-jin-du-tiao.html">read more...</a></div>
+      <div class="read-more"><a href="/posts/pythonshi-xian-ming-ling-xing-xia-zai-jin-du-tiao.html">read more...</a></div>
       <hr />
-      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/leibnizgong-shi-he-wallizgong-shi-gu-suan-pide-zhi.html">Leibniz公式和Walliz公式估算Pi的值</a></div>
+      <div class="front-title"><a href="/posts/leibnizgong-shi-he-wallizgong-shi-gu-suan-pide-zhi.html">Leibniz公式和Walliz公式估算Pi的值</a></div>
 <p>
 <small>
 <abbr class="published" title="2013-06-08">
   2013年 六月 08日 周六
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/tag/pi.html">pi</a>, 
-    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
-    <a href="http://blog.turbidsoul.me/tag/leibniz.html">leibniz</a>, 
-    <a href="http://blog.turbidsoul.me/tag/walliz.html">walliz</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/leibnizgong-shi-he-wallizgong-shi-gu-suan-pide-zhi.html" rel="bookmark">permalink</a>)
+    <a href="/tag/pi.html">pi</a>, 
+    <a href="/tag/python.html">python</a>, 
+    <a href="/tag/leibniz.html">leibniz</a>, 
+    <a href="/tag/walliz.html">walliz</a>, 
+ -- (<a href="/posts/leibnizgong-shi-he-wallizgong-shi-gu-suan-pide-zhi.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>前两天和同事在聊天的时候说道了 $pi$ 的算法，回家之后在<a href="https://zh.wikipedia.org/wiki/圓周率">维基</a>上看了一下关于 $pi$ 的公式，正好这回没事干，就用Python实现了两个比较简单的公式，分别是Leibniz 和 Walliz.</p>
 <h2>Leibniz</h2>
@@ -234,19 +234,19 @@
 <p>$pi/4 = sum_{n=0}^{oo} (-1)^n/(2n+1)$</p>
 <p>从公式中能看出来，Leibniz是当n趋向于无穷大的时候，计算 $(-1)^n/(2n+1)$的和，用python代码实现如下：</p>
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">leibniz_pi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n ...</span></pre></div> 
-      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/leibnizgong-shi-he-wallizgong-shi-gu-suan-pide-zhi.html">read more...</a></div>
+      <div class="read-more"><a href="/posts/leibnizgong-shi-he-wallizgong-shi-gu-suan-pide-zhi.html">read more...</a></div>
       <hr />
-      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html">python实现morse编码与解码</a></div>
+      <div class="front-title"><a href="/posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html">python实现morse编码与解码</a></div>
 <p>
 <small>
 <abbr class="published" title="2013-06-04">
   2013年 六月 04日 周二
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
-    <a href="http://blog.turbidsoul.me/tag/morse.html">morse</a>, 
-    <a href="http://blog.turbidsoul.me/tag/code.html">code</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html" rel="bookmark">permalink</a>)
+    <a href="/tag/python.html">python</a>, 
+    <a href="/tag/morse.html">morse</a>, 
+    <a href="/tag/code.html">code</a>, 
+ -- (<a href="/posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>写这个完全是闲着无聊，看了一片趣文<a href="http://blog.jobbole.com/40628/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=draft-created-on-20130531-at-1028-am">趣文：表白后女生发给我一串五层加密的密码</a> 这篇文章来源自百度贴吧的的有一个帖子<a href="http://tieba.baidu.com/f?kz=529691897">传送门</a>，文章的内容还是很欢乐的。</p>
 <p>言归正传，<a href="http://zh.wikipedia.org/zh/%E6%91%A9%E5%B0%94%E6%96%AF%E7%94%B5%E7%A0%81">Morse Code</a> 的算法是根据维基得来的，说白了就是键值对，编码解码也都是按照键值对进行匹配的。</p>
@@ -259,20 +259,20 @@
 
     <span class="s">&#39;1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;.----&#39;</span><span class="p">,</span> <span class="s">&#39;.-&#39;</span><span class="p">],</span> <span class="s">&#39;2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;..---&#39;</span><span class="p">,</span> <span class="s">&#39;..-&#39;</span><span class="p">],</span> <span class="s">&#39;3&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;...--&#39;</span><span class="p">,</span> <span class="s">&#39;...-&#39;</span><span class="p">],</span> <span class="s">&#39;4&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;....-&#39;</span><span class="p">,</span> <span class="s">&#39;....-&#39;</span><span class="p">],</span> <span class="s">&#39;5&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;.....&#39;</span><span class="p">,</span> <span class="s">&#39;.&#39;</span><span class="p">],</span>
     <span class="s">&#39;6&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;-....&#39;</span><span class="p">,</span> <span class="s">&#39;-....&#39;</span><span class="p">],</span> <span class="s">&#39;7&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;--...&#39;</span><span class="p">,</span> <span class="s">&#39;-...&#39;</span><span class="p">],</span> <span class="s">&#39;8&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;---..&#39;</span><span class="p">,</span> <span class="s">&#39;-..&#39;</span><span class="p">],</span> <span class="s">&#39;9 ...</span></pre></div> 
-      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html">read more...</a></div>
+      <div class="read-more"><a href="/posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html">read more...</a></div>
       <hr />
-      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/misakapygmentsshi-xian-markdownsheng-cheng-htmlye-mian-bing-yu-fa-gao-liang.html">Misaka+pygments实现markdown生成html页面并语法高亮</a></div>
+      <div class="front-title"><a href="/posts/misakapygmentsshi-xian-markdownsheng-cheng-htmlye-mian-bing-yu-fa-gao-liang.html">Misaka+pygments实现markdown生成html页面并语法高亮</a></div>
 <p>
 <small>
 <abbr class="published" title="2013-05-14">
   2013年 五月 14日 周二
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
-    <a href="http://blog.turbidsoul.me/tag/misaka.html">misaka</a>, 
-    <a href="http://blog.turbidsoul.me/tag/pygments.html">pygments</a>, 
-    <a href="http://blog.turbidsoul.me/tag/markdown.html">markdown</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/misakapygmentsshi-xian-markdownsheng-cheng-htmlye-mian-bing-yu-fa-gao-liang.html" rel="bookmark">permalink</a>)
+    <a href="/tag/python.html">python</a>, 
+    <a href="/tag/misaka.html">misaka</a>, 
+    <a href="/tag/pygments.html">pygments</a>, 
+    <a href="/tag/markdown.html">markdown</a>, 
+ -- (<a href="/posts/misakapygmentsshi-xian-markdownsheng-cheng-htmlye-mian-bing-yu-fa-gao-liang.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <h2>来由</h2>
 <p>最近新blog开发到文章页面生成这块，看上了GFM这样的方式，使用markdown编辑页面，也很适合程序猿。使用富文本编辑始终太重量级，并不适合程序猿写文章，所以我也很推崇jekyll，用他来写文章、blog确实很geek也很舒适。</p>
@@ -291,13 +291,13 @@
 
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">app ...</span></pre></div> 
-      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/misakapygmentsshi-xian-markdownsheng-cheng-htmlye-mian-bing-yu-fa-gao-liang.html">read more...</a></div>
+      <div class="read-more"><a href="/posts/misakapygmentsshi-xian-markdownsheng-cheng-htmlye-mian-bing-yu-fa-gao-liang.html">read more...</a></div>
       <hr />
 
 <span class="paginator">
 
   Page 1 / 2
-    <a href="http://blog.turbidsoul.me/category/python2.html">&raquo;</a>
+    <a href="/category/python2.html">&raquo;</a>
 </span>
       </section>
       <footer>

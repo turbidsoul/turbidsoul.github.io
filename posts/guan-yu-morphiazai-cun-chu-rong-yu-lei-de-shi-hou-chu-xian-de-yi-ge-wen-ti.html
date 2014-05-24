@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>关于Morphia在存储冗余类的时候出现的一个问题？Turbidsoul's 小黑屋</title>
 
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
+    <link rel="stylesheet" href="/theme/css/main.css">
+    <link rel="stylesheet" href="/theme/css/pygment_trac.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,13 +15,13 @@
   <body>
     <div class="wrapper">
       <header>
-        <div><img src="http://blog.turbidsoul.me/images/avatar.jpg" class="grv-img"/></div>
-        <div class="title"><a href="http://blog.turbidsoul.me/">Turbidsoul's 小黑屋 </a></div>
+        <div><img src="/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="/">Turbidsoul's 小黑屋 </a></div>
         <div class="sub-title"></div>
 
 <p>
-    <div class="view"><a href="http://blog.turbidsoul.me/pages/guan-yu-wo.html">关于我</a></div>
-  <div class="view"><a href="http://blog.turbidsoul.me/archives.html">Archives</a></div>
+    <div class="view"><a href="/pages/guan-yu-wo.html">关于我</a></div>
+  <div class="view"><a href="/archives.html">Archives</a></div>
 </p>
 
 <!-- Social links -->
@@ -52,11 +52,11 @@
   2012年 一月 05日 周四
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/tag/java.html">java</a>, 
-    <a href="http://blog.turbidsoul.me/tag/morphia.html">morphia</a>, 
-    <a href="http://blog.turbidsoul.me/tag/code.html">code</a>, 
-    <a href="http://blog.turbidsoul.me/tag/mongo.html">mongo</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/guan-yu-morphiazai-cun-chu-rong-yu-lei-de-shi-hou-chu-xian-de-yi-ge-wen-ti.html" rel="bookmark">permalink</a>)
+    <a href="/tag/java.html">java</a>, 
+    <a href="/tag/morphia.html">morphia</a>, 
+    <a href="/tag/code.html">code</a>, 
+    <a href="/tag/mongo.html">mongo</a>, 
+ -- (<a href="/posts/guan-yu-morphiazai-cun-chu-rong-yu-lei-de-shi-hou-chu-xian-de-yi-ge-wen-ti.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>昨天中午临吃午饭前，我对系统的业务功能代码进行重构之后，准备测试一下，通过就去吃饭，但是发生了一个让我很意外的问题，就是在存储的时候，系统 报出来，类型转换异常（<code>java.lang.ClassCaseException</code>）或者是这么一个错误信息（<code>object is not an instance of declaring class</code>），很纠结因为之前这里测试都好好的，而且给内容组，视频组和测试组部署的测试环境，还在正常运行，一时想不通那里出了问题。</p>
 <p>在 经过几次debug跟踪之后发现，每次报错都是在，存储FreeCourse和FreeVideo两个类是发生的问题，我仔细回忆 了，从上次重部署测试环境到出问题之间修改的代码，中间都没有什么问题，只有一个地方和其他人写的代码略有不一样，就是：其他人在写list类型的属性 时，默认是给空值的，但是我会给他们new一个size为0的ArrayList，这是我的一个喜欢，是为了避免出现一些因为疏忽而发生的问题，但是如果 只是这样不应该会有问题。</p>
@@ -88,21 +88,6 @@
 <p>下面两个图第一个是method.invoke方法的entity参数的值是VideoInfo，第二章图是method那个方法在调用，可以看到是MongoBaseEntity下的注解方法，也就是处理数据存储前后的事件方法。这里的VideoInfo是FreeCourse下冗余的FreeVideo下冗余的VideoInfo的数据。</p>
 <p>从这里可以看到，morphia在存储冗余数据的时候，回去调用其上层类的注解方法，但是却是在使用method的invoke方法进行调用，并没有处理如果被冗余的实体如果没有次注解方法的问题，所以抛出了一个类型异常，在之后的测试发现这个异常并不影响morphia的存储，数据依然可以正确的保存到数据库中，不明白morphia为什么要这么做，既然没有影响存储，为什么还要抛出一个异常，难道只是为了提醒使用者，这样的结构是一个危险的方法，需要使用者自己进行处理？不管是什么原因，我最后的解决办法是为VideoInfo继承了MongoBaseEnity这样就不会在报出那个异常了。</p>
     </div><!-- /.entry-content -->
-<div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'Turbidsoul'; // required: replace example with your forum shortname
-        var disqus_identifier = "posts/guan-yu-morphiazai-cun-chu-rong-yu-lei-de-shi-hou-chu-xian-de-yi-ge-wen-ti.html";
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
   </article>
 </section>
       </section>

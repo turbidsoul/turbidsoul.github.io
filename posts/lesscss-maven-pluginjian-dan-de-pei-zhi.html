@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>lesscss maven plugin简单的配置Turbidsoul's 小黑屋</title>
 
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
+    <link rel="stylesheet" href="/theme/css/main.css">
+    <link rel="stylesheet" href="/theme/css/pygment_trac.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,13 +15,13 @@
   <body>
     <div class="wrapper">
       <header>
-        <div><img src="http://blog.turbidsoul.me/images/avatar.jpg" class="grv-img"/></div>
-        <div class="title"><a href="http://blog.turbidsoul.me/">Turbidsoul's 小黑屋 </a></div>
+        <div><img src="/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="/">Turbidsoul's 小黑屋 </a></div>
         <div class="sub-title"></div>
 
 <p>
-    <div class="view"><a href="http://blog.turbidsoul.me/pages/guan-yu-wo.html">关于我</a></div>
-  <div class="view"><a href="http://blog.turbidsoul.me/archives.html">Archives</a></div>
+    <div class="view"><a href="/pages/guan-yu-wo.html">关于我</a></div>
+  <div class="view"><a href="/archives.html">Archives</a></div>
 </p>
 
 <!-- Social links -->
@@ -52,10 +52,10 @@
   2013年 六月 11日 周二
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/tag/lesscss.html">lesscss</a>, 
-    <a href="http://blog.turbidsoul.me/tag/maven.html">maven</a>, 
-    <a href="http://blog.turbidsoul.me/tag/java.html">java</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/lesscss-maven-pluginjian-dan-de-pei-zhi.html" rel="bookmark">permalink</a>)
+    <a href="/tag/lesscss.html">lesscss</a>, 
+    <a href="/tag/maven.html">maven</a>, 
+    <a href="/tag/java.html">java</a>, 
+ -- (<a href="/posts/lesscss-maven-pluginjian-dan-de-pei-zhi.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>这其实是一个很简单的问题，本来并不打算写成一片文章的，因为这个文件和另外一个问题是一起的，就是我们在nginx上做css和js文件合并时遇到的，不过在这之前我还遇到了另外一个问题，就是我们开发环境是windows7，而nginx下有个静态文件合并的模块: <strong>http_concat_module</strong> ，是<a href="https://github.com/alibaba/nginx-http-concat" title="HTTP Concatenation module for Nginx">淘宝</a>开源的，这个模块并不是nginx标准模块，所以要使用它需要自己重新编译nginx，具体如何编译我需要一段一点时间整理一下，在之后的文章中会写出来。</p>
 <p>至于为什么要使用<a href="http://lesscss.org" title="The Dynamic Stylesheet language">less</a>是因为使用了 <strong>http_concat_module</strong> 之后css中文件的一些路径出现了错误，需要为css文件设置一些变量，其实使用maven的插件也可以进行变量替换，但是这样只能在maven打包的时候才能起作用，对于开发来说就不行，因为开发必须要求在编译的时候就生效。所以就需要使用maven的另一个插件<a href="https://github.com/marceloverdijk/lesscss-maven-plugin" title="Official LESS CSS Maven Plugin">lesscss-maven-plugin</a>，这个插件的作用就是在编译的时候就能把less转换成css，这样做对我们最大的好处就是需要修改的地方是最少的，而且能一劳永逸的解决这个问题。</p>
@@ -132,21 +132,6 @@
 <p>这里有一个关于wro4j的例子，有兴趣的朋友可以看一下：
 <a href="https://github.com/jbosstools/m2e-wro4j/wiki/Sample-twitter-bootstrap-project">https://github.com/jbosstools/m2e-wro4j/wiki/Sample-twitter-bootstrap-project</a></p>
     </div><!-- /.entry-content -->
-<div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'Turbidsoul'; // required: replace example with your forum shortname
-        var disqus_identifier = "posts/lesscss-maven-pluginjian-dan-de-pei-zhi.html";
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
   </article>
 </section>
       </section>

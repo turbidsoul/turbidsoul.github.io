@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>python实现ldap和rtx之间的组织和用户数据同步Turbidsoul's 小黑屋</title>
 
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
-    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
+    <link rel="stylesheet" href="/theme/css/main.css">
+    <link rel="stylesheet" href="/theme/css/pygment_trac.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -15,13 +15,13 @@
   <body>
     <div class="wrapper">
       <header>
-        <div><img src="http://blog.turbidsoul.me/images/avatar.jpg" class="grv-img"/></div>
-        <div class="title"><a href="http://blog.turbidsoul.me/">Turbidsoul's 小黑屋 </a></div>
+        <div><img src="/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="/">Turbidsoul's 小黑屋 </a></div>
         <div class="sub-title"></div>
 
 <p>
-    <div class="view"><a href="http://blog.turbidsoul.me/pages/guan-yu-wo.html">关于我</a></div>
-  <div class="view"><a href="http://blog.turbidsoul.me/archives.html">Archives</a></div>
+    <div class="view"><a href="/pages/guan-yu-wo.html">关于我</a></div>
+  <div class="view"><a href="/archives.html">Archives</a></div>
 </p>
 
 <!-- Social links -->
@@ -52,11 +52,11 @@
   2013年 七月 15日 周一
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
-    <a href="http://blog.turbidsoul.me/tag/ldap.html">ldap</a>, 
-    <a href="http://blog.turbidsoul.me/tag/rtx.html">rtx</a>, 
-    <a href="http://blog.turbidsoul.me/tag/win32com.html">win32com</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/pythonshi-xian-ldaphe-rtxzhi-jian-de-zu-zhi-he-yong-hu-shu-ju-tong-bu.html" rel="bookmark">permalink</a>)
+    <a href="/tag/python.html">python</a>, 
+    <a href="/tag/ldap.html">ldap</a>, 
+    <a href="/tag/rtx.html">rtx</a>, 
+    <a href="/tag/win32com.html">win32com</a>, 
+ -- (<a href="/posts/pythonshi-xian-ldaphe-rtxzhi-jian-de-zu-zhi-he-yong-hu-shu-ju-tong-bu.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>最近公司正在准备使用 <strong>AD</strong> ( <strong><a href="https://zh.wikipedia.org/wiki/Active_Directory" title="Active Directory">Activate Directory</a></strong> )服务来进行公司员工的帐号管理，这样就避免不了需要对AD的帐号和<a href="http://rtx.tencent.com/rtx/index.shtml" title="RTX">RTX</a>的帐号和组织关系进行同步，所以才有了这篇文章。</p>
 <h4>Python-Ldap</h4>
@@ -217,21 +217,6 @@
 <p>其次耗费时间的是，我花了一些时间，研究为什么直接操作数据库并不能是rtx客户端读取到用户资料，为此我还用 <strong>Wireshark</strong> 进行了抓包，发现并不似rtx本身配置的问题，因为通过抓包分析得到rtx本身并没有问题，我想应该就是我在操作数据库上存在问题，但是又想不到是那里的问题。在后来使用com接口操作时候，对比了两种方式操作数据库之后数据库的变化，让我发现，问题出在sys_sysconfig这张表上，这张表里有两个字段 <em>UserVersion</em> 和 <em>DeptVersion</em> 两个这两个字段记录的是上一次更新数据之后sys_user和rtx_dept两个表数据的最后版本变化，在这两个表里也同样存在这两个对应的字段 <em>UserVersion</em> 和 <em>Version</em> 记录了没个记录的版本号，rtx客户端会更新版本号大于等于sys_sysconfig中记录的版本号，我尝试修改版本号来测试，得到的结果和我猜测的是一样的。但是我并不知道使用com接口操作是不是还有修改其他的数据，因为这里完全是黑盒，而且在rtx的官网也看到推荐使用api操作，直接操作数据库可能会造成数据库的不一致。</p>
 <p>但在数据同步并不是这上面说的使用UserManager和DeptManager这两个对象来操作，也可以使用ElementTree配成xml，使用rtx提供的方法导入也可以，这样的方法效率要比上面的方法更快，不过我并没有看到一个完成的XML例子，所以并没有采用这种方法。</p>
     </div><!-- /.entry-content -->
-<div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'Turbidsoul'; // required: replace example with your forum shortname
-        var disqus_identifier = "posts/pythonshi-xian-ldaphe-rtxzhi-jian-de-zu-zhi-he-yong-hu-shu-ju-tong-bu.html";
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
   </article>
 </section>
       </section>
