@@ -49,3 +49,5 @@ DEFAULT_METADATA = (('Content-Type', 'text/html; charset=utf-8'),)
 
 STATIC_PATHS = ["images", ]
 GRV_URL='/images/avatar.jpg'
+TWITTER_USERNAME='Turbidsoul'
+
