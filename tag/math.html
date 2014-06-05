@@ -11,15 +11,6 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-MML-AM_HTMLorMML-full"> </script>
-    <script type="text/javascript">
-      MathJax.Hub.Config({
-        asciimath2jax: {
-          delimiters: [['$','$'], ['`','`']]
-        }
-      });
-    </script>
-    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   </head>
   <body>
     <div class="wrapper">
@@ -70,7 +61,25 @@
 <p>0 =&gt; $0 xx 10$ =&gt; $0 xx 10^1$</p>
 <p>3 =&gt; $3 xx 1$ =&gt; $3 xx 10^0$</p>
 </blockquote>
-<p>如上面引用中的，把每一行的结果加起来就是 <strong>2503</strong>，这里我觉得在中文中表示数字其实更准确： <em>两千五百零三</em> ，在每一位都表示了这一位的单位，在阅读上更容易理解和准确 ...</p> 
+<p>如上面引用中的，把每一行的结果加起来就是 <strong>2503</strong>，这里我觉得在中文中表示数字其实更准确： <em>两千五百零三</em> ，在每一位都表示了这一位的单位，在阅读上更容易理解和准确 ...</p><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type= "text/javascript">
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+                ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML-full'
+                : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML-full';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    asciimath2jax: {" +
+            "      delimiters: [['$','$'], ['`','`']]"+
+            "    }"+
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+</script>
+ 
       <div class="read-more"><a href="http://blog.turbidsoul.me/posts/cheng-xu-yuan-shu-xue-ling-de-gu-shi.html">read more...</a></div>
       <hr />
       <div class="front-title"><a href="http://blog.turbidsoul.me/posts/guan-yu-du-shu.html">关于读书</a></div>

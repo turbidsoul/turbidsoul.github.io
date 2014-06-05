@@ -77,4 +77,22 @@
 &lt;p&gt;上面的代码中关键的地方都有加注释，这是不完全的代码，只是实现了解析出各个帖子id并统计，并没有限制24小时之内的，但是这并不影响我们对代码的理解.&lt;/p&gt;
 &lt;p&gt;除了这些以外awk还支持格式化输出，内建函数，内建变量，正则表达式等等&lt;/p&gt;
 &lt;h2&gt;总结&lt;/h2&gt;
-&lt;p&gt;awk说他是神器一点都不为过，处理文本的速度很快，至少比python处理起来要快很多，而且我相信只要愿意awk可以完成复杂的统计任务&lt;/p&gt;</summary><category term="linux"></category><category term="awk"></category></entry></feed>
+&lt;p&gt;awk说他是神器一点都不为过，处理文本的速度很快，至少比python处理起来要快很多，而且我相信只要愿意awk可以完成复杂的统计任务&lt;/p&gt;&lt;script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script type= "text/javascript"&gt;
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+                ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML-full'
+                : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML-full';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    asciimath2jax: {" +
+            "      delimiters: [['$','$'], ['`','`']]"+
+            "    }"+
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+&lt;/script&gt;
+</summary><category term="linux"></category><category term="awk"></category></entry></feed>

@@ -74,7 +74,25 @@
 
 &lt;p&gt;url之后的链接少了一个 "&lt;strong&gt;"&lt;/strong&gt;",我加上引号之后在运行插件压缩css文件，这次成功了。看来问题就是出在这里。&lt;/p&gt;
 &lt;h4&gt;结论&lt;/h4&gt;
-&lt;p&gt;这个问题并不是一定会一定出现，可能需要特性的环境，我并没有做详细的求证，但是我昨晚在家里的时候就准备写这篇文章，但是我发现我用同样的方式是无法重现问题，可能是我家里的只用了一个css文件，而公司的项目css和js文件会比较多的原因造成的，我并不清楚，写这篇文章的目的只是给遇到这类问题的人提醒，凡事要小心，谨慎，细心和耐心，问题本身并不是什么高深问题，但是我却花了一下午的时间，检查了所有可能出问题的地方，刚开始的时候有些浮躁，并没有去注意这些细节上的问题，但是在两三个小时之后才发现这样并不能解决问题，去洗了个脸，清醒一下，回来沉下心仔细的重新整理一下，其实很快就能解决问题。&lt;/p&gt;</summary><category term="java"></category><category term="maven"></category><category term="css"></category></entry><entry><title>JDK8新特性 Calendar.Builder</title><link href="http://blog.turbidsoul.me/posts/jdk8xin-te-xing-calendarbuilder.html" rel="alternate"></link><updated>2013-05-29T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me,2013-05-29:posts/jdk8xin-te-xing-calendarbuilder.html</id><summary type="html">&lt;p&gt;5月23号，Oracle 发布了 jdk8 &lt;strong&gt;M7&lt;/strong&gt; 版，这是一个&lt;a href="http://openjdk.java.net/projects/jdk8/milestones#Feature_Complete"&gt;Feature Complete&lt;/a&gt;，就是说它已经把所有特性和功能都加入。在翻看 &lt;strong&gt;M7&lt;/strong&gt; 的文档时发现了 &lt;a href="http://download.java.net/jdk8/docs/api/java/util/Locale.Builder.html" title="Locale.Builder"&gt;&lt;em&gt;Locale.Builder&lt;/em&gt;&lt;/a&gt; ，在jdk7的时候加入过一个类似的：&lt;a href="http://download.java.net/jdk8/docs/api/java/util/Locale.Builder.html" title="Locale.Builder"&gt;&lt;em&gt;Locale.Builder&lt;/em&gt;&lt;/a&gt;, 下面我们来看看 &lt;a href="http://download.java.net/jdk8/docs/api/java/util/Calendar.Builder.html" title="Calendar.Builder"&gt;&lt;em&gt;Calendar.Builder&lt;/em&gt;&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;这个问题并不是一定会一定出现，可能需要特性的环境，我并没有做详细的求证，但是我昨晚在家里的时候就准备写这篇文章，但是我发现我用同样的方式是无法重现问题，可能是我家里的只用了一个css文件，而公司的项目css和js文件会比较多的原因造成的，我并不清楚，写这篇文章的目的只是给遇到这类问题的人提醒，凡事要小心，谨慎，细心和耐心，问题本身并不是什么高深问题，但是我却花了一下午的时间，检查了所有可能出问题的地方，刚开始的时候有些浮躁，并没有去注意这些细节上的问题，但是在两三个小时之后才发现这样并不能解决问题，去洗了个脸，清醒一下，回来沉下心仔细的重新整理一下，其实很快就能解决问题。&lt;/p&gt;&lt;script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script type= "text/javascript"&gt;
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+                ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML-full'
+                : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML-full';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    asciimath2jax: {" +
+            "      delimiters: [['$','$'], ['`','`']]"+
+            "    }"+
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+&lt;/script&gt;
+</summary><category term="java"></category><category term="maven"></category><category term="css"></category></entry><entry><title>JDK8新特性 Calendar.Builder</title><link href="http://blog.turbidsoul.me/posts/jdk8xin-te-xing-calendarbuilder.html" rel="alternate"></link><updated>2013-05-29T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me,2013-05-29:posts/jdk8xin-te-xing-calendarbuilder.html</id><summary type="html">&lt;p&gt;5月23号，Oracle 发布了 jdk8 &lt;strong&gt;M7&lt;/strong&gt; 版，这是一个&lt;a href="http://openjdk.java.net/projects/jdk8/milestones#Feature_Complete"&gt;Feature Complete&lt;/a&gt;，就是说它已经把所有特性和功能都加入。在翻看 &lt;strong&gt;M7&lt;/strong&gt; 的文档时发现了 &lt;a href="http://download.java.net/jdk8/docs/api/java/util/Locale.Builder.html" title="Locale.Builder"&gt;&lt;em&gt;Locale.Builder&lt;/em&gt;&lt;/a&gt; ，在jdk7的时候加入过一个类似的：&lt;a href="http://download.java.net/jdk8/docs/api/java/util/Locale.Builder.html" title="Locale.Builder"&gt;&lt;em&gt;Locale.Builder&lt;/em&gt;&lt;/a&gt;, 下面我们来看看 &lt;a href="http://download.java.net/jdk8/docs/api/java/util/Calendar.Builder.html" title="Calendar.Builder"&gt;&lt;em&gt;Calendar.Builder&lt;/em&gt;&lt;/a&gt;。&lt;/p&gt;
 &lt;h4&gt;允许单语句设置&lt;/h4&gt;
 &lt;p&gt;允许使用 &lt;a href="http://download.java.net/jdk8/docs/api/java/util/Calendar.Builder.html#set(int,%20int)" title="set(int, int)"&gt;&lt;code&gt;set(int, int)&lt;/code&gt;&lt;/a&gt; 方法，为指定的Field设置值，如下：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;java.util.Calendar&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;

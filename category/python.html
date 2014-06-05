@@ -11,15 +11,6 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-MML-AM_HTMLorMML-full"> </script>
-    <script type="text/javascript">
-      MathJax.Hub.Config({
-        asciimath2jax: {
-          delimiters: [['$','$'], ['`','`']]
-        }
-      });
-    </script>
-    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   </head>
   <body>
     <div class="wrapper">
@@ -242,7 +233,25 @@
 <p>这个公式也可以用另外一种方式表示：</p>
 <p>$pi/4 = sum_{n=0}^{oo} (-1)^n/(2n+1)$</p>
 <p>从公式中能看出来，Leibniz是当n趋向于无穷大的时候，计算 $(-1)^n/(2n+1)$的和，用python代码实现如下：</p>
-<div class="highlight"><pre><span class="k">def</span> <span class="nf">leibniz_pi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n ...</span></pre></div> 
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">leibniz_pi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n ...</span></pre></div><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type= "text/javascript">
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+                ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML-full'
+                : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML-full';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    asciimath2jax: {" +
+            "      delimiters: [['$','$'], ['`','`']]"+
+            "    }"+
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+</script>
+ 
       <div class="read-more"><a href="http://blog.turbidsoul.me/posts/leibnizgong-shi-he-wallizgong-shi-gu-suan-pide-zhi.html">read more...</a></div>
       <hr />
       <div class="front-title"><a href="http://blog.turbidsoul.me/posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html">python实现morse编码与解码</a></div>

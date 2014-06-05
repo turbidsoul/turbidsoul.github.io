@@ -72,4 +72,22 @@
 &lt;p&gt;但是也不是完全没有办法，我查看了源代码发现它是直接文件对文件的操作，我们可以在这之前先对less文件进行变量替换，然后在进行编译，这样也可以。但是我觉得这样的操作很奇怪，怎么看怎么不舒服。&lt;/p&gt;
 &lt;p&gt;还有另外一个插件&lt;a href="http://code.google.com/p/wro4j/" title="Web Resource Optimizer for Java"&gt;wro4j&lt;/a&gt;，这个插件的功能更为强大，支持css，js合并，压缩，less文件编译，合并，压缩等等丰富的功能，也支持自定义的processor但是如果要实现上面说的应该也要自己实现processor，我并没有看到官方文档或者jboss上介绍，而且官方文档关于less的内容太少，而且做到这里，发现我们的项目使用less之后需要变动的东西太多，主要来自css书写的问题，很多时候为了兼容ie，写了一些非标准的css代码，修改成less之后需要话大量的时间去修正，所以就放弃了less，还是决定采用之前的方案处理。&lt;/p&gt;
 &lt;p&gt;这里有一个关于wro4j的例子，有兴趣的朋友可以看一下：
-&lt;a href="https://github.com/jbosstools/m2e-wro4j/wiki/Sample-twitter-bootstrap-project"&gt;https://github.com/jbosstools/m2e-wro4j/wiki/Sample-twitter-bootstrap-project&lt;/a&gt;&lt;/p&gt;</summary><category term="lesscss"></category><category term="maven"></category><category term="java"></category></entry></feed>
+&lt;a href="https://github.com/jbosstools/m2e-wro4j/wiki/Sample-twitter-bootstrap-project"&gt;https://github.com/jbosstools/m2e-wro4j/wiki/Sample-twitter-bootstrap-project&lt;/a&gt;&lt;/p&gt;&lt;script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script type= "text/javascript"&gt;
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+                ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML-full'
+                : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML-full';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    asciimath2jax: {" +
+            "      delimiters: [['$','$'], ['`','`']]"+
+            "    }"+
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+&lt;/script&gt;
+</summary><category term="lesscss"></category><category term="maven"></category><category term="java"></category></entry></feed>

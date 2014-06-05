@@ -169,7 +169,25 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;其实这是我现在第一次做web前端开发，并真正的接触jquery和javascript所以问题还很多，这个插件应该还有很多可以优化和修改的地方，但是以我现在的水平只能做到这样了！&lt;/p&gt;</summary><category term="jquery"></category><category term="javascript"></category><category term="code"></category></entry><entry><title>开发jquery插件</title><link href="http://blog.turbidsoul.me/posts/develop-jquery-plugin.html" rel="alternate"></link><updated>2011-12-01T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me,2011-12-01:posts/develop-jquery-plugin.html</id><summary type="html">&lt;p&gt;公司网站首页广告位需要一个鼠标悬浮切换的特效，但是公司不让使用jquery已经实现过的特效，而公司的这方面的高手又没有时间做，所以只能自己去实现一个这样的特效插件。&lt;/p&gt;
+&lt;p&gt;其实这是我现在第一次做web前端开发，并真正的接触jquery和javascript所以问题还很多，这个插件应该还有很多可以优化和修改的地方，但是以我现在的水平只能做到这样了！&lt;/p&gt;&lt;script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script type= "text/javascript"&gt;
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+                ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML-full'
+                : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML-full';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    asciimath2jax: {" +
+            "      delimiters: [['$','$'], ['`','`']]"+
+            "    }"+
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+&lt;/script&gt;
+</summary><category term="jquery"></category><category term="javascript"></category><category term="code"></category></entry><entry><title>开发jquery插件</title><link href="http://blog.turbidsoul.me/posts/develop-jquery-plugin.html" rel="alternate"></link><updated>2011-12-01T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me,2011-12-01:posts/develop-jquery-plugin.html</id><summary type="html">&lt;p&gt;公司网站首页广告位需要一个鼠标悬浮切换的特效，但是公司不让使用jquery已经实现过的特效，而公司的这方面的高手又没有时间做，所以只能自己去实现一个这样的特效插件。&lt;/p&gt;
 &lt;p&gt;下面是先说下JQuery 插件大概的结构:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;// 这里这个匿名函数，是为了避免冲突&lt;/span&gt;
 &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
@@ -187,4 +205,22 @@
 
 
 &lt;p&gt;本来想把代码大概的说下的，但是觉得这个插件很简单，没有什么值得特别说说的，jquery的 插件结构就项上面说的那样，一个插件名，对应一个具体的实现，在function里写插件的具体代码，这些东西在网上被人都快说烂了，但是我觉得有些说的 实在不清晰，至少我没看明白，我在这里不像说太多的，有时候对于程序员来说具体的代码，比一本书更管用！&lt;/p&gt;
-&lt;p&gt;源代码：&lt;a href="http://www.rayfile.com/zh-cn/files/b82a5e82-1a71-11e1-88b6-0015c55db73d/"&gt;jquery_plugin.7z&lt;/a&gt;&lt;/p&gt;</summary><category term="jquery"></category><category term="javascript"></category><category term="code"></category></entry></feed>
+&lt;p&gt;源代码：&lt;a href="http://www.rayfile.com/zh-cn/files/b82a5e82-1a71-11e1-88b6-0015c55db73d/"&gt;jquery_plugin.7z&lt;/a&gt;&lt;/p&gt;&lt;script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script type= "text/javascript"&gt;
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+                ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML-full'
+                : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML-full';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    asciimath2jax: {" +
+            "      delimiters: [['$','$'], ['`','`']]"+
+            "    }"+
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+&lt;/script&gt;
+</summary><category term="jquery"></category><category term="javascript"></category><category term="code"></category></entry></feed>

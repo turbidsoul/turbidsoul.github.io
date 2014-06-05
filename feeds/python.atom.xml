@@ -899,7 +899,25 @@
 &lt;p&gt;两个公式的实现都比较简单，其实对于这类的计算题，只要知道公式现实起来都不会复杂，因为这是把前人智慧的结晶已另外一种方式展现出来，并不是自己的成果，而且我觉得这两个公式的实现代码还有优化的可能，在$n&amp;gt;999999$的时候程序执行的效率明显下降，但是我想就算优化也是有限的，因为$pi$的计算越到后面越是对计算机性能的考验而非算法。&lt;/p&gt;
 &lt;p&gt;维基上面关$pi$的计算公式还有好多，我也有实验过，但是限于我机子性能的问题，并没有深入下去。维基上也给出了一些更简单的算法，比方说使用反正切函数计算就会更加简单。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;这里我是第一次使用MathJax写数学公式如果有那里错误，请指正出来，我会在最短的时间内修正!&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;好了这次先到这里，我要去休息，如果对这些还想有更多的了解，推荐去看一下维基上关于$pi$的介绍。&lt;/p&gt;</summary><category term="pi"></category><category term="python"></category><category term="leibniz"></category><category term="walliz"></category></entry><entry><title>python实现morse编码与解码</title><link href="http://blog.turbidsoul.me/posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html" rel="alternate"></link><updated>2013-06-04T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me,2013-06-04:posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html</id><summary type="html">&lt;p&gt;写这个完全是闲着无聊，看了一片趣文&lt;a href="http://blog.jobbole.com/40628/?utm_source=rss&amp;amp;utm_medium=rss&amp;amp;utm_campaign=draft-created-on-20130531-at-1028-am"&gt;趣文：表白后女生发给我一串五层加密的密码&lt;/a&gt; 这篇文章来源自百度贴吧的的有一个帖子&lt;a href="http://tieba.baidu.com/f?kz=529691897"&gt;传送门&lt;/a&gt;，文章的内容还是很欢乐的。&lt;/p&gt;
+&lt;p&gt;好了这次先到这里，我要去休息，如果对这些还想有更多的了解，推荐去看一下维基上关于$pi$的介绍。&lt;/p&gt;&lt;script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script type= "text/javascript"&gt;
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+                ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML-full'
+                : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML-full';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    asciimath2jax: {" +
+            "      delimiters: [['$','$'], ['`','`']]"+
+            "    }"+
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+&lt;/script&gt;
+</summary><category term="pi"></category><category term="python"></category><category term="leibniz"></category><category term="walliz"></category></entry><entry><title>python实现morse编码与解码</title><link href="http://blog.turbidsoul.me/posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html" rel="alternate"></link><updated>2013-06-04T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me,2013-06-04:posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html</id><summary type="html">&lt;p&gt;写这个完全是闲着无聊，看了一片趣文&lt;a href="http://blog.jobbole.com/40628/?utm_source=rss&amp;amp;utm_medium=rss&amp;amp;utm_campaign=draft-created-on-20130531-at-1028-am"&gt;趣文：表白后女生发给我一串五层加密的密码&lt;/a&gt; 这篇文章来源自百度贴吧的的有一个帖子&lt;a href="http://tieba.baidu.com/f?kz=529691897"&gt;传送门&lt;/a&gt;，文章的内容还是很欢乐的。&lt;/p&gt;
 &lt;p&gt;言归正传，&lt;a href="http://zh.wikipedia.org/zh/%E6%91%A9%E5%B0%94%E6%96%AF%E7%94%B5%E7%A0%81"&gt;Morse Code&lt;/a&gt; 的算法是根据维基得来的，说白了就是键值对，编码解码也都是按照键值对进行匹配的。&lt;/p&gt;
 &lt;p&gt;编码如下：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;__morse_code__&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
