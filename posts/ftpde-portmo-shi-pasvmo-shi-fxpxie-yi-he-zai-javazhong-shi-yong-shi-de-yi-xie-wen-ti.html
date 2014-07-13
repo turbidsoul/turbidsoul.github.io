@@ -7,11 +7,11 @@
 
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/js/jquery-2.1.1_min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   </head>
   <body>
     <div class="wrapper">
@@ -119,6 +119,8 @@
 </ul>
 <p>我们在调试中还发现，vsftpd是不能同时启动两种模式的，不然在执行命令的时候会返回一个5XX的错误，只能启动主动或者被动模式，网上的一些文章发的配置信息很多都是主被动同时启动的，我认为这是错的，但是我有一点很疑惑我们的serv-u使用的是默认配置， 这种的配置貌似既是主动也是被动，有点不理解，也就是说客户端连接的时候需要什么模式就会切换到什么模式。</p>
 <p>还想提醒一下不论什么程序，只要是在程序中使用FTP操作的，需要注意FTP是否支持一些命令，比方说vsftpd就不支持mlst这个命令，还有serv-u默认配置下，是不能使用list命令的，会返回425错误，但是serv-u支持mlst命令，等等各种问题。 下午在闲下来的时候在和同事讨论这个问题的时候，得到结论是：FTP的协议规范可能太简单，很多服务器的开发者，对协议支持的都不太一样，虽然大部分功能是一样的，但是在一些细节上有很大的差别，这些差别和可能就是我们需要进行攻关的地方。 当然我们也在这里拌了好几天，一个问题一个问题的解决，虽然耽误了很多时间但是收获也很多。</p>
+      <!-- <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="Turbidsoul">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+ -->
     </div><!-- /.entry-content -->
     <!-- <div id="disqus_thread"></div>
     <script type="text/javascript">
@@ -142,14 +144,12 @@
     
     <script src="https://apis.google.com/js/plusone.js"></script>
     <script>
-        $(document).ready(function () {
             gapi.comments.render('comments', {
                 href: window.location,
                 width: '600',
                 first_party_property: 'BLOGGER',
                 view_type: 'FILTERED_POSTMOD'
             });
-    });
     </script>
 
   </article>

@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/js/jquery-2.1.1_min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -88,7 +89,8 @@
 <li>是注意文件的生成路径，pelican默认是把文件生成到output中，我这里dev环境下是在output中，但是publish下确实直接在根目录下，这样目录看着有点乱，但是我喜欢这样子</li>
 </ul>
 <p>这次这个还只能算是半成品，因为评论还没有想好用那个，不过我可能考虑用国内的评论系统，还在考虑中。。。。。</p>
-<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="Turbidsoul">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+      <!-- <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="Turbidsoul">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+ -->
     </div><!-- /.entry-content -->
     <!-- <div id="disqus_thread"></div>
     <script type="text/javascript">
@@ -112,14 +114,12 @@
     
     <script src="https://apis.google.com/js/plusone.js"></script>
     <script>
-        $(document).ready(function () {
             gapi.comments.render('comments', {
                 href: window.location,
                 width: '600',
                 first_party_property: 'BLOGGER',
                 view_type: 'FILTERED_POSTMOD'
             });
-    });
     </script>
 
   </article>

@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/js/jquery-2.1.1_min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -69,7 +70,8 @@
 <p>解 决这问题其实很简单，对症下药而已，dwz是同步树，那就换成异步树，每次只加载点击节点下的数据，mongodb查询带出了大量无用的冗余数据，但是我 们只用了id和name那就在查询的时候只查出id和name，morphia的Query有个方法retrievedFields方法（参数的说明请参看<a href="http://code.google.com/p/morphia/">API文档或者源代码</a>），这个方法可以查询的时候只抓取想要的字段，这样不但可以减少在mongodb查询时间，同时也减小了网络传输的时间。</p>
 <p>我 现在无法给出具体的时间数据，因为我手上没有未优化的代码，但是在优化之前我清楚的记得，生成一次树的时间是几十秒甚至几分钟，加了异步树之后每次只加载 当前点击的节点，所以体验上好了很多，但是在打开节点下的时候，因为数据量有点大（大概有1k行的样子），虽然看着不多，但是这个表冗余了很多数据，说是 一千行，但是实际的数据可能会多几十倍，甚至过百倍，所以在只抓取id和name的时候，数据提升了很大，从8－15秒提升到了40－80ms，当然这里 面数值下线都是在chrome中测试的结果，在这里不得不在此赞叹一下V8引擎，真的是太TMD的快了。</p>
 <p>在最后的吐槽中，我实在是想骂娘，这代码是谁写的，让哥抗了一天没吃饭，一直到下午6点才做完去吃饭，饿死哥了！</p>
-<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="Turbidsoul">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+      <!-- <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="Turbidsoul">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+ -->
     </div><!-- /.entry-content -->
     <!-- <div id="disqus_thread"></div>
     <script type="text/javascript">
@@ -93,14 +95,12 @@
     
     <script src="https://apis.google.com/js/plusone.js"></script>
     <script>
-        $(document).ready(function () {
             gapi.comments.render('comments', {
                 href: window.location,
                 width: '600',
                 first_party_property: 'BLOGGER',
                 view_type: 'FILTERED_POSTMOD'
             });
-    });
     </script>
 
   </article>

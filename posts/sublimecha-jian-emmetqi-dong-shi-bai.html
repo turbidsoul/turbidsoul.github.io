@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/js/jquery-2.1.1_min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -82,7 +83,8 @@
 <p>For some reason, you have outdated PyV8 package. Try to quit ST editor, manually remove PyV8 folder from Packages and start ST again: it should load recent PyV8 package automatically</p>
 </blockquote>
 <p>大意就是说PyV8的版本过低，需要升级，解决的办法就是关闭sublime并删除sublime插件目录下的PyV8，然后在重启，重启之后sublime就会自动下载PyV8，下载好之后就能正常使用了。</p>
-<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="Turbidsoul">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+      <!-- <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="Turbidsoul">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+ -->
     </div><!-- /.entry-content -->
     <!-- <div id="disqus_thread"></div>
     <script type="text/javascript">
@@ -106,14 +108,12 @@
     
     <script src="https://apis.google.com/js/plusone.js"></script>
     <script>
-        $(document).ready(function () {
             gapi.comments.render('comments', {
                 href: window.location,
                 width: '600',
                 first_party_property: 'BLOGGER',
                 view_type: 'FILTERED_POSTMOD'
             });
-    });
     </script>
 
   </article>

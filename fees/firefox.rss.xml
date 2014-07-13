@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Turbidsoul's 小黑屋</title><link>http://blog.turbidsoul.me/</link><description></description><atom:link href="http://blog.turbidsoul.me/fees/firefox.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 16 Mar 2012 00:00:00 +0800</lastBuildDate><item><title>关于firefox中使用google搜索被劫持到www5.1616.com的解决办法！</title><link>http://blog.turbidsoul.me/posts/guan-yu-firefoxzhong-shi-yong-googlesou-suo-bei-jie-chi-dao-www51616comde-jie-jue-ban-fa.html</link><description>&lt;p&gt;这个问题也是我今天早上发现的，搜索东西的时候发现先进入www5.1616.net然后在跳转到google中，感觉像是被劫持了，于是我就在 google上搜索了www5.1616.net发现很多人都有这个问题，而且但是绝大多数都认为是DNS被劫持的问题，但是我觉得不是这样，因为很多人 都和我的情况一样，出现问题的只有他一个，同一局域网下的别人都正常，同一社区下的只有个别的人有这个问题，并不是大面积出现，而且我只有Firefox 有问题，chrome和IE9都正常，所以我肯定是firefox的问题。&lt;/p&gt;
+&lt;p&gt;后面我有简单的试了几次，发现https下不存在这种现象所以我象应该是他修改我的某些search相关文件，其实在firefox中和search有关的文件就几个，常用的人也都知道：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;{Profiles}/searchplugins/*.xml&lt;/li&gt;
+&lt;li&gt;{app_root}/searchplugins/*.xml&lt;/li&gt;
+&lt;li&gt;{Profiles}/search.json&lt;/li&gt;
+&lt;li&gt;{Profiles}/search.sqlite&lt;/li&gt;
+&lt;li&gt;{Profiles}/extensions/cehomepage@mozillaonline.com/searchplugins/*.xml&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;总共就这5个吧，我知道的只有这些.&lt;/p&gt;
+&lt;p&gt;其实我本来并没有想到会是这几个地方，但是看了月光在2010年5月的一片名为&lt;a href="http://www.williamlong.info/archives/2186.html"&gt;《Google支持HTTPS加密搜索》&lt;/a&gt;文章，才想到这点上的。&lt;/p&gt;
+&lt;p&gt;在网上有些文章说需要删除search.json和search.sqlite，其实不用。先打开search.json，可以格式化一下，看着清楚，直接搜索google，找到后向下拖，看到有下面的代码:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;quot;params&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+        &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;q&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;quot;value&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;{searchTerms}&amp;quot;&lt;/span&gt;
+        &lt;span class="p"&gt;},&lt;/span&gt;
+        &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;id&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;quot;value&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;1157&amp;quot;&lt;/span&gt;
+        &lt;span class="p"&gt;},&lt;/span&gt;
+        &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;type&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="nt"&gt;&amp;quot;value&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;21&amp;quot;&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="p"&gt;],&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;quot;rels&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[],&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;quot;template&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;http://www5.1616.net/q.php&amp;quot;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;删除这段就可以，记得把上面的逗号也删掉啊！&lt;/p&gt;
+&lt;p&gt;然 后进入，上面列出第五点下，打开google.xml，把url的属性template修改会原来的值,即 为:http://www.google.com/search然后保存就行了，然后重启firefox，再试试应该已经解决了问题，可能这不是唯一的解 决办法，但是是一个根除的办法，我还没有找到是什么东西修改了这些文件，我也喜欢有人能找到这个东西，并更不出来！&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;在上面月光的文章中已经说了google已经启动了https所以我也希望大家都使用https上网，这样更安全一点。&lt;/strong&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Turbidsoul</dc:creator><pubDate>Fri, 16 Mar 2012 00:00:00 +0800</pubDate><guid>tag:blog.turbidsoul.me,2012-03-16:posts/guan-yu-firefoxzhong-shi-yong-googlesou-suo-bei-jie-chi-dao-www51616comde-jie-jue-ban-fa.html</guid><category>firefox</category><category>google</category></item></channel></rss>

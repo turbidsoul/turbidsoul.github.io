@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/js/jquery-2.1.1_min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -112,7 +113,8 @@
 
 <p>从上面可以清除看到，我是直接在家的root-context.xml，在root中import了application- context.xml，异步的的配置就在application-context.xml运行之后发现，没有问题，异步执行完全正确，这个测试用例也验 证了我的一个想法，两个Spring Context是可以互相共享，但是确实相对独立的，为了进一步验证我的想法，我在action中，写了一个测试例子，没有用@Autowired注入进 来的，而是使用了WebApplicationContext， 即:<code>WebApplicationContextUtils.getWebApplicationContext(request.getSession().getServletContext());</code>， 用它得到Spring Context，然后直接异步方法，保存，运行，结果正确！这样就完全确认了我的想法是正确的，虽然两个Spring Context是可以共享的但是两个Spring的配置和加载确实相对独立的，也就是说ContextLoaderListener和 DispatcherServlet两个都会把配置文件声明要加载的东西加载一边，当这个其中一个没有的时候就会去另一个里面查找（这个我没有确认，只是 我猜测的，因为工作忙，这个问题上已经耽误太多时间，所以就没有继续下去。)，当这个里面有就不会去另一个里面找。</p>
 <p>所以，我把配置启动异步 的配置，换到了servlet-context.xml中（也就就是DispatcherServlet），并删掉原来异步配置（这里一定要保证在整个系统中<code>&lt;task:annotation-driven /&gt;</code>只能出现一次，如果出现两次，或者被加载了两次，Spring就会抛出一个异常指示这个东西只能加载一次），再次重启服务器，上传文件，OK， 成功了！</p>
-<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="Turbidsoul">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+      <!-- <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="Turbidsoul">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+ -->
     </div><!-- /.entry-content -->
     <!-- <div id="disqus_thread"></div>
     <script type="text/javascript">
@@ -136,14 +138,12 @@
     
     <script src="https://apis.google.com/js/plusone.js"></script>
     <script>
-        $(document).ready(function () {
             gapi.comments.render('comments', {
                 href: window.location,
                 width: '600',
                 first_party_property: 'BLOGGER',
                 view_type: 'FILTERED_POSTMOD'
             });
-    });
     </script>
 
   </article>
