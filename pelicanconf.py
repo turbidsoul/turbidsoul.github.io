@@ -12,9 +12,11 @@ THEME=os.path.join(curdir, 'pelican-sundown')
 ARTICLE_DIR='posts/'
 PAGE_DIR='pages/'
 OUTPUT_PATH=''
+INPUT_DIR='content'
 
 TIMEZONE = 'Asia/Chongqing'
 DEFAULT_DATE_FORMAT='%Y年 %B %d日 %a'
+SLUG_DATE_FOTMAT='%Y-%m-%d'
 
 DEFAULT_LANG = u'cn'
 
@@ -24,7 +26,7 @@ CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 
 # Blogroll
-LINKS =  (('Turbidsoul\'s 小黑屋', 'http://blog.turbidsoul.me'),
+LINKS =  (("'Turbidsoul's 小黑屋", 'http://blog.turbidsoul.me'),
           ('My Company Site', 'http://www.kaoshidian.com/'),
           ('PyPI', 'https://pypi.python.org'),)
 
@@ -55,5 +57,5 @@ TWITTER_USERNAME='Turbidsoul'
 PLUGIN_PATH= os.path.join(curdir, 'pelican-plugins')
 PLUGINS = ['render_math', 'googleplus_comments']
 
-
+AUTHOR='Turbidsoul Chan'
 AUTHOR_EMAIL='sccn.sq@gmail.com'
