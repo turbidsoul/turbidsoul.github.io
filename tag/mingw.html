@@ -16,7 +16,7 @@
   <body>
     <div class="wrapper">
       <header>
-        <div><img src="http://blog.turbidsoul.me/images/avatar.jpg" class="grv-img"/></div>
+        <div><img src="http://blog.turbidsoul.me/content/images/avatar.jpg" class="grv-img"/></div>
         <div class="title"><a href="http://blog.turbidsoul.me/">Turbidsoul's 小黑屋 </a></div>
         <div class="sub-title"></div>
 
@@ -53,12 +53,7 @@
     <a href="http://blog.turbidsoul.me/tag/gcc.html">gcc</a>, 
  -- (<a href="http://blog.turbidsoul.me/posts/python-332-mingw-gcc-471-an-zhuang-misakamo-kuai-shi-bian-yi-bao-cuo.html" rel="bookmark">permalink</a>)
 </small>
-</p>      <p>今天安装在 <strong>python3.3.2</strong> 下安装 <strong>misaka</strong>  编译的时候报出了一个编译错误 <em>gcc: error: unrecognized command line option '-mno-cygwin'</em></p>
-<p>解决的办法很简单，在 <strong>gcc 4.7</strong> 不支持 <strong>-mno-cygwin</strong> 选项，所以我们只需要把这个选项在编译的时候去掉就行了。</p>
-<p>但是在那里去掉呢？python负责编译的模块是 <strong>distutils</strong> 这个包，在这个模块下有个 <strong>cygwinccompiler.py</strong> 文件，打开在297行：</p>
-<div class="highlight"><pre><span class="bp">self</span><span class="o">.</span><span class="n">set_executables</span><span class="p">(</span><span class="n">compiler</span><span class="o">=</span><span class="s">&#39;gcc -mno-cygwin -O -Wall&#39;</span><span class="p">,</span>
-                     <span class="n">compiler_so</span><span class="o">=</span><span class="s">&#39;gcc -mno-cygwin -mdll -O -Wall&#39;</span><span class="p">,</span>
-                     <span class="n">compiler_cxx</span><span class="o">=</span><span class="s">&#39;g++ -mno-cygwin -O -Wall ...</span></pre></div> 
+</p>      <p>今天安装在 <strong>python3.3.2</strong> 下安装 <strong>misaka</strong>  编译的时候报出了一个编译错误 <em>gcc: error: unrecognized command line option '-mno-cygwin'</em></p> 
       <div class="read-more"><a href="http://blog.turbidsoul.me/posts/python-332-mingw-gcc-471-an-zhuang-misakamo-kuai-shi-bian-yi-bao-cuo.html">read more...</a></div>
       <hr />
 

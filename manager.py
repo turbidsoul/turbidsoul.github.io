@@ -2,12 +2,13 @@
 # -*- coding: utf-8 -*-
 # @Author: Administrator
 # @Date:   2014-07-13 11:33:28
-# @Last Modified 2014-08-27
-# @Last Modified time: 2014-08-27 23:46:12
+# @Last Modified 2014-10-26
+# @Last Modified time: 2014-10-26 14:33:57
 
 import sys
-reload(sys)
-sys.setdefaultencoding('utf8')
+from imp import reload
+# reload(sys)
+# sys.setdefaultencoding('utf8')
 import os
 
 import click
@@ -41,19 +42,19 @@ rst_template = """{title}
 
 """
 
-def to_utf8(s):
-    encode = chardet.detect(s)['encoding']
-    if encode=='utf8':
-        return s
-    else:
-        return unicode(s).encode('utf8')
+# def to_utf8(s):
+#     encode = chardet.detect(bytes(s, 'utf8'))['encoding']
+#     if encode=='utf8':
+#         return s
+#     else:
+#         return str(s, encoding='utf8')
 
-def to_gbk(s):
-    encode = chardet.detect(s)['encoding']
-    if encode in ['gbk', 'gb2312']:
-        return s
-    else:
-        return unicode(s).encode('gbk')
+# def to_gbk(s):
+#     encode = chardet.detect(bytes(s, 'utf8'))['encoding']
+#     if encode in ['gbk', 'gb2312']:
+#         return s
+#     else:
+#         return str(s, 'utf8')
 
 
 @click.group(context_settings={'help_option_names':['-h', '--help']})
@@ -87,21 +88,21 @@ def post(title, tags, category, slug, authors, summary, ext):
     template = md_template
     date_line = date.today().strftime('%Y-%m-%d')
     meta = {
-        "title": to_utf8(title),
-        "tags": ", ".join(tags),
-        "category": to_utf8(category) if category else '',
-        "slug": slug if slug else os.path.splitext(post_name)[0] + '.html',
-        "authors": ", ".join(authors),
-        "summary": to_utf8(summary) if summary else "",
-        "create_date": date_line,
-        "modified_date": date_line,
+        "Title": str(title),
+        "Tags": ", ".join(tags),
+        "Category": category if category else '',
+        "Slug": slug if slug else os.path.splitext(post_name)[0] + '.html',
+        "Authors": ", ".join(authors),
+        "Summary": summary if summary else "",
+        "Create_date": date_line,
+        "Modified_date": date_line,
     }
     if ext == 'rst':
         template = rst_template
         meta['title'] += "\n" + ("#" * len(meta['title']))
 
     secho('Create [%s] post:' % ext, fg='cyan')
-    secho("\n".join(["  " + k + ":" + (v if v else '') for k, v in meta.iteritems()]), fg='cyan')
+    secho("\n".join(["  " + k + ":" + (v if v else '') for k, v in meta.items()]), fg='cyan')
 
     with open(post_path, 'w') as post_file:
         post_file.write(template.format(**meta))

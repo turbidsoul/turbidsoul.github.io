@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Turbidsoul's 小黑屋</title><link>http://blog.turbidsoul.me/</link><description></description><atom:link href="http://blog.turbidsoul.me/fees/math.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 14 Aug 2013 00:00:00 +0800</lastBuildDate><item><title>程序员数学 - 零的故事</title><link>http://blog.turbidsoul.me/posts/cheng-xu-yuan-shu-xue-ling-de-gu-shi.html</link><description>&lt;p&gt;之前买了几本关于数学的书，这两天看了《程序员数学》第一章 0的故事，以前只是知道0，却不知道0在数学中的作用和意义。&lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Turbidsoul's 小黑屋</title><link>http://blog.turbidsoul.me/</link><description></description><atom:link href="http://blog.turbidsoul.me/feeds/math.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 14 Aug 2013 00:00:00 +0800</lastBuildDate><item><title>程序员数学 - 零的故事</title><link>http://blog.turbidsoul.me/posts/cheng-xu-yuan-shu-xue-ling-de-gu-shi.html</link><description>&lt;p&gt;之前买了几本关于数学的书，这两天看了《程序员数学》第一章 0的故事，以前只是知道0，却不知道0在数学中的作用和意义。&lt;/p&gt;
 &lt;h4&gt;计数法&lt;/h4&gt;
 &lt;p&gt;在10进制中，每一位的数字表示的是这一位上的个数，如书中的2503：&lt;/p&gt;
 &lt;blockquote&gt;

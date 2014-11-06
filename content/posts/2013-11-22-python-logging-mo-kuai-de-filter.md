@@ -3,6 +3,8 @@ category: Python
 tags: python, logging, filter, code
 Author: Turbidsoul
 Date: 2013-11-22
+Summary:前两天同事问我，如果针对不同的IP记录日志，并把更具IP记录到不同的日志文件中，在网上搜了一下这个问题，有很多人都在问，我查了一下python的logging的api，发现有个filter的，这个filter可以根据日志的信息来决定这条日志是否记录到日志文件中，下面来说说如果实现这个功能。
+
 
 前两天同事问我，如果针对不同的IP记录日志，并把更具IP记录到不同的日志文件中，在网上搜了一下这个问题，有很多人都在问，我查了一下python的logging的api，发现有个filter的，这个filter可以根据日志的信息来决定这条日志是否记录到日志文件中，下面来说说如果实现这个功能。
 

@@ -1,7 +1,7 @@
 title: Jquery分页插件
 category: jquery
 tags: jquery, javascript, code
-Date: 2011-12-07
+date: 2011-12-07
 
 我们头不让我们使用外面的页面特效脚本，因为页面加载的时候使用太多的不相关页面会影响页面加载的速度。so，只能自己动手去写一个分页插件。
 

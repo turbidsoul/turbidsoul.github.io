@@ -3,6 +3,7 @@ category: Selenium
 tags: selenium, python, java, webdriver, test, code
 Author: Turbidsoul
 Date: 2013-10-17
+Summary: 前段时间我们头在搞一个分布式测试，使用的就是 **Selenium** 可以坑太多，最后应该是放弃了，因为我没见到回音，说实话这东西是bug挺多，而且在firefox上的版本兼容也有很大的问题，不过这不是我们讨论的问题，我们这里要讨论的是使用它来做简单的web测试。
 
 前段时间我们头在搞一个分布式测试，使用的就是 **Selenium** 可以坑太多，最后应该是放弃了，因为我没见到回音，说实话这东西是bug挺多，而且在firefox上的版本兼容也有很大的问题，不过这不是我们讨论的问题，我们这里要讨论的是使用它来做简单的web测试。
 

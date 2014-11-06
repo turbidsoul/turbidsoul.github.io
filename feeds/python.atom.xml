@@ -38,6 +38,7 @@
 &lt;span class="n"&gt;hdlr2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;addFilter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;MyFilter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;192.168.0.2&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;span class="n"&gt;hdlr2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setFormatter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fmt&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
+
 &lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;addHandler&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;hdlr1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;addHandler&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;hdlr2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setLevel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;INFO&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -495,6 +496,7 @@
 &lt;span class="gp"&gt;...&lt;/span&gt;
 &lt;span class="go"&gt;Namespace(p1=1, source=&amp;lt;open file &amp;#39;source.txt&amp;#39;, mode &amp;#39;r&amp;#39; at 0x0496E6A8&amp;gt;, target=&amp;lt;open file &amp;#39;target.txt&amp;#39;, mode &amp;#39;w&amp;#39; at 0x0496E548&amp;gt;)&lt;/span&gt;
 
+
 &lt;span class="gp"&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;upper&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
 &lt;span class="gp"&gt;... &lt;/span&gt;    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;isupper&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
 &lt;span class="gp"&gt;... &lt;/span&gt;        &lt;span class="k"&gt;raise&lt;/span&gt; &lt;span class="n"&gt;argparse&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ArgumentTypeError&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&lt;/span&gt;&lt;span class="si"&gt;%r&lt;/span&gt;&lt;span class="s"&gt; not a upper letter&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -623,7 +625,7 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;把代码中的 &lt;strong&gt;-mno-cygwin&lt;/strong&gt; 去掉即可。&lt;/p&gt;</summary><category term="python"></category><category term="python33"></category><category term="mingw"></category><category term="gcc"></category></entry><entry><title>python实现ldap和rtx之间的组织和用户数据同步</title><link href="http://blog.turbidsoul.me/posts/pythonshi-xian-ldaphe-rtxzhi-jian-de-zu-zhi-he-yong-hu-shu-ju-tong-bu.html" rel="alternate"></link><updated>2013-07-15T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me,2013-07-15:posts/pythonshi-xian-ldaphe-rtxzhi-jian-de-zu-zhi-he-yong-hu-shu-ju-tong-bu.html</id><summary type="html">&lt;p&gt;最近公司正在准备使用 &lt;strong&gt;AD&lt;/strong&gt; ( &lt;strong&gt;&lt;a href="https://zh.wikipedia.org/wiki/Active_Directory" title="Active Directory"&gt;Activate Directory&lt;/a&gt;&lt;/strong&gt; )服务来进行公司员工的帐号管理，这样就避免不了需要对AD的帐号和&lt;a href="http://rtx.tencent.com/rtx/index.shtml" title="RTX"&gt;RTX&lt;/a&gt;的帐号和组织关系进行同步，所以才有了这篇文章。&lt;/p&gt;
+&lt;p&gt;把代码中的 &lt;strong&gt;-mno-cygwin&lt;/strong&gt; 去掉即可。&lt;/p&gt;</summary><category term="python"></category><category term="python33"></category><category term="mingw"></category><category term="gcc"></category></entry><entry><title>python实现ldap和rtx之间的组织和用户数据同步</title><link href="http://blog.turbidsoul.me/posts/pythonshi-xian-ldaphe-rtxzhi-jian-de-zu-zhi-he-yong-hu-shu-ju-tong-bu.html" rel="alternate"></link><updated>2013-07-15T00:00:00+08:00</updated><author><name>Turbidsoul Chan</name></author><id>tag:blog.turbidsoul.me,2013-07-15:posts/pythonshi-xian-ldaphe-rtxzhi-jian-de-zu-zhi-he-yong-hu-shu-ju-tong-bu.html</id><summary type="html">&lt;p&gt;最近公司正在准备使用 &lt;strong&gt;AD&lt;/strong&gt; ( &lt;strong&gt;&lt;a href="https://zh.wikipedia.org/wiki/Active_Directory" title="Active Directory"&gt;Activate Directory&lt;/a&gt;&lt;/strong&gt; )服务来进行公司员工的帐号管理，这样就避免不了需要对AD的帐号和&lt;a href="http://rtx.tencent.com/rtx/index.shtml" title="RTX"&gt;RTX&lt;/a&gt;的帐号和组织关系进行同步，所以才有了这篇文章。&lt;/p&gt;
 &lt;h4&gt;Python-Ldap&lt;/h4&gt;
 &lt;p&gt;&lt;a href="http://www.python-ldap.org/" title="LDAP client API for Python"&gt;Python-Ldap&lt;/a&gt;是python用来操作ldap的模块，可以对ldap进行查询，添加，修改，删除等操作，如下代码：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;ldap_host&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;127.0.0.1&amp;quot;&lt;/span&gt;
@@ -684,6 +686,7 @@
 
 &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rootobj&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;QueryUserState&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;lp&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;rootobj&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;QueryUsersByState&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;online&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
 
 &lt;span class="n"&gt;um&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;rootobj&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;UserManager&lt;/span&gt;
 &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;um&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;GetUserBasicInfo&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;test&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
@@ -757,6 +760,7 @@
         &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nf"&gt;createAuthenticationInfo&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;token&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;username&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ctx&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
     &lt;span class="o"&gt;}&lt;/span&gt;
 
+
     &lt;span class="nd"&gt;@Override&lt;/span&gt;
     &lt;span class="kd"&gt;protected&lt;/span&gt; &lt;span class="n"&gt;AuthenticationInfo&lt;/span&gt; &lt;span class="nf"&gt;doGetAuthenticationInfo&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;AuthenticationToken&lt;/span&gt; &lt;span class="n"&gt;token&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="kd"&gt;throws&lt;/span&gt; &lt;span class="n"&gt;AuthenticationException&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
         &lt;span class="k"&gt;try&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
@@ -778,7 +782,7 @@
 &lt;h4&gt;结论&lt;/h4&gt;
 &lt;p&gt;在这次的开发工作中，其实费了不少时间，有快一个礼拜，其中有两天多的时候都卡在的编码的问题上，说起来挺可笑也挺无奈，ad对编码的问题支持的还算不错，rtx就不行了，他使用的mdb数据库，windows下是gb2312而在python中我使用了utf8，所以在和rtx交互的时候需要把字符串的编码，进行转码，如：&lt;code&gt;"中文编码".decode('utf8').encode('gb2312')&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;其次耗费时间的是，我花了一些时间，研究为什么直接操作数据库并不能是rtx客户端读取到用户资料，为此我还用 &lt;strong&gt;Wireshark&lt;/strong&gt; 进行了抓包，发现并不似rtx本身配置的问题，因为通过抓包分析得到rtx本身并没有问题，我想应该就是我在操作数据库上存在问题，但是又想不到是那里的问题。在后来使用com接口操作时候，对比了两种方式操作数据库之后数据库的变化，让我发现，问题出在sys_sysconfig这张表上，这张表里有两个字段 &lt;em&gt;UserVersion&lt;/em&gt; 和 &lt;em&gt;DeptVersion&lt;/em&gt; 两个这两个字段记录的是上一次更新数据之后sys_user和rtx_dept两个表数据的最后版本变化，在这两个表里也同样存在这两个对应的字段 &lt;em&gt;UserVersion&lt;/em&gt; 和 &lt;em&gt;Version&lt;/em&gt; 记录了没个记录的版本号，rtx客户端会更新版本号大于等于sys_sysconfig中记录的版本号，我尝试修改版本号来测试，得到的结果和我猜测的是一样的。但是我并不知道使用com接口操作是不是还有修改其他的数据，因为这里完全是黑盒，而且在rtx的官网也看到推荐使用api操作，直接操作数据库可能会造成数据库的不一致。&lt;/p&gt;
-&lt;p&gt;但在数据同步并不是这上面说的使用UserManager和DeptManager这两个对象来操作，也可以使用ElementTree配成xml，使用rtx提供的方法导入也可以，这样的方法效率要比上面的方法更快，不过我并没有看到一个完成的XML例子，所以并没有采用这种方法。&lt;/p&gt;</summary><category term="python"></category><category term="ldap"></category><category term="rtx"></category><category term="win32com"></category></entry><entry><title>python实现命令行下载进度条</title><link href="http://blog.turbidsoul.me/posts/pythonshi-xian-ming-ling-xing-xia-zai-jin-du-tiao.html" rel="alternate"></link><updated>2013-06-23T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me,2013-06-23:posts/pythonshi-xian-ming-ling-xing-xia-zai-jin-du-tiao.html</id><summary type="html">&lt;p&gt;这是昨晚下班之后同事问我的一个问题，不过当时已经7点，如果在不出公司就会赶不上最后一趟公交车，所以就给同事说回家研究研究礼拜一给他答案，昨晚无事就看了一下。&lt;/p&gt;
+&lt;p&gt;但在数据同步并不是这上面说的使用UserManager和DeptManager这两个对象来操作，也可以使用ElementTree配成xml，使用rtx提供的方法导入也可以，这样的方法效率要比上面的方法更快，不过我并没有看到一个完成的XML例子，所以并没有采用这种方法。&lt;/p&gt;</summary><category term="python"></category><category term="ldap"></category><category term="rtx"></category><category term="win32com"></category></entry><entry><title>python实现命令行下载进度条</title><link href="http://blog.turbidsoul.me/posts/pythonshi-xian-ming-ling-xing-xia-zai-jin-du-tiao.html" rel="alternate"></link><updated>2013-06-23T00:00:00+08:00</updated><author><name>Turbidsoul Chan</name></author><id>tag:blog.turbidsoul.me,2013-06-23:posts/pythonshi-xian-ming-ling-xing-xia-zai-jin-du-tiao.html</id><summary type="html">&lt;p&gt;这是昨晚下班之后同事问我的一个问题，不过当时已经7点，如果在不出公司就会赶不上最后一趟公交车，所以就给同事说回家研究研究礼拜一给他答案，昨晚无事就看了一下。&lt;/p&gt;
 &lt;h4&gt;需要用到的模块&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;使用 &lt;strong&gt;pip&lt;/strong&gt; 安装progressbar &lt;code&gt;pip install progressbar&lt;/code&gt;&lt;/li&gt;
@@ -846,8 +850,10 @@
 &lt;p&gt;最后就是要编程成exe文件向，我使用的py2exe,如下：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# -*- coding: utf8 -*-&lt;/span&gt;
 
+
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;distutils.core&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;setup&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;py2exe&lt;/span&gt;
+
 
 &lt;span class="n"&gt;setup&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;console&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;ftp_download.py&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="n"&gt;zipfile&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -862,7 +868,7 @@
 &lt;p&gt;编译完了之后在dist目录下就是表一好的文件，ftp_download.exe,我们运行一下看看效果： &lt;code&gt;ftp_download.exe 127.0.0.1 test test PbSetup60.exe,VIDEO0006.mp4&lt;/code&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Download&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;PbSetup60&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exe&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;********************&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="n"&gt;Time&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;05&lt;/span&gt;   &lt;span class="mf"&gt;1.69&lt;/span&gt; &lt;span class="n"&gt;MB&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
 &lt;span class="n"&gt;Download&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;VIDEO0006&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mp4&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;  &lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;****&lt;/span&gt;                &lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="n"&gt;ETA&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;  &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mo"&gt;00&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;09&lt;/span&gt;   &lt;span class="mf"&gt;2.24&lt;/span&gt; &lt;span class="n"&gt;MB&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary><category term="python"></category><category term="cmd"></category><category term="ftp"></category><category term="progressbar"></category></entry><entry><title>Leibniz公式和Walliz公式估算Pi的值</title><link href="http://blog.turbidsoul.me/posts/leibnizgong-shi-he-wallizgong-shi-gu-suan-pide-zhi.html" rel="alternate"></link><updated>2013-06-08T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me,2013-06-08:posts/leibnizgong-shi-he-wallizgong-shi-gu-suan-pide-zhi.html</id><summary type="html">&lt;p&gt;前两天和同事在聊天的时候说道了 $pi$ 的算法，回家之后在&lt;a href="https://zh.wikipedia.org/wiki/圓周率"&gt;维基&lt;/a&gt;上看了一下关于 $pi$ 的公式，正好这回没事干，就用Python实现了两个比较简单的公式，分别是Leibniz 和 Walliz.&lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="python"></category><category term="cmd"></category><category term="ftp"></category><category term="progressbar"></category></entry><entry><title>Leibniz公式和Walliz公式估算Pi的值</title><link href="http://blog.turbidsoul.me/posts/leibnizgong-shi-he-wallizgong-shi-gu-suan-pide-zhi.html" rel="alternate"></link><updated>2013-06-08T00:00:00+08:00</updated><author><name>Turbidsoul Chan</name></author><id>tag:blog.turbidsoul.me,2013-06-08:posts/leibnizgong-shi-he-wallizgong-shi-gu-suan-pide-zhi.html</id><summary type="html">&lt;p&gt;前两天和同事在聊天的时候说道了 $pi$ 的算法，回家之后在&lt;a href="https://zh.wikipedia.org/wiki/圓周率"&gt;维基&lt;/a&gt;上看了一下关于 $pi$ 的公式，正好这回没事干，就用Python实现了两个比较简单的公式，分别是Leibniz 和 Walliz.&lt;/p&gt;
 &lt;h2&gt;Leibniz&lt;/h2&gt;
 &lt;p&gt;公式如下：&lt;/p&gt;
 &lt;p&gt;$1 - 1/3 + 1/5 - 1/7 + 1/9 - ... = pi/4$&lt;/p&gt;
@@ -917,7 +923,7 @@
         (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
     }
 &lt;/script&gt;
-</summary><category term="pi"></category><category term="python"></category><category term="leibniz"></category><category term="walliz"></category></entry><entry><title>python实现morse编码与解码</title><link href="http://blog.turbidsoul.me/posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html" rel="alternate"></link><updated>2013-06-04T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me,2013-06-04:posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html</id><summary type="html">&lt;p&gt;写这个完全是闲着无聊，看了一片趣文&lt;a href="http://blog.jobbole.com/40628/?utm_source=rss&amp;amp;utm_medium=rss&amp;amp;utm_campaign=draft-created-on-20130531-at-1028-am"&gt;趣文：表白后女生发给我一串五层加密的密码&lt;/a&gt; 这篇文章来源自百度贴吧的的有一个帖子&lt;a href="http://tieba.baidu.com/f?kz=529691897"&gt;传送门&lt;/a&gt;，文章的内容还是很欢乐的。&lt;/p&gt;
+</summary><category term="pi"></category><category term="python"></category><category term="leibniz"></category><category term="walliz"></category></entry><entry><title>python实现morse编码与解码</title><link href="http://blog.turbidsoul.me/posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html" rel="alternate"></link><updated>2013-06-04T00:00:00+08:00</updated><author><name>Turbidsoul Chan</name></author><id>tag:blog.turbidsoul.me,2013-06-04:posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html</id><summary type="html">&lt;p&gt;写这个完全是闲着无聊，看了一片趣文&lt;a href="http://blog.jobbole.com/40628/?utm_source=rss&amp;amp;utm_medium=rss&amp;amp;utm_campaign=draft-created-on-20130531-at-1028-am"&gt;趣文：表白后女生发给我一串五层加密的密码&lt;/a&gt; 这篇文章来源自百度贴吧的的有一个帖子&lt;a href="http://tieba.baidu.com/f?kz=529691897"&gt;传送门&lt;/a&gt;，文章的内容还是很欢乐的。&lt;/p&gt;
 &lt;p&gt;言归正传，&lt;a href="http://zh.wikipedia.org/zh/%E6%91%A9%E5%B0%94%E6%96%AF%E7%94%B5%E7%A0%81"&gt;Morse Code&lt;/a&gt; 的算法是根据维基得来的，说白了就是键值对，编码解码也都是按照键值对进行匹配的。&lt;/p&gt;
 &lt;p&gt;编码如下：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;__morse_code__&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
@@ -970,6 +976,7 @@
             &lt;span class="n"&gt;encoded&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;__morse_code__&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;encoded&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
+
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;morse_decode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="n"&gt;codes&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
     &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
@@ -1001,7 +1008,7 @@
 &lt;p&gt;上面的就是运行结果，下面有两个关于morse的应用：&lt;/p&gt;
 &lt;iframe src="//zh.wikipedia.org/wiki/File:TVB_News_Theme_Song_Extract.ogg?embedplayer=yes" width="220" height="23" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;&lt;/iframe&gt;
 
-&lt;p&gt;&lt;a href="http://www.omnicron.com/~ford/java/NMorse.html"&gt;Morse Code Translation and Copy Practice&lt;/a&gt;&lt;/p&gt;</summary><category term="python"></category><category term="morse"></category><category term="code"></category></entry><entry><title>Misaka+pygments实现markdown生成html页面并语法高亮</title><link href="http://blog.turbidsoul.me/posts/misakapygmentsshi-xian-markdownsheng-cheng-htmlye-mian-bing-yu-fa-gao-liang.html" rel="alternate"></link><updated>2013-05-14T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me,2013-05-14:posts/misakapygmentsshi-xian-markdownsheng-cheng-htmlye-mian-bing-yu-fa-gao-liang.html</id><summary type="html">&lt;h2&gt;来由&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://www.omnicron.com/~ford/java/NMorse.html"&gt;Morse Code Translation and Copy Practice&lt;/a&gt;&lt;/p&gt;</summary><category term="python"></category><category term="morse"></category><category term="code"></category></entry><entry><title>Misaka+pygments实现markdown生成html页面并语法高亮</title><link href="http://blog.turbidsoul.me/posts/misakapygmentsshi-xian-markdownsheng-cheng-htmlye-mian-bing-yu-fa-gao-liang.html" rel="alternate"></link><updated>2013-05-14T00:00:00+08:00</updated><author><name>Turbidsoul Chan</name></author><id>tag:blog.turbidsoul.me,2013-05-14:posts/misakapygmentsshi-xian-markdownsheng-cheng-htmlye-mian-bing-yu-fa-gao-liang.html</id><summary type="html">&lt;h2&gt;来由&lt;/h2&gt;
 &lt;p&gt;最近新blog开发到文章页面生成这块，看上了GFM这样的方式，使用markdown编辑页面，也很适合程序猿。使用富文本编辑始终太重量级，并不适合程序猿写文章，所以我也很推崇jekyll，用他来写文章、blog确实很geek也很舒适。&lt;/p&gt;
 &lt;p&gt;经过几次简单的测试，最后决定使用&lt;code&gt;Misaka&lt;/code&gt;+&lt;code&gt;pygments&lt;/code&gt;，下面我简单说一下实现方法。&lt;/p&gt;
 &lt;h2&gt;开始之前&lt;/h2&gt;
@@ -1064,6 +1071,7 @@
 
 &lt;span class="c"&gt;# Create a custom renderer&lt;/span&gt;
 
+
 &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;BleepRenderer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;HtmlRenderer&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;SmartyPants&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
 
     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;block_code&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;lang&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
@@ -1090,7 +1098,7 @@
 
 
 &lt;p&gt;""")&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;运行之后生成下面的&lt;/span&gt;&lt;span class="nx"&gt;HTML&lt;/span&gt;&lt;span class="err"&gt;：&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nx"&gt;运行之后生成下面的HTML&lt;/span&gt;&lt;span class="err"&gt;：&lt;/span&gt;
 
 &lt;span class="sb"&gt;``&lt;/span&gt;&lt;span class="err"&gt;`&lt;/span&gt;&lt;span class="nx"&gt;html&lt;/span&gt;
     &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nx"&gt;h2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
@@ -1132,6 +1140,7 @@
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pygments.lexers&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;get_lexer_by_name&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;pygments.formatters&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;HtmlFormatter&lt;/span&gt;
 
+
 &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;SyntaxHighlightRenderer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;HtmlRenderer&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;SmartyPants&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
 
     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;block_code&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;lang&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
@@ -1141,6 +1150,7 @@
         &lt;span class="n"&gt;formatter&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;HtmlFormatter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
             &lt;span class="n"&gt;linenos&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;style&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;vim&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt; code&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;lang&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
         &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;highlight&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;lexer&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;formatter&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
 
 &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Index&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="n"&gt;html_tempalte&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
@@ -1217,7 +1227,7 @@
 &lt;p&gt;```&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;在命令下运行: &lt;code&gt;python test.py 1234&lt;/code&gt;之后使用 &lt;a href="http://localhost:1234"&gt;http://localhost:1234&lt;/a&gt;)就能访问,并且看到结果&lt;/p&gt;
-&lt;/blockquote&gt;</summary><category term="python"></category><category term="misaka"></category><category term="pygments"></category><category term="markdown"></category></entry><entry><title>fn实现无限计算等比级数</title><link href="http://blog.turbidsoul.me/posts/fnshi-xian-wu-xian-ji-suan-deng-bi-ji-shu.html" rel="alternate"></link><updated>2013-04-28T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me,2013-04-28:posts/fnshi-xian-wu-xian-ji-suan-deng-bi-ji-shu.html</id><summary type="html">&lt;p&gt;今天看InfoQ上的一篇关于 &lt;a href="http://www.infoq.com/cn/articles/fn.py-functional-programming-python"&gt;Fn.py&lt;/a&gt; 的文章，Fn中的Stream可以实现无限序列，例如文章中的代码：&lt;/p&gt;
+&lt;/blockquote&gt;</summary><category term="python"></category><category term="misaka"></category><category term="pygments"></category><category term="markdown"></category></entry><entry><title>fn实现无限计算等比级数</title><link href="http://blog.turbidsoul.me/posts/fnshi-xian-wu-xian-ji-suan-deng-bi-ji-shu.html" rel="alternate"></link><updated>2013-04-28T00:00:00+08:00</updated><author><name>Turbidsoul Chan</name></author><id>tag:blog.turbidsoul.me,2013-04-28:posts/fnshi-xian-wu-xian-ji-suan-deng-bi-ji-shu.html</id><summary type="html">&lt;p&gt;今天看InfoQ上的一篇关于 &lt;a href="http://www.infoq.com/cn/articles/fn.py-functional-programming-python"&gt;Fn.py&lt;/a&gt; 的文章，Fn中的Stream可以实现无限序列，例如文章中的代码：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Stream&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;span class="n"&gt;fib&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="nb"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;drop&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -1260,8 +1270,9 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;就这样！&lt;/p&gt;</summary><category term="python"></category><category term="arithmetic"></category><category term="functional"></category></entry><entry><title>Python实现排列和组合</title><link href="http://blog.turbidsoul.me/posts/pythonshi-xian-pai-lie-he-zu-he.html" rel="alternate"></link><updated>2013-03-24T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me,2013-03-24:posts/pythonshi-xian-pai-lie-he-zu-he.html</id><summary type="html">&lt;p&gt;无事可做用python实现的的排列和组合的算法，顺便也复习以下2.7中yield的用法&lt;/p&gt;
+&lt;p&gt;就这样！&lt;/p&gt;</summary><category term="python"></category><category term="arithmetic"></category><category term="functional"></category></entry><entry><title>Python实现排列和组合</title><link href="http://blog.turbidsoul.me/posts/pythonshi-xian-pai-lie-he-zu-he.html" rel="alternate"></link><updated>2013-03-24T00:00:00+08:00</updated><author><name>Turbidsoul Chan</name></author><id>tag:blog.turbidsoul.me,2013-03-24:posts/pythonshi-xian-pai-lie-he-zu-he.html</id><summary type="html">&lt;p&gt;无事可做用python实现的的排列和组合的算法，顺便也复习以下2.7中yield的用法&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# coding: utf8&lt;/span&gt;
+
 
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;perm&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
@@ -1274,6 +1285,7 @@
             &lt;span class="n"&gt;_items&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:]&lt;/span&gt;
             &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;perm&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;_items&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
                 &lt;span class="k"&gt;yield&lt;/span&gt; &lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;
+
 
 &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;comp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
@@ -1294,7 +1306,7 @@
 
 &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;comp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;123&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary><category term="python"></category><category term="arithmetic"></category></entry><entry><title>快速计算二进制位1的个数</title><link href="http://blog.turbidsoul.me/posts/kuai-su-ji-suan-er-jin-zhi-wei-1de-ge-shu.html" rel="alternate"></link><updated>2013-02-01T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me,2013-02-01:posts/kuai-su-ji-suan-er-jin-zhi-wei-1de-ge-shu.html</id><summary type="html">&lt;p&gt;昨天在G+上看到的一个算法题: &amp;gt; Returns the number of 1bits in any integer, for example, bits(2) = 1, &amp;gt; bits(3) = 2, bits(4) = 1, bits(5) = 2, bits(6) = 2, bits(7) = 3 我用python简单的实现了一下，实现的还是有点冗长，应该还能优化。&lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="python"></category><category term="arithmetic"></category></entry><entry><title>快速计算二进制位1的个数</title><link href="http://blog.turbidsoul.me/posts/kuai-su-ji-suan-er-jin-zhi-wei-1de-ge-shu.html" rel="alternate"></link><updated>2013-02-01T00:00:00+08:00</updated><author><name>Turbidsoul Chan</name></author><id>tag:blog.turbidsoul.me,2013-02-01:posts/kuai-su-ji-suan-er-jin-zhi-wei-1de-ge-shu.html</id><summary type="html">&lt;p&gt;昨天在G+上看到的一个算法题: &amp;gt; Returns the number of 1bits in any integer, for example, bits(2) = 1, &amp;gt; bits(3) = 2, bits(4) = 1, bits(5) = 2, bits(6) = 2, bits(7) = 3 我用python简单的实现了一下，实现的还是有点冗长，应该还能优化。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;bits&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
     &lt;span class="n"&gt;f1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;

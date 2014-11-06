@@ -9,10 +9,9 @@ SITENAME = u"Turbidsoul's 小黑屋"
 SITEURL = ''
 THEME=os.path.join(curdir, 'pelican-sundown')
 
-ARTICLE_DIR='posts/'
-PAGE_DIR='pages/'
+ARTICLE_PATHS=['content/posts/',]
+PAGE_PATHS=['content/pages/',]
 OUTPUT_PATH=''
-INPUT_DIR='content'
 
 TIMEZONE = 'Asia/Chongqing'
 DEFAULT_DATE_FORMAT='%Y年 %B %d日 %a'
@@ -49,12 +48,11 @@ ARTICLE_SAVE_AS='posts/{slug}.html'
 DEFAULT_METADATA = (('Content-Type', 'text/html; charset=utf-8'),)
 
 
-STATIC_PATHS = ["images", ]
-GRV_URL='/images/avatar.jpg'
+# STATIC_PATHS = ["content/images", ]
+GRV_URL='/content/images/avatar.jpg'
 TWITTER_USERNAME='Turbidsoul'
-
-
-PLUGIN_PATH= os.path.join(curdir, 'pelican-plugins')
+MD_EXTENSIONS = ['codehilite(css_class=highlight)','extra']
+PLUGIN_PATHS=[os.path.join(curdir, 'pelican-plugins')]
 PLUGINS = ['render_math', 'googleplus_comments']
 
 AUTHOR='Turbidsoul Chan'

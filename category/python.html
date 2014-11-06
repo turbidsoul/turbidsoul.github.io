@@ -16,7 +16,7 @@
   <body>
     <div class="wrapper">
       <header>
-        <div><img src="http://blog.turbidsoul.me/images/avatar.jpg" class="grv-img"/></div>
+        <div><img src="http://blog.turbidsoul.me/content/images/avatar.jpg" class="grv-img"/></div>
         <div class="title"><a href="http://blog.turbidsoul.me/">Turbidsoul's 小黑屋 </a></div>
         <div class="sub-title"></div>
 
@@ -53,21 +53,7 @@
     <a href="http://blog.turbidsoul.me/tag/code.html">code</a>, 
  -- (<a href="http://blog.turbidsoul.me/posts/python-logging-mo-kuai-de-filter.html" rel="bookmark">permalink</a>)
 </small>
-</p>      <p>前两天同事问我，如果针对不同的IP记录日志，并把更具IP记录到不同的日志文件中，在网上搜了一下这个问题，有很多人都在问，我查了一下python的logging的api，发现有个filter的，这个filter可以根据日志的信息来决定这条日志是否记录到日志文件中，下面来说说如果实现这个功能。</p>
-<p>通常我们配置日志都是如下代码：</p>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">logging</span>
-
-<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">)</span>
-<span class="n">hdlr</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="s">&#39;test.log&#39;</span><span class="p">)</span>
-<span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">hdlr</span><span class="p">)</span>
-<span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
-<span class="n">fmt</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%(asctime)s</span><span class="s">  </span><span class="si">%(levelname)s</span><span class="s">  Line#</span><span class="si">%(lineno)d</span><span class="s"> - </span><span class="si">%(msecs)d</span><span class="s"> - </span><span class="si">%(message)s</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="n">hdlr</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">fmt</span><span class="p">)</span>
-<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&#39;test 111111&#39;</span><span class="p">)</span>
-</pre></div>
-
-
-<p>这是我们通常用来配置记录日志到文件的代码 ...</p> 
+</p>      <p>前两天同事问我，如果针对不同的IP记录日志，并把更具IP记录到不同的日志文件中，在网上搜了一下这个问题，有很多人都在问，我查了一下python的logging的api，发现有个filter的，这个filter可以根据日志的信息来决定这条日志是否记录到日志文件中，下面来说说如果实现这个功能。</p> 
       <div class="read-more"><a href="http://blog.turbidsoul.me/posts/python-logging-mo-kuai-de-filter.html">read more...</a></div>
       <hr />
       <div class="front-title"><a href="http://blog.turbidsoul.me/posts/nginxuwsgibottlepypei-zhi-bu-shu-pythonying-yong.html">nginx,uwsgi,bottlepy配置部署python应用</a></div>
@@ -84,13 +70,7 @@
     <a href="http://blog.turbidsoul.me/tag/bottlepy.html">bottlepy</a>, 
  -- (<a href="http://blog.turbidsoul.me/posts/nginxuwsgibottlepypei-zhi-bu-shu-pythonying-yong.html" rel="bookmark">permalink</a>)
 </small>
-</p>      <p>这几天一直在写一个用户行为分析出席清晰代码的工具，我的本意是想把这个用python做成一个独立的应用，但是这么做其实是比较麻烦和有一定难度的，因为用户的行为分析是和要我们主数据库结合做的，如果做成独立应用的话需要从主库中找出大量的数据，这样会影响效率，所以就把用户端分析和cms系统做到以前，前期的日志清洗和数据初期简单的分析做到一个python实现的一个离线工具，这个不是我这篇blog的重点，这次的重点是如何使用nginx，uwsgi，python部署web应用，这只是这次工作的题外话，但是我认为这是这个用户行为分析模块将来的方向，所以研究留用计数备忘和初期探索。</p>
-<h2>搭建环境</h2>
-<p>因为uwsgi没有windows版的，所以这次是在linux下做的测试，我在虚拟机上装了arch linux。</p>
-<p><code>pacman -S python nginx</code>
-<code>pip install uwsgi bottlepy</code></p>
-<p>arch linux 默认python应该是3.3.2，所以需要安装<em>pythonbrew</em>然后在来安装2.7.5,至于pythonbrew如何安装，请自行搜索，安装其实很简单。至于nginx默认是支持uwsgi，所以不需要特别安装其他的插件。</p>
-<p>其实也可以通过<code>pacman -S uwsgi</code>来安装但是这个是不支持python的，所以需要用户pip安装uwsgi，才能支持python至于 ...</p> 
+</p>      <p>这几天一直在写一个用户行为分析出席清晰代码的工具，我的本意是想把这个用python做成一个独立的应用，但是这么做其实是比较麻烦和有一定难度的，因为用户的行为分析是和要我们主数据库结合做的，如果做成独立应用的话需要从主库中找出大量的数据，这样会影响效率，所以就把用户端分析和cms系统做到以前，前期的日志清洗和数据初期简单的分析做到一个python实现的一个离线工具，这个不是我这篇blog的重点，这次的重点是如何使用nginx，uwsgi，python部署web应用，这只是这次工作的题外话，但是我认为这是这个用户行为分析模块将来的方向，所以研究留用计数备忘和初期探索。</p> 
       <div class="read-more"><a href="http://blog.turbidsoul.me/posts/nginxuwsgibottlepypei-zhi-bu-shu-pythonying-yong.html">read more...</a></div>
       <hr />
       <div class="front-title"><a href="http://blog.turbidsoul.me/posts/python-27-de-can-shu-jie-xi-mo-kuai-argparse.html">python 2.7 的参数解析模块 argparse</a></div>
@@ -106,13 +86,7 @@
     <a href="http://blog.turbidsoul.me/tag/python27.html">python27</a>, 
  -- (<a href="http://blog.turbidsoul.me/posts/python-27-de-can-shu-jie-xi-mo-kuai-argparse.html" rel="bookmark">permalink</a>)
 </small>
-</p>      <p>今天下午没事，就优化了一下以前写的一些工作上用的小工具，当然大多数都是python写的命令行下的小工具，之前命令行参数都是自己解析，虽然不是什么复杂的事情，但是自己临时写出来的东西毕竟不如人家写出来的好，正好前短时间看到python2.7把 <strong>argparse</strong> 加入到了标准模块中，所以这次对这些工具的代码重构就是使用了 <strong>argparse</strong> 替代自己写的那个简陋名两行解析工具。</p>
-<h2>入门</h2>
-<p>上面已经说了在 <strong>Python 2.7</strong> 中已经内置了这个模块，所以就不用安装了。可以直接使用<code>import argparse</code>导入模块使用，我们先看一个简单的例子：</p>
-<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">argparse</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">&#39;test argparse&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;-s&#39;</span><span class="p">,</span> <span class="s">&#39;--start&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&#39;start number&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;-e&#39;</span><span class="p">,</span> <span class="s">&#39;--end&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&#39;end ...</span></pre></div> 
+</p>      <p>今天下午没事，就优化了一下以前写的一些工作上用的小工具，当然大多数都是python写的命令行下的小工具，之前命令行参数都是自己解析，虽然不是什么复杂的事情，但是自己临时写出来的东西毕竟不如人家写出来的好，正好前短时间看到python2.7把 <strong>argparse</strong> 加入到了标准模块中，所以这次对这些工具的代码重构就是使用了 <strong>argparse</strong> 替代自己写的那个简陋名两行解析工具。</p> 
       <div class="read-more"><a href="http://blog.turbidsoul.me/posts/python-27-de-can-shu-jie-xi-mo-kuai-argparse.html">read more...</a></div>
       <hr />
       <div class="front-title"><a href="http://blog.turbidsoul.me/posts/pythonmo-kuai-html2bbcode.html">python模块html2bbcode</a></div>
@@ -126,15 +100,7 @@
     <a href="http://blog.turbidsoul.me/tag/code.html">code</a>, 
  -- (<a href="http://blog.turbidsoul.me/posts/pythonmo-kuai-html2bbcode.html" rel="bookmark">permalink</a>)
 </small>
-</p>      <p>公司最近在调整网站的模块，把网站的公告模块去掉，公告的数据移到Discuz做的论坛中，整体功能都很简单，写了一个python脚本，执行一下就能完成数据迁移。在数据迁移的过程中有个小问题，我们公告的正文是用富文本编辑器写的，代码是 <em>html</em> 代码，但是在Discuz中确是用 <em>bbcode</em> 所以就需要对公告正文进行转换，这里就要使用到python的一个模块: <strong>html2bbcode</strong></p>
-<h4>安装</h4>
-<p>执行:<code>pip install html2bbcode</code> 安装模块</p>
-<h4>使用</h4>
-<p>下面是<a href="https://bitbucket.org/amigo/html2bbcode" title="HTML to BBCode converter">bitbucket.org</a>的例子：</p>
-<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">HTML2BBCode</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">parser</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="s">&#39;&lt;ul&gt;&lt;li&gt;one&lt;/li&gt;&lt;li&gt;two&lt;/li&gt;&lt;/ul&gt;&#39;</span><span class="p">))</span>
-<span class="go">&#39;[list][li]one[/li][li]two[/li][/list]&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">parser ...</span></pre></div> 
+</p>      <p>公司最近在调整网站的模块，把网站的公告模块去掉，公告的数据移到Discuz做的论坛中，整体功能都很简单，写了一个python脚本，执行一下就能完成数据迁移。在数据迁移的过程中有个小问题，我们公告的正文是用富文本编辑器写的，代码是 <em>html</em> 代码，但是在Discuz中确是用 <em>bbcode</em> 所以就需要对公告正文进行转换，这里就要使用到python的一个模块: <strong>html2bbcode</strong></p> 
       <div class="read-more"><a href="http://blog.turbidsoul.me/posts/pythonmo-kuai-html2bbcode.html">read more...</a></div>
       <hr />
       <div class="front-title"><a href="http://blog.turbidsoul.me/posts/python-332-mingw-gcc-471-an-zhuang-misakamo-kuai-shi-bian-yi-bao-cuo.html">python 3.3.2 mingw gcc 4.7.1 安装misaka模块时编译报错</a></div>
@@ -150,12 +116,7 @@
     <a href="http://blog.turbidsoul.me/tag/gcc.html">gcc</a>, 
  -- (<a href="http://blog.turbidsoul.me/posts/python-332-mingw-gcc-471-an-zhuang-misakamo-kuai-shi-bian-yi-bao-cuo.html" rel="bookmark">permalink</a>)
 </small>
-</p>      <p>今天安装在 <strong>python3.3.2</strong> 下安装 <strong>misaka</strong>  编译的时候报出了一个编译错误 <em>gcc: error: unrecognized command line option '-mno-cygwin'</em></p>
-<p>解决的办法很简单，在 <strong>gcc 4.7</strong> 不支持 <strong>-mno-cygwin</strong> 选项，所以我们只需要把这个选项在编译的时候去掉就行了。</p>
-<p>但是在那里去掉呢？python负责编译的模块是 <strong>distutils</strong> 这个包，在这个模块下有个 <strong>cygwinccompiler.py</strong> 文件，打开在297行：</p>
-<div class="highlight"><pre><span class="bp">self</span><span class="o">.</span><span class="n">set_executables</span><span class="p">(</span><span class="n">compiler</span><span class="o">=</span><span class="s">&#39;gcc -mno-cygwin -O -Wall&#39;</span><span class="p">,</span>
-                     <span class="n">compiler_so</span><span class="o">=</span><span class="s">&#39;gcc -mno-cygwin -mdll -O -Wall&#39;</span><span class="p">,</span>
-                     <span class="n">compiler_cxx</span><span class="o">=</span><span class="s">&#39;g++ -mno-cygwin -O -Wall ...</span></pre></div> 
+</p>      <p>今天安装在 <strong>python3.3.2</strong> 下安装 <strong>misaka</strong>  编译的时候报出了一个编译错误 <em>gcc: error: unrecognized command line option '-mno-cygwin'</em></p> 
       <div class="read-more"><a href="http://blog.turbidsoul.me/posts/python-332-mingw-gcc-471-an-zhuang-misakamo-kuai-shi-bian-yi-bao-cuo.html">read more...</a></div>
       <hr />
       <div class="front-title"><a href="http://blog.turbidsoul.me/posts/pythonshi-xian-ldaphe-rtxzhi-jian-de-zu-zhi-he-yong-hu-shu-ju-tong-bu.html">python实现ldap和rtx之间的组织和用户数据同步</a></div>

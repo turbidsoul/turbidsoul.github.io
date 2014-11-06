@@ -1,74 +1,317 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="cn">
-<head>
-        <meta charset="utf-8" />
-        <title>Turbidsoul's 小黑屋 - Turbidsoul Chan</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Turbidsoul's 小黑屋 - Turbidsoul ChanTurbidsoul's 小黑屋</title>
 
-        <!--[if IE]>
-            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-</head>
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/js/jquery-2.1.1_min.js">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div><img src="http://blog.turbidsoul.me/content/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/">Turbidsoul's 小黑屋 </a></div>
+        <div class="sub-title"></div>
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="/">Turbidsoul's 小黑屋 </a></h1>
-                <nav><ul>
-                    <li><a href="/category/posts.html">posts</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
-
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="/test-blog.html">Test Title</a></h1>
-<footer class="post-info">
-        <abbr class="published" title="2014-05-03T10:20:00">
-                周六 03 五月 2014
-        </abbr>
-
-        <address class="vcard author">
-                By <a class="url fn" href="/author/turbidsoul-chan.html">Turbidsoul Chan</a>
-        </address>
-<p>In <a href="/category/posts.html">posts</a>. </p>
-<p>tags: <a href="/tag/tag1.html">tag1</a><a href="/tag/tag2.html">tag2</a></p>
-</footer><!-- /.post-info --><div class="section" id="id1">
-<h2>Test Title</h2>
-<p>&gt; this is Test post</p>
-</div>
-                </article>
-<p class="paginator">
-    Page 1 / 1
+<p>
+    <div class="view"><a href="http://blog.turbidsoul.me/pages/guan-yu-wo.html">关于我</a></div>
+  <div class="view"><a href="http://blog.turbidsoul.me/archives.html">Archives</a></div>
 </p>
-            </aside><!-- /#featured -->
-            </ol><!-- /#posts-list -->
-            </section><!-- /#content -->
-        <section id="extras" class="body">
-                <div class="blogroll">
-                        <h2>blogroll</h2>
-                        <ul>
-                            <li><a href="http://blog.turbidsoul.me">Turbidsoul's 小黑屋</a></li>
-                            <li><a href="http://python.org/">Python.org</a></li>
-                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-                            <li><a href="#">You can modify those links in your config file</a></li>
-                        </ul>
-                </div><!-- /.blogroll -->
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
 
-                            <li><a href="#">You can add links in your config file</a></li>
-                            <li><a href="#">Another social link</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
+<!-- Social links -->
+<div class="social">
+<h4>Follow Me</h4>
+<ul>
+    <li><a href="https://plus.google.com/+TurbidsoulChen">Google+</a></li>
+    <li><a href="https://github.com/turbidsoul">Github</a></li>
+    <li><a href="https://twitter.com/Turbidsoul">Twitter</a></li>
+    <li><a href="https://facebook.com/turbidsoul">Facebook</a></li>
+    <li><a href="http://weibo.com/turbidsoul">微博</a></li>
+    <li><a href="http://instagram.com/turbidsoul">Instagram</a></li>
+</ul>
+</div>
 
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
+      </header>
+      <section>
+      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/2014-10-26-shi-pin-luan-xu-jia-mi.html.html">视频乱序加密</a></div>
+<p>
+<small>
+<abbr class="published" title="2014-10-26">
+  2014年 十月 26日 周日
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
+    <a href="http://blog.turbidsoul.me/tag/video.html">video</a>, 
+    <a href="http://blog.turbidsoul.me/tag/encryptdecrypt.html">encrypt/decrypt</a>, 
+ -- (<a href="http://blog.turbidsoul.me/posts/2014-10-26-shi-pin-luan-xu-jia-mi.html.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>最近公司网站总是被人攻击，这是出名节奏么？不过之前的防下载的技术已经被破解，所以现在需要做一种新的方式来防下载，不过不管用什么方法，防下载都是一种不够稳妥的方式，因为能播放就能下载，只要能找到对的方式，所以我们这次采用的加密的方法，对FLV文件内的TagBody内的数据进行加密，这样就可以在不影响视频播放的情况下对视频数据加密，就算防下载被破解，下载下的视频也是加过密的视频，播放的话都是雪花点之类的。</p> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/2014-10-26-shi-pin-luan-xu-jia-mi.html.html">read more...</a></div>
+      <hr />
+      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/cong-jekyllqian-yi-blogdao-pelican.html">从Jekyll迁移blog到pelican</a></div>
+<p>
+<small>
+<abbr class="published" title="2014-04-30">
+  2014年 四月 30日 周三
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/tag/pelican.html">pelican</a>, 
+    <a href="http://blog.turbidsoul.me/tag/jekyll.html">jekyll</a>, 
+ -- (<a href="http://blog.turbidsoul.me/posts/cong-jekyllqian-yi-blogdao-pelican.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>这次是一次小的迁移，其实也就是把blog生成器从<code>jekyll</code>切换到了<code>pelican</code></p> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/cong-jekyllqian-yi-blogdao-pelican.html">read more...</a></div>
+      <hr />
+      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/ffmpegrtmpdumphe-nginx-rtmpshi-xian-lu-ping-zhi-bo-he-lu-zhi.html">ffmpeg,rtmpdump和nginx rtmp实现录屏，直播和录制</a></div>
+<p>
+<small>
+<abbr class="published" title="2014-04-19">
+  2014年 四月 19日 周六
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/tag/ffmpeg.html">ffmpeg</a>, 
+    <a href="http://blog.turbidsoul.me/tag/rtmp.html">rtmp</a>, 
+    <a href="http://blog.turbidsoul.me/tag/rtmpdump.html">rtmpdump</a>, 
+    <a href="http://blog.turbidsoul.me/tag/nginx.html">nginx</a>, 
+ -- (<a href="http://blog.turbidsoul.me/posts/ffmpegrtmpdumphe-nginx-rtmpshi-xian-lu-ping-zhi-bo-he-lu-zhi.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>公司最近在做视频直播的项目，我这里分配到对直播的视频进行录制，录制的方式是通过rtmpdump对rtmp的视频流进行录制</p> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/ffmpegrtmpdumphe-nginx-rtmpshi-xian-lu-ping-zhi-bo-he-lu-zhi.html">read more...</a></div>
+      <hr />
+      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/pythonshi-xian-ldaphe-rtxzhi-jian-de-zu-zhi-he-yong-hu-shu-ju-tong-bu.html">python实现ldap和rtx之间的组织和用户数据同步</a></div>
+<p>
+<small>
+<abbr class="published" title="2013-07-15">
+  2013年 七月 15日 周一
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
+    <a href="http://blog.turbidsoul.me/tag/ldap.html">ldap</a>, 
+    <a href="http://blog.turbidsoul.me/tag/rtx.html">rtx</a>, 
+    <a href="http://blog.turbidsoul.me/tag/win32com.html">win32com</a>, 
+ -- (<a href="http://blog.turbidsoul.me/posts/pythonshi-xian-ldaphe-rtxzhi-jian-de-zu-zhi-he-yong-hu-shu-ju-tong-bu.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>最近公司正在准备使用 <strong>AD</strong> ( <strong><a href="https://zh.wikipedia.org/wiki/Active_Directory" title="Active Directory">Activate Directory</a></strong> )服务来进行公司员工的帐号管理，这样就避免不了需要对AD的帐号和<a href="http://rtx.tencent.com/rtx/index.shtml" title="RTX">RTX</a>的帐号和组织关系进行同步，所以才有了这篇文章。</p>
+<h4>Python-Ldap</h4>
+<p><a href="http://www.python-ldap.org/" title="LDAP client API for Python">Python-Ldap</a>是python用来操作ldap的模块，可以对ldap进行查询，添加，修改，删除等操作，如下代码：</p>
+<div class="highlight"><pre><span class="n">ldap_host</span> <span class="o">=</span> <span class="s">&quot;127.0.0.1&quot;</span>
+<span class="n">ldap_port</span> <span class="o">=</span> <span class="mi">389</span>
+<span class="n">ldap_who</span> <span class="o">=</span> <span class="s">&quot;turbidsoul.me</span><span class="se">\\</span><span class="s">test&quot;</span>
+<span class="n">ldap_cred</span> <span class="o">=</span> <span class="s">&quot;test&quot;</span>
+<span class="n">ldap_baseondn</span> <span class="o">=</span> <span class="s">&quot;OU=XXXX,DC=turbidsoul,DC=me&quot;</span>
+<span class="n">l</span> <span class="o">=</span> <span class="n">ldap</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">ldap_host</span><span class="p">,</span> <span class="n">ldap_port</span><span class="p">)</span>
+    <span class="n">l</span><span class="o">.</span><span class="n">simple_bind_s</span><span class="p">(</span><span class="n">ldap_who</span><span class="p">,</span> <span class="n">ldap_cred</span><span class="p">)</span>
+    <span class="n">result_id</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">ldap_baseondn ...</span></pre></div> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/pythonshi-xian-ldaphe-rtxzhi-jian-de-zu-zhi-he-yong-hu-shu-ju-tong-bu.html">read more...</a></div>
+      <hr />
+      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/pythonshi-xian-ming-ling-xing-xia-zai-jin-du-tiao.html">python实现命令行下载进度条</a></div>
+<p>
+<small>
+<abbr class="published" title="2013-06-23">
+  2013年 六月 23日 周日
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
+    <a href="http://blog.turbidsoul.me/tag/cmd.html">cmd</a>, 
+    <a href="http://blog.turbidsoul.me/tag/ftp.html">ftp</a>, 
+    <a href="http://blog.turbidsoul.me/tag/progressbar.html">progressbar</a>, 
+ -- (<a href="http://blog.turbidsoul.me/posts/pythonshi-xian-ming-ling-xing-xia-zai-jin-du-tiao.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>这是昨晚下班之后同事问我的一个问题，不过当时已经7点，如果在不出公司就会赶不上最后一趟公交车，所以就给同事说回家研究研究礼拜一给他答案，昨晚无事就看了一下。</p>
+<h4>需要用到的模块</h4>
+<ul>
+<li>使用 <strong>pip</strong> 安装progressbar <code>pip install progressbar</code></li>
+<li>这里我是从ftp上下载一个或者多个文件，所以我们要用到 <strong>ftplib</strong>。这是python的标准模块，在代码前导入即可</li>
+<li>我在最后要把代码编译成exe文件所以要用 <strong>py2exe</strong> <code>pip install py2exe</code></li>
+</ul>
+<h4>原理</h4>
+<p>我们先来看一下progressbar的是原理，如下代码：</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">time</span>
 
-                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">51</span><span class="p">):</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;Computing: [</span><span class="si">%s%s</span><span class="s">] </span><span class="si">%i%%</span><span class="se">\r</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="s">&#39;#&#39;</span> <span class="o">*</span> <span class="n">x</span> <span class="p">,</span> <span class="s">&#39;-&#39;</span> <span class="o">*</span> <span class="p">(</span><span class="mi">50</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="p">,</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout ...</span></pre></div> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/pythonshi-xian-ming-ling-xing-xia-zai-jin-du-tiao.html">read more...</a></div>
+      <hr />
+      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/yi-ge-csscuo-wu-yin-qi-de-maven-stackoverflowerror.html">一个css错误引起的maven StackOverflowError</a></div>
+<p>
+<small>
+<abbr class="published" title="2013-06-18">
+  2013年 六月 18日 周二
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/tag/java.html">java</a>, 
+    <a href="http://blog.turbidsoul.me/tag/maven.html">maven</a>, 
+    <a href="http://blog.turbidsoul.me/tag/css.html">css</a>, 
+ -- (<a href="http://blog.turbidsoul.me/posts/yi-ge-csscuo-wu-yin-qi-de-maven-stackoverflowerror.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>这个问题是我的一个失误造成的，这是上一片文章的后续，我在使用正则做文本替换的时候没有注意到，这个正则在主干上是正常的，但是在分支上执行的时候使一行css少了一个引号，这个问题在浏览器中是暴露不出来的，之后在maven打包的时候对文件做压缩的时候才会出现，下面我们来看看是什么样的问题。</p>
+<p>我们项目使用的是 <a href="https://github.com/davidB/yuicompressor-maven-plugin" title="yuicompressor-maven-plugin">yuicompressor-maven-plugin</a> 做js和css的压缩，在压缩的过程中出现了下面的错误：</p>
+<div class="highlight"><pre><span class="o">---------------------------------------------------</span>
+<span class="n">constituent</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">:</span> <span class="n">file</span><span class="o">:/</span><span class="n">E</span><span class="o">:/</span><span class="n">opensource</span><span class="o">/</span><span class="n">apache</span><span class="o">/</span><span class="n">maven</span><span class="o">-</span><span class="mf">2.2.1</span><span class="p">.</span><span class="n">RELEASE</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">aether</span><span class="o">-</span><span class="n">api</span><span class="o">-</span><span class="mf">1.13.1</span><span class="p">.</span><span class="n">jar</span>
+<span class="n">constituent</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">:</span> <span class="n">file</span><span class="o">:/</span><span class="n">E</span><span class="o">:/</span><span class="n">opensource</span><span class="o">/</span><span class="n">apache</span><span class="o">/</span><span class="n">maven</span><span class="o">-</span><span class="mf">2.2.1</span><span class="p">.</span><span class="n">RELEASE</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">aether</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">wagon</span><span class="o">-</span><span class="mf">1.13.1</span><span class="p">.</span><span class="n">jar</span>
+<span class="n">constituent ...</span></pre></div> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/yi-ge-csscuo-wu-yin-qi-de-maven-stackoverflowerror.html">read more...</a></div>
+      <hr />
+      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/lesscss-maven-pluginjian-dan-de-pei-zhi.html">lesscss maven plugin简单的配置</a></div>
+<p>
+<small>
+<abbr class="published" title="2013-06-11">
+  2013年 六月 11日 周二
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/tag/lesscss.html">lesscss</a>, 
+    <a href="http://blog.turbidsoul.me/tag/maven.html">maven</a>, 
+    <a href="http://blog.turbidsoul.me/tag/java.html">java</a>, 
+ -- (<a href="http://blog.turbidsoul.me/posts/lesscss-maven-pluginjian-dan-de-pei-zhi.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>这其实是一个很简单的问题，本来并不打算写成一片文章的，因为这个文件和另外一个问题是一起的，就是我们在nginx上做css和js文件合并时遇到的，不过在这之前我还遇到了另外一个问题，就是我们开发环境是windows7，而nginx下有个静态文件合并的模块: <strong>http_concat_module</strong> ，是<a href="https://github.com/alibaba/nginx-http-concat" title="HTTP Concatenation module for Nginx">淘宝</a>开源的，这个模块并不是nginx标准模块，所以要使用它需要自己重新编译nginx，具体如何编译我需要一段一点时间整理一下，在之后的文章中会写出来。</p>
+<p>至于为什么要使用<a href="http://lesscss.org" title="The Dynamic Stylesheet language">less</a>是因为使用了 <strong>http_concat_module</strong> 之后css中文件的一些路径出现了错误，需要为css文件设置一些变量，其实使用maven的插件也可以进行变量替换，但是这样只能在maven打包的时候才能起作用，对于开发来说就不行，因为开发必须要求在编译的时候就生效。所以就需要使用maven的另一个插件<a href="https://github.com/marceloverdijk/lesscss-maven-plugin" title="Official LESS CSS Maven Plugin">lesscss-maven-plugin</a>，这个插件的作用就是在编译的时候就能把less转换成css，这样做对我们最大的好处就是需要修改的地方是最少的，而且能一劳永逸的解决这个问题。</p>
+<p>现在我们来说说这个插件如何配置：</p>
+<h4>添加插件</h4>
+<div class="highlight"><pre><span class="nt">&lt;plugin&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.lesscss<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>lesscss-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.3.3<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</pre></div>
 
-</body>
+
+<p>插件添加好后，就能在 <em>pom.xml ...</em></p> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/lesscss-maven-pluginjian-dan-de-pei-zhi.html">read more...</a></div>
+      <hr />
+      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/leibnizgong-shi-he-wallizgong-shi-gu-suan-pide-zhi.html">Leibniz公式和Walliz公式估算Pi的值</a></div>
+<p>
+<small>
+<abbr class="published" title="2013-06-08">
+  2013年 六月 08日 周六
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/tag/pi.html">pi</a>, 
+    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
+    <a href="http://blog.turbidsoul.me/tag/leibniz.html">leibniz</a>, 
+    <a href="http://blog.turbidsoul.me/tag/walliz.html">walliz</a>, 
+ -- (<a href="http://blog.turbidsoul.me/posts/leibnizgong-shi-he-wallizgong-shi-gu-suan-pide-zhi.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>前两天和同事在聊天的时候说道了 $pi$ 的算法，回家之后在<a href="https://zh.wikipedia.org/wiki/圓周率">维基</a>上看了一下关于 $pi$ 的公式，正好这回没事干，就用Python实现了两个比较简单的公式，分别是Leibniz 和 Walliz.</p>
+<h2>Leibniz</h2>
+<p>公式如下：</p>
+<p>$1 - 1/3 + 1/5 - 1/7 + 1/9 - ... = pi/4$</p>
+<p>这个公式也可以用另外一种方式表示：</p>
+<p>$pi/4 = sum_{n=0}^{oo} (-1)^n/(2n+1)$</p>
+<p>从公式中能看出来，Leibniz是当n趋向于无穷大的时候，计算 $(-1)^n/(2n+1)$的和，用python代码实现如下：</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">leibniz_pi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n ...</span></pre></div><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type= "text/javascript">
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+                ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML-full'
+                : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML-full';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    asciimath2jax: {" +
+            "      delimiters: [['$','$'], ['`','`']]"+
+            "    }"+
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+</script>
+ 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/leibnizgong-shi-he-wallizgong-shi-gu-suan-pide-zhi.html">read more...</a></div>
+      <hr />
+      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/sublimecha-jian-emmetqi-dong-shi-bai.html">sublime插件emmet启动失败</a></div>
+<p>
+<small>
+<abbr class="published" title="2013-06-05">
+  2013年 六月 05日 周三
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/tag/sublime.html">sublime</a>, 
+    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
+    <a href="http://blog.turbidsoul.me/tag/emmet.html">emmet</a>, 
+ -- (<a href="http://blog.turbidsoul.me/posts/sublimecha-jian-emmetqi-dong-shi-bai.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>最近发现我的sublime的emmet失效，查看了控制台，发现在sublime启动的失败，启动的时候报了如下的错误：</p>
+<div class="highlight"><pre><span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;.\sublime_plugin.py&quot;</span>, line <span class="m">62</span>, in <span class="n">reload_plugin</span>
+  File <span class="nb">&quot;.\emmet-plugin.py&quot;</span>, line <span class="m">710</span>, in <span class="n">&lt;module&gt;</span>
+    <span class="n">init</span><span class="p">()</span>
+  File <span class="nb">&quot;.\emmet-plugin.py&quot;</span>, line <span class="m">101</span>, in <span class="n">init</span>
+    <span class="n">update_settings</span><span class="p">()</span>
+  File <span class="nb">&quot;.\emmet-plugin.py&quot;</span>, line <span class="m">231</span>, in <span class="n">update_settings</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">js</span><span class="p">()</span>
+  File <span class="nb">&quot;.\emmet\context.py&quot;</span>, line <span class="m">178</span>, in <span class="n">js</span>
+    <span class="bp">self ...</span></pre></div> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/sublimecha-jian-emmetqi-dong-shi-bai.html">read more...</a></div>
+      <hr />
+      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html">python实现morse编码与解码</a></div>
+<p>
+<small>
+<abbr class="published" title="2013-06-04">
+  2013年 六月 04日 周二
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
+    <a href="http://blog.turbidsoul.me/tag/morse.html">morse</a>, 
+    <a href="http://blog.turbidsoul.me/tag/code.html">code</a>, 
+ -- (<a href="http://blog.turbidsoul.me/posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>写这个完全是闲着无聊，看了一片趣文<a href="http://blog.jobbole.com/40628/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=draft-created-on-20130531-at-1028-am">趣文：表白后女生发给我一串五层加密的密码</a> 这篇文章来源自百度贴吧的的有一个帖子<a href="http://tieba.baidu.com/f?kz=529691897">传送门</a>，文章的内容还是很欢乐的。</p>
+<p>言归正传，<a href="http://zh.wikipedia.org/zh/%E6%91%A9%E5%B0%94%E6%96%AF%E7%94%B5%E7%A0%81">Morse Code</a> 的算法是根据维基得来的，说白了就是键值对，编码解码也都是按照键值对进行匹配的。</p>
+<p>编码如下：</p>
+<div class="highlight"><pre><span class="n">__morse_code__</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&#39;A&#39;</span><span class="p">:</span> <span class="s">&#39;.-&#39;</span><span class="p">,</span> <span class="s">&#39;B&#39;</span><span class="p">:</span> <span class="s">&#39;-...&#39;</span><span class="p">,</span> <span class="s">&#39;C&#39;</span><span class="p">:</span> <span class="s">&#39;-.-.&#39;</span><span class="p">,</span> <span class="s">&#39;D&#39;</span><span class="p">:</span> <span class="s">&#39;-..&#39;</span><span class="p">,</span> <span class="s">&#39;E&#39;</span><span class="p">:</span> <span class="s">&#39;.&#39;</span><span class="p">,</span> <span class="s">&#39;F&#39;</span><span class="p">:</span> <span class="s">&#39;..-.&#39;</span><span class="p">,</span> <span class="s">&#39;G&#39;</span><span class="p">:</span> <span class="s">&#39;--.&#39;</span><span class="p">,</span>
+    <span class="s">&#39;H&#39;</span><span class="p">:</span> <span class="s">&#39;....&#39;</span><span class="p">,</span> <span class="s">&#39;I&#39;</span><span class="p">:</span> <span class="s">&#39;..&#39;</span><span class="p">,</span> <span class="s">&#39;J&#39;</span><span class="p">:</span> <span class="s">&#39;.---&#39;</span><span class="p">,</span> <span class="s">&#39;K&#39;</span><span class="p">:</span> <span class="s">&#39;-.-&#39;</span><span class="p">,</span> <span class="s">&#39;L&#39;</span><span class="p">:</span> <span class="s">&#39;.-..&#39;</span><span class="p">,</span> <span class="s">&#39;M&#39;</span><span class="p">:</span> <span class="s">&#39;--&#39;</span><span class="p">,</span> <span class="s">&#39;N&#39;</span><span class="p">:</span> <span class="s">&#39;-.&#39;</span><span class="p">,</span>
+    <span class="s">&#39;O&#39;</span><span class="p">:</span> <span class="s">&#39;---&#39;</span><span class="p">,</span> <span class="s">&#39;P&#39;</span><span class="p">:</span> <span class="s">&#39;.--.&#39;</span><span class="p">,</span> <span class="s">&#39;Q&#39;</span><span class="p">:</span> <span class="s">&#39;--.-&#39;</span><span class="p">,</span> <span class="s">&#39;R&#39;</span><span class="p">:</span> <span class="s">&#39;.-.&#39;</span><span class="p">,</span> <span class="s">&#39;S&#39;</span><span class="p">:</span> <span class="s">&#39;...&#39;</span><span class="p">,</span> <span class="s">&#39;T&#39;</span><span class="p">:</span> <span class="s">&#39;-&#39;</span><span class="p">,</span> <span class="s">&#39;U&#39;</span><span class="p">:</span> <span class="s">&#39;..-&#39;</span><span class="p">,</span>
+    <span class="s">&#39;V&#39;</span><span class="p">:</span> <span class="s">&#39;...-&#39;</span><span class="p">,</span> <span class="s">&#39;W&#39;</span><span class="p">:</span> <span class="s">&#39;.--&#39;</span><span class="p">,</span> <span class="s">&#39;X&#39;</span><span class="p">:</span> <span class="s">&#39;-..-&#39;</span><span class="p">,</span> <span class="s">&#39;Y&#39;</span><span class="p">:</span> <span class="s">&#39;-.--&#39;</span><span class="p">,</span> <span class="s">&#39;Z&#39;</span><span class="p">:</span> <span class="s">&#39;--..&#39;</span><span class="p">,</span>
+
+    <span class="s">&#39;1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;.----&#39;</span><span class="p">,</span> <span class="s">&#39;.-&#39;</span><span class="p">],</span> <span class="s">&#39;2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;..---&#39;</span><span class="p">,</span> <span class="s">&#39;..-&#39;</span><span class="p">],</span> <span class="s">&#39;3&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;...--&#39;</span><span class="p">,</span> <span class="s">&#39;...-&#39;</span><span class="p">],</span> <span class="s">&#39;4&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;....-&#39;</span><span class="p">,</span> <span class="s">&#39;....-&#39;</span><span class="p">],</span> <span class="s">&#39;5&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;.....&#39;</span><span class="p">,</span> <span class="s">&#39;.&#39;</span><span class="p">],</span>
+    <span class="s">&#39;6&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;-....&#39;</span><span class="p">,</span> <span class="s">&#39;-....&#39;</span><span class="p">],</span> <span class="s">&#39;7&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;--...&#39;</span><span class="p">,</span> <span class="s">&#39;-...&#39;</span><span class="p">],</span> <span class="s">&#39;8&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;---..&#39;</span><span class="p">,</span> <span class="s">&#39;-..&#39;</span><span class="p">],</span> <span class="s">&#39;9 ...</span></pre></div> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html">read more...</a></div>
+      <hr />
+
+<span class="paginator">
+
+  Page 1 / 4
+    <a href="http://blog.turbidsoul.me/author/turbidsoul-chan2.html">&raquo;</a>
+</span>
+      </section>
+      <footer>
+        <p><small>&copy; Turbidsoul's 小黑屋 &mdash; Theme based on Sundown by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <!-- Scale fix -->
+    <script>
+      var metas = document.getElementsByTagName('meta');
+      var i;
+      
+      if (navigator.userAgent.match(/iPhone/i)) {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+          }
+        }
+      
+        document.addEventListener("gesturestart", gestureStart, false);
+      }
+
+      function gestureStart() {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6";
+          }
+        }
+      }
+    </script>
+  </body>
 </html>

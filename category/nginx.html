@@ -16,7 +16,7 @@
   <body>
     <div class="wrapper">
       <header>
-        <div><img src="http://blog.turbidsoul.me/images/avatar.jpg" class="grv-img"/></div>
+        <div><img src="http://blog.turbidsoul.me/content/images/avatar.jpg" class="grv-img"/></div>
         <div class="title"><a href="http://blog.turbidsoul.me/">Turbidsoul's 小黑屋 </a></div>
         <div class="sub-title"></div>
 
@@ -51,20 +51,7 @@
     <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
  -- (<a href="http://blog.turbidsoul.me/posts/nginxshi-xian-wen-jian-xia-zai-zi-dong-da-bao-cheng-zipwen-jian.html" rel="bookmark">permalink</a>)
 </small>
-</p>      <h2>来源和介绍</h2>
-<p>问题的来源是需要对已有的资料在下载的时候进行添加广告，但是对于doc文件操作麻烦的情况，采用在下载的时候将广告文件和资料一起打包成zip文件.</p>
-<p>在apache服务器中有个mod_zip的模块就是完成这个功能，同样nginx有大神已经实现了这个模块，我们只需要拿来用就可以了:<a href="https://github.com/evanmiller/mod_zip">mod_zip</a></p>
-<h2>应用</h2>
-<p>此模块并不是nginx的默认模块所以需要用户自己编译安装。</p>
-<p>安装完成之后，不需要修改任何nginx的任何配置，完成打包都在服务点返回的信息中，下面请看我用python实现的示例：</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">bottle</span> <span class="kn">import</span> <span class="n">run</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">response</span>
-<span class="nd">@route</span><span class="p">(</span><span class="s">&#39;/download&#39;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">download</span><span class="p">():</span>
-    <span class="n">response</span><span class="o">.</span><span class="n">set_header</span><span class="p">(</span><span class="s">&#39;X-Archive-Files&#39;</span><span class="p">,</span> <span class="s">&#39;zip&#39;</span><span class="p">)</span>
-    <span class="n">response</span><span class="o">.</span><span class="n">set_header</span><span class="p">(</span><span class="s">&#39;Content-Type&#39;</span><span class="p">,</span> <span class="s">&#39;application/octet-stream&#39;</span><span class="p">)</span>
-    <span class="n">response</span><span class="o">.</span><span class="n">set_header</span><span class="p">(</span><span class="s">&#39;X-Accel-Chareset&#39;</span><span class="p">,</span> <span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
-    <span class="n">response</span><span class="o">.</span><span class="n">set_header</span><span class="p">(</span><span class="s">&#39;Content-Disposition&#39;</span><span class="p">,</span> <span class="s">r&quot;attachment; filename*=test.zip&quot;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="s">&quot;&quot;&quot;618792700 135 /test.lua ...</span></pre></div> 
+</p>      <p>问题的来源是需要对已有的资料在下载的时候进行添加广告，但是对于doc文件操作麻烦的情况，采用在下载的时候将广告文件和资料一起打包成zip文件.</p> 
       <div class="read-more"><a href="http://blog.turbidsoul.me/posts/nginxshi-xian-wen-jian-xia-zai-zi-dong-da-bao-cheng-zipwen-jian.html">read more...</a></div>
       <hr />
       <div class="front-title"><a href="http://blog.turbidsoul.me/posts/ru-he-pei-zhi-zai-nginxhe-casshang-pei-zhi-ssl.html">如何配置在nginx和cas上配置ssl？</a></div>

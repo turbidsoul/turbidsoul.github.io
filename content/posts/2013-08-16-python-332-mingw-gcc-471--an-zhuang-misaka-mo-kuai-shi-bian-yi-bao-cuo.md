@@ -3,6 +3,7 @@ category: Python
 tags: python, python33, mingw, gcc
 Author: Turbidsoul
 Date: 2013-08-16
+Summary:  今天安装在 **python3.3.2** 下安装 **misaka**  编译的时候报出了一个编译错误 *gcc: error: unrecognized command line option '-mno-cygwin'*
 
 今天安装在 **python3.3.2** 下安装 **misaka**  编译的时候报出了一个编译错误 *gcc: error: unrecognized command line option '-mno-cygwin'*
 

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Turbidsoul's 小黑屋 - encrypt/decryptTurbidsoul's 小黑屋</title>
+
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
+    <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/js/jquery-2.1.1_min.js">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <div><img src="http://blog.turbidsoul.me/content/images/avatar.jpg" class="grv-img"/></div>
+        <div class="title"><a href="http://blog.turbidsoul.me/">Turbidsoul's 小黑屋 </a></div>
+        <div class="sub-title"></div>
+
+<p>
+    <div class="view"><a href="http://blog.turbidsoul.me/pages/guan-yu-wo.html">关于我</a></div>
+  <div class="view"><a href="http://blog.turbidsoul.me/archives.html">Archives</a></div>
+</p>
+
+<!-- Social links -->
+<div class="social">
+<h4>Follow Me</h4>
+<ul>
+    <li><a href="https://plus.google.com/+TurbidsoulChen">Google+</a></li>
+    <li><a href="https://github.com/turbidsoul">Github</a></li>
+    <li><a href="https://twitter.com/Turbidsoul">Twitter</a></li>
+    <li><a href="https://facebook.com/turbidsoul">Facebook</a></li>
+    <li><a href="http://weibo.com/turbidsoul">微博</a></li>
+    <li><a href="http://instagram.com/turbidsoul">Instagram</a></li>
+</ul>
+</div>
+
+      </header>
+      <section>
+      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/2014-10-26-shi-pin-luan-xu-jia-mi.html.html">视频乱序加密</a></div>
+<p>
+<small>
+<abbr class="published" title="2014-10-26">
+  2014年 十月 26日 周日
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
+    <a href="http://blog.turbidsoul.me/tag/video.html">video</a>, 
+    <a href="http://blog.turbidsoul.me/tag/encryptdecrypt.html">encrypt/decrypt</a>, 
+ -- (<a href="http://blog.turbidsoul.me/posts/2014-10-26-shi-pin-luan-xu-jia-mi.html.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>最近公司网站总是被人攻击，这是出名节奏么？不过之前的防下载的技术已经被破解，所以现在需要做一种新的方式来防下载，不过不管用什么方法，防下载都是一种不够稳妥的方式，因为能播放就能下载，只要能找到对的方式，所以我们这次采用的加密的方法，对FLV文件内的TagBody内的数据进行加密，这样就可以在不影响视频播放的情况下对视频数据加密，就算防下载被破解，下载下的视频也是加过密的视频，播放的话都是雪花点之类的。</p> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/2014-10-26-shi-pin-luan-xu-jia-mi.html.html">read more...</a></div>
+      <hr />
+
+      </section>
+      <footer>
+        <p><small>&copy; Turbidsoul's 小黑屋 &mdash; Theme based on Sundown by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <!-- Scale fix -->
+    <script>
+      var metas = document.getElementsByTagName('meta');
+      var i;
+      
+      if (navigator.userAgent.match(/iPhone/i)) {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+          }
+        }
+      
+        document.addEventListener("gesturestart", gestureStart, false);
+      }
+
+      function gestureStart() {
+        for (i=0; i<metas.length; i++) {
+          if (metas[i].name == "viewport") {
+            metas[i].content = "width=device-width, minimum-scale=0.25, maximum-scale=1.6";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

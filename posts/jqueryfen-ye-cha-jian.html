@@ -16,7 +16,7 @@
   <body>
     <div class="wrapper">
       <header>
-        <div><img src="http://blog.turbidsoul.me/images/avatar.jpg" class="grv-img"/></div>
+        <div><img src="http://blog.turbidsoul.me/content/images/avatar.jpg" class="grv-img"/></div>
         <div class="title"><a href="http://blog.turbidsoul.me/">Turbidsoul's 小黑屋 </a></div>
         <div class="sub-title"></div>
 
@@ -149,6 +149,7 @@
                      <span class="c1">// 会造成最后一个按钮无法显示出來，所以在前面的条件是加入这个按钮                     continue;</span>
         <span class="p">}</span>
 
+
         <span class="k">if</span> <span class="p">(</span><span class="nx">cur_page</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="o">&amp;&amp;</span> <span class="nx">cur_page</span> <span class="o">==</span> <span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
             <span class="nx">$num_page_bar</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">&quot;&lt;span class=&#39;num_page current&#39;&gt;&quot;</span> <span class="o">+</span> <span class="nx">cur_page</span> <span class="o">+</span> <span class="s2">&quot;&lt;/span&gt;&quot;</span><span class="p">);</span>
         <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">cur_page</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&gt;=</span> <span class="mi">5</span> <span class="o">&amp;&amp;</span> <span class="nx">i</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
@@ -221,6 +222,7 @@
             <span class="p">},</span> <span class="nx">num_page_click</span><span class="p">);</span>
             <span class="nx">$num_page_bar</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
         <span class="p">}</span>
+
 
         <span class="nx">k</span><span class="o">++</span><span class="p">;</span>
     <span class="p">}</span>

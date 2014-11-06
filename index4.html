@@ -16,7 +16,7 @@
   <body>
     <div class="wrapper">
       <header>
-        <div><img src="http://blog.turbidsoul.me/images/avatar.jpg" class="grv-img"/></div>
+        <div><img src="http://blog.turbidsoul.me/content/images/avatar.jpg" class="grv-img"/></div>
         <div class="title"><a href="http://blog.turbidsoul.me/">Turbidsoul's 小黑屋 </a></div>
         <div class="sub-title"></div>
 
@@ -40,6 +40,37 @@
 
       </header>
       <section>
+      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/pythonshi-xian-pai-lie-he-zu-he.html">Python实现排列和组合</a></div>
+<p>
+<small>
+<abbr class="published" title="2013-03-24">
+  2013年 三月 24日 周日
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
+    <a href="http://blog.turbidsoul.me/tag/arithmetic.html">arithmetic</a>, 
+ -- (<a href="http://blog.turbidsoul.me/posts/pythonshi-xian-pai-lie-he-zu-he.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>无事可做用python实现的的排列和组合的算法，顺便也复习以下2.7中yield的用法</p>
+<div class="highlight"><pre><span class="c"># coding: utf8</span>
+
+
+<span class="k">def</span> <span class="nf">perm</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">items</span><span class="p">)):</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="n">items</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">v</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">_items</span> <span class="o">=</span> <span class="n">items</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">items</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:]</span>
+            <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">perm</span><span class="p">(</span><span class="n">_items</span><span class="p">):</span>
+                <span class="k">yield</span> <span class="n">v</span> <span class="o">+</span> <span class="n">p</span>
+
+
+<span class="k">def</span> <span class="nf">comp ...</span></pre></div> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/pythonshi-xian-pai-lie-he-zu-he.html">read more...</a></div>
+      <hr />
       <div class="front-title"><a href="http://blog.turbidsoul.me/posts/opensslhe-java-aessuan-fa-de-de-wen-ti.html">OpenSSL和Java AES算法的的问题</a></div>
 <p>
 <small>
@@ -245,47 +276,6 @@
 <p>上面简单说了下如何配置Spring异步，现在我说下我的问题，问题很简单就是配置类Spring 异步，并且确定配置正确，但是异步配置没有起效！问什么呢？我百思不得其解，没有办法，那就debug跟踪Spring的源代码。</p>
 <p>在 debug的了几次之后，见到那的了解了Spring配置文件加载的方式，很简单，先加载<code>application-context ...</code></p> 
       <div class="read-more"><a href="http://blog.turbidsoul.me/posts/springpei-zhi-wen-jian-jia-zai-de-yi-wen-he-annotationjia-zai-de-wen-ti.html">read more...</a></div>
-      <hr />
-      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/java8de-bi-bao-lambdayu-ju-xiao-tan.html">java8的闭包Lambda语句小探</a></div>
-<p>
-<small>
-<abbr class="published" title="2012-02-14">
-  2012年 二月 14日 周二
-</abbr> | 
-  tags: 
-    <a href="http://blog.turbidsoul.me/tag/java.html">java</a>, 
-    <a href="http://blog.turbidsoul.me/tag/lambda.html">lambda</a>, 
-    <a href="http://blog.turbidsoul.me/tag/closure.html">closure</a>, 
-    <a href="http://blog.turbidsoul.me/tag/code.html">code</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/java8de-bi-bao-lambdayu-ju-xiao-tan.html" rel="bookmark">permalink</a>)
-</small>
-</p>      <p>这是我上个礼拜相对较闲的时候自己做的简单测试，应为那天正好在oschina上看到jdk1.8发布了开发者预览版，正好左右没事，就去下了一个，实验了一下java 的闭包。</p>
-<p>java 闭包，也就是Lambda表达式，和python中的lambda是一样的，语法也挺相似：</p>
-<div class="highlight"><pre><span class="n">String</span> <span class="n">result</span> <span class="o">=</span> <span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="s">&quot;Hello, &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s">&quot;!&quot;</span><span class="o">;</span>
-</pre></div>
-
-
-<p>下面我们来看个具体的例子：</p>
-<p>首先定义一个接口:</p>
-<div class="highlight"><pre><span class="kd">interface</span> <span class="nc">Lamb</span> <span class="o">{</span>
-    <span class="n">String</span> <span class="nf">str</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">);</span>
-<span class="o">}</span>
-</pre></div>
-
-
-<p>之后我们就能在main方法中写下面的代码，编译并运行：</p>
-<div class="highlight"><pre><span class="n">Lamb</span> <span class="n">str</span> <span class="o">=</span> <span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="s">&quot;Hello, &quot;</span> <span class="o">+</span> <span class="n">name</span><span class="o">;</span>
-<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">str</span><span class="o">.</span><span class="na">str</span><span class="o">(</span><span class="s">&quot;aaa&quot;</span><span class="o">));</span>
-</pre></div>
-
-
-<p>运行结果：
-<code>Hello, aaa</code>
-上面是最简单的hello world！</p>
-<p>在看一个多参数的例子:</p>
-<div class="highlight"><pre><span class="kd">interface</span> <span class="nc">MathLamb</span> <span class="o">{</span>
-    <span class="kt">int</span> <span class="nf">add ...</span></pre></div> 
-      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/java8de-bi-bao-lambdayu-ju-xiao-tan.html">read more...</a></div>
       <hr />
 
 <span class="paginator">

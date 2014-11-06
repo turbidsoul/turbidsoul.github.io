@@ -16,7 +16,7 @@
   <body>
     <div class="wrapper">
       <header>
-        <div><img src="http://blog.turbidsoul.me/images/avatar.jpg" class="grv-img"/></div>
+        <div><img src="http://blog.turbidsoul.me/content/images/avatar.jpg" class="grv-img"/></div>
         <div class="title"><a href="http://blog.turbidsoul.me/">Turbidsoul's 小黑屋 </a></div>
         <div class="sub-title"></div>
 
@@ -122,6 +122,7 @@
 
 <span class="c"># Create a custom renderer</span>
 
+
 <span class="k">class</span> <span class="nc">BleepRenderer</span><span class="p">(</span><span class="n">HtmlRenderer</span><span class="p">,</span> <span class="n">SmartyPants</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="nf">block_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">lang</span><span class="p">):</span>
@@ -148,7 +149,7 @@
 
 
 <p>""")</p>
-<div class="highlight"><pre><span class="err">运行之后生成下面的</span><span class="nx">HTML</span><span class="err">：</span>
+<div class="highlight"><pre><span class="nx">运行之后生成下面的HTML</span><span class="err">：</span>
 
 <span class="sb">``</span><span class="err">`</span><span class="nx">html</span>
     <span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span>
@@ -190,6 +191,7 @@
 <span class="kn">from</span> <span class="nn">pygments.lexers</span> <span class="kn">import</span> <span class="n">get_lexer_by_name</span>
 <span class="kn">from</span> <span class="nn">pygments.formatters</span> <span class="kn">import</span> <span class="n">HtmlFormatter</span>
 
+
 <span class="k">class</span> <span class="nc">SyntaxHighlightRenderer</span><span class="p">(</span><span class="n">HtmlRenderer</span><span class="p">,</span> <span class="n">SmartyPants</span><span class="p">):</span>
 
     <span class="k">def</span> <span class="nf">block_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">lang</span><span class="p">):</span>
@@ -199,6 +201,7 @@
         <span class="n">formatter</span> <span class="o">=</span> <span class="n">HtmlFormatter</span><span class="p">(</span>
             <span class="n">linenos</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s">&quot;vim&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s">&quot;</span><span class="si">%s</span><span class="s"> code&quot;</span> <span class="o">%</span> <span class="n">lang</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">highlight</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">lexer</span><span class="p">,</span> <span class="n">formatter</span><span class="p">)</span>
+
 
 <span class="k">class</span> <span class="nc">Index</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="n">html_tempalte</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>

@@ -3,6 +3,7 @@ category: Python
 tags: python, code
 Author: Turbidsoul
 Date: 2013-08-30
+Summary: 公司最近在调整网站的模块，把网站的公告模块去掉，公告的数据移到Discuz做的论坛中，整体功能都很简单，写了一个python脚本，执行一下就能完成数据迁移。在数据迁移的过程中有个小问题，我们公告的正文是用富文本编辑器写的，代码是 _html_ 代码，但是在Discuz中确是用 _bbcode_ 所以就需要对公告正文进行转换，这里就要使用到python的一个模块: **html2bbcode**
 
 公司最近在调整网站的模块，把网站的公告模块去掉，公告的数据移到Discuz做的论坛中，整体功能都很简单，写了一个python脚本，执行一下就能完成数据迁移。在数据迁移的过程中有个小问题，我们公告的正文是用富文本编辑器写的，代码是 _html_ 代码，但是在Discuz中确是用 _bbcode_ 所以就需要对公告正文进行转换，这里就要使用到python的一个模块: **html2bbcode**
 

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Turbidsoul's 小黑屋</title><link>http://blog.turbidsoul.me/</link><description></description><atom:link href="http://blog.turbidsoul.me/feeds/pelican.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 30 Apr 2014 00:00:00 +0800</lastBuildDate><item><title>从Jekyll迁移blog到pelican</title><link>http://blog.turbidsoul.me/posts/cong-jekyllqian-yi-blogdao-pelican.html</link><description>&lt;p&gt;这次是一次小的迁移，其实也就是把blog生成器从&lt;code&gt;jekyll&lt;/code&gt;切换到了&lt;code&gt;pelican&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;至于为什么呢，主要是工作忙，从jekyll升级到2.0之后，在本地就不能测试运行，而且还有各种编码问题，一直没有时间去收拾。
+另外一个原因就是我现在主要使用的是&lt;code&gt;python&lt;/code&gt;做开发，所以使用pelican更加的顺手一些。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;从jekyll到pelican并没有什么特别的地方，主要有两点需要改动的：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;是所有的post文件的头需要变化，如下：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;---&lt;/span&gt;
+&lt;span class="nl"&gt;layout:&lt;/span&gt; &lt;span class="n"&gt;news_item&lt;/span&gt;
+&lt;span class="nl"&gt;title:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Jekyll 1.0.0 Released&amp;quot;&lt;/span&gt;
+&lt;span class="nl"&gt;date:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;2013-05-06 02:12:52 +0200&amp;quot;&lt;/span&gt;
+&lt;span class="nl"&gt;author:&lt;/span&gt; &lt;span class="n"&gt;parkr&lt;/span&gt;
+&lt;span class="nl"&gt;version:&lt;/span&gt; &lt;span class="mf"&gt;1.0.0&lt;/span&gt;
+&lt;span class="nl"&gt;categories:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;release&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="o"&gt;---&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;关于读书&lt;/span&gt;
+&lt;span class="n"&gt;category&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;闲聊&lt;/span&gt;
+&lt;span class="n"&gt;tags&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;闲聊&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;math&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;code&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;programer&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;developer&lt;/span&gt;
+&lt;span class="n"&gt;Author&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Turbidsoul&lt;/span&gt;
+&lt;span class="n"&gt;Date&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2013&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;07&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;29&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;上面的是jekyll，下面的是pelican&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;是注意文件的生成路径，pelican默认是把文件生成到output中，我这里dev环境下是在output中，但是publish下确实直接在根目录下，这样目录看着有点乱，但是我喜欢这样子&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这次这个还只能算是半成品，因为评论还没有想好用那个，不过我可能考虑用国内的评论系统，还在考虑中。。。。。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Turbidsoul Chan</dc:creator><pubDate>Wed, 30 Apr 2014 00:00:00 +0800</pubDate><guid>tag:blog.turbidsoul.me,2014-04-30:posts/cong-jekyllqian-yi-blogdao-pelican.html</guid><category>pelican</category><category>jekyll</category></item></channel></rss>

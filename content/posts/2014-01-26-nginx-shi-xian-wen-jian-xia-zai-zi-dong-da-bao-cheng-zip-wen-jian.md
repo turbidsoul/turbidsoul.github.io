@@ -3,6 +3,7 @@ category: Nginx
 tags: nginx, python
 Author: Turbidsoul
 Date: 2014-01-26
+Summary:  问题的来源是需要对已有的资料在下载的时候进行添加广告，但是对于doc文件操作麻烦的情况，采用在下载的时候将广告文件和资料一起打包成zip文件.
 
 ## 来源和介绍 ##
 

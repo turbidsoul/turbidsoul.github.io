@@ -2,6 +2,7 @@ Title: 从Jekyll迁移blog到pelican
 Date: 2014-04-30
 Tags: pelican, jekyll
 Category: Pelican
+Summary: 这次是一次小的迁移，其实也就是把blog生成器从`jekyll`切换到了`pelican`
 
 这次是一次小的迁移，其实也就是把blog生成器从`jekyll`切换到了`pelican`
 

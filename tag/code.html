@@ -16,7 +16,7 @@
   <body>
     <div class="wrapper">
       <header>
-        <div><img src="http://blog.turbidsoul.me/images/avatar.jpg" class="grv-img"/></div>
+        <div><img src="http://blog.turbidsoul.me/content/images/avatar.jpg" class="grv-img"/></div>
         <div class="title"><a href="http://blog.turbidsoul.me/">Turbidsoul's 小黑屋 </a></div>
         <div class="sub-title"></div>
 
@@ -53,21 +53,7 @@
     <a href="http://blog.turbidsoul.me/tag/code.html">code</a>, 
  -- (<a href="http://blog.turbidsoul.me/posts/python-logging-mo-kuai-de-filter.html" rel="bookmark">permalink</a>)
 </small>
-</p>      <p>前两天同事问我，如果针对不同的IP记录日志，并把更具IP记录到不同的日志文件中，在网上搜了一下这个问题，有很多人都在问，我查了一下python的logging的api，发现有个filter的，这个filter可以根据日志的信息来决定这条日志是否记录到日志文件中，下面来说说如果实现这个功能。</p>
-<p>通常我们配置日志都是如下代码：</p>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">logging</span>
-
-<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">)</span>
-<span class="n">hdlr</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="s">&#39;test.log&#39;</span><span class="p">)</span>
-<span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">hdlr</span><span class="p">)</span>
-<span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
-<span class="n">fmt</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%(asctime)s</span><span class="s">  </span><span class="si">%(levelname)s</span><span class="s">  Line#</span><span class="si">%(lineno)d</span><span class="s"> - </span><span class="si">%(msecs)d</span><span class="s"> - </span><span class="si">%(message)s</span><span class="s">&quot;</span><span class="p">)</span>
-<span class="n">hdlr</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">fmt</span><span class="p">)</span>
-<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&#39;test 111111&#39;</span><span class="p">)</span>
-</pre></div>
-
-
-<p>这是我们通常用来配置记录日志到文件的代码 ...</p> 
+</p>      <p>前两天同事问我，如果针对不同的IP记录日志，并把更具IP记录到不同的日志文件中，在网上搜了一下这个问题，有很多人都在问，我查了一下python的logging的api，发现有个filter的，这个filter可以根据日志的信息来决定这条日志是否记录到日志文件中，下面来说说如果实现这个功能。</p> 
       <div class="read-more"><a href="http://blog.turbidsoul.me/posts/python-logging-mo-kuai-de-filter.html">read more...</a></div>
       <hr />
       <div class="front-title"><a href="http://blog.turbidsoul.me/posts/shi-yong-seleniumjin-xing-webce-shi-ru-men-he-shi-yong-webdriverkai-fa-webce-shi-dai-ma-ru-men.html">使用selenium进行web测试入门和使用WebDriver开发web测试代码入门</a></div>
@@ -85,12 +71,7 @@
     <a href="http://blog.turbidsoul.me/tag/code.html">code</a>, 
  -- (<a href="http://blog.turbidsoul.me/posts/shi-yong-seleniumjin-xing-webce-shi-ru-men-he-shi-yong-webdriverkai-fa-webce-shi-dai-ma-ru-men.html" rel="bookmark">permalink</a>)
 </small>
-</p>      <p>前段时间我们头在搞一个分布式测试，使用的就是 <strong>Selenium</strong> 可以坑太多，最后应该是放弃了，因为我没见到回音，说实话这东西是bug挺多，而且在firefox上的版本兼容也有很大的问题，不过这不是我们讨论的问题，我们这里要讨论的是使用它来做简单的web测试。</p>
-<h2>Selenium 入门</h2>
-<h4>安装</h4>
-<p>我使用的是 Firefox Aurora 现在的版本就是ff26,这下面是正常的，我不知道在每日编译版下是否正常，虽然我机子上也安装了，但是并没有在起下面做个测试，不过应该是没有问题的。</p>
-<p>在 <a href="about:addons">about:addons</a> 或者 <a href="http://addons.mozilla.org/">http://addons.mozilla.org/</a> 上搜索 <em>selenium</em> 点击安装，安装的时候同时还会附带安装几个其他的插件，这些都是 Selenium 的一些附属插件，我在之后的会有介绍。</p>
-<p>安装完之后可以在 <code>菜单 &gt;&gt; 工具 &gt;&gt; Selenium IDE</code> 打开或者在 <em>附加组建栏</em> 点击 Selenium IDE 按钮打开，如何附加组建栏没有 ...</p> 
+</p>      <p>前段时间我们头在搞一个分布式测试，使用的就是 <strong>Selenium</strong> 可以坑太多，最后应该是放弃了，因为我没见到回音，说实话这东西是bug挺多，而且在firefox上的版本兼容也有很大的问题，不过这不是我们讨论的问题，我们这里要讨论的是使用它来做简单的web测试。</p> 
       <div class="read-more"><a href="http://blog.turbidsoul.me/posts/shi-yong-seleniumjin-xing-webce-shi-ru-men-he-shi-yong-webdriverkai-fa-webce-shi-dai-ma-ru-men.html">read more...</a></div>
       <hr />
       <div class="front-title"><a href="http://blog.turbidsoul.me/posts/python-27-de-can-shu-jie-xi-mo-kuai-argparse.html">python 2.7 的参数解析模块 argparse</a></div>
@@ -106,13 +87,7 @@
     <a href="http://blog.turbidsoul.me/tag/python27.html">python27</a>, 
  -- (<a href="http://blog.turbidsoul.me/posts/python-27-de-can-shu-jie-xi-mo-kuai-argparse.html" rel="bookmark">permalink</a>)
 </small>
-</p>      <p>今天下午没事，就优化了一下以前写的一些工作上用的小工具，当然大多数都是python写的命令行下的小工具，之前命令行参数都是自己解析，虽然不是什么复杂的事情，但是自己临时写出来的东西毕竟不如人家写出来的好，正好前短时间看到python2.7把 <strong>argparse</strong> 加入到了标准模块中，所以这次对这些工具的代码重构就是使用了 <strong>argparse</strong> 替代自己写的那个简陋名两行解析工具。</p>
-<h2>入门</h2>
-<p>上面已经说了在 <strong>Python 2.7</strong> 中已经内置了这个模块，所以就不用安装了。可以直接使用<code>import argparse</code>导入模块使用，我们先看一个简单的例子：</p>
-<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">argparse</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">&#39;test argparse&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;-s&#39;</span><span class="p">,</span> <span class="s">&#39;--start&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&#39;start number&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;-e&#39;</span><span class="p">,</span> <span class="s">&#39;--end&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&#39;end ...</span></pre></div> 
+</p>      <p>今天下午没事，就优化了一下以前写的一些工作上用的小工具，当然大多数都是python写的命令行下的小工具，之前命令行参数都是自己解析，虽然不是什么复杂的事情，但是自己临时写出来的东西毕竟不如人家写出来的好，正好前短时间看到python2.7把 <strong>argparse</strong> 加入到了标准模块中，所以这次对这些工具的代码重构就是使用了 <strong>argparse</strong> 替代自己写的那个简陋名两行解析工具。</p> 
       <div class="read-more"><a href="http://blog.turbidsoul.me/posts/python-27-de-can-shu-jie-xi-mo-kuai-argparse.html">read more...</a></div>
       <hr />
       <div class="front-title"><a href="http://blog.turbidsoul.me/posts/pythonmo-kuai-html2bbcode.html">python模块html2bbcode</a></div>
@@ -126,15 +101,7 @@
     <a href="http://blog.turbidsoul.me/tag/code.html">code</a>, 
  -- (<a href="http://blog.turbidsoul.me/posts/pythonmo-kuai-html2bbcode.html" rel="bookmark">permalink</a>)
 </small>
-</p>      <p>公司最近在调整网站的模块，把网站的公告模块去掉，公告的数据移到Discuz做的论坛中，整体功能都很简单，写了一个python脚本，执行一下就能完成数据迁移。在数据迁移的过程中有个小问题，我们公告的正文是用富文本编辑器写的，代码是 <em>html</em> 代码，但是在Discuz中确是用 <em>bbcode</em> 所以就需要对公告正文进行转换，这里就要使用到python的一个模块: <strong>html2bbcode</strong></p>
-<h4>安装</h4>
-<p>执行:<code>pip install html2bbcode</code> 安装模块</p>
-<h4>使用</h4>
-<p>下面是<a href="https://bitbucket.org/amigo/html2bbcode" title="HTML to BBCode converter">bitbucket.org</a>的例子：</p>
-<div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">HTML2BBCode</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">parser</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="s">&#39;&lt;ul&gt;&lt;li&gt;one&lt;/li&gt;&lt;li&gt;two&lt;/li&gt;&lt;/ul&gt;&#39;</span><span class="p">))</span>
-<span class="go">&#39;[list][li]one[/li][li]two[/li][/list]&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">parser ...</span></pre></div> 
+</p>      <p>公司最近在调整网站的模块，把网站的公告模块去掉，公告的数据移到Discuz做的论坛中，整体功能都很简单，写了一个python脚本，执行一下就能完成数据迁移。在数据迁移的过程中有个小问题，我们公告的正文是用富文本编辑器写的，代码是 <em>html</em> 代码，但是在Discuz中确是用 <em>bbcode</em> 所以就需要对公告正文进行转换，这里就要使用到python的一个模块: <strong>html2bbcode</strong></p> 
       <div class="read-more"><a href="http://blog.turbidsoul.me/posts/pythonmo-kuai-html2bbcode.html">read more...</a></div>
       <hr />
       <div class="front-title"><a href="http://blog.turbidsoul.me/posts/guan-yu-du-shu.html">关于读书</a></div>

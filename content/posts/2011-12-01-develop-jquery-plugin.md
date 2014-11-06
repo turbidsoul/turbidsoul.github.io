@@ -1,7 +1,7 @@
 Title: 开发jquery插件
 Category: jquery
 Tags: jquery, javascript, code
-Date: 2011-12-01
+date: 2011-12-01
 Slug: develop-jquery-plugin
 Author: Turbidsoul
 

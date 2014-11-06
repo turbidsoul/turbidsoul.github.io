@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Turbidsoul's 小黑屋</title><link href="http://blog.turbidsoul.me/" rel="alternate"></link><link href="http://blog.turbidsoul.me/feeds/jia-mi-jie-mi.atom.xml" rel="self"></link><id>http://blog.turbidsoul.me/</id><updated>2014-10-26T00:00:00+08:00</updated><entry><title>视频乱序加密</title><link href="http://blog.turbidsoul.me/posts/2014-10-26-shi-pin-luan-xu-jia-mi.html.html" rel="alternate"></link><updated>2014-10-26T00:00:00+08:00</updated><author><name>Turbidsoul Chan</name></author><id>tag:blog.turbidsoul.me,2014-10-26:posts/2014-10-26-shi-pin-luan-xu-jia-mi.html.html</id><summary type="html">&lt;p&gt;最近公司网站总是被人攻击，这是出名节奏么？不过之前的防下载的技术已经被破解，所以现在需要做一种新的方式来防下载，
+不过不管用什么方法，防下载都是一种不够稳妥的方式，因为能播放就能下载，只要能找到对的方式，所以我们这次采用的加密的方法，
+对FLV文件内的TagBody内的数据进行加密，这样就可以在不影响视频播放的情况下对视频数据加密，就算防下载被破解，下载下的视频也是加过密的视频，
+播放的话都是雪花点之类的。&lt;/p&gt;
+&lt;h2&gt;算法&lt;/h2&gt;
+&lt;p&gt;我们在这里不讨论视频的具体加密技术，因为涉及到公司的机密，只是简单的讨论这个算法。这个算法其实很简单，来自一片博士论文：&lt;a href="https://drive.google.com/file/d/0B1L569wdo3IkMFBISVlZZXVmRlk/view?usp=sharing"&gt;传送门&lt;/a&gt;，也可以说&lt;code&gt;会者不难，难者不会&lt;/code&gt;，我就属于后者不会的那个，
+不过公司里有数学老师，我们头拿着这篇论文找到数学老师请教时候，果然很简单，当然我只搞懂了&lt;code&gt;等模乱序算法&lt;/code&gt;，&lt;code&gt;变模乱序算法&lt;/code&gt;还是没搞懂，我现在来简单的介绍一下等模乱序算法这个算法。&lt;/p&gt;
+&lt;p&gt;首先我们假设有一个序列：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$M = (m(0), m(1), ......, m(n-1))$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;和加密密钥&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$K = (k(0),k(1),......,k(n-1))$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;通过$M$和$K$我们可以计算得到密文&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$C = (c(0),c(1),......,c(n-1))$。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;$C$的计算公式就是&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$C = E_K(M)$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;用于解密的密钥$R$:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$R = (r(0),r(1),......r(n-1))$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;解密公式:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$M = D_R(C)$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这样我们的加密过程就是:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$C = E_K(m(0),m(1),......,m(n-1)) = (m(k(0)),m(k(1)),......,m(k(n-1)))$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;解密过程就是:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$M = E_R(c(0),c(1),......,c(n-1)) = (c(r(0)),c(r(1)),......,c(r(n-1)))$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在这里我的$K$和$R$是可以互相推导的，即：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$D_R(E_K(M)) = M$ 推导出 $r(k(j)) = j, k(r(j)) = j, j = 0, 1, ...,n-1$&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;通过上面的公式我们就能通过K推算出R，可能很多人看上面的这些看不懂，没有关系可以去看博士论文，论文上有更详细的说明，同时也有更进一步的扩展算法。
+下面我举个例子来说明一下上面的算法：
+原文:&lt;code&gt;m = [b,d,f,e,a]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;加密密钥:&lt;code&gt;k = [1, 4, 2, 0, 3]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;通过k对m乱序,获得密文:&lt;code&gt;c =[e, b, f, a, d]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;通过上面的$K$和$R$的推到公式,我们可以推导出:&lt;code&gt;r =  [3, 0, 2, 4, 1]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;我们最后用c和r重新解密出:&lt;code&gt;m = [b, d, f, e, a]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;这个例子是一个非常简单的例子，只是让人能更好的理解这个算法。下面我们在来看看使用&lt;code&gt;Python&lt;/code&gt;做的简单实现。&lt;/p&gt;
+&lt;h2&gt;算法的Python实现&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;a&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;c&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;e&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;d&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;g&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;f&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;h&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;b&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sample&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;encrypt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;_&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;sorted&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;zip&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="p"&gt;)),&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;])]&lt;/span&gt;
+    &lt;span class="n"&gt;r&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;_&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;sorted&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;zip&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))),&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;])]&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;decrypt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;_&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;sorted&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;zip&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="p"&gt;)),&lt;/span&gt; &lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;])]&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;m&lt;/span&gt;
+
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;r&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;encrypt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;decrypt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;上面是我用python实现的乱序加密和机密代码，我这里用的是&lt;em&gt;generator&lt;/em&gt;，其实可以直接带入上面的公式，这样更简单，也更容易理解。&lt;/p&gt;
+&lt;h2&gt;结论&lt;/h2&gt;
+&lt;p&gt;其实视频的乱序加密并不是我所说的这么简单，其是本身非常复杂，我这里只是简单的介绍了一下乱序加密的思路，整个加密分两块：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;服务端加密：服务端的加密方式有很多可以自由发挥，增加随机性。&lt;/li&gt;
+&lt;li&gt;客户端解密：客户端可以是web上，也可以是flash，或者是我们自己编写的播放器，不管那种我们都需要对客户端代码混淆，并实现流的解密。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;其实不管如何，都不能做到100%的安全，我们这么做无非就是增加破解者的破解难度和成本，使其破解的成本高于视频价格。&lt;/p&gt;&lt;script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script type= "text/javascript"&gt;
+    if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+        var mathjaxscript = document.createElement('script');
+        mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+        mathjaxscript.type = 'text/javascript';
+        mathjaxscript.src = 'https:' == document.location.protocol
+                ? 'https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML-full'
+                : 'http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML-full';
+        mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({" +
+            "    asciimath2jax: {" +
+            "      delimiters: [['$','$'], ['`','`']]"+
+            "    }"+
+            "}); ";
+        (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+    }
+&lt;/script&gt;
+</summary><category term="python"></category><category term="video"></category><category term="encrypt/decrypt"></category></entry></feed>
