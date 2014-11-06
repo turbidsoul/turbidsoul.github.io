@@ -52,7 +52,7 @@ DEFAULT_METADATA = (('Content-Type', 'text/html; charset=utf-8'),)
 GRV_URL='/content/images/avatar.jpg'
 TWITTER_USERNAME='Turbidsoul'
 MD_EXTENSIONS = ['codehilite(css_class=highlight)','extra']
-PLUGIN_PATHS=[os.path.join(curdir, 'pelican-plugins')]
+PLUGIN_PATHS=[os.path.join(curdir, 'plugins')]
 PLUGINS = ['render_math', 'googleplus_comments']
 
 AUTHOR='Turbidsoul Chan'
