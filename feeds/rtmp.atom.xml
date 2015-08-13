@@ -12,7 +12,7 @@
 &lt;p&gt;nginx是在windows下的虚拟机中的linux下编译的，因为windows编译这玩意是在太麻烦了，我实在不想编译第二次。&lt;/p&gt;
 &lt;h2&gt;ffmpeg 的简单使用&lt;/h2&gt;
 &lt;p&gt;首先我们需要查看以下我们的自己上的设备信息，在安装了screen capture recorder之后就可以使用下面的命令:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;ffmpeg&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;list_devices&lt;/span&gt; &lt;span class="nb"&gt;true&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="n"&gt;dshow&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="n"&gt;dummy&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;ffmpeg -list_devices true -f dshow -i dummy
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -40,13 +40,13 @@
 
 &lt;p&gt;DirectShow video devices下面的是视频设备，DirectShow audio devices是音频设备，ffmpeg录制就需要从这些设备上得到视频和音频的流.&lt;/p&gt;
 &lt;p&gt;下面我们看以下ffmpeg如果从这些设备中录制视频。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;ffmpeg&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="n"&gt;dshow&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="n"&gt;video&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;screen-capture-recorder&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;audio&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;FrontMic (Realtek High Definiti&amp;quot;&lt;/span&gt;  &lt;span class="n"&gt;test&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;avi&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;ffmpeg -f dshow -i video=&amp;quot;screen-capture-recorder&amp;quot;:audio=&amp;quot;FrontMic (Realtek High Definiti&amp;quot;  test.avi
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;这杨就可以把录屏和通过麦克风说话的声音都录下来，保存成avii，当然这里也可以使用更加丰富的参数来调整视频，使视频更清醒，声音也更响亮，不过这些都不在本文的讨论范围，所以就不在这里多少，有兴趣的华可以去&lt;a href="http://ffmpeg.org/documentation.html"&gt;http://ffmpeg.org/documentation.html&lt;/a&gt;上详细的查看。&lt;/p&gt;
 &lt;p&gt;当然我们是要使用rtmp协议的，所以这里就需要把视频流发送到rtmp服务端去，如下命令:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;ffmpeg&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="n"&gt;dshow&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="n"&gt;video&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;screen-capture-recorder&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="n"&gt;audio&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;FrontMic (Realtek High Definiti&amp;quot;&lt;/span&gt;  &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="n"&gt;flv&lt;/span&gt; &lt;span class="n"&gt;rtmp&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//192.168.56.101/live/test&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;ffmpeg -f dshow -i video=&amp;quot;screen-capture-recorder&amp;quot;:audio=&amp;quot;FrontMic (Realtek High Definiti&amp;quot;  -f flv rtmp://192.168.56.101/live/test
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -55,9 +55,9 @@
 &lt;h4&gt;安装&lt;/h4&gt;
 &lt;p&gt;在编译安装模块的时候需要说明一点，如果在 configure的时候出现了openssl的错误，请安装libssl-dev.&lt;/p&gt;
 &lt;p&gt;ubuntu下： &lt;code&gt;sudo apt-get install libssl-dev&lt;/code&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;configure&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;prefix&lt;/span&gt;&lt;span class="o"&gt;=/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;local&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rtmp&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;nginx&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;without&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;http_rewrite_module&lt;/span&gt;
-&lt;span class="n"&gt;make&lt;/span&gt;
-&lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;./configure --prefix=/usr/local/rtmp-nginx --without-http_rewrite_module
+make
+make install
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -100,7 +100,7 @@
 &lt;p&gt;&lt;strong&gt;RTMPDump&lt;/strong&gt; 是一位匈牙利大神在Adobe未公开RTMP协议的条件下，写出了针对RTMP协议的客户端程序。&lt;/p&gt;
 &lt;p&gt;在这里rtmpdump的使用是很简单的，当然rtmpdump其实也是有一些问题的，我们先来看看如果使用rtmpdump录制视频流&lt;/p&gt;
 &lt;h4&gt;使用&lt;/h4&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;rtmpdump&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt; &lt;span class="n"&gt;rtmp&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//192.168.56.101/live/test -o test.flv&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;rtmpdump -v -m 0 -r rtmp://192.168.56.101/live/test -o test.flv
 &lt;/pre&gt;&lt;/div&gt;
 
 

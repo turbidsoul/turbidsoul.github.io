@@ -25,21 +25,21 @@
 &lt;/blockquote&gt;
 &lt;p&gt;大意就是说PyV8的版本过低，需要升级，解决的办法就是关闭sublime并删除sublime插件目录下的PyV8，然后在重启，重启之后sublime就会自动下载PyV8，下载好之后就能正常使用了。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Turbidsoul Chan</dc:creator><pubDate>Wed, 05 Jun 2013 00:00:00 +0800</pubDate><guid>tag:blog.turbidsoul.me,2013-06-05:posts/sublimecha-jian-emmetqi-dong-shi-bai.html</guid><category>sublime</category><category>python</category><category>emmet</category></item><item><title>sublime执行windows命令时无法输出中文问题</title><link>http://blog.turbidsoul.me/posts/sublimezhi-xing-windowsming-ling-shi-wu-fa-shu-chu-zhong-wen-wen-ti.html</link><description>&lt;p&gt;这是一个很简单的问题，我最近在研究jdk8，使用sublime自定义的编译方式运行，是编译运行的结果显示到sublime控制台上，但是这里如果运行的话会提示 &lt;em&gt;Decode error&lt;/em&gt; 虽然没有太大的影响但是看着总是很难受，而且有时候也不太方便，所以就自己找出问题解决掉。&lt;/p&gt;
 &lt;p&gt;解决的方式很简单，按 &lt;strong&gt;ctrl+shift+f&lt;/strong&gt; 进入高级搜索，在 &lt;strong&gt;find&lt;/strong&gt; 中填入 &lt;em&gt;Decode error&lt;/em&gt; 在 &lt;strong&gt;where&lt;/strong&gt; 中填入sublime的插件目录和要所搜的文件类型，如下：&lt;code&gt;D:\SublimeText\Data\Packages,*.py&lt;/code&gt; 因为我们能确定到要搜索的东西在python的代码文件中，所以这里直接搜索 *&lt;em&gt;.py&lt;/em&gt; 文件即可，等上几秒中就能看到搜索结果，结果如下：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;Searching&lt;/span&gt; &lt;span class="mi"&gt;8509&lt;/span&gt; &lt;span class="n"&gt;files&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Decode error&amp;quot;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;Searching 8509 files for &amp;quot;Decode error&amp;quot;
 
-&lt;span class="nl"&gt;D:&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;SublimeText&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;Data&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;Packages&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;Default&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;exec&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-  &lt;span class="mi"&gt;181&lt;/span&gt;              &lt;span class="n"&gt;str&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;decode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;encoding&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-  &lt;span class="mi"&gt;182&lt;/span&gt;          &lt;span class="n"&gt;except&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-  &lt;span class="mi"&gt;183&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;             &lt;span class="n"&gt;str&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;[Decode error - output not &amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;encoding&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;]&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt;
-  &lt;span class="mi"&gt;184&lt;/span&gt;              &lt;span class="n"&gt;proc&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;None&lt;/span&gt;
-  &lt;span class="mi"&gt;185&lt;/span&gt;
+D:\SublimeText\Data\Packages\Default\exec.py:
+  181              str = data.decode(self.encoding)
+  182          except:
+  183:             str = &amp;quot;[Decode error - output not &amp;quot; + self.encoding + &amp;quot;]\n&amp;quot;
+  184              proc = None
+  185
 
-&lt;span class="nl"&gt;D:&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;SublimeText&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;Data&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;Packages&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;GoSublime&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;gosubl&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;gs&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-  &lt;span class="mi"&gt;672&lt;/span&gt;       &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;res&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;Unexpected&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-  &lt;span class="mi"&gt;673&lt;/span&gt;   &lt;span class="n"&gt;except&lt;/span&gt; &lt;span class="n"&gt;Exception&lt;/span&gt; &lt;span class="n"&gt;as&lt;/span&gt; &lt;span class="n"&gt;ex&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
-  &lt;span class="mi"&gt;674&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;      &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;default&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;Decode&lt;/span&gt; &lt;span class="n"&gt;Error&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;ex&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-  &lt;span class="mi"&gt;675&lt;/span&gt;
-  &lt;span class="mi"&gt;676&lt;/span&gt;  &lt;span class="n"&gt;def&lt;/span&gt; &lt;span class="n"&gt;json_encode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+D:\SublimeText\Data\Packages\GoSublime\gosubl\gs.py:
+  672       return (res, &amp;#39;Unexpected value type&amp;#39;)
+  673   except Exception as ex:
+  674:      return (default, &amp;#39;Decode Error: %s&amp;#39; % ex)
+  675
+  676  def json_encode(a):
 &lt;/pre&gt;&lt;/div&gt;
 
 

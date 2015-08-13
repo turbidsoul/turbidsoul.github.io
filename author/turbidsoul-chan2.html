@@ -40,6 +40,31 @@
 
       </header>
       <section>
+      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html">python实现morse编码与解码</a></div>
+<p>
+<small>
+<abbr class="published" title="2013-06-04">
+  2013年 六月 04日 周二
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
+    <a href="http://blog.turbidsoul.me/tag/morse.html">morse</a>, 
+    <a href="http://blog.turbidsoul.me/tag/code.html">code</a>, 
+ -- (<a href="http://blog.turbidsoul.me/posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>写这个完全是闲着无聊，看了一片趣文<a href="http://blog.jobbole.com/40628/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=draft-created-on-20130531-at-1028-am">趣文：表白后女生发给我一串五层加密的密码</a> 这篇文章来源自百度贴吧的的有一个帖子<a href="http://tieba.baidu.com/f?kz=529691897">传送门</a>，文章的内容还是很欢乐的。</p>
+<p>言归正传，<a href="http://zh.wikipedia.org/zh/%E6%91%A9%E5%B0%94%E6%96%AF%E7%94%B5%E7%A0%81">Morse Code</a> 的算法是根据维基得来的，说白了就是键值对，编码解码也都是按照键值对进行匹配的。</p>
+<p>编码如下：</p>
+<div class="highlight"><pre><span class="n">__morse_code__</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&#39;A&#39;</span><span class="p">:</span> <span class="s">&#39;.-&#39;</span><span class="p">,</span> <span class="s">&#39;B&#39;</span><span class="p">:</span> <span class="s">&#39;-...&#39;</span><span class="p">,</span> <span class="s">&#39;C&#39;</span><span class="p">:</span> <span class="s">&#39;-.-.&#39;</span><span class="p">,</span> <span class="s">&#39;D&#39;</span><span class="p">:</span> <span class="s">&#39;-..&#39;</span><span class="p">,</span> <span class="s">&#39;E&#39;</span><span class="p">:</span> <span class="s">&#39;.&#39;</span><span class="p">,</span> <span class="s">&#39;F&#39;</span><span class="p">:</span> <span class="s">&#39;..-.&#39;</span><span class="p">,</span> <span class="s">&#39;G&#39;</span><span class="p">:</span> <span class="s">&#39;--.&#39;</span><span class="p">,</span>
+    <span class="s">&#39;H&#39;</span><span class="p">:</span> <span class="s">&#39;....&#39;</span><span class="p">,</span> <span class="s">&#39;I&#39;</span><span class="p">:</span> <span class="s">&#39;..&#39;</span><span class="p">,</span> <span class="s">&#39;J&#39;</span><span class="p">:</span> <span class="s">&#39;.---&#39;</span><span class="p">,</span> <span class="s">&#39;K&#39;</span><span class="p">:</span> <span class="s">&#39;-.-&#39;</span><span class="p">,</span> <span class="s">&#39;L&#39;</span><span class="p">:</span> <span class="s">&#39;.-..&#39;</span><span class="p">,</span> <span class="s">&#39;M&#39;</span><span class="p">:</span> <span class="s">&#39;--&#39;</span><span class="p">,</span> <span class="s">&#39;N&#39;</span><span class="p">:</span> <span class="s">&#39;-.&#39;</span><span class="p">,</span>
+    <span class="s">&#39;O&#39;</span><span class="p">:</span> <span class="s">&#39;---&#39;</span><span class="p">,</span> <span class="s">&#39;P&#39;</span><span class="p">:</span> <span class="s">&#39;.--.&#39;</span><span class="p">,</span> <span class="s">&#39;Q&#39;</span><span class="p">:</span> <span class="s">&#39;--.-&#39;</span><span class="p">,</span> <span class="s">&#39;R&#39;</span><span class="p">:</span> <span class="s">&#39;.-.&#39;</span><span class="p">,</span> <span class="s">&#39;S&#39;</span><span class="p">:</span> <span class="s">&#39;...&#39;</span><span class="p">,</span> <span class="s">&#39;T&#39;</span><span class="p">:</span> <span class="s">&#39;-&#39;</span><span class="p">,</span> <span class="s">&#39;U&#39;</span><span class="p">:</span> <span class="s">&#39;..-&#39;</span><span class="p">,</span>
+    <span class="s">&#39;V&#39;</span><span class="p">:</span> <span class="s">&#39;...-&#39;</span><span class="p">,</span> <span class="s">&#39;W&#39;</span><span class="p">:</span> <span class="s">&#39;.--&#39;</span><span class="p">,</span> <span class="s">&#39;X&#39;</span><span class="p">:</span> <span class="s">&#39;-..-&#39;</span><span class="p">,</span> <span class="s">&#39;Y&#39;</span><span class="p">:</span> <span class="s">&#39;-.--&#39;</span><span class="p">,</span> <span class="s">&#39;Z&#39;</span><span class="p">:</span> <span class="s">&#39;--..&#39;</span><span class="p">,</span>
+
+    <span class="s">&#39;1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;.----&#39;</span><span class="p">,</span> <span class="s">&#39;.-&#39;</span><span class="p">],</span> <span class="s">&#39;2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;..---&#39;</span><span class="p">,</span> <span class="s">&#39;..-&#39;</span><span class="p">],</span> <span class="s">&#39;3&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;...--&#39;</span><span class="p">,</span> <span class="s">&#39;...-&#39;</span><span class="p">],</span> <span class="s">&#39;4&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;....-&#39;</span><span class="p">,</span> <span class="s">&#39;....-&#39;</span><span class="p">],</span> <span class="s">&#39;5&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;.....&#39;</span><span class="p">,</span> <span class="s">&#39;.&#39;</span><span class="p">],</span>
+    <span class="s">&#39;6&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;-....&#39;</span><span class="p">,</span> <span class="s">&#39;-....&#39;</span><span class="p">],</span> <span class="s">&#39;7&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;--...&#39;</span><span class="p">,</span> <span class="s">&#39;-...&#39;</span><span class="p">],</span> <span class="s">&#39;8&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;---..&#39;</span><span class="p">,</span> <span class="s">&#39;-..&#39;</span><span class="p">],</span> <span class="s">&#39;9 ...</span></pre></div> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html">read more...</a></div>
+      <hr />
       <div class="front-title"><a href="http://blog.turbidsoul.me/posts/jekyllmo-ban-de-zhong-wen-wen-ti.html">jekyll模版的中文问题</a></div>
 <p>
 <small>
@@ -84,10 +109,10 @@
 </small>
 </p>      <p>这是一个很简单的问题，我最近在研究jdk8，使用sublime自定义的编译方式运行，是编译运行的结果显示到sublime控制台上，但是这里如果运行的话会提示 <em>Decode error</em> 虽然没有太大的影响但是看着总是很难受，而且有时候也不太方便，所以就自己找出问题解决掉。</p>
 <p>解决的方式很简单，按 <strong>ctrl+shift+f</strong> 进入高级搜索，在 <strong>find</strong> 中填入 <em>Decode error</em> 在 <strong>where</strong> 中填入sublime的插件目录和要所搜的文件类型，如下：<code>D:\SublimeText\Data\Packages,*.py</code> 因为我们能确定到要搜索的东西在python的代码文件中，所以这里直接搜索 *<em>.py</em> 文件即可，等上几秒中就能看到搜索结果，结果如下：</p>
-<div class="highlight"><pre><span class="n">Searching</span> <span class="mi">8509</span> <span class="n">files</span> <span class="k">for</span> <span class="s">&quot;Decode error&quot;</span>
+<div class="highlight"><pre>Searching 8509 files for &quot;Decode error&quot;
 
-<span class="nl">D:</span><span class="err">\</span><span class="n">SublimeText</span><span class="err">\</span><span class="n">Data</span><span class="err">\</span><span class="n">Packages</span><span class="err">\</span><span class="n">Default</span><span class="err">\</span><span class="n">exec</span><span class="p">.</span><span class="n">py</span><span class="o">:</span>
-  <span class="mi">181 ...</span></pre></div> 
+D:\SublimeText\Data\Packages\Default\exec.py:
+  181 ...</pre></div> 
       <div class="read-more"><a href="http://blog.turbidsoul.me/posts/sublimezhi-xing-windowsming-ling-shi-wu-fa-shu-chu-zhong-wen-wen-ti.html">read more...</a></div>
       <hr />
       <div class="front-title"><a href="http://blog.turbidsoul.me/posts/jdk8xin-te-xing-calendarbuilder.html">JDK8新特性 Calendar.Builder</a></div>
@@ -256,33 +281,6 @@
 <p>生成证书后，就可以配置nginx了，打开nginx.conf，加入以下几行:</p>
 <div class="highlight"><pre><span class="k">listen</span>                 <span class="mi">443 ...</span></pre></div> 
       <div class="read-more"><a href="http://blog.turbidsoul.me/posts/ru-he-pei-zhi-zai-nginxhe-casshang-pei-zhi-ssl.html">read more...</a></div>
-      <hr />
-      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/fnshi-xian-wu-xian-ji-suan-deng-bi-ji-shu.html">fn实现无限计算等比级数</a></div>
-<p>
-<small>
-<abbr class="published" title="2013-04-28">
-  2013年 四月 28日 周日
-</abbr> | 
-  tags: 
-    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
-    <a href="http://blog.turbidsoul.me/tag/arithmetic.html">arithmetic</a>, 
-    <a href="http://blog.turbidsoul.me/tag/functional.html">functional</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/fnshi-xian-wu-xian-ji-suan-deng-bi-ji-shu.html" rel="bookmark">permalink</a>)
-</small>
-</p>      <p>今天看InfoQ上的一篇关于 <a href="http://www.infoq.com/cn/articles/fn.py-functional-programming-python">Fn.py</a> 的文章，Fn中的Stream可以实现无限序列，例如文章中的代码：</p>
-<div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="n">Stream</span><span class="p">()</span>
-<span class="n">fib</span> <span class="o">=</span> <span class="n">f</span> <span class="o">&lt;&lt;</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">drop</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">f</span><span class="p">))</span>
-</pre></div>
-
-
-<p>这是实现了一个无限的斐波那契数列，我根据这个实现了一个等比级数，等比级数的公式是f = b^(n-1), b是基数，n=1 f=1, n&gt;=2 f=b^(n-1)。</p>
-<p>我实现的方法使用了生成器：</p>
-<div class="highlight"><pre><span class="k">def</span> <span class="nf">geo_sequence</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="mi">2</span>
-    <span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">yield</span> <span class="n">b</span> <span class="o">**</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="n">n ...</span></pre></div> 
-      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/fnshi-xian-wu-xian-ji-suan-deng-bi-ji-shu.html">read more...</a></div>
       <hr />
 
 <span class="paginator">

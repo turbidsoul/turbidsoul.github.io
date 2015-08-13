@@ -163,35 +163,35 @@
         <span class="n">Object</span> <span class="n">username</span> <span class="o">=</span> <span class="n">token</span><span class="o">.</span><span class="na">getPrincipal</span><span class="o">();</span>
 
         <span class="k">if</span><span class="o">(</span><span class="n">username</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">throw</span> <span class="k">new</span> <span class="nf">AccountException</span><span class="o">(</span><span class="s">&quot;Null usernames are not allowed by this realm.&quot;</span><span class="o">);</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">AccountException</span><span class="o">(</span><span class="s">&quot;Null usernames are not allowed by this realm.&quot;</span><span class="o">);</span>
         <span class="o">}</span>
 
         <span class="n">Object</span> <span class="n">password</span> <span class="o">=</span> <span class="n">token</span><span class="o">.</span><span class="na">getCredentials</span><span class="o">();</span>
 
         <span class="k">if</span><span class="o">(</span><span class="n">password</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">throw</span> <span class="k">new</span> <span class="nf">AccountException</span><span class="o">(</span><span class="s">&quot;Null password are not allowed by this realm.&quot;</span><span class="o">);</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">AccountException</span><span class="o">(</span><span class="s">&quot;Null password are not allowed by this realm.&quot;</span><span class="o">);</span>
         <span class="o">}</span>
 
         <span class="n">User</span> <span class="n">curuser</span> <span class="o">=</span> <span class="n">userDao</span><span class="o">.</span><span class="na">findUniq</span><span class="o">(</span><span class="s">&quot;loginName&quot;</span><span class="o">,</span> <span class="n">username</span><span class="o">);</span>
 
         <span class="k">if</span><span class="o">(</span><span class="n">curuser</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">throw</span> <span class="k">new</span> <span class="nf">AccountException</span><span class="o">(</span><span class="s">&quot;Can&#39;t not find user[&quot;</span> <span class="o">+</span> <span class="n">username</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot;] in system.&quot;</span> <span class="o">);</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">AccountException</span><span class="o">(</span><span class="s">&quot;Can&#39;t not find user[&quot;</span> <span class="o">+</span> <span class="n">username</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot;] in system.&quot;</span> <span class="o">);</span>
         <span class="o">}</span>
 
         <span class="k">if</span><span class="o">(</span><span class="n">StringUtils</span><span class="o">.</span><span class="na">isBlank</span><span class="o">(</span><span class="n">curuser</span><span class="o">.</span><span class="na">getDn</span><span class="o">()))</span> <span class="o">{</span>
-            <span class="k">throw</span> <span class="k">new</span> <span class="nf">AccountException</span><span class="o">(</span><span class="s">&quot;This user[&quot;</span> <span class="o">+</span> <span class="n">username</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot;] has not ldap server.&quot;</span> <span class="o">);</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">AccountException</span><span class="o">(</span><span class="s">&quot;This user[&quot;</span> <span class="o">+</span> <span class="n">username</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot;] has not ldap server.&quot;</span> <span class="o">);</span>
         <span class="o">}</span>
 
         <span class="n">LdapContext</span> <span class="n">ctx</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
         <span class="k">try</span> <span class="o">{</span>
             <span class="n">ctx</span> <span class="o">=</span> <span class="n">ldapContextFactory</span><span class="o">.</span><span class="na">getLdapContext</span><span class="o">(</span><span class="n">curuser</span><span class="o">.</span><span class="na">getDn</span><span class="o">(),</span> <span class="n">password</span><span class="o">);</span>
         <span class="o">}</span> <span class="k">catch</span><span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">throw</span> <span class="k">new</span> <span class="nf">AccountException</span><span class="o">(</span><span class="s">&quot;Ldap auth failure!&quot;</span><span class="o">);</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">AccountException</span><span class="o">(</span><span class="s">&quot;Ldap auth failure!&quot;</span><span class="o">);</span>
         <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
             <span class="n">LdapUtils</span><span class="o">.</span><span class="na">closeContext</span><span class="o">(</span><span class="n">ctx</span><span class="o">);</span>
         <span class="o">}</span>
 
-        <span class="k">return</span> <span class="nf">createAuthenticationInfo</span><span class="o">(</span><span class="n">token</span><span class="o">,</span> <span class="n">username</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span> <span class="n">ctx</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">createAuthenticationInfo</span><span class="o">(</span><span class="n">token</span><span class="o">,</span> <span class="n">username</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span> <span class="n">ctx</span><span class="o">);</span>
     <span class="o">}</span>
 
 
@@ -200,7 +200,7 @@
         <span class="k">try</span> <span class="o">{</span>
             <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">queryForAuthenticationInfo</span><span class="o">(</span><span class="n">token</span><span class="o">,</span> <span class="n">getContextFactory</span><span class="o">());</span>
         <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">NamingException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-            <span class="k">throw</span> <span class="k">new</span> <span class="nf">AccountException</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">AccountException</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
         <span class="o">}</span>
     <span class="o">}</span>
 <span class="o">}</span>

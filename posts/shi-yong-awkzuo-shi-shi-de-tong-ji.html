@@ -65,7 +65,7 @@
 <p>这三篇文章是前置的知识，有必要简单的看一下，最开始我觉得awk有点麻烦，写了一些之后我发现他和<code>lua</code>一样的简单。</p>
 <h2>代码分析</h2>
 <p>我们的要求是，分别统计出 <em>thread</em>, <em>resource</em>, <em>video</em>, _article_中，没一个的点击量</p>
-<div class="highlight"><pre><span class="nx">BEGIN</span> <span class="p">{</span>
+<div class="highlight"><pre><span class="nb">BEGIN</span> <span class="p">{</span>
     <span class="nb">FS</span><span class="o">=</span><span class="s2">&quot;,;&quot;</span> <span class="c1"># 我的日志中的分隔符是 `,;` 所以这里要给`FS` 指定一下，因为默认值是`Tab` 或者 `Space`</span>
     <span class="nx">resource</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="nx">article</span> <span class="o">=</span> <span class="mi">0</span>
@@ -78,7 +78,7 @@
     <span class="c1"># url的格式是 http://bbs.xxxxxxx.com/thread-nnnnnnn.html 这里的n就是对应模块的id</span>
     <span class="kr">split</span><span class="p">(</span><span class="o">$</span><span class="mi">3</span><span class="p">,</span> <span class="nx">urls</span><span class="p">,</span> <span class="s2">&quot;=&quot;</span><span class="p">)</span> <span class="c1"># $3就是取出第三个变量，第三个变量就是我们的url，这里通过if条件配置各个模块，然后对模块进行+1</span>
     <span class="nx">url</span> <span class="o">=</span> <span class="nx">urls</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-    <span class="k">if</span><span class="p">(</span><span class="o">in</span><span class="nx">dex</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="s2">&quot;http://bbs.xxxxxxx.com/thread-&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="kr">index</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="s2">&quot;http://bbs.xxxxxxx.com/thread-&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">thread</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="nx">count</span> <span class="o">+=</span> <span class="mi">1</span>
 
@@ -87,21 +87,21 @@
         <span class="kr">split</span><span class="p">(</span><span class="nx">ids</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="nx">ids2</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
         <span class="nx">thread_m</span><span class="p">[</span><span class="nx">ids2</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="p">}</span>
-    <span class="nx">else</span> <span class="k">if</span><span class="p">(</span><span class="o">in</span><span class="nx">dex</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="s2">&quot;http://bbs.xxxxxxx.com/resource-&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">){</span>
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="kr">index</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="s2">&quot;http://bbs.xxxxxxx.com/resource-&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">){</span>
         <span class="nx">resource</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="nx">count</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="kr">split</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">ids</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">)</span>
         <span class="kr">split</span><span class="p">(</span><span class="nx">ids</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="nx">ids2</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
         <span class="nx">resource_m</span><span class="p">[</span><span class="nx">ids2</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="p">}</span>
-    <span class="nx">else</span> <span class="k">if</span><span class="p">(</span><span class="o">in</span><span class="nx">dex</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="s2">&quot;http://bbs.xxxxxxx.com/video-&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">){</span>
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="kr">index</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="s2">&quot;http://bbs.xxxxxxx.com/video-&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">){</span>
         <span class="nx">video</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="nx">count</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="kr">split</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">ids</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">)</span>
         <span class="kr">split</span><span class="p">(</span><span class="nx">ids</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="nx">ids2</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">)</span>
         <span class="nx">video_m</span><span class="p">[</span><span class="nx">ids2</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="p">}</span>
-    <span class="nx">else</span> <span class="k">if</span><span class="p">(</span><span class="o">in</span><span class="nx">dex</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="s2">&quot;http://bbs.xxxxxxx.com/article-&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">){</span>
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="kr">index</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="s2">&quot;http://bbs.xxxxxxx.com/article-&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">){</span>
         <span class="nx">article</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="nx">count</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="kr">split</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">ids</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">)</span>
@@ -110,7 +110,7 @@
     <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="nx">END</span> <span class="p">{</span>
+<span class="nb">END</span> <span class="p">{</span>
     <span class="kr">print</span> <span class="s2">&quot;resource:&quot;</span><span class="p">,</span> <span class="nx">resource</span>
     <span class="k">for</span><span class="p">(</span><span class="nx">k</span> <span class="o">in</span> <span class="nx">resource_m</span><span class="p">)</span> <span class="p">{</span>
         <span class="kr">print</span> <span class="nx">k</span><span class="s2">&quot;:&quot;</span><span class="nx">resource_m</span><span class="p">[</span><span class="nx">k</span><span class="p">]</span>

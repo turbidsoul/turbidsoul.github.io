@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
+
 import os
+
 curdir = os.path.dirname(__file__)
 
 AUTHOR = u'Turbidsoul'

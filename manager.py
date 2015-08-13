@@ -3,7 +3,7 @@
 # @Author: Administrator
 # @Date:   2014-07-13 11:33:28
 # @Last Modified 2014-10-26
-# @Last Modified time: 2015-08-13 23:03:10
+# @Last Modified time: 2015-08-13 23:25:06
 
 import os
 
@@ -57,8 +57,7 @@ def post(title, tags, category, slug, authors, summary, ext):
 
     This post file contains title, tags, category, authors, slug, summary
     '''
-    post_dir = os.path.join(pelicanconf.curdir, pelicanconf.INPUT_DIR, 
-                            pelicanconf.ARTICLE_DIR)
+    post_dir = os.path.join(pelicanconf.curdir, pelicanconf.ARTICLE_PATHS[0])
     post_name = date.today().strftime(pelicanconf.SLUG_DATE_FOTMAT) + "-" +\
                 pyslug(jieba.cut(title), errors='ignore') + '.' + ext
     post_path = os.path.join(post_dir, post_name)
@@ -68,14 +67,14 @@ def post(title, tags, category, slug, authors, summary, ext):
     template = md_template
     date_line = date.today().strftime('%Y-%m-%d')
     meta = {
-        "Title": str(title),
-        "Tags": ", ".join(tags),
-        "Category": category if category else '',
-        "Slug": slug if slug else os.path.splitext(post_name)[0] + '.html',
-        "Authors": ", ".join(authors),
-        "Summary": summary if summary else "",
-        "Create_date": date_line,
-        "Modified_date": date_line,
+        "title": str(title),
+        "tags": ", ".join(tags),
+        "category": category if category else '',
+        "slug": slug if slug else os.path.splitext(post_name)[0] + '.html',
+        "authors": ", ".join(authors),
+        "summary": summary if summary else "",
+        "create_date": date_line,
+        "modified_date": date_line,
     }
     if ext == 'rst':
         template = rst_template
@@ -83,8 +82,8 @@ def post(title, tags, category, slug, authors, summary, ext):
 
     secho('Create [%s] post:' % ext, fg='cyan')
     secho("\n".join(["  " + k + ":" + (v if v else '') for k, v in meta.items()]), fg='cyan')
-
-    with open(post_path, 'w') as post_file:
+    print(meta)
+    with open(post_path, 'w', encoding='utf8') as post_file:
         post_file.write(template.format(**meta))
     secho('Create post [%s] success!' % post_name, fg='green')
 

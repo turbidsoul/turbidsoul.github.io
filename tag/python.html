@@ -40,6 +40,22 @@
 
       </header>
       <section>
+      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/2015-08-13-Bottle-shi-xian-https-fu-wu-duan.html.html">Bottle实现https服务端</a></div>
+<p>
+<small>
+<abbr class="published" title="2015-08-13">
+  2015年 八月 13日 周四
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
+    <a href="http://blog.turbidsoul.me/tag/ssl.html">ssl</a>, 
+    <a href="http://blog.turbidsoul.me/tag/https.html">https</a>, 
+    <a href="http://blog.turbidsoul.me/tag/bottle.html">bottle</a>, 
+ -- (<a href="http://blog.turbidsoul.me/posts/2015-08-13-Bottle-shi-xian-https-fu-wu-duan.html.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>最近在研究<strong>OAuth2</strong>，在回调的时候需要一个<code>https</code>，因为就是一个简单的demo所以懒的去编译配置nginx，就用bottle服务端使用Python些了一个简单的SSL服务。</p> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/2015-08-13-Bottle-shi-xian-https-fu-wu-duan.html.html">read more...</a></div>
+      <hr />
       <div class="front-title"><a href="http://blog.turbidsoul.me/posts/2014-10-26-shi-pin-luan-xu-jia-mi.html.html">视频乱序加密</a></div>
 <p>
 <small>
@@ -191,36 +207,6 @@
     <span class="n">l</span><span class="o">.</span><span class="n">simple_bind_s</span><span class="p">(</span><span class="n">ldap_who</span><span class="p">,</span> <span class="n">ldap_cred</span><span class="p">)</span>
     <span class="n">result_id</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">ldap_baseondn ...</span></pre></div> 
       <div class="read-more"><a href="http://blog.turbidsoul.me/posts/pythonshi-xian-ldaphe-rtxzhi-jian-de-zu-zhi-he-yong-hu-shu-ju-tong-bu.html">read more...</a></div>
-      <hr />
-      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/pythonshi-xian-ming-ling-xing-xia-zai-jin-du-tiao.html">python实现命令行下载进度条</a></div>
-<p>
-<small>
-<abbr class="published" title="2013-06-23">
-  2013年 六月 23日 周日
-</abbr> | 
-  tags: 
-    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
-    <a href="http://blog.turbidsoul.me/tag/cmd.html">cmd</a>, 
-    <a href="http://blog.turbidsoul.me/tag/ftp.html">ftp</a>, 
-    <a href="http://blog.turbidsoul.me/tag/progressbar.html">progressbar</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/pythonshi-xian-ming-ling-xing-xia-zai-jin-du-tiao.html" rel="bookmark">permalink</a>)
-</small>
-</p>      <p>这是昨晚下班之后同事问我的一个问题，不过当时已经7点，如果在不出公司就会赶不上最后一趟公交车，所以就给同事说回家研究研究礼拜一给他答案，昨晚无事就看了一下。</p>
-<h4>需要用到的模块</h4>
-<ul>
-<li>使用 <strong>pip</strong> 安装progressbar <code>pip install progressbar</code></li>
-<li>这里我是从ftp上下载一个或者多个文件，所以我们要用到 <strong>ftplib</strong>。这是python的标准模块，在代码前导入即可</li>
-<li>我在最后要把代码编译成exe文件所以要用 <strong>py2exe</strong> <code>pip install py2exe</code></li>
-</ul>
-<h4>原理</h4>
-<p>我们先来看一下progressbar的是原理，如下代码：</p>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">time</span>
-
-<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">51</span><span class="p">):</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;Computing: [</span><span class="si">%s%s</span><span class="s">] </span><span class="si">%i%%</span><span class="se">\r</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="s">&#39;#&#39;</span> <span class="o">*</span> <span class="n">x</span> <span class="p">,</span> <span class="s">&#39;-&#39;</span> <span class="o">*</span> <span class="p">(</span><span class="mi">50</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="p">,</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">))</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">stdout ...</span></pre></div> 
-      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/pythonshi-xian-ming-ling-xing-xia-zai-jin-du-tiao.html">read more...</a></div>
       <hr />
 
 <span class="paginator">

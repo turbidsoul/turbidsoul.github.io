@@ -7,14 +7,14 @@
 &lt;ul&gt;
 &lt;li&gt;是所有的post文件的头需要变化，如下：&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;---&lt;/span&gt;
-&lt;span class="nl"&gt;layout:&lt;/span&gt; &lt;span class="n"&gt;news_item&lt;/span&gt;
-&lt;span class="nl"&gt;title:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Jekyll 1.0.0 Released&amp;quot;&lt;/span&gt;
-&lt;span class="nl"&gt;date:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;2013-05-06 02:12:52 +0200&amp;quot;&lt;/span&gt;
-&lt;span class="nl"&gt;author:&lt;/span&gt; &lt;span class="n"&gt;parkr&lt;/span&gt;
-&lt;span class="nl"&gt;version:&lt;/span&gt; &lt;span class="mf"&gt;1.0.0&lt;/span&gt;
-&lt;span class="nl"&gt;categories:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;release&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;span class="o"&gt;---&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;---
+layout: news_item
+title: &amp;quot;Jekyll 1.0.0 Released&amp;quot;
+date: &amp;quot;2013-05-06 02:12:52 +0200&amp;quot;
+author: parkr
+version: 1.0.0
+categories: [release]
+---
 &lt;/pre&gt;&lt;/div&gt;
 
 

@@ -86,37 +86,37 @@
 <p>这就是bottle的代码，很简单，if部分的代码就是普通的main方法运行,而else部分的代码就是我们要和uwsgi对接的代码，这样写就可以了</p>
 <h4>uWSGI</h4>
 <p>我们先来看看http的运行方式，在终端输入<code>uwsgi --http 192.168.56.101:9000 --wsgi-file app.py</code>,如果能看到下面的输出就算是运行成功了：</p>
-<div class="highlight"><pre><span class="o">***</span> <span class="n">Starting</span> <span class="n">uWSGI</span> <span class="mf">1.9.19</span> <span class="p">(</span><span class="mi">32</span><span class="n">bit</span><span class="p">)</span> <span class="n">on</span> <span class="p">[</span><span class="n">Tue</span> <span class="n">Nov</span> <span class="mi">19</span> <span class="mi">23</span><span class="o">:</span><span class="mi">55</span><span class="o">:</span><span class="mo">07</span> <span class="mi">2013</span><span class="p">]</span> <span class="o">***</span>
-<span class="n">compiled</span> <span class="n">with</span> <span class="n">version</span><span class="o">:</span> <span class="mf">4.8.2</span> <span class="n">on</span> <span class="mi">14</span> <span class="n">November</span> <span class="mi">2013</span> <span class="mo">00</span><span class="o">:</span><span class="mi">18</span><span class="o">:</span><span class="mi">09</span>
-<span class="nl">os:</span> <span class="n">Linux</span><span class="o">-</span><span class="mf">3.11.6</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">ARCH</span> <span class="err">#</span><span class="mi">1</span> <span class="n">SMP</span> <span class="n">PREEMPT</span> <span class="n">Sat</span> <span class="n">Oct</span> <span class="mi">19</span> <span class="mo">00</span><span class="o">:</span><span class="mi">29</span><span class="o">:</span><span class="mi">46</span> <span class="n">CEST</span> <span class="mi">2013</span>
-<span class="nl">nodename:</span> <span class="n">localhost</span>
-<span class="nl">machine:</span> <span class="n">i686</span>
-<span class="n">clock</span> <span class="n">source</span><span class="o">:</span> <span class="n">unix</span>
-<span class="n">pcre</span> <span class="n">jit</span> <span class="n">disabled</span>
-<span class="n">detected</span> <span class="n">number</span> <span class="n">of</span> <span class="n">CPU</span> <span class="n">cores</span><span class="o">:</span> <span class="mi">1</span>
-<span class="n">current</span> <span class="n">working</span> <span class="n">directory</span><span class="o">:</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">openresty</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">app</span>
-<span class="n">detected</span> <span class="n">binary</span> <span class="n">path</span><span class="o">:</span> <span class="o">/</span><span class="n">root</span><span class="o">/</span><span class="p">.</span><span class="n">pythonbrew</span><span class="o">/</span><span class="n">pythons</span><span class="o">/</span><span class="n">Python</span><span class="o">-</span><span class="mf">2.7.5</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">uwsgi</span>
-<span class="n">uWSGI</span> <span class="n">running</span> <span class="n">as</span> <span class="n">root</span><span class="p">,</span> <span class="n">you</span> <span class="n">can</span> <span class="n">use</span> <span class="o">--</span><span class="n">uid</span><span class="o">/--</span><span class="n">gid</span><span class="o">/--</span><span class="n">chroot</span> <span class="n">options</span>
-<span class="o">***</span> <span class="n">WARNING</span><span class="o">:</span> <span class="n">you</span> <span class="n">are</span> <span class="n">running</span> <span class="n">uWSGI</span> <span class="n">as</span> <span class="n">root</span> <span class="o">!!!</span> <span class="p">(</span><span class="n">use</span> <span class="n">the</span> <span class="o">--</span><span class="n">uid</span> <span class="n">flag</span><span class="p">)</span> <span class="o">***</span>
-<span class="o">***</span> <span class="n">WARNING</span><span class="o">:</span> <span class="n">you</span> <span class="n">are</span> <span class="n">running</span> <span class="n">uWSGI</span> <span class="n">without</span> <span class="n">its</span> <span class="n">master</span> <span class="n">process</span> <span class="n">manager</span> <span class="o">***</span>
-<span class="n">your</span> <span class="n">processes</span> <span class="n">number</span> <span class="n">limit</span> <span class="n">is</span> <span class="mi">3965</span>
-<span class="n">your</span> <span class="n">memory</span> <span class="n">page</span> <span class="n">size</span> <span class="n">is</span> <span class="mi">4096</span> <span class="n">bytes</span>
-<span class="n">detected</span> <span class="n">max</span> <span class="n">file</span> <span class="n">descriptor</span> <span class="n">number</span><span class="o">:</span> <span class="mi">1024</span>
-<span class="n">lock</span> <span class="n">engine</span><span class="o">:</span> <span class="n">pthread</span> <span class="n">robust</span> <span class="n">mutexes</span>
-<span class="n">thunder</span> <span class="n">lock</span><span class="o">:</span> <span class="n">disabled</span> <span class="p">(</span><span class="n">you</span> <span class="n">can</span> <span class="n">enable</span> <span class="n">it</span> <span class="n">with</span> <span class="o">--</span><span class="n">thunder</span><span class="o">-</span><span class="n">lock</span><span class="p">)</span>
-<span class="n">uWSGI</span> <span class="n">http</span> <span class="n">bound</span> <span class="n">on</span> <span class="mf">192.168.56.101</span><span class="o">:</span><span class="mi">9000</span> <span class="n">fd</span> <span class="mi">4</span>
-<span class="n">spawned</span> <span class="n">uWSGI</span> <span class="n">http</span> <span class="mi">1</span> <span class="p">(</span><span class="n">pid</span><span class="o">:</span> <span class="mi">6504</span><span class="p">)</span>
-<span class="n">uwsgi</span> <span class="n">socket</span> <span class="mi">0</span> <span class="n">bound</span> <span class="n">to</span> <span class="n">TCP</span> <span class="n">address</span> <span class="mf">127.0.0.1</span><span class="o">:</span><span class="mi">56423</span> <span class="p">(</span><span class="n">port</span> <span class="k">auto</span><span class="o">-</span><span class="n">assigned</span><span class="p">)</span> <span class="n">fd</span> <span class="mi">3</span>
-<span class="n">Python</span> <span class="n">version</span><span class="o">:</span> <span class="mf">2.7.5</span> <span class="p">(</span><span class="k">default</span><span class="p">,</span> <span class="n">Nov</span> <span class="mi">13</span> <span class="mi">2013</span><span class="p">,</span> <span class="mi">23</span><span class="o">:</span><span class="mi">45</span><span class="o">:</span><span class="mi">52</span><span class="p">)</span>  <span class="p">[</span><span class="n">GCC</span> <span class="mf">4.8.2</span><span class="p">]</span>
-<span class="o">***</span> <span class="n">Python</span> <span class="n">threads</span> <span class="n">support</span> <span class="n">is</span> <span class="n">disabled</span><span class="p">.</span> <span class="n">You</span> <span class="n">can</span> <span class="n">enable</span> <span class="n">it</span> <span class="n">with</span> <span class="o">--</span><span class="n">enable</span><span class="o">-</span><span class="n">threads</span> <span class="o">***</span>
-<span class="n">Python</span> <span class="n">main</span> <span class="n">interpreter</span> <span class="n">initialized</span> <span class="n">at</span> <span class="mh">0x94ab820</span>
-<span class="n">your</span> <span class="n">server</span> <span class="n">socket</span> <span class="n">listen</span> <span class="n">backlog</span> <span class="n">is</span> <span class="n">limited</span> <span class="n">to</span> <span class="mi">100</span> <span class="n">connections</span>
-<span class="n">your</span> <span class="n">mercy</span> <span class="k">for</span> <span class="n">graceful</span> <span class="n">operations</span> <span class="n">on</span> <span class="n">workers</span> <span class="n">is</span> <span class="mi">60</span> <span class="n">seconds</span>
-<span class="n">mapped</span> <span class="mi">64024</span> <span class="n">bytes</span> <span class="p">(</span><span class="mi">62</span> <span class="n">KB</span><span class="p">)</span> <span class="k">for</span> <span class="mi">1</span> <span class="n">cores</span>
-<span class="o">***</span> <span class="n">Operational</span> <span class="n">MODE</span><span class="o">:</span> <span class="n">single</span> <span class="n">process</span> <span class="o">***</span>
-<span class="n">WSGI</span> <span class="n">app</span> <span class="mi">0</span> <span class="p">(</span><span class="n">mountpoint</span><span class="o">=</span><span class="err">&#39;&#39;</span><span class="p">)</span> <span class="n">ready</span> <span class="n">in</span> <span class="mi">0</span> <span class="n">seconds</span> <span class="n">on</span> <span class="n">interpreter</span> <span class="mh">0x94ab820</span> <span class="n">pid</span><span class="o">:</span> <span class="mi">6503</span> <span class="p">(</span><span class="k">default</span> <span class="n">app</span><span class="p">)</span>
-<span class="o">***</span> <span class="n">uWSGI</span> <span class="n">is</span> <span class="n">running</span> <span class="n">in</span> <span class="n">multiple</span> <span class="n">interpreter</span> <span class="n">mode</span> <span class="o">***</span>
-<span class="n">spawned</span> <span class="n">uWSGI</span> <span class="n">worker</span> <span class="mi">1</span> <span class="p">(</span><span class="n">and</span> <span class="n">the</span> <span class="n">only</span><span class="p">)</span> <span class="p">(</span><span class="n">pid</span><span class="o">:</span> <span class="mi">6503</span><span class="p">,</span> <span class="n">cores</span><span class="o">:</span> <span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><pre>*** Starting uWSGI 1.9.19 (32bit) on [Tue Nov 19 23:55:07 2013] ***
+compiled with version: 4.8.2 on 14 November 2013 00:18:09
+os: Linux-3.11.6-1-ARCH #1 SMP PREEMPT Sat Oct 19 00:29:46 CEST 2013
+nodename: localhost
+machine: i686
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 1
+current working directory: /opt/openresty/nginx/app
+detected binary path: /root/.pythonbrew/pythons/Python-2.7.5/bin/uwsgi
+uWSGI running as root, you can use --uid/--gid/--chroot options
+*** WARNING: you are running uWSGI as root !!! (use the --uid flag) ***
+*** WARNING: you are running uWSGI without its master process manager ***
+your processes number limit is 3965
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 192.168.56.101:9000 fd 4
+spawned uWSGI http 1 (pid: 6504)
+uwsgi socket 0 bound to TCP address 127.0.0.1:56423 (port auto-assigned) fd 3
+Python version: 2.7.5 (default, Nov 13 2013, 23:45:52)  [GCC 4.8.2]
+*** Python threads support is disabled. You can enable it with --enable-threads ***
+Python main interpreter initialized at 0x94ab820
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 64024 bytes (62 KB) for 1 cores
+*** Operational MODE: single process ***
+WSGI app 0 (mountpoint=&#39;&#39;) ready in 0 seconds on interpreter 0x94ab820 pid: 6503 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI worker 1 (and the only) (pid: 6503, cores: 1)
 </pre></div>
 
 
@@ -153,7 +153,7 @@
 
 <p>重载nginx之后，看看是不是和上面说的的几种方式一样</p>
 <p>不过在这里需要注意的就是如果是使用的socket文件，那么文件的路径就需要注意，不能是随便什么路径，如果是随便的一个路径的话，可能会有下面的错误：</p>
-<div class="highlight"><pre><span class="mi">2013</span><span class="o">/</span><span class="mi">11</span><span class="o">/</span><span class="mi">21</span> <span class="mi">23</span><span class="o">:</span><span class="mi">17</span><span class="o">:</span><span class="mi">59</span> <span class="p">[</span><span class="n">error</span><span class="p">]</span> <span class="mi">552</span><span class="err">#</span><span class="mi">0</span><span class="o">:</span> <span class="o">*</span><span class="mi">13</span> <span class="n">connect</span><span class="p">()</span> <span class="n">to</span> <span class="n">unix</span><span class="o">:</span><span class="c1">///root/app.socket failed (111: Connection refused) while connecting to upstream, client: 192.168.56.1, server: xxxx.xxxxxx.com, request: &quot;GET / HTTP/1.1&quot;, upstream: &quot;uwsgi://unix:///root/app.socket:&quot;, host: &quot;xxxx.xxxxxx.com&quot;</span>
+<div class="highlight"><pre>2013/11/21 23:17:59 [error] 552#0: *13 connect() to unix:///root/app.socket failed (111: Connection refused) while connecting to upstream, client: 192.168.56.1, server: xxxx.xxxxxx.com, request: &quot;GET / HTTP/1.1&quot;, upstream: &quot;uwsgi://unix:///root/app.socket:&quot;, host: &quot;xxxx.xxxxxx.com&quot;
 </pre></div>
 
 

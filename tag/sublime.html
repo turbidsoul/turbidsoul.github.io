@@ -78,10 +78,10 @@
 </small>
 </p>      <p>这是一个很简单的问题，我最近在研究jdk8，使用sublime自定义的编译方式运行，是编译运行的结果显示到sublime控制台上，但是这里如果运行的话会提示 <em>Decode error</em> 虽然没有太大的影响但是看着总是很难受，而且有时候也不太方便，所以就自己找出问题解决掉。</p>
 <p>解决的方式很简单，按 <strong>ctrl+shift+f</strong> 进入高级搜索，在 <strong>find</strong> 中填入 <em>Decode error</em> 在 <strong>where</strong> 中填入sublime的插件目录和要所搜的文件类型，如下：<code>D:\SublimeText\Data\Packages,*.py</code> 因为我们能确定到要搜索的东西在python的代码文件中，所以这里直接搜索 *<em>.py</em> 文件即可，等上几秒中就能看到搜索结果，结果如下：</p>
-<div class="highlight"><pre><span class="n">Searching</span> <span class="mi">8509</span> <span class="n">files</span> <span class="k">for</span> <span class="s">&quot;Decode error&quot;</span>
+<div class="highlight"><pre>Searching 8509 files for &quot;Decode error&quot;
 
-<span class="nl">D:</span><span class="err">\</span><span class="n">SublimeText</span><span class="err">\</span><span class="n">Data</span><span class="err">\</span><span class="n">Packages</span><span class="err">\</span><span class="n">Default</span><span class="err">\</span><span class="n">exec</span><span class="p">.</span><span class="n">py</span><span class="o">:</span>
-  <span class="mi">181 ...</span></pre></div> 
+D:\SublimeText\Data\Packages\Default\exec.py:
+  181 ...</pre></div> 
       <div class="read-more"><a href="http://blog.turbidsoul.me/posts/sublimezhi-xing-windowsming-ling-shi-wu-fa-shu-chu-zhong-wen-wen-ti.html">read more...</a></div>
       <hr />
 

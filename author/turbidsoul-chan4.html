@@ -40,6 +40,25 @@
 
       </header>
       <section>
+      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/springpei-zhi-wen-jian-jia-zai-de-yi-wen-he-annotationjia-zai-de-wen-ti.html">Spring配置文件加载的疑问和annotation加载的问题</a></div>
+<p>
+<small>
+<abbr class="published" title="2012-02-24">
+  2012年 二月 24日 周五
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/tag/java.html">java</a>, 
+    <a href="http://blog.turbidsoul.me/tag/sprint.html">sprint</a>, 
+    <a href="http://blog.turbidsoul.me/tag/annotation.html">annotation</a>, 
+ -- (<a href="http://blog.turbidsoul.me/posts/springpei-zhi-wen-jian-jia-zai-de-yi-wen-he-annotationjia-zai-de-wen-ti.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>前几天在做一个异步的模块，简单点说就是上传文件后，后台异步解析，前台定时请求解析的日志，并显示，算是一个实时的给用户看到解析的情况和日志，很简单的一个工作，但是我却遇到了一个让我郁闷了2天的问题。</p>
+<p>问题的起因是在我做完所有工作后发现异步没有执行，也就是说文件的解析方法是同步运行的，也就是说先解析文件，解析完毕后在返回页面，页面才能请求到解析的日志，但是这会已经解析完了文件，没有达打到之前的需求。</p>
+<p>这 里先简单的说下Spring异步的用法，Spring异步的用法很简单，在需要异步的方法加上annotation  <code>@Async</code> 声明自方法是异步调用的，同时还要在方法所在类上加上annotation <code>@Service</code>或<code>@Component</code> 在Spring在加载的时候可以扫描到这个类，然后需要在配置文件中加入<code>&lt;task:annotation-driven /&gt;</code>，这样就可以在Spring启动的时候，将异步处理器加入全局中，并在调用到有@Async的时候，异步调用。</p>
+<p>上面简单说了下如何配置Spring异步，现在我说下我的问题，问题很简单就是配置类Spring 异步，并且确定配置正确，但是异步配置没有起效！问什么呢？我百思不得其解，没有办法，那就debug跟踪Spring的源代码。</p>
+<p>在 debug的了几次之后，见到那的了解了Spring配置文件加载的方式，很简单，先加载<code>application-context ...</code></p> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/springpei-zhi-wen-jian-jia-zai-de-yi-wen-he-annotationjia-zai-de-wen-ti.html">read more...</a></div>
+      <hr />
       <div class="front-title"><a href="http://blog.turbidsoul.me/posts/java8de-bi-bao-lambdayu-ju-xiao-tan.html">java8的闭包Lambda语句小探</a></div>
 <p>
 <small>

@@ -40,6 +40,36 @@
 
       </header>
       <section>
+      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/pythonshi-xian-ming-ling-xing-xia-zai-jin-du-tiao.html">python实现命令行下载进度条</a></div>
+<p>
+<small>
+<abbr class="published" title="2013-06-23">
+  2013年 六月 23日 周日
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
+    <a href="http://blog.turbidsoul.me/tag/cmd.html">cmd</a>, 
+    <a href="http://blog.turbidsoul.me/tag/ftp.html">ftp</a>, 
+    <a href="http://blog.turbidsoul.me/tag/progressbar.html">progressbar</a>, 
+ -- (<a href="http://blog.turbidsoul.me/posts/pythonshi-xian-ming-ling-xing-xia-zai-jin-du-tiao.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>这是昨晚下班之后同事问我的一个问题，不过当时已经7点，如果在不出公司就会赶不上最后一趟公交车，所以就给同事说回家研究研究礼拜一给他答案，昨晚无事就看了一下。</p>
+<h4>需要用到的模块</h4>
+<ul>
+<li>使用 <strong>pip</strong> 安装progressbar <code>pip install progressbar</code></li>
+<li>这里我是从ftp上下载一个或者多个文件，所以我们要用到 <strong>ftplib</strong>。这是python的标准模块，在代码前导入即可</li>
+<li>我在最后要把代码编译成exe文件所以要用 <strong>py2exe</strong> <code>pip install py2exe</code></li>
+</ul>
+<h4>原理</h4>
+<p>我们先来看一下progressbar的是原理，如下代码：</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">51</span><span class="p">):</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;Computing: [</span><span class="si">%s%s</span><span class="s">] </span><span class="si">%i%%</span><span class="se">\r</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="s">&#39;#&#39;</span> <span class="o">*</span> <span class="n">x</span> <span class="p">,</span> <span class="s">&#39;-&#39;</span> <span class="o">*</span> <span class="p">(</span><span class="mi">50</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="p">,</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">stdout ...</span></pre></div> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/pythonshi-xian-ming-ling-xing-xia-zai-jin-du-tiao.html">read more...</a></div>
+      <hr />
       <div class="front-title"><a href="http://blog.turbidsoul.me/posts/leibnizgong-shi-he-wallizgong-shi-gu-suan-pide-zhi.html">Leibniz公式和Walliz公式估算Pi的值</a></div>
 <p>
 <small>
@@ -144,10 +174,10 @@
 </small>
 </p>      <p>这是一个很简单的问题，我最近在研究jdk8，使用sublime自定义的编译方式运行，是编译运行的结果显示到sublime控制台上，但是这里如果运行的话会提示 <em>Decode error</em> 虽然没有太大的影响但是看着总是很难受，而且有时候也不太方便，所以就自己找出问题解决掉。</p>
 <p>解决的方式很简单，按 <strong>ctrl+shift+f</strong> 进入高级搜索，在 <strong>find</strong> 中填入 <em>Decode error</em> 在 <strong>where</strong> 中填入sublime的插件目录和要所搜的文件类型，如下：<code>D:\SublimeText\Data\Packages,*.py</code> 因为我们能确定到要搜索的东西在python的代码文件中，所以这里直接搜索 *<em>.py</em> 文件即可，等上几秒中就能看到搜索结果，结果如下：</p>
-<div class="highlight"><pre><span class="n">Searching</span> <span class="mi">8509</span> <span class="n">files</span> <span class="k">for</span> <span class="s">&quot;Decode error&quot;</span>
+<div class="highlight"><pre>Searching 8509 files for &quot;Decode error&quot;
 
-<span class="nl">D:</span><span class="err">\</span><span class="n">SublimeText</span><span class="err">\</span><span class="n">Data</span><span class="err">\</span><span class="n">Packages</span><span class="err">\</span><span class="n">Default</span><span class="err">\</span><span class="n">exec</span><span class="p">.</span><span class="n">py</span><span class="o">:</span>
-  <span class="mi">181 ...</span></pre></div> 
+D:\SublimeText\Data\Packages\Default\exec.py:
+  181 ...</pre></div> 
       <div class="read-more"><a href="http://blog.turbidsoul.me/posts/sublimezhi-xing-windowsming-ling-shi-wu-fa-shu-chu-zhong-wen-wen-ti.html">read more...</a></div>
       <hr />
       <div class="front-title"><a href="http://blog.turbidsoul.me/posts/misakapygmentsshi-xian-markdownsheng-cheng-htmlye-mian-bing-yu-fa-gao-liang.html">Misaka+pygments实现markdown生成html页面并语法高亮</a></div>
