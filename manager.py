@@ -3,12 +3,8 @@
 # @Author: Administrator
 # @Date:   2014-07-13 11:33:28
 # @Last Modified 2014-10-26
-# @Last Modified time: 2014-10-26 14:33:57
+# @Last Modified time: 2015-08-13 23:03:10
 
-import sys
-from imp import reload
-# reload(sys)
-# sys.setdefaultencoding('utf8')
 import os
 
 import click
@@ -17,7 +13,6 @@ import pelicanconf
 from pypinyin import slug as pyslug
 from datetime import date
 import jieba
-import chardet
 
 md_template = """Title: {title}
 Date: {create_date}
@@ -41,21 +36,6 @@ rst_template = """{title}
 :summary: {summary}
 
 """
-
-# def to_utf8(s):
-#     encode = chardet.detect(bytes(s, 'utf8'))['encoding']
-#     if encode=='utf8':
-#         return s
-#     else:
-#         return str(s, encoding='utf8')
-
-# def to_gbk(s):
-#     encode = chardet.detect(bytes(s, 'utf8'))['encoding']
-#     if encode in ['gbk', 'gb2312']:
-#         return s
-#     else:
-#         return str(s, 'utf8')
-
 
 @click.group(context_settings={'help_option_names':['-h', '--help']})
 def cli():
