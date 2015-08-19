@@ -65,7 +65,7 @@
 <h2 id="selenium">Selenium 入门</h2>
 <h4 id="_1">安装</h4>
 <p>我使用的是 Firefox Aurora 现在的版本就是ff26,这下面是正常的，我不知道在每日编译版下是否正常，虽然我机子上也安装了，但是并没有在起下面做个测试，不过应该是没有问题的。</p>
-<p>在 <a href="about:addons">about:addons</a> 或者 <a href="http://addons.mozilla.org/">http://addons.mozilla.org/</a> 上搜索 <em>selenium</em> 点击安装，安装的时候同时还会附带安装几个其他的插件，这些都是 Selenium 的一些附属插件，我在之后的会有介绍。</p>
+<p>在 <a href="about:addons" target="_blank">about:addons</a> 或者 <a href="http://addons.mozilla.org/" target="_blank">http://addons.mozilla.org/</a> 上搜索 <em>selenium</em> 点击安装，安装的时候同时还会附带安装几个其他的插件，这些都是 Selenium 的一些附属插件，我在之后的会有介绍。</p>
 <p>安装完之后可以在 <code>菜单 &gt;&gt; 工具 &gt;&gt; Selenium IDE</code> 打开或者在 <em>附加组建栏</em> 点击 Selenium IDE 按钮打开，如何附加组建栏没有，请自行添加。</p>
 <p><img alt="Selenium IDE 界面" src="/file/images/selenium1.jpg" title="Selenium IDE" /></p>
 <p>上图就是 Selenium IDE 界面，图最右边的红色圆形按钮就是录制按钮，一般在打开的时候这个那就就是按下的，所以可以直接录制。</p>
@@ -123,7 +123,7 @@
 <p>上面的代码就是录制后的代码，是html代码，当然也可以按照在这样的方法写出来，复制到Selenium中也是可以运行的。</p>
 <p>运行的方法很简单，菜单 Actions -&gt; Play entire test suite 就会把录制的脚本运行一边，同时我们也能在浏览器上看到运行的结果。</p>
 <p>Selenium可以完成我们在浏览器上的所有操作，因为它就是模拟我们浏览器的操作，所以登录等操作也是没有问题的。这就是Selenium的几本操作，更加复杂的可以自己去探索.</p>
-<p>Selenium也可以把录制的宏导出成其他代码，比如java,ruby,php,python,C#,XML等，导出的方法很简单，在菜单中的 文件 -&gt; Export Test Case 就可以看到导出的选项，但是要要导出这些代码，是需要有扩展支持的，一般这些扩展在安装 Selenium IDE 的时候都会提示一起安装，如果在这里没有看到的花，可以在<a href="http://addons.mozilla.org/">http://addons.mozilla.org</a>搜索，然后安装，重启firefox之后就可以了</p>
+<p>Selenium也可以把录制的宏导出成其他代码，比如java,ruby,php,python,C#,XML等，导出的方法很简单，在菜单中的 文件 -&gt; Export Test Case 就可以看到导出的选项，但是要要导出这些代码，是需要有扩展支持的，一般这些扩展在安装 Selenium IDE 的时候都会提示一起安装，如果在这里没有看到的花，可以在<a href="http://addons.mozilla.org/" target="_blank">http://addons.mozilla.org</a>搜索，然后安装，重启firefox之后就可以了</p>
 <h2 id="python">Python</h2>
 <p>如何得到python 的测试代码呢？有两种，第一个就是通过Selenium中提供的导出的方法直接导出，另外一个就是自己编写python代码了。</p>
 <p>从Selenium可以导出两种，一种是基于<code>Webdriver</code>，另外一个就是基于<code>Remote Control</code>：</p>
@@ -227,7 +227,7 @@ OK
 </pre></div>
 
 
-<p>对于Remote Control方式，在运行之前需要下载<a href="https://code.google.com/p/selenium/downloads/list">selenium-server-standalone-<version>.jar</a>,下载完成后，在命令行下运行<code>java -jar selenium-server-standalone-&lt;version&gt;.jar</code> 启动服务，启动成功后能看下如下信息：</p>
+<p>对于Remote Control方式，在运行之前需要下载<a href="https://code.google.com/p/selenium/downloads/list" target="_blank">selenium-server-standalone-<version>.jar</a>,下载完成后，在命令行下运行<code>java -jar selenium-server-standalone-&lt;version&gt;.jar</code> 启动服务，启动成功后能看下如下信息：</p>
 <div class="highlight"><pre><span class="err">十月</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">2013</span> <span class="mi">11</span><span class="o">:</span><span class="mi">20</span><span class="o">:</span><span class="mi">28</span> <span class="err">下午</span> <span class="n">org</span><span class="p">.</span><span class="n">openqa</span><span class="p">.</span><span class="n">grid</span><span class="p">.</span><span class="n">selenium</span><span class="p">.</span><span class="n">GridLauncher</span> <span class="n">main</span>
 <span class="err">信息</span><span class="o">:</span> <span class="n">Launching</span> <span class="n">a</span> <span class="n">standalone</span> <span class="n">server</span>
 <span class="mi">3</span><span class="o">:</span><span class="mi">20</span><span class="o">:</span><span class="mf">30.219</span> <span class="n">INFO</span> <span class="o">-</span> <span class="nl">Java</span><span class="p">:</span> <span class="n">Oracle</span> <span class="n">Corporation</span> <span class="mf">21.0</span><span class="o">-</span><span class="n">b17</span>

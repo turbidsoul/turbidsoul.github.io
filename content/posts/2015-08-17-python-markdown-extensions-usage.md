@@ -50,3 +50,7 @@ The molecular composition of water is H~2~O.
 
 this is ???hightlight??? line
 
+## New Tab ##
+
+[open this link on new tab](http://www.baidu.com)
+

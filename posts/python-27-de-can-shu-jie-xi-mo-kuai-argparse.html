@@ -88,8 +88,8 @@
 
 
 <p>简单的说一下这个例子:
-<em> <code>ArgumentParser</code> 这是解析器的入口，此链接<a href="http://docs.python.org/2/library/argparse.html#argumentparser-objects" title="ArgumentParser objects">argparse#argumentparser-objects</a>关于此class的参数说明。
-</em> <code>add_argument</code> 添加具体命令行参数，这是关于此方法<a href="http://docs.python.org/2/library/argparse.html#the-add-argument-method" title="The add_argument() method">argparse#the-add-argument-method</a>的说明
+<em> <code>ArgumentParser</code> 这是解析器的入口，此链接<a href="http://docs.python.org/2/library/argparse.html#argumentparser-objects" target="_blank" title="ArgumentParser objects">argparse#argumentparser-objects</a>关于此class的参数说明。
+</em> <code>add_argument</code> 添加具体命令行参数，这是关于此方法<a href="http://docs.python.org/2/library/argparse.html#the-add-argument-method" target="_blank" title="The add_argument() method">argparse#the-add-argument-method</a>的说明
 <em> <code>print_help()</code> 和 <code>print_usage()</code> 这是打印帮助信息和usage，就是python xxxx.py -h 只有打印出的那些帮助信息
 </em> <code>parser.parse_args()</code> 这是解析命令行参数
 * <code>args.start</code> 和 <code>args.end</code> 这样是读取之前在上面用<code>add_argument</code>添加的参数，如果要读取没有添加的参数则会抛出一个异常, 例如:</p>
@@ -400,7 +400,7 @@
 <ul>
 <li>required: 为True时，表示这个参数是必须的，默认是False</li>
 <li>help: 参数的说明描述，当值为<code>argparse.SUPPRESS</code>时，这个参数在参数说明中不显示</li>
-<li>metavar: 对于这个参数我不知道如何解释，可以看一下他的<a href="http://docs.python.org/2/library/argparse.html#metavar" title="metavar">官方文档</a>和下面的代码应该就能理解。</li>
+<li>metavar: 对于这个参数我不知道如何解释，可以看一下他的<a href="http://docs.python.org/2/library/argparse.html#metavar" target="_blank" title="metavar">官方文档</a>和下面的代码应该就能理解。</li>
 </ul>
 <div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">prog</span><span class="o">=</span><span class="s">&#39;argtest&#39;</span><span class="p">)</span>
 <span class="gp">... </span><span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;-s&#39;</span><span class="p">,</span> <span class="s">&#39;--start&#39;</span><span class="p">)</span>

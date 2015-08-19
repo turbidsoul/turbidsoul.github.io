@@ -59,9 +59,9 @@
     <a href="http://blog.turbidsoul.me/tag/win32com.html">win32com</a>, 
  -- (<a href="http://blog.turbidsoul.me/posts/pythonshi-xian-ldaphe-rtxzhi-jian-de-zu-zhi-he-yong-hu-shu-ju-tong-bu.html" rel="bookmark">permalink</a>)
 </small>
-</p>      <p>最近公司正在准备使用 <strong>AD</strong> ( <strong><a href="https://zh.wikipedia.org/wiki/Active_Directory" title="Active Directory">Activate Directory</a></strong> )服务来进行公司员工的帐号管理，这样就避免不了需要对AD的帐号和<a href="http://rtx.tencent.com/rtx/index.shtml" title="RTX">RTX</a>的帐号和组织关系进行同步，所以才有了这篇文章。</p>
+</p>      <p>最近公司正在准备使用 <strong>AD</strong> ( <strong><a href="https://zh.wikipedia.org/wiki/Active_Directory" target="_blank" title="Active Directory">Activate Directory</a></strong> )服务来进行公司员工的帐号管理，这样就避免不了需要对AD的帐号和<a href="http://rtx.tencent.com/rtx/index.shtml" target="_blank" title="RTX">RTX</a>的帐号和组织关系进行同步，所以才有了这篇文章。</p>
 <h4 id="python-ldap">Python-Ldap</h4>
-<p><a href="http://www.python-ldap.org/" title="LDAP client API for Python">Python-Ldap</a>是python用来操作ldap的模块，可以对ldap进行查询，添加，修改，删除等操作，如下代码：</p>
+<p><a href="http://www.python-ldap.org/" target="_blank" title="LDAP client API for Python">Python-Ldap</a>是python用来操作ldap的模块，可以对ldap进行查询，添加，修改，删除等操作，如下代码：</p>
 <div class="highlight"><pre><span class="n">ldap_host</span> <span class="o">=</span> <span class="s">&quot;127.0.0.1&quot;</span>
 <span class="n">ldap_port</span> <span class="o">=</span> <span class="mi">389</span>
 <span class="n">ldap_who</span> <span class="o">=</span> <span class="s">&quot;turbidsoul.me</span><span class="se">\\</span><span class="s">test&quot;</span>
@@ -108,10 +108,10 @@
 <li>old: 指就原属性，如果原属性不存在，这里给个空字符串即可，<code>""</code></li>
 <li>new: 需要修改的新值</li>
 </ul>
-<p>我这里使用的jobno并不是ad的默认就有的属性是自己后来添加的扩展属性，至于如何添加扩展属性，請参照这篇文章<a href="http://docs.tidyinfo.com/?p=309" title="AD扩展属性定义">AD扩展属性定义</a></p>
+<p>我这里使用的jobno并不是ad的默认就有的属性是自己后来添加的扩展属性，至于如何添加扩展属性，請参照这篇文章<a href="http://docs.tidyinfo.com/?p=309" target="_blank" title="AD扩展属性定义">AD扩展属性定义</a></p>
 <h4 id="rtx">RTX</h4>
 <p>我通过python-ldap从AD中读取到数据，现在需要把他写道RTX中，在这里我遇到了一个问题，当时并没有仔细去看rtx sdk文档，只是想当然的以为直接用python操作数据，来进行数据同步，但是后来发现，数据虽然同步成功了，但是rtx客户端并不能从服务器抓取到新用户的信息，包括基本资料和详细资料等。</p>
-<p>使用上面的方法，算是走到死胡同，同事的一句话让我想到我可以用过windows的com接口实现数据的同步，python下实现调用windows的com接口的模块是<a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/" title="Unofficial Windows Binaries for Python Extension Packages">win32com</a>(这个网站有，pywin32编译好的安装包，根据自己的python版本下载安装即可)。</p>
+<p>使用上面的方法，算是走到死胡同，同事的一句话让我想到我可以用过windows的com接口实现数据的同步，python下实现调用windows的com接口的模块是<a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/" target="_blank" title="Unofficial Windows Binaries for Python Extension Packages">win32com</a>(这个网站有，pywin32编译好的安装包，根据自己的python版本下载安装即可)。</p>
 <p>我们来看一段测试代码：</p>
 <div class="highlight"><pre><span class="kn">import</span> <span class="nn">win32com.client</span>
 <span class="kn">import</span> <span class="nn">xml.etree.cElementTree</span> <span class="kn">as</span> <span class="nn">et</span>

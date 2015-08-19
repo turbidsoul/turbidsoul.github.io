@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Turbidsoul's 小黑屋 - Jekyll - Turbidsoul's 小黑屋</title>
+    <title>Turbidsoul's 小黑屋 - JekyllTurbidsoul's 小黑屋</title>
 
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
@@ -52,7 +52,7 @@
     <a href="http://blog.turbidsoul.me/tag/code.html">code</a>, 
  -- (<a href="http://blog.turbidsoul.me/posts/jekyllmo-ban-de-zhong-wen-wen-ti.html" rel="bookmark">permalink</a>)
 </small>
-</p>      <p>今天在给blog添加<a href="http://creativecommons.org/licenses/by/3.0/cn/">Creative Commons</a>(简称CC)时，发现在jekyll的模版中不能加入中文。大概看了一下build时报的错，可以确定应该和jekyll不能发带有中文的文章的问题是一样的，不过出问题的地方不一样。</p>
+</p>      <p>今天在给blog添加<a href="http://creativecommons.org/licenses/by/3.0/cn/" target="_blank">Creative Commons</a>(简称CC)时，发现在jekyll的模版中不能加入中文。大概看了一下build时报的错，可以确定应该和jekyll不能发带有中文的文章的问题是一样的，不过出问题的地方不一样。</p>
 <h4 id="jekyll">jekyll不能发有中文的文章</h4>
 <p>出问题的地方是在convertible.rb#31 行：</p>
 <div class="highlight"><pre><span class="nb">self</span><span class="o">.</span><span class="n">content</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="nb">name</span><span class="p">),</span> <span class="ss">:encoding</span> <span class="o">=&gt;</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>

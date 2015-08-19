@@ -3,7 +3,7 @@
 &lt;p&gt;之前头让搞一个24小时内帖子或者视频的点击量，当时为了省事，就随便写了一个，虽然是实时的，但是却没有满足 &lt;strong&gt;24小时内&lt;/strong&gt; 这个条件, 数据会在每天0点清零重新计算，前几天被头发现了，所以就只能从新写一个了。&lt;/p&gt;
 &lt;p&gt;思来想去最后还是决定用&lt;code&gt;awk&lt;/code&gt;解析日志来完成这个功能，这样最简单。&lt;/p&gt;
 &lt;h2 id="_2"&gt;之前的准备&lt;/h2&gt;
-&lt;p&gt;AWK是贝尔实验室1977年搞出来的文本出现神器，所以有必要做个简单的介绍，大家请看这三篇文章:&lt;a href="http://coolshell.cn/articles/9070.html" title="AWK 简明教程"&gt;AWK 简明教程&lt;/a&gt;, &lt;a href="http://www.cnblogs.com/chengmo/archive/2010/10/08/1845913.html" title="linux awk 内置函数详细介绍（实例）"&gt;linux awk 内置函数详细介绍（实例）&lt;/a&gt;, &lt;a href="http://www.colorfuldays.org/linux/good_awk_tutorial/" title="很好的awk教程 "&gt;awk教程&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;AWK是贝尔实验室1977年搞出来的文本出现神器，所以有必要做个简单的介绍，大家请看这三篇文章:&lt;a href="http://coolshell.cn/articles/9070.html" target="_blank" title="AWK 简明教程"&gt;AWK 简明教程&lt;/a&gt;, &lt;a href="http://www.cnblogs.com/chengmo/archive/2010/10/08/1845913.html" target="_blank" title="linux awk 内置函数详细介绍（实例）"&gt;linux awk 内置函数详细介绍（实例）&lt;/a&gt;, &lt;a href="http://www.colorfuldays.org/linux/good_awk_tutorial/" target="_blank" title="很好的awk教程 "&gt;awk教程&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;这三篇文章是前置的知识，有必要简单的看一下，最开始我觉得awk有点麻烦，写了一些之后我发现他和&lt;code&gt;lua&lt;/code&gt;一样的简单。&lt;/p&gt;
 &lt;h2 id="_3"&gt;代码分析&lt;/h2&gt;
 &lt;p&gt;我们的要求是，分别统计出 &lt;em&gt;thread&lt;/em&gt;, &lt;em&gt;resource&lt;/em&gt;, &lt;em&gt;video&lt;/em&gt;, _article_中，没一个的点击量&lt;/p&gt;
@@ -97,7 +97,7 @@
 &lt;/script&gt;
 </summary><category term="linux"></category><category term="awk"></category></entry><entry><title>Nginx实现文件下载自动打包成zip文件</title><link href="http://blog.turbidsoul.me/posts/nginxshi-xian-wen-jian-xia-zai-zi-dong-da-bao-cheng-zipwen-jian.html" rel="alternate"></link><updated>2014-01-26T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me,2014-01-26:posts/nginxshi-xian-wen-jian-xia-zai-zi-dong-da-bao-cheng-zipwen-jian.html</id><summary type="html">&lt;h2 id="_1"&gt;来源和介绍&lt;/h2&gt;
 &lt;p&gt;问题的来源是需要对已有的资料在下载的时候进行添加广告，但是对于doc文件操作麻烦的情况，采用在下载的时候将广告文件和资料一起打包成zip文件.&lt;/p&gt;
-&lt;p&gt;在apache服务器中有个mod_zip的模块就是完成这个功能，同样nginx有大神已经实现了这个模块，我们只需要拿来用就可以了:&lt;a href="https://github.com/evanmiller/mod_zip"&gt;mod_zip&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;在apache服务器中有个mod_zip的模块就是完成这个功能，同样nginx有大神已经实现了这个模块，我们只需要拿来用就可以了:&lt;a href="https://github.com/evanmiller/mod_zip" target="_blank"&gt;mod_zip&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id="_2"&gt;应用&lt;/h2&gt;
 &lt;p&gt;此模块并不是nginx的默认模块所以需要用户自己编译安装。&lt;/p&gt;
 &lt;p&gt;安装完成之后，不需要修改任何nginx的任何配置，完成打包都在服务点返回的信息中，下面请看我用python实现的示例：&lt;/p&gt;
@@ -140,7 +140,7 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;这是我们通常用来配置记录日志到文件的代码，但是如果我们要把日志记根据条件记录到不同的日志文件中就需要用到 &lt;strong&gt;&lt;a href="http://docs.python.org/2/library/logging.html?highlight=filter#logging.Filter"&gt;logging.Filter&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;这是我们通常用来配置记录日志到文件的代码，但是如果我们要把日志记根据条件记录到不同的日志文件中就需要用到 &lt;strong&gt;&lt;a href="http://docs.python.org/2/library/logging.html?highlight=filter#logging.Filter" target="_blank"&gt;logging.Filter&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;我们可以对上面的代码做一点点的修改，创建一个过滤器，这个过滤器是根据IP进行过滤的，只有IP是创建过滤器时指定的IP才能被记录下来，下面来看看我创建的过滤器:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;logging&lt;/span&gt;
 
@@ -232,7 +232,7 @@
 &lt;p&gt;&lt;code&gt;pacman -S python nginx&lt;/code&gt;
 &lt;code&gt;pip install uwsgi bottlepy&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;arch linux 默认python应该是3.3.2，所以需要安装&lt;em&gt;pythonbrew&lt;/em&gt;然后在来安装2.7.5,至于pythonbrew如何安装，请自行搜索，安装其实很简单。至于nginx默认是支持uwsgi，所以不需要特别安装其他的插件。&lt;/p&gt;
-&lt;p&gt;其实也可以通过&lt;code&gt;pacman -S uwsgi&lt;/code&gt;来安装但是这个是不支持python的，所以需要用户pip安装uwsgi，才能支持python至于&lt;a href="http://bottlepy.org/docs/dev/"&gt;bottlepy&lt;/a&gt;我就不多说了，请查看其文档。&lt;/p&gt;
+&lt;p&gt;其实也可以通过&lt;code&gt;pacman -S uwsgi&lt;/code&gt;来安装但是这个是不支持python的，所以需要用户pip安装uwsgi，才能支持python至于&lt;a href="http://bottlepy.org/docs/dev/" target="_blank"&gt;bottlepy&lt;/a&gt;我就不多说了，请查看其文档。&lt;/p&gt;
 &lt;h2 id="_2"&gt;配置&lt;/h2&gt;
 &lt;h4 id="bottle"&gt;Bottle&lt;/h4&gt;
 &lt;p&gt;bottlepy 其实也就是我们的服务端代码，我们这里就简单的一个&lt;code&gt;Hello World!&lt;/code&gt;&lt;/p&gt;
@@ -323,14 +323,14 @@ spawned uWSGI worker 1 (and the only) (pid: 6503, cores: 1)
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;所以我在这里路径写成&lt;code&gt;/var/run/x.socket&lt;/code&gt; 是这个路径下的就不会有问题,关于这个问题这里有个帖子应该能解决问题&lt;a href="http://mediadrop.net/community/topic/trouble-with-uwsgi-nginx" title="Trouble with uwsgi + nginx"&gt;Trouble with uwsgi + nginx&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;所以我在这里路径写成&lt;code&gt;/var/run/x.socket&lt;/code&gt; 是这个路径下的就不会有问题,关于这个问题这里有个帖子应该能解决问题&lt;a href="http://mediadrop.net/community/topic/trouble-with-uwsgi-nginx" target="_blank" title="Trouble with uwsgi + nginx"&gt;Trouble with uwsgi + nginx&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;另外如果错误中有 &lt;code&gt;13: Permission denied&lt;/code&gt; 这个错误，那可能是在nginx的配置文件中没有声明用户，或者用户没权限，我这里是用root用户登录的，所以在nginx最上面加了&lt;code&gt;user root;&lt;/code&gt;&lt;/p&gt;
 &lt;h2 id="_3"&gt;结论&lt;/h2&gt;
 &lt;p&gt;uwsgi自创了一个uwsgi协议，与wsgi、fcgi不同，据说uwsgi的速度是fcgi的10倍，我没有那个环境测试。uwsgi旨在为分布式部署提供一套解决方案，他支持很多语言，也同时可以使用c,c++等来开发插件，我使用他纯粹是为了在我的VPS上部署我的python应用。&lt;/p&gt;</summary><category term="nginx"></category><category term="uwsgi"></category><category term="python"></category><category term="web"></category><category term="bottlepy"></category></entry><entry><title>使用selenium进行web测试入门和使用WebDriver开发web测试代码入门</title><link href="http://blog.turbidsoul.me/posts/shi-yong-seleniumjin-xing-webce-shi-ru-men-he-shi-yong-webdriverkai-fa-webce-shi-dai-ma-ru-men.html" rel="alternate"></link><updated>2013-10-17T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me,2013-10-17:posts/shi-yong-seleniumjin-xing-webce-shi-ru-men-he-shi-yong-webdriverkai-fa-webce-shi-dai-ma-ru-men.html</id><summary type="html">&lt;p&gt;前段时间我们头在搞一个分布式测试，使用的就是 &lt;strong&gt;Selenium&lt;/strong&gt; 可以坑太多，最后应该是放弃了，因为我没见到回音，说实话这东西是bug挺多，而且在firefox上的版本兼容也有很大的问题，不过这不是我们讨论的问题，我们这里要讨论的是使用它来做简单的web测试。&lt;/p&gt;
 &lt;h2 id="selenium"&gt;Selenium 入门&lt;/h2&gt;
 &lt;h4 id="_1"&gt;安装&lt;/h4&gt;
 &lt;p&gt;我使用的是 Firefox Aurora 现在的版本就是ff26,这下面是正常的，我不知道在每日编译版下是否正常，虽然我机子上也安装了，但是并没有在起下面做个测试，不过应该是没有问题的。&lt;/p&gt;
-&lt;p&gt;在 &lt;a href="about:addons"&gt;about:addons&lt;/a&gt; 或者 &lt;a href="http://addons.mozilla.org/"&gt;http://addons.mozilla.org/&lt;/a&gt; 上搜索 &lt;em&gt;selenium&lt;/em&gt; 点击安装，安装的时候同时还会附带安装几个其他的插件，这些都是 Selenium 的一些附属插件，我在之后的会有介绍。&lt;/p&gt;
+&lt;p&gt;在 &lt;a href="about:addons" target="_blank"&gt;about:addons&lt;/a&gt; 或者 &lt;a href="http://addons.mozilla.org/" target="_blank"&gt;http://addons.mozilla.org/&lt;/a&gt; 上搜索 &lt;em&gt;selenium&lt;/em&gt; 点击安装，安装的时候同时还会附带安装几个其他的插件，这些都是 Selenium 的一些附属插件，我在之后的会有介绍。&lt;/p&gt;
 &lt;p&gt;安装完之后可以在 &lt;code&gt;菜单 &amp;gt;&amp;gt; 工具 &amp;gt;&amp;gt; Selenium IDE&lt;/code&gt; 打开或者在 &lt;em&gt;附加组建栏&lt;/em&gt; 点击 Selenium IDE 按钮打开，如何附加组建栏没有，请自行添加。&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Selenium IDE 界面" src="/file/images/selenium1.jpg" title="Selenium IDE" /&gt;&lt;/p&gt;
 &lt;p&gt;上图就是 Selenium IDE 界面，图最右边的红色圆形按钮就是录制按钮，一般在打开的时候这个那就就是按下的，所以可以直接录制。&lt;/p&gt;
@@ -388,7 +388,7 @@ spawned uWSGI worker 1 (and the only) (pid: 6503, cores: 1)
 &lt;p&gt;上面的代码就是录制后的代码，是html代码，当然也可以按照在这样的方法写出来，复制到Selenium中也是可以运行的。&lt;/p&gt;
 &lt;p&gt;运行的方法很简单，菜单 Actions -&amp;gt; Play entire test suite 就会把录制的脚本运行一边，同时我们也能在浏览器上看到运行的结果。&lt;/p&gt;
 &lt;p&gt;Selenium可以完成我们在浏览器上的所有操作，因为它就是模拟我们浏览器的操作，所以登录等操作也是没有问题的。这就是Selenium的几本操作，更加复杂的可以自己去探索.&lt;/p&gt;
-&lt;p&gt;Selenium也可以把录制的宏导出成其他代码，比如java,ruby,php,python,C#,XML等，导出的方法很简单，在菜单中的 文件 -&amp;gt; Export Test Case 就可以看到导出的选项，但是要要导出这些代码，是需要有扩展支持的，一般这些扩展在安装 Selenium IDE 的时候都会提示一起安装，如果在这里没有看到的花，可以在&lt;a href="http://addons.mozilla.org/"&gt;http://addons.mozilla.org&lt;/a&gt;搜索，然后安装，重启firefox之后就可以了&lt;/p&gt;
+&lt;p&gt;Selenium也可以把录制的宏导出成其他代码，比如java,ruby,php,python,C#,XML等，导出的方法很简单，在菜单中的 文件 -&amp;gt; Export Test Case 就可以看到导出的选项，但是要要导出这些代码，是需要有扩展支持的，一般这些扩展在安装 Selenium IDE 的时候都会提示一起安装，如果在这里没有看到的花，可以在&lt;a href="http://addons.mozilla.org/" target="_blank"&gt;http://addons.mozilla.org&lt;/a&gt;搜索，然后安装，重启firefox之后就可以了&lt;/p&gt;
 &lt;h2 id="python"&gt;Python&lt;/h2&gt;
 &lt;p&gt;如何得到python 的测试代码呢？有两种，第一个就是通过Selenium中提供的导出的方法直接导出，另外一个就是自己编写python代码了。&lt;/p&gt;
 &lt;p&gt;从Selenium可以导出两种，一种是基于&lt;code&gt;Webdriver&lt;/code&gt;，另外一个就是基于&lt;code&gt;Remote Control&lt;/code&gt;：&lt;/p&gt;
@@ -492,7 +492,7 @@ OK
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;对于Remote Control方式，在运行之前需要下载&lt;a href="https://code.google.com/p/selenium/downloads/list"&gt;selenium-server-standalone-&lt;version&gt;.jar&lt;/a&gt;,下载完成后，在命令行下运行&lt;code&gt;java -jar selenium-server-standalone-&amp;lt;version&amp;gt;.jar&lt;/code&gt; 启动服务，启动成功后能看下如下信息：&lt;/p&gt;
+&lt;p&gt;对于Remote Control方式，在运行之前需要下载&lt;a href="https://code.google.com/p/selenium/downloads/list" target="_blank"&gt;selenium-server-standalone-&lt;version&gt;.jar&lt;/a&gt;,下载完成后，在命令行下运行&lt;code&gt;java -jar selenium-server-standalone-&amp;lt;version&amp;gt;.jar&lt;/code&gt; 启动服务，启动成功后能看下如下信息：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;十月&lt;/span&gt; &lt;span class="mi"&gt;21&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2013&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;28&lt;/span&gt; &lt;span class="err"&gt;下午&lt;/span&gt; &lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;openqa&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;selenium&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;GridLauncher&lt;/span&gt; &lt;span class="n"&gt;main&lt;/span&gt;
 &lt;span class="err"&gt;信息&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Launching&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;standalone&lt;/span&gt; &lt;span class="n"&gt;server&lt;/span&gt;
 &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mf"&gt;30.219&lt;/span&gt; &lt;span class="n"&gt;INFO&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nl"&gt;Java&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Oracle&lt;/span&gt; &lt;span class="n"&gt;Corporation&lt;/span&gt; &lt;span class="mf"&gt;21.0&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;b17&lt;/span&gt;
@@ -680,8 +680,8 @@ OK
 
 
 &lt;p&gt;简单的说一下这个例子:
-&lt;em&gt; &lt;code&gt;ArgumentParser&lt;/code&gt; 这是解析器的入口，此链接&lt;a href="http://docs.python.org/2/library/argparse.html#argumentparser-objects" title="ArgumentParser objects"&gt;argparse#argumentparser-objects&lt;/a&gt;关于此class的参数说明。
-&lt;/em&gt; &lt;code&gt;add_argument&lt;/code&gt; 添加具体命令行参数，这是关于此方法&lt;a href="http://docs.python.org/2/library/argparse.html#the-add-argument-method" title="The add_argument() method"&gt;argparse#the-add-argument-method&lt;/a&gt;的说明
+&lt;em&gt; &lt;code&gt;ArgumentParser&lt;/code&gt; 这是解析器的入口，此链接&lt;a href="http://docs.python.org/2/library/argparse.html#argumentparser-objects" target="_blank" title="ArgumentParser objects"&gt;argparse#argumentparser-objects&lt;/a&gt;关于此class的参数说明。
+&lt;/em&gt; &lt;code&gt;add_argument&lt;/code&gt; 添加具体命令行参数，这是关于此方法&lt;a href="http://docs.python.org/2/library/argparse.html#the-add-argument-method" target="_blank" title="The add_argument() method"&gt;argparse#the-add-argument-method&lt;/a&gt;的说明
 &lt;em&gt; &lt;code&gt;print_help()&lt;/code&gt; 和 &lt;code&gt;print_usage()&lt;/code&gt; 这是打印帮助信息和usage，就是python xxxx.py -h 只有打印出的那些帮助信息
 &lt;/em&gt; &lt;code&gt;parser.parse_args()&lt;/code&gt; 这是解析命令行参数
 * &lt;code&gt;args.start&lt;/code&gt; 和 &lt;code&gt;args.end&lt;/code&gt; 这样是读取之前在上面用&lt;code&gt;add_argument&lt;/code&gt;添加的参数，如果要读取没有添加的参数则会抛出一个异常, 例如:&lt;/p&gt;
@@ -992,7 +992,7 @@ OK
 &lt;ul&gt;
 &lt;li&gt;required: 为True时，表示这个参数是必须的，默认是False&lt;/li&gt;
 &lt;li&gt;help: 参数的说明描述，当值为&lt;code&gt;argparse.SUPPRESS&lt;/code&gt;时，这个参数在参数说明中不显示&lt;/li&gt;
-&lt;li&gt;metavar: 对于这个参数我不知道如何解释，可以看一下他的&lt;a href="http://docs.python.org/2/library/argparse.html#metavar" title="metavar"&gt;官方文档&lt;/a&gt;和下面的代码应该就能理解。&lt;/li&gt;
+&lt;li&gt;metavar: 对于这个参数我不知道如何解释，可以看一下他的&lt;a href="http://docs.python.org/2/library/argparse.html#metavar" target="_blank" title="metavar"&gt;官方文档&lt;/a&gt;和下面的代码应该就能理解。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="gp"&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;&lt;span class="n"&gt;parser&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;argparse&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ArgumentParser&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;prog&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;argtest&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="gp"&gt;... &lt;/span&gt;&lt;span class="n"&gt;parser&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add_argument&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;-s&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;--start&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -1033,7 +1033,7 @@ OK
 &lt;h4 id="_1"&gt;安装&lt;/h4&gt;
 &lt;p&gt;执行:&lt;code&gt;pip install html2bbcode&lt;/code&gt; 安装模块&lt;/p&gt;
 &lt;h4 id="_2"&gt;使用&lt;/h4&gt;
-&lt;p&gt;下面是&lt;a href="https://bitbucket.org/amigo/html2bbcode" title="HTML to BBCode converter"&gt;bitbucket.org&lt;/a&gt;的例子：&lt;/p&gt;
+&lt;p&gt;下面是&lt;a href="https://bitbucket.org/amigo/html2bbcode" target="_blank" title="HTML to BBCode converter"&gt;bitbucket.org&lt;/a&gt;的例子：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="gp"&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;&lt;span class="n"&gt;parser&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;HTML2BBCode&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;span class="gp"&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;parser&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;feed&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;one&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;two&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;span class="go"&gt;&amp;#39;[list][li]one[/li][li]two[/li][/list]&amp;#39;&lt;/span&gt;
@@ -1168,7 +1168,7 @@ OK
 
 
 &lt;p&gt;本来想把代码大概的说下的，但是觉得这个插件很简单，没有什么值得特别说说的，jquery的 插件结构就项上面说的那样，一个插件名，对应一个具体的实现，在function里写插件的具体代码，这些东西在网上被人都快说烂了，但是我觉得有些说的 实在不清晰，至少我没看明白，我在这里不像说太多的，有时候对于程序员来说具体的代码，比一本书更管用！&lt;/p&gt;
-&lt;p&gt;源代码：&lt;a href="http://www.rayfile.com/zh-cn/files/b82a5e82-1a71-11e1-88b6-0015c55db73d/"&gt;jquery_plugin.7z&lt;/a&gt;&lt;/p&gt;&lt;script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"&gt;&lt;/script&gt;
+&lt;p&gt;源代码：&lt;a href="http://www.rayfile.com/zh-cn/files/b82a5e82-1a71-11e1-88b6-0015c55db73d/" target="_blank"&gt;jquery_plugin.7z&lt;/a&gt;&lt;/p&gt;&lt;script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"&gt;&lt;/script&gt;
 &lt;script type= "text/javascript"&gt;
     if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
         var mathjaxscript = document.createElement('script');

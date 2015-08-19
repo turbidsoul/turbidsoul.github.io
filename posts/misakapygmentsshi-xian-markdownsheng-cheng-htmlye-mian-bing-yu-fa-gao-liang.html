@@ -65,7 +65,7 @@
 <h2 id="_2">开始之前</h2>
 <p>我的测试例子中使用到了三个包，分别是 web.py , Misaka , pygments ,如果在开始之前需要使用pip安装这三个包</p>
 <h3 id="webpy">Web.py</h3>
-<p><a href="http://webpy.org" title="web.py">Web.py</a>是python的一个轻量级web框架，我只是简单的使用了一下，有兴趣的人可以去它的<a href="http://webpy.org" title="web.py">官网</a>,它的官方有一个<a href="http://webpy.org/docs/0.3/tutorial.zh-cn" title="web.py tutorial">中文教程</a>说的很详细。</p>
+<p><a href="http://webpy.org" target="_blank" title="web.py">Web.py</a>是python的一个轻量级web框架，我只是简单的使用了一下，有兴趣的人可以去它的<a href="http://webpy.org" target="_blank" title="web.py">官网</a>,它的官方有一个<a href="http://webpy.org/docs/0.3/tutorial.zh-cn" target="_blank" title="web.py tutorial">中文教程</a>说的很详细。</p>
 <p>我这里使用他做一个简单的web服务：</p>
 <div class="highlight"><pre><span class="k">class</span> <span class="nc">Index</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">GET</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -81,8 +81,8 @@
 
 
 <h3 id="misaka">Misaka</h3>
-<p><a href="http://misaka.61924.nl/" title="Misaka">Misaka</a>是一个Markdown的解析工具包，他的Github地址：<a href="https://github.com/FSX/misaka" title="Misaka Github">https://github.com/FSX/misaka</a></p>
-<p>Misaka的官网上也有他的<a href="http://misaka.61924.nl/manual/" title="Misaka Tutorial">教程</a>，我在这里只是简单的举个例子，说明一下：</p>
+<p><a href="http://misaka.61924.nl/" target="_blank" title="Misaka">Misaka</a>是一个Markdown的解析工具包，他的Github地址：<a href="https://github.com/FSX/misaka" target="_blank" title="Misaka Github">https://github.com/FSX/misaka</a></p>
+<p>Misaka的官网上也有他的<a href="http://misaka.61924.nl/manual/" target="_blank" title="Misaka Tutorial">教程</a>，我在这里只是简单的举个例子，说明一下：</p>
 <div class="highlight"><pre><span class="kn">import</span> <span class="nn">misaka</span> <span class="kn">as</span> <span class="nn">m</span>
 
 <span class="k">print</span> <span class="n">m</span><span class="o">.</span><span class="n">html</span><span class="p">(</span><span class="s">&#39;A ~~complex~~ simple example.&#39;</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="n">m</span><span class="o">.</span><span class="n">EXT_STRIKETHROUGH</span><span class="p">)</span>
@@ -104,9 +104,9 @@
 </ul>
 <h3 id="pygments">pygments</h3>
 <p>pygments是python的语法高亮工具包，它提供了语法样式 <code>pygments.styles</code>,关于styles文档请查看[http://pygments.org/docs/styles/][pygments_styles]</p>
-<p>昨天无事可作的时候 把<a href="http://jekyllrb.com/" title="Jekyll">jekyll</a>的一个主题minimum的样式写成Style,代码如下：</p>
+<p>昨天无事可作的时候 把<a href="http://jekyllrb.com/" target="_blank" title="Jekyll">jekyll</a>的一个主题minimum的样式写成Style,代码如下：</p>
 <p>{% gist 5567214 %}</p>
-<p>同时它也支持很多语言，具体支持什么语言请参照<a href="http://pygments.org/languages/" title="Pygments Support Language">Support Language</a></p>
+<p>同时它也支持很多语言，具体支持什么语言请参照<a href="http://pygments.org/languages/" target="_blank" title="Pygments Support Language">Support Language</a></p>
 <p>pygments提供一个工具,pygmentize用于生成Style的css文件，但是我不知道这个工具能不能通过css文件生成Style，所以上面的那个Style是我自己手敲的 T_T !</p>
 <p>pygmentize的用法：<code>pygmentize -S default -f html &gt; style.css</code> 这样就能生成指定的Style的css样式文件</p>
 <blockquote>
@@ -277,7 +277,7 @@
     app.run()</p>
 <p>```</p>
 <blockquote>
-<p>在命令下运行: <code>python test.py 1234</code>之后使用 <a href="http://localhost:1234">http://localhost:1234</a>)就能访问,并且看到结果</p>
+<p>在命令下运行: <code>python test.py 1234</code>之后使用 <a href="http://localhost:1234" target="_blank">http://localhost:1234</a>)就能访问,并且看到结果</p>
 </blockquote>
       <!-- <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="Turbidsoul">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
  -->

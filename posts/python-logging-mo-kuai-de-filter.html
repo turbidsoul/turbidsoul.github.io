@@ -73,7 +73,7 @@
 </pre></div>
 
 
-<p>这是我们通常用来配置记录日志到文件的代码，但是如果我们要把日志记根据条件记录到不同的日志文件中就需要用到 <strong><a href="http://docs.python.org/2/library/logging.html?highlight=filter#logging.Filter">logging.Filter</a></strong></p>
+<p>这是我们通常用来配置记录日志到文件的代码，但是如果我们要把日志记根据条件记录到不同的日志文件中就需要用到 <strong><a href="http://docs.python.org/2/library/logging.html?highlight=filter#logging.Filter" target="_blank">logging.Filter</a></strong></p>
 <p>我们可以对上面的代码做一点点的修改，创建一个过滤器，这个过滤器是根据IP进行过滤的，只有IP是创建过滤器时指定的IP才能被记录下来，下面来看看我创建的过滤器:</p>
 <div class="highlight"><pre><span class="kn">import</span> <span class="nn">logging</span>
 

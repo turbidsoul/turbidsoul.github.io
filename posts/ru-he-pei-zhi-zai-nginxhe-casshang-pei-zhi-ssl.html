@@ -74,7 +74,7 @@
 <li>接下来要生成CSR文件： openssl req -new -key server.key -out server.csr</li>
 <li>最后就是生成证书文件： openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt</li>
 </ol>
-<p>这里有我一个笔记是openssl的简单教程：<a href="https://www.evernote.com/shard/s25/sh/233c0eda-2f70-4756-8907-50dc0bff82c2/92861a2bd473f1d703bcead620080d27">openssl简单教程</a></p>
+<p>这里有我一个笔记是openssl的简单教程：<a href="https://www.evernote.com/shard/s25/sh/233c0eda-2f70-4756-8907-50dc0bff82c2/92861a2bd473f1d703bcead620080d27" target="_blank">openssl简单教程</a></p>
 <hr />
 <p>生成证书后，就可以配置nginx了，打开nginx.conf，加入以下几行:</p>
 <div class="highlight"><pre><span class="k">listen</span>                 <span class="mi">443</span> <span class="s">ssl</span><span class="p">;</span>
@@ -131,7 +131,7 @@
 <p>修改<code>p:cookieSecure="false"</code> 的值为<code>true</code>。</p>
 <p>修改这两个之后就可以把cas的包放入tomcat中启动tomcat。</p>
 <p>经过上面两部其实按正常情况下已经可以访问了，但是在登录的时候， 进入cas的登录页面进行登录，登录成功后返回的时候会抛出异常，对于这个异常我不甚理解， 但是我在google上所有得到的结果是这时java的一个bug，不过已经给出了解决方法.</p>
-<p>下载下面的代码： <a href="https://gist.github.com/turbidsoul/5506661">InstallCert.java</a></p>
+<p>下载下面的代码： <a href="https://gist.github.com/turbidsoul/5506661" target="_blank">InstallCert.java</a></p>
 <script src="https://gist.github.com/turbidsoul/5506661.js"></script>
 
 <p>编译之后使用使用下面命令执行以下：<code>java InstallCert cas.xxxxx.com</code></p>

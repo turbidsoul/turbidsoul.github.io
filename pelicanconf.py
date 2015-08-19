@@ -62,7 +62,8 @@ MD_EXTENSIONS = [
     'subscript',
     'cite',
     'markdown_checklist.extension',
-    'MarkdownHighlight.highlight'
+    'MarkdownHighlight.highlight',
+    'markdown_newtab'
 ]
 PLUGIN_PATHS=[os.path.join(curdir, 'plugins')]
 PLUGINS = ['googleplus_comments', 'render_math']

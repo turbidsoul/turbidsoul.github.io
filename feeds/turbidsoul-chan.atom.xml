@@ -28,7 +28,9 @@
 &lt;li&gt;&lt;input type="checkbox" disabled&gt; baz&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id="hightlight"&gt;Hightlight&lt;/h2&gt;
-&lt;p&gt;this is &lt;mark&gt;hightlight&lt;/mark&gt; line&lt;/p&gt;&lt;script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"&gt;&lt;/script&gt;
+&lt;p&gt;this is &lt;mark&gt;hightlight&lt;/mark&gt; line&lt;/p&gt;
+&lt;h2 id="new-tab"&gt;New Tab&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://www.baidu.com" target="_blank"&gt;open this link on new tab&lt;/a&gt;&lt;/p&gt;&lt;script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"&gt;&lt;/script&gt;
 &lt;script type= "text/javascript"&gt;
     if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
         var mathjaxscript = document.createElement('script');
@@ -77,7 +79,7 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;上面的代码就是ssl服务的实现，非常的简单，一共就不到10多代码。其中&lt;strong&gt;keyfile&lt;/strong&gt;和&lt;strong&gt;certfile&lt;/strong&gt;是密钥文件，使用&lt;strong&gt;openssl&lt;/strong&gt;可以生成，具体如何生成请看我在evernote上的从&lt;a href="brooks.wang.blog.163.com"&gt;顽石的日志&lt;/a&gt;收集的笔记&lt;a href="http://www.evernote.com/l/ABkjPA7aL3BHVokHUNwL_4LCkoYaK9Rz8dc/"&gt;http://www.evernote.com/l/ABkjPA7aL3BHVokHUNwL_4LCkoYaK9Rz8dc/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;上面的代码就是ssl服务的实现，非常的简单，一共就不到10多代码。其中&lt;strong&gt;keyfile&lt;/strong&gt;和&lt;strong&gt;certfile&lt;/strong&gt;是密钥文件，使用&lt;strong&gt;openssl&lt;/strong&gt;可以生成，具体如何生成请看我在evernote上的从&lt;a href="brooks.wang.blog.163.com" target="_blank"&gt;顽石的日志&lt;/a&gt;收集的笔记&lt;a href="http://www.evernote.com/l/ABkjPA7aL3BHVokHUNwL_4LCkoYaK9Rz8dc/" target="_blank"&gt;http://www.evernote.com/l/ABkjPA7aL3BHVokHUNwL_4LCkoYaK9Rz8dc/&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id="_2"&gt;最后说点啥？&lt;/h2&gt;
 &lt;p&gt;最近一年基本没根心过blog，主要是三个原因：&lt;/p&gt;
 &lt;ol&gt;
@@ -89,7 +91,7 @@
 对FLV文件内的TagBody内的数据进行加密，这样就可以在不影响视频播放的情况下对视频数据加密，就算防下载被破解，下载下的视频也是加过密的视频，
 播放的话都是雪花点之类的。&lt;/p&gt;
 &lt;h2 id="_1"&gt;算法&lt;/h2&gt;
-&lt;p&gt;我们在这里不讨论视频的具体加密技术，因为涉及到公司的机密，只是简单的讨论这个算法。这个算法其实很简单，来自一片博士论文：&lt;a href="https://drive.google.com/file/d/0B1L569wdo3IkMFBISVlZZXVmRlk/view?usp=sharing"&gt;传送门&lt;/a&gt;，也可以说&lt;code&gt;会者不难，难者不会&lt;/code&gt;，我就属于后者不会的那个，
+&lt;p&gt;我们在这里不讨论视频的具体加密技术，因为涉及到公司的机密，只是简单的讨论这个算法。这个算法其实很简单，来自一片博士论文：&lt;a href="https://drive.google.com/file/d/0B1L569wdo3IkMFBISVlZZXVmRlk/view?usp=sharing" target="_blank"&gt;传送门&lt;/a&gt;，也可以说&lt;code&gt;会者不难，难者不会&lt;/code&gt;，我就属于后者不会的那个，
 不过公司里有数学老师，我们头拿着这篇论文找到数学老师请教时候，果然很简单，当然我只搞懂了&lt;code&gt;等模乱序算法&lt;/code&gt;，&lt;code&gt;变模乱序算法&lt;/code&gt;还是没搞懂，我现在来简单的介绍一下等模乱序算法这个算法。&lt;/p&gt;
 &lt;p&gt;首先我们假设有一个序列：&lt;/p&gt;
 &lt;blockquote&gt;
@@ -218,13 +220,13 @@ categories: [release]
 &lt;p&gt;这次这个还只能算是半成品，因为评论还没有想好用那个，不过我可能考虑用国内的评论系统，还在考虑中。。。。。&lt;/p&gt;</summary><category term="pelican"></category><category term="jekyll"></category></entry><entry><title>ffmpeg,rtmpdump和nginx rtmp实现录屏，直播和录制</title><link href="http://blog.turbidsoul.me/posts/ffmpegrtmpdumphe-nginx-rtmpshi-xian-lu-ping-zhi-bo-he-lu-zhi.html" rel="alternate"></link><updated>2014-04-19T00:00:00+08:00</updated><author><name>Turbidsoul Chan</name></author><id>tag:blog.turbidsoul.me,2014-04-19:posts/ffmpegrtmpdumphe-nginx-rtmpshi-xian-lu-ping-zhi-bo-he-lu-zhi.html</id><summary type="html">&lt;p&gt;公司最近在做视频直播的项目，我这里分配到对直播的视频进行录制，录制的方式是通过rtmpdump对rtmp的视频流进行录制&lt;/p&gt;
 &lt;h2 id="_1"&gt;前置的知识&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="http://ffmpeg.org/ffmpeg.html"&gt;ffmpeg&lt;/a&gt;: 用于实现把录屏工具发出的视频和音频流，转换成我们需要的格式，然后发送到rtmp中转服务器上。&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://rtmpdump.mplayerhq.hu/"&gt;rtmpdump&lt;/a&gt;: 用于实现视频的录制，从rtmp的中转服务器接受到视频流，并把视频流保存成flv文件&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/arut/nginx-rtmp-module"&gt;nginx-rtmp-module&lt;/a&gt;:  用户rtmp中转服务，虽然他可以做很多功能，但是我这里只是使用了这一个&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/rdp/screen-capture-recorder-to-video-windows-free"&gt;screen capture&lt;/a&gt;: windows下的开源屏幕录制工具&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://ffmpeg.org/ffmpeg.html" target="_blank"&gt;ffmpeg&lt;/a&gt;: 用于实现把录屏工具发出的视频和音频流，转换成我们需要的格式，然后发送到rtmp中转服务器上。&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://rtmpdump.mplayerhq.hu/" target="_blank"&gt;rtmpdump&lt;/a&gt;: 用于实现视频的录制，从rtmp的中转服务器接受到视频流，并把视频流保存成flv文件&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/arut/nginx-rtmp-module" target="_blank"&gt;nginx-rtmp-module&lt;/a&gt;:  用户rtmp中转服务，虽然他可以做很多功能，但是我这里只是使用了这一个&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/rdp/screen-capture-recorder-to-video-windows-free" target="_blank"&gt;screen capture&lt;/a&gt;: windows下的开源屏幕录制工具&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;首先，我们安装ffmpeg, rtmpdump和nginx-rtmp-module:&lt;/p&gt;
-&lt;p&gt;这里我使用的&lt;a href="http://ffmpeg.zeranoe.com/builds/"&gt;ffmpeg&lt;/a&gt;和&lt;a href="http://rtmpdump.mplayerhq.hu/download/rtmpdump-2.4-git-010913-windows.zip"&gt;rtmpdump&lt;/a&gt;都是windows版的，虽然和linux下的有所区别，但是在这里并没有使用到这些区别。&lt;/p&gt;
+&lt;p&gt;这里我使用的&lt;a href="http://ffmpeg.zeranoe.com/builds/" target="_blank"&gt;ffmpeg&lt;/a&gt;和&lt;a href="http://rtmpdump.mplayerhq.hu/download/rtmpdump-2.4-git-010913-windows.zip" target="_blank"&gt;rtmpdump&lt;/a&gt;都是windows版的，虽然和linux下的有所区别，但是在这里并没有使用到这些区别。&lt;/p&gt;
 &lt;p&gt;nginx是在windows下的虚拟机中的linux下编译的，因为windows编译这玩意是在太麻烦了，我实在不想编译第二次。&lt;/p&gt;
 &lt;h2 id="ffmpeg"&gt;ffmpeg 的简单使用&lt;/h2&gt;
 &lt;p&gt;首先我们需要查看以下我们的自己上的设备信息，在安装了screen capture recorder之后就可以使用下面的命令:&lt;/p&gt;
@@ -260,7 +262,7 @@ categories: [release]
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;这杨就可以把录屏和通过麦克风说话的声音都录下来，保存成avii，当然这里也可以使用更加丰富的参数来调整视频，使视频更清醒，声音也更响亮，不过这些都不在本文的讨论范围，所以就不在这里多少，有兴趣的华可以去&lt;a href="http://ffmpeg.org/documentation.html"&gt;http://ffmpeg.org/documentation.html&lt;/a&gt;上详细的查看。&lt;/p&gt;
+&lt;p&gt;这杨就可以把录屏和通过麦克风说话的声音都录下来，保存成avii，当然这里也可以使用更加丰富的参数来调整视频，使视频更清醒，声音也更响亮，不过这些都不在本文的讨论范围，所以就不在这里多少，有兴趣的华可以去&lt;a href="http://ffmpeg.org/documentation.html" target="_blank"&gt;http://ffmpeg.org/documentation.html&lt;/a&gt;上详细的查看。&lt;/p&gt;
 &lt;p&gt;当然我们是要使用rtmp协议的，所以这里就需要把视频流发送到rtmp服务端去，如下命令:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;ffmpeg -f dshow -i video=&amp;quot;screen-capture-recorder&amp;quot;:audio=&amp;quot;FrontMic (Realtek High Definiti&amp;quot;  -f flv rtmp://192.168.56.101/live/test
 &lt;/pre&gt;&lt;/div&gt;
@@ -311,7 +313,7 @@ make install
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;我们只需要加入一个关于rtmp协议的块和在http协议下加入一个server块，用来配置统计星系等，这就是最简单的配置，这样已经快而已完成我们例子中的功能，如果需要更详细的，请查看&lt;a href="https://github.com/arut/nginx-rtmp-module"&gt;NGINX-based Media Streaming Server&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;我们只需要加入一个关于rtmp协议的块和在http协议下加入一个server块，用来配置统计星系等，这就是最简单的配置，这样已经快而已完成我们例子中的功能，如果需要更详细的，请查看&lt;a href="https://github.com/arut/nginx-rtmp-module" target="_blank"&gt;NGINX-based Media Streaming Server&lt;/a&gt;。&lt;/p&gt;
 &lt;h2 id="rtmpdump"&gt;RTMPDump&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;RTMPDump&lt;/strong&gt; 是一位匈牙利大神在Adobe未公开RTMP协议的条件下，写出了针对RTMP协议的客户端程序。&lt;/p&gt;
 &lt;p&gt;在这里rtmpdump的使用是很简单的，当然rtmpdump其实也是有一些问题的，我们先来看看如果使用rtmpdump录制视频流&lt;/p&gt;
@@ -329,7 +331,7 @@ make install
 &lt;p&gt;rtmpdump的使用就是如此的简单&lt;/p&gt;
 &lt;h4 id="_5"&gt;问题&lt;/h4&gt;
 &lt;p&gt;我在实际的使用过程中遇到了一个疑问，就是当视频的发送端崩溃或者死机，造成视频流中断，再次发送的时候会发送一个新的视频流，但是rtmpdump无法分辨这个新视频流，他会把这个视频流继续添加在文件后面，保存成一个文件而不是一个新的视频文件。相反对于网络中断而视频的发送端没有中断这种问题是可以处理的，不过中间可能会出现画面定在网络中断的那个时间点上，知道网络再次恢复。&lt;/p&gt;
-&lt;p&gt;不过这个问题是可以通过程序的方式解决的，在python的库中有一个&lt;strong&gt;&lt;a href="https://pypi.python.org/pypi/flvlib/0.1.13"&gt;flvlib&lt;/a&gt;&lt;/strong&gt;的库可以处理这类问题,请看下面的代码：&lt;/p&gt;
+&lt;p&gt;不过这个问题是可以通过程序的方式解决的，在python的库中有一个&lt;strong&gt;&lt;a href="https://pypi.python.org/pypi/flvlib/0.1.13" target="_blank"&gt;flvlib&lt;/a&gt;&lt;/strong&gt;的库可以处理这类问题,请看下面的代码：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;split_flv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nb"&gt;isinstance&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
         &lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;open&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;rb&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -385,9 +387,9 @@ make install
 
 &lt;p&gt;这两段代码就是先把视频分割开，然后在连接到一起生成一个新文件。&lt;/p&gt;
 &lt;h2 id="_6"&gt;总结&lt;/h2&gt;
-&lt;p&gt;这是我解决直播的一个测试方案，因为公司的直播系统还没有起来，所以我采用了这样一中思路模拟直播测试我的录制系统。&lt;/p&gt;</summary><category term="ffmpeg"></category><category term="rtmp"></category><category term="rtmpdump"></category><category term="nginx"></category></entry><entry><title>python实现ldap和rtx之间的组织和用户数据同步</title><link href="http://blog.turbidsoul.me/posts/pythonshi-xian-ldaphe-rtxzhi-jian-de-zu-zhi-he-yong-hu-shu-ju-tong-bu.html" rel="alternate"></link><updated>2013-07-15T00:00:00+08:00</updated><author><name>Turbidsoul Chan</name></author><id>tag:blog.turbidsoul.me,2013-07-15:posts/pythonshi-xian-ldaphe-rtxzhi-jian-de-zu-zhi-he-yong-hu-shu-ju-tong-bu.html</id><summary type="html">&lt;p&gt;最近公司正在准备使用 &lt;strong&gt;AD&lt;/strong&gt; ( &lt;strong&gt;&lt;a href="https://zh.wikipedia.org/wiki/Active_Directory" title="Active Directory"&gt;Activate Directory&lt;/a&gt;&lt;/strong&gt; )服务来进行公司员工的帐号管理，这样就避免不了需要对AD的帐号和&lt;a href="http://rtx.tencent.com/rtx/index.shtml" title="RTX"&gt;RTX&lt;/a&gt;的帐号和组织关系进行同步，所以才有了这篇文章。&lt;/p&gt;
+&lt;p&gt;这是我解决直播的一个测试方案，因为公司的直播系统还没有起来，所以我采用了这样一中思路模拟直播测试我的录制系统。&lt;/p&gt;</summary><category term="ffmpeg"></category><category term="rtmp"></category><category term="rtmpdump"></category><category term="nginx"></category></entry><entry><title>python实现ldap和rtx之间的组织和用户数据同步</title><link href="http://blog.turbidsoul.me/posts/pythonshi-xian-ldaphe-rtxzhi-jian-de-zu-zhi-he-yong-hu-shu-ju-tong-bu.html" rel="alternate"></link><updated>2013-07-15T00:00:00+08:00</updated><author><name>Turbidsoul Chan</name></author><id>tag:blog.turbidsoul.me,2013-07-15:posts/pythonshi-xian-ldaphe-rtxzhi-jian-de-zu-zhi-he-yong-hu-shu-ju-tong-bu.html</id><summary type="html">&lt;p&gt;最近公司正在准备使用 &lt;strong&gt;AD&lt;/strong&gt; ( &lt;strong&gt;&lt;a href="https://zh.wikipedia.org/wiki/Active_Directory" target="_blank" title="Active Directory"&gt;Activate Directory&lt;/a&gt;&lt;/strong&gt; )服务来进行公司员工的帐号管理，这样就避免不了需要对AD的帐号和&lt;a href="http://rtx.tencent.com/rtx/index.shtml" target="_blank" title="RTX"&gt;RTX&lt;/a&gt;的帐号和组织关系进行同步，所以才有了这篇文章。&lt;/p&gt;
 &lt;h4 id="python-ldap"&gt;Python-Ldap&lt;/h4&gt;
-&lt;p&gt;&lt;a href="http://www.python-ldap.org/" title="LDAP client API for Python"&gt;Python-Ldap&lt;/a&gt;是python用来操作ldap的模块，可以对ldap进行查询，添加，修改，删除等操作，如下代码：&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.python-ldap.org/" target="_blank" title="LDAP client API for Python"&gt;Python-Ldap&lt;/a&gt;是python用来操作ldap的模块，可以对ldap进行查询，添加，修改，删除等操作，如下代码：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;ldap_host&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;127.0.0.1&amp;quot;&lt;/span&gt;
 &lt;span class="n"&gt;ldap_port&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;389&lt;/span&gt;
 &lt;span class="n"&gt;ldap_who&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;turbidsoul.me&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;test&amp;quot;&lt;/span&gt;
@@ -434,10 +436,10 @@ make install
 &lt;li&gt;old: 指就原属性，如果原属性不存在，这里给个空字符串即可，&lt;code&gt;""&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;new: 需要修改的新值&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;我这里使用的jobno并不是ad的默认就有的属性是自己后来添加的扩展属性，至于如何添加扩展属性，請参照这篇文章&lt;a href="http://docs.tidyinfo.com/?p=309" title="AD扩展属性定义"&gt;AD扩展属性定义&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;我这里使用的jobno并不是ad的默认就有的属性是自己后来添加的扩展属性，至于如何添加扩展属性，請参照这篇文章&lt;a href="http://docs.tidyinfo.com/?p=309" target="_blank" title="AD扩展属性定义"&gt;AD扩展属性定义&lt;/a&gt;&lt;/p&gt;
 &lt;h4 id="rtx"&gt;RTX&lt;/h4&gt;
 &lt;p&gt;我通过python-ldap从AD中读取到数据，现在需要把他写道RTX中，在这里我遇到了一个问题，当时并没有仔细去看rtx sdk文档，只是想当然的以为直接用python操作数据，来进行数据同步，但是后来发现，数据虽然同步成功了，但是rtx客户端并不能从服务器抓取到新用户的信息，包括基本资料和详细资料等。&lt;/p&gt;
-&lt;p&gt;使用上面的方法，算是走到死胡同，同事的一句话让我想到我可以用过windows的com接口实现数据的同步，python下实现调用windows的com接口的模块是&lt;a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/" title="Unofficial Windows Binaries for Python Extension Packages"&gt;win32com&lt;/a&gt;(这个网站有，pywin32编译好的安装包，根据自己的python版本下载安装即可)。&lt;/p&gt;
+&lt;p&gt;使用上面的方法，算是走到死胡同，同事的一句话让我想到我可以用过windows的com接口实现数据的同步，python下实现调用windows的com接口的模块是&lt;a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/" target="_blank" title="Unofficial Windows Binaries for Python Extension Packages"&gt;win32com&lt;/a&gt;(这个网站有，pywin32编译好的安装包，根据自己的python版本下载安装即可)。&lt;/p&gt;
 &lt;p&gt;我们来看一段测试代码：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;win32com.client&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;xml.etree.cElementTree&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;et&lt;/span&gt;
@@ -629,7 +631,7 @@ make install
 &lt;div class="highlight"&gt;&lt;pre&gt;Download [PbSetup60.exe]: 100% [********************] Time: 0:00:05   1.69 MB/s
 Download [VIDEO0006.mp4]:  20% [****                ] ETA:  0:00:09   2.24 MB/s
 &lt;/pre&gt;&lt;/div&gt;</summary><category term="python"></category><category term="cmd"></category><category term="ftp"></category><category term="progressbar"></category></entry><entry><title>一个css错误引起的maven StackOverflowError</title><link href="http://blog.turbidsoul.me/posts/yi-ge-csscuo-wu-yin-qi-de-maven-stackoverflowerror.html" rel="alternate"></link><updated>2013-06-18T00:00:00+08:00</updated><author><name>Turbidsoul Chan</name></author><id>tag:blog.turbidsoul.me,2013-06-18:posts/yi-ge-csscuo-wu-yin-qi-de-maven-stackoverflowerror.html</id><summary type="html">&lt;p&gt;这个问题是我的一个失误造成的，这是上一片文章的后续，我在使用正则做文本替换的时候没有注意到，这个正则在主干上是正常的，但是在分支上执行的时候使一行css少了一个引号，这个问题在浏览器中是暴露不出来的，之后在maven打包的时候对文件做压缩的时候才会出现，下面我们来看看是什么样的问题。&lt;/p&gt;
-&lt;p&gt;我们项目使用的是 &lt;a href="https://github.com/davidB/yuicompressor-maven-plugin" title="yuicompressor-maven-plugin"&gt;yuicompressor-maven-plugin&lt;/a&gt; 做js和css的压缩，在压缩的过程中出现了下面的错误：&lt;/p&gt;
+&lt;p&gt;我们项目使用的是 &lt;a href="https://github.com/davidB/yuicompressor-maven-plugin" target="_blank" title="yuicompressor-maven-plugin"&gt;yuicompressor-maven-plugin&lt;/a&gt; 做js和css的压缩，在压缩的过程中出现了下面的错误：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="x"&gt;---------------------------------------------------&lt;/span&gt;
 &lt;span class="x"&gt;constituent[0]: file:/E:/opensource/apache/maven-2.2.1.RELEASE/lib/aether-api-1.13.1.jar&lt;/span&gt;
 &lt;span class="x"&gt;constituent[1]: file:/E:/opensource/apache/maven-2.2.1.RELEASE/lib/aether-connector-wagon-1.13.1.jar&lt;/span&gt;
@@ -721,8 +723,8 @@ es\style\share\page.css
         (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
     }
 &lt;/script&gt;
-</summary><category term="java"></category><category term="maven"></category><category term="css"></category></entry><entry><title>lesscss maven plugin简单的配置</title><link href="http://blog.turbidsoul.me/posts/lesscss-maven-pluginjian-dan-de-pei-zhi.html" rel="alternate"></link><updated>2013-06-11T00:00:00+08:00</updated><author><name>Turbidsoul Chan</name></author><id>tag:blog.turbidsoul.me,2013-06-11:posts/lesscss-maven-pluginjian-dan-de-pei-zhi.html</id><summary type="html">&lt;p&gt;这其实是一个很简单的问题，本来并不打算写成一片文章的，因为这个文件和另外一个问题是一起的，就是我们在nginx上做css和js文件合并时遇到的，不过在这之前我还遇到了另外一个问题，就是我们开发环境是windows7，而nginx下有个静态文件合并的模块: &lt;strong&gt;http_concat_module&lt;/strong&gt; ，是&lt;a href="https://github.com/alibaba/nginx-http-concat" title="HTTP Concatenation module for Nginx"&gt;淘宝&lt;/a&gt;开源的，这个模块并不是nginx标准模块，所以要使用它需要自己重新编译nginx，具体如何编译我需要一段一点时间整理一下，在之后的文章中会写出来。&lt;/p&gt;
-&lt;p&gt;至于为什么要使用&lt;a href="http://lesscss.org" title="The Dynamic Stylesheet language"&gt;less&lt;/a&gt;是因为使用了 &lt;strong&gt;http_concat_module&lt;/strong&gt; 之后css中文件的一些路径出现了错误，需要为css文件设置一些变量，其实使用maven的插件也可以进行变量替换，但是这样只能在maven打包的时候才能起作用，对于开发来说就不行，因为开发必须要求在编译的时候就生效。所以就需要使用maven的另一个插件&lt;a href="https://github.com/marceloverdijk/lesscss-maven-plugin" title="Official LESS CSS Maven Plugin"&gt;lesscss-maven-plugin&lt;/a&gt;，这个插件的作用就是在编译的时候就能把less转换成css，这样做对我们最大的好处就是需要修改的地方是最少的，而且能一劳永逸的解决这个问题。&lt;/p&gt;
+</summary><category term="java"></category><category term="maven"></category><category term="css"></category></entry><entry><title>lesscss maven plugin简单的配置</title><link href="http://blog.turbidsoul.me/posts/lesscss-maven-pluginjian-dan-de-pei-zhi.html" rel="alternate"></link><updated>2013-06-11T00:00:00+08:00</updated><author><name>Turbidsoul Chan</name></author><id>tag:blog.turbidsoul.me,2013-06-11:posts/lesscss-maven-pluginjian-dan-de-pei-zhi.html</id><summary type="html">&lt;p&gt;这其实是一个很简单的问题，本来并不打算写成一片文章的，因为这个文件和另外一个问题是一起的，就是我们在nginx上做css和js文件合并时遇到的，不过在这之前我还遇到了另外一个问题，就是我们开发环境是windows7，而nginx下有个静态文件合并的模块: &lt;strong&gt;http_concat_module&lt;/strong&gt; ，是&lt;a href="https://github.com/alibaba/nginx-http-concat" target="_blank" title="HTTP Concatenation module for Nginx"&gt;淘宝&lt;/a&gt;开源的，这个模块并不是nginx标准模块，所以要使用它需要自己重新编译nginx，具体如何编译我需要一段一点时间整理一下，在之后的文章中会写出来。&lt;/p&gt;
+&lt;p&gt;至于为什么要使用&lt;a href="http://lesscss.org" target="_blank" title="The Dynamic Stylesheet language"&gt;less&lt;/a&gt;是因为使用了 &lt;strong&gt;http_concat_module&lt;/strong&gt; 之后css中文件的一些路径出现了错误，需要为css文件设置一些变量，其实使用maven的插件也可以进行变量替换，但是这样只能在maven打包的时候才能起作用，对于开发来说就不行，因为开发必须要求在编译的时候就生效。所以就需要使用maven的另一个插件&lt;a href="https://github.com/marceloverdijk/lesscss-maven-plugin" target="_blank" title="Official LESS CSS Maven Plugin"&gt;lesscss-maven-plugin&lt;/a&gt;，这个插件的作用就是在编译的时候就能把less转换成css，这样做对我们最大的好处就是需要修改的地方是最少的，而且能一劳永逸的解决这个问题。&lt;/p&gt;
 &lt;p&gt;现在我们来说说这个插件如何配置：&lt;/p&gt;
 &lt;h4 id="_1"&gt;添加插件&lt;/h4&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
@@ -790,11 +792,11 @@ es\style\share\page.css
 &lt;hr /&gt;
 &lt;p&gt;2012-6-15 夜 添加&lt;/p&gt;
 &lt;p&gt;今天对这篇文章最了一些修改，主要是上次写的有些仓促，并没有写清楚，另外是下面需要补充一些东西。&lt;/p&gt;
-&lt;p&gt;这个插件并不能使用maven的变量过滤，这个在github上也有人提出过&lt;a href="https://github.com/marceloverdijk/lesscss-maven-plugin/issues/10" title="Add 'filtering' configuration option to allow use ${..} variables in .less files"&gt;issue 10&lt;/a&gt;，是十个月之前提出来的，但是作者并没有给出回复。其实也正常，这个和maven的编译打包过程有关，maven的filter是在package之前compile之后进行的，而且这个插件是在compile是进行less文件编译的，所以它是无法处理的。&lt;/p&gt;
+&lt;p&gt;这个插件并不能使用maven的变量过滤，这个在github上也有人提出过&lt;a href="https://github.com/marceloverdijk/lesscss-maven-plugin/issues/10" target="_blank" title="Add 'filtering' configuration option to allow use ${..} variables in .less files"&gt;issue 10&lt;/a&gt;，是十个月之前提出来的，但是作者并没有给出回复。其实也正常，这个和maven的编译打包过程有关，maven的filter是在package之前compile之后进行的，而且这个插件是在compile是进行less文件编译的，所以它是无法处理的。&lt;/p&gt;
 &lt;p&gt;但是也不是完全没有办法，我查看了源代码发现它是直接文件对文件的操作，我们可以在这之前先对less文件进行变量替换，然后在进行编译，这样也可以。但是我觉得这样的操作很奇怪，怎么看怎么不舒服。&lt;/p&gt;
-&lt;p&gt;还有另外一个插件&lt;a href="http://code.google.com/p/wro4j/" title="Web Resource Optimizer for Java"&gt;wro4j&lt;/a&gt;，这个插件的功能更为强大，支持css，js合并，压缩，less文件编译，合并，压缩等等丰富的功能，也支持自定义的processor但是如果要实现上面说的应该也要自己实现processor，我并没有看到官方文档或者jboss上介绍，而且官方文档关于less的内容太少，而且做到这里，发现我们的项目使用less之后需要变动的东西太多，主要来自css书写的问题，很多时候为了兼容ie，写了一些非标准的css代码，修改成less之后需要话大量的时间去修正，所以就放弃了less，还是决定采用之前的方案处理。&lt;/p&gt;
+&lt;p&gt;还有另外一个插件&lt;a href="http://code.google.com/p/wro4j/" target="_blank" title="Web Resource Optimizer for Java"&gt;wro4j&lt;/a&gt;，这个插件的功能更为强大，支持css，js合并，压缩，less文件编译，合并，压缩等等丰富的功能，也支持自定义的processor但是如果要实现上面说的应该也要自己实现processor，我并没有看到官方文档或者jboss上介绍，而且官方文档关于less的内容太少，而且做到这里，发现我们的项目使用less之后需要变动的东西太多，主要来自css书写的问题，很多时候为了兼容ie，写了一些非标准的css代码，修改成less之后需要话大量的时间去修正，所以就放弃了less，还是决定采用之前的方案处理。&lt;/p&gt;
 &lt;p&gt;这里有一个关于wro4j的例子，有兴趣的朋友可以看一下：
-&lt;a href="https://github.com/jbosstools/m2e-wro4j/wiki/Sample-twitter-bootstrap-project"&gt;https://github.com/jbosstools/m2e-wro4j/wiki/Sample-twitter-bootstrap-project&lt;/a&gt;&lt;/p&gt;&lt;script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"&gt;&lt;/script&gt;
+&lt;a href="https://github.com/jbosstools/m2e-wro4j/wiki/Sample-twitter-bootstrap-project" target="_blank"&gt;https://github.com/jbosstools/m2e-wro4j/wiki/Sample-twitter-bootstrap-project&lt;/a&gt;&lt;/p&gt;&lt;script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"&gt;&lt;/script&gt;
 &lt;script type= "text/javascript"&gt;
     if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
         var mathjaxscript = document.createElement('script');
@@ -812,7 +814,7 @@ es\style\share\page.css
         (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
     }
 &lt;/script&gt;
-</summary><category term="lesscss"></category><category term="maven"></category><category term="java"></category></entry><entry><title>Leibniz公式和Walliz公式估算Pi的值</title><link href="http://blog.turbidsoul.me/posts/leibnizgong-shi-he-wallizgong-shi-gu-suan-pide-zhi.html" rel="alternate"></link><updated>2013-06-08T00:00:00+08:00</updated><author><name>Turbidsoul Chan</name></author><id>tag:blog.turbidsoul.me,2013-06-08:posts/leibnizgong-shi-he-wallizgong-shi-gu-suan-pide-zhi.html</id><summary type="html">&lt;p&gt;前两天和同事在聊天的时候说道了 $pi$ 的算法，回家之后在&lt;a href="https://zh.wikipedia.org/wiki/圓周率"&gt;维基&lt;/a&gt;上看了一下关于 $pi$ 的公式，正好这回没事干，就用Python实现了两个比较简单的公式，分别是Leibniz 和 Walliz.&lt;/p&gt;
+</summary><category term="lesscss"></category><category term="maven"></category><category term="java"></category></entry><entry><title>Leibniz公式和Walliz公式估算Pi的值</title><link href="http://blog.turbidsoul.me/posts/leibnizgong-shi-he-wallizgong-shi-gu-suan-pide-zhi.html" rel="alternate"></link><updated>2013-06-08T00:00:00+08:00</updated><author><name>Turbidsoul Chan</name></author><id>tag:blog.turbidsoul.me,2013-06-08:posts/leibnizgong-shi-he-wallizgong-shi-gu-suan-pide-zhi.html</id><summary type="html">&lt;p&gt;前两天和同事在聊天的时候说道了 $pi$ 的算法，回家之后在&lt;a href="https://zh.wikipedia.org/wiki/圓周率" target="_blank"&gt;维基&lt;/a&gt;上看了一下关于 $pi$ 的公式，正好这回没事干，就用Python实现了两个比较简单的公式，分别是Leibniz 和 Walliz.&lt;/p&gt;
 &lt;h2 id="leibniz"&gt;Leibniz&lt;/h2&gt;
 &lt;p&gt;公式如下：&lt;/p&gt;
 &lt;p&gt;$1 - 1/3 + 1/5 - 1/7 + 1/9 - ... = pi/4$&lt;/p&gt;
@@ -887,12 +889,12 @@ es\style\share\page.css
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;看着错误对着代码看了半天有点莫名其妙，就跑去&lt;a href="https://github.com/sergeche/emmet-sublime/" title="Emmet (ex-Zen Coding) for Sublime Text"&gt;Github&lt;/a&gt;上找找看有没有解决的办法，还别说真有一哥们遇到了同样的问题，&lt;a href="https://github.com/sergeche/emmet-sublime/issues/320" title="emmet fails on startup"&gt;Emmet Issue #320&lt;/a&gt;，Emmet的作者也对这个Issue给了解释和解决办法：&lt;/p&gt;
+&lt;p&gt;看着错误对着代码看了半天有点莫名其妙，就跑去&lt;a href="https://github.com/sergeche/emmet-sublime/" target="_blank" title="Emmet (ex-Zen Coding) for Sublime Text"&gt;Github&lt;/a&gt;上找找看有没有解决的办法，还别说真有一哥们遇到了同样的问题，&lt;a href="https://github.com/sergeche/emmet-sublime/issues/320" target="_blank" title="emmet fails on startup"&gt;Emmet Issue #320&lt;/a&gt;，Emmet的作者也对这个Issue给了解释和解决办法：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;For some reason, you have outdated PyV8 package. Try to quit ST editor, manually remove PyV8 folder from Packages and start ST again: it should load recent PyV8 package automatically&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;大意就是说PyV8的版本过低，需要升级，解决的办法就是关闭sublime并删除sublime插件目录下的PyV8，然后在重启，重启之后sublime就会自动下载PyV8，下载好之后就能正常使用了。&lt;/p&gt;</summary><category term="sublime"></category><category term="python"></category><category term="emmet"></category></entry><entry><title>python实现morse编码与解码</title><link href="http://blog.turbidsoul.me/posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html" rel="alternate"></link><updated>2013-06-04T00:00:00+08:00</updated><author><name>Turbidsoul Chan</name></author><id>tag:blog.turbidsoul.me,2013-06-04:posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html</id><summary type="html">&lt;p&gt;写这个完全是闲着无聊，看了一片趣文&lt;a href="http://blog.jobbole.com/40628/?utm_source=rss&amp;amp;utm_medium=rss&amp;amp;utm_campaign=draft-created-on-20130531-at-1028-am"&gt;趣文：表白后女生发给我一串五层加密的密码&lt;/a&gt; 这篇文章来源自百度贴吧的的有一个帖子&lt;a href="http://tieba.baidu.com/f?kz=529691897"&gt;传送门&lt;/a&gt;，文章的内容还是很欢乐的。&lt;/p&gt;
-&lt;p&gt;言归正传，&lt;a href="http://zh.wikipedia.org/zh/%E6%91%A9%E5%B0%94%E6%96%AF%E7%94%B5%E7%A0%81"&gt;Morse Code&lt;/a&gt; 的算法是根据维基得来的，说白了就是键值对，编码解码也都是按照键值对进行匹配的。&lt;/p&gt;
+&lt;p&gt;大意就是说PyV8的版本过低，需要升级，解决的办法就是关闭sublime并删除sublime插件目录下的PyV8，然后在重启，重启之后sublime就会自动下载PyV8，下载好之后就能正常使用了。&lt;/p&gt;</summary><category term="sublime"></category><category term="python"></category><category term="emmet"></category></entry><entry><title>python实现morse编码与解码</title><link href="http://blog.turbidsoul.me/posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html" rel="alternate"></link><updated>2013-06-04T00:00:00+08:00</updated><author><name>Turbidsoul Chan</name></author><id>tag:blog.turbidsoul.me,2013-06-04:posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html</id><summary type="html">&lt;p&gt;写这个完全是闲着无聊，看了一片趣文&lt;a href="http://blog.jobbole.com/40628/?utm_source=rss&amp;amp;utm_medium=rss&amp;amp;utm_campaign=draft-created-on-20130531-at-1028-am" target="_blank"&gt;趣文：表白后女生发给我一串五层加密的密码&lt;/a&gt; 这篇文章来源自百度贴吧的的有一个帖子&lt;a href="http://tieba.baidu.com/f?kz=529691897" target="_blank"&gt;传送门&lt;/a&gt;，文章的内容还是很欢乐的。&lt;/p&gt;
+&lt;p&gt;言归正传，&lt;a href="http://zh.wikipedia.org/zh/%E6%91%A9%E5%B0%94%E6%96%AF%E7%94%B5%E7%A0%81" target="_blank"&gt;Morse Code&lt;/a&gt; 的算法是根据维基得来的，说白了就是键值对，编码解码也都是按照键值对进行匹配的。&lt;/p&gt;
 &lt;p&gt;编码如下：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;__morse_code__&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="s"&gt;&amp;#39;A&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;.-&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;B&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;-...&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;C&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;-.-.&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;D&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;-..&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;E&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;.&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;F&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;..-.&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;G&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;--.&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
@@ -976,7 +978,7 @@ es\style\share\page.css
 &lt;p&gt;上面的就是运行结果，下面有两个关于morse的应用：&lt;/p&gt;
 &lt;iframe src="//zh.wikipedia.org/wiki/File:TVB_News_Theme_Song_Extract.ogg?embedplayer=yes" width="220" height="23" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;&lt;/iframe&gt;
 
-&lt;p&gt;&lt;a href="http://www.omnicron.com/~ford/java/NMorse.html"&gt;Morse Code Translation and Copy Practice&lt;/a&gt;&lt;/p&gt;</summary><category term="python"></category><category term="morse"></category><category term="code"></category></entry><entry><title>jekyll模版的中文问题</title><link href="http://blog.turbidsoul.me/posts/jekyllmo-ban-de-zhong-wen-wen-ti.html" rel="alternate"></link><updated>2013-05-31T00:00:00+08:00</updated><author><name>Turbidsoul Chan</name></author><id>tag:blog.turbidsoul.me,2013-05-31:posts/jekyllmo-ban-de-zhong-wen-wen-ti.html</id><summary type="html">&lt;p&gt;今天在给blog添加&lt;a href="http://creativecommons.org/licenses/by/3.0/cn/"&gt;Creative Commons&lt;/a&gt;(简称CC)时，发现在jekyll的模版中不能加入中文。大概看了一下build时报的错，可以确定应该和jekyll不能发带有中文的文章的问题是一样的，不过出问题的地方不一样。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.omnicron.com/~ford/java/NMorse.html" target="_blank"&gt;Morse Code Translation and Copy Practice&lt;/a&gt;&lt;/p&gt;</summary><category term="python"></category><category term="morse"></category><category term="code"></category></entry><entry><title>jekyll模版的中文问题</title><link href="http://blog.turbidsoul.me/posts/jekyllmo-ban-de-zhong-wen-wen-ti.html" rel="alternate"></link><updated>2013-05-31T00:00:00+08:00</updated><author><name>Turbidsoul Chan</name></author><id>tag:blog.turbidsoul.me,2013-05-31:posts/jekyllmo-ban-de-zhong-wen-wen-ti.html</id><summary type="html">&lt;p&gt;今天在给blog添加&lt;a href="http://creativecommons.org/licenses/by/3.0/cn/" target="_blank"&gt;Creative Commons&lt;/a&gt;(简称CC)时，发现在jekyll的模版中不能加入中文。大概看了一下build时报的错，可以确定应该和jekyll不能发带有中文的文章的问题是一样的，不过出问题的地方不一样。&lt;/p&gt;
 &lt;h4 id="jekyll"&gt;jekyll不能发有中文的文章&lt;/h4&gt;
 &lt;p&gt;出问题的地方是在convertible.rb#31 行：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;content&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="no"&gt;File&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="no"&gt;File&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;base&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;name&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="ss"&gt;:encoding&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;utf-8&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -1025,9 +1027,9 @@ D:\SublimeText\Data\Packages\GoSublime\gosubl\gs.py:
 
 
 &lt;h4 id="_1"&gt;结论&lt;/h4&gt;
-&lt;p&gt;其实这样的做法并不是一个好的解决方案，就和jekyll解决中文问题一样，算是一种暴力的方式，但是暴力的方式通常都是最快最省时间的，但是这样的解决方法也容易埋下隐患。&lt;/p&gt;</summary><category term="sublime"></category><category term="python"></category></entry><entry><title>JDK8新特性 Calendar.Builder</title><link href="http://blog.turbidsoul.me/posts/jdk8xin-te-xing-calendarbuilder.html" rel="alternate"></link><updated>2013-05-29T00:00:00+08:00</updated><author><name>Turbidsoul Chan</name></author><id>tag:blog.turbidsoul.me,2013-05-29:posts/jdk8xin-te-xing-calendarbuilder.html</id><summary type="html">&lt;p&gt;5月23号，Oracle 发布了 jdk8 &lt;strong&gt;M7&lt;/strong&gt; 版，这是一个&lt;a href="http://openjdk.java.net/projects/jdk8/milestones#Feature_Complete"&gt;Feature Complete&lt;/a&gt;，就是说它已经把所有特性和功能都加入。在翻看 &lt;strong&gt;M7&lt;/strong&gt; 的文档时发现了 &lt;a href="http://download.java.net/jdk8/docs/api/java/util/Locale.Builder.html" title="Locale.Builder"&gt;&lt;em&gt;Locale.Builder&lt;/em&gt;&lt;/a&gt; ，在jdk7的时候加入过一个类似的：&lt;a href="http://download.java.net/jdk8/docs/api/java/util/Locale.Builder.html" title="Locale.Builder"&gt;&lt;em&gt;Locale.Builder&lt;/em&gt;&lt;/a&gt;, 下面我们来看看 &lt;a href="http://download.java.net/jdk8/docs/api/java/util/Calendar.Builder.html" title="Calendar.Builder"&gt;&lt;em&gt;Calendar.Builder&lt;/em&gt;&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;其实这样的做法并不是一个好的解决方案，就和jekyll解决中文问题一样，算是一种暴力的方式，但是暴力的方式通常都是最快最省时间的，但是这样的解决方法也容易埋下隐患。&lt;/p&gt;</summary><category term="sublime"></category><category term="python"></category></entry><entry><title>JDK8新特性 Calendar.Builder</title><link href="http://blog.turbidsoul.me/posts/jdk8xin-te-xing-calendarbuilder.html" rel="alternate"></link><updated>2013-05-29T00:00:00+08:00</updated><author><name>Turbidsoul Chan</name></author><id>tag:blog.turbidsoul.me,2013-05-29:posts/jdk8xin-te-xing-calendarbuilder.html</id><summary type="html">&lt;p&gt;5月23号，Oracle 发布了 jdk8 &lt;strong&gt;M7&lt;/strong&gt; 版，这是一个&lt;a href="http://openjdk.java.net/projects/jdk8/milestones#Feature_Complete" target="_blank"&gt;Feature Complete&lt;/a&gt;，就是说它已经把所有特性和功能都加入。在翻看 &lt;strong&gt;M7&lt;/strong&gt; 的文档时发现了 &lt;a href="http://download.java.net/jdk8/docs/api/java/util/Locale.Builder.html" target="_blank" title="Locale.Builder"&gt;&lt;em&gt;Locale.Builder&lt;/em&gt;&lt;/a&gt; ，在jdk7的时候加入过一个类似的：&lt;a href="http://download.java.net/jdk8/docs/api/java/util/Locale.Builder.html" target="_blank" title="Locale.Builder"&gt;&lt;em&gt;Locale.Builder&lt;/em&gt;&lt;/a&gt;, 下面我们来看看 &lt;a href="http://download.java.net/jdk8/docs/api/java/util/Calendar.Builder.html" target="_blank" title="Calendar.Builder"&gt;&lt;em&gt;Calendar.Builder&lt;/em&gt;&lt;/a&gt;。&lt;/p&gt;
 &lt;h4 id="_1"&gt;允许单语句设置&lt;/h4&gt;
-&lt;p&gt;允许使用 &lt;a href="http://download.java.net/jdk8/docs/api/java/util/Calendar.Builder.html#set(int,%20int)" title="set(int, int)"&gt;&lt;code&gt;set(int, int)&lt;/code&gt;&lt;/a&gt; 方法，为指定的Field设置值，如下：&lt;/p&gt;
+&lt;p&gt;允许使用 &lt;a href="http://download.java.net/jdk8/docs/api/java/util/Calendar.Builder.html#set(int,%20int)" target="_blank" title="set(int, int)"&gt;&lt;code&gt;set(int, int)&lt;/code&gt;&lt;/a&gt; 方法，为指定的Field设置值，如下：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;java.util.Calendar&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;java.text.SimpleDateFormat&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;static&lt;/span&gt; &lt;span class="n"&gt;java&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;util&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;Calendar&lt;/span&gt;&lt;span class="o"&gt;.*;&lt;/span&gt;
@@ -1052,7 +1054,7 @@ D:\SublimeText\Data\Packages\GoSublime\gosubl\gs.py:
 
 
 &lt;h4 id="datetime"&gt;允许设置Date和Time&lt;/h4&gt;
-&lt;p&gt;除了&lt;a href="http://download.java.net/jdk8/docs/api/java/util/Calendar.Builder.html#set(int,%20int)" title="set(int, int)"&gt;&lt;code&gt;set(int, int)&lt;/code&gt;&lt;/a&gt; 这样的方法外，还有还有一些更多参数的方法如：&lt;a href="http://download.java.net/jdk8/docs/api/java/util/Calendar.Builder.html#setDate(int,%20int,%20int)" title="setDate(int, int, int)"&gt;&lt;code&gt;setDate(int, int, int)&lt;/code&gt;&lt;/a&gt;，&lt;a href="http://download.java.net/jdk8/docs/api/java/util/Calendar.Builder.html#setTimeOfDay(int,%20int,%20int)" title="setTimeOfDay(int, int, int)"&gt;&lt;code&gt;setTimeOfDay(int, int, int)&lt;/code&gt;&lt;/a&gt; 下面我们来看一个例子：&lt;/p&gt;
+&lt;p&gt;除了&lt;a href="http://download.java.net/jdk8/docs/api/java/util/Calendar.Builder.html#set(int,%20int)" target="_blank" title="set(int, int)"&gt;&lt;code&gt;set(int, int)&lt;/code&gt;&lt;/a&gt; 这样的方法外，还有还有一些更多参数的方法如：&lt;a href="http://download.java.net/jdk8/docs/api/java/util/Calendar.Builder.html#setDate(int,%20int,%20int)" target="_blank" title="setDate(int, int, int)"&gt;&lt;code&gt;setDate(int, int, int)&lt;/code&gt;&lt;/a&gt;，&lt;a href="http://download.java.net/jdk8/docs/api/java/util/Calendar.Builder.html#setTimeOfDay(int,%20int,%20int)" target="_blank" title="setTimeOfDay(int, int, int)"&gt;&lt;code&gt;setTimeOfDay(int, int, int)&lt;/code&gt;&lt;/a&gt; 下面我们来看一个例子：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;testSingleStatements2&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
     &lt;span class="n"&gt;Calendar&lt;/span&gt; &lt;span class="n"&gt;cal&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Calendar&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;Builder&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;
         &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;setDate&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2013&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;MAY&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;29&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
@@ -1064,7 +1066,7 @@ D:\SublimeText\Data\Packages\GoSublime\gosubl\gs.py:
 
 
 &lt;h4 id="calendar-field"&gt;允许通过Calendar Field设置值&lt;/h4&gt;
-&lt;p&gt;除了上面的两种方法外还可以使用&lt;a href="http://download.java.net/jdk8/docs/api/java/util/Calendar.Builder.html#setFields(int...)" title="setFields(int...)"&gt;&lt;code&gt;setFields(int...)&lt;/code&gt;&lt;/a&gt;, 如下：&lt;/p&gt;
+&lt;p&gt;除了上面的两种方法外还可以使用&lt;a href="http://download.java.net/jdk8/docs/api/java/util/Calendar.Builder.html#setFields(int...)" target="_blank" title="setFields(int...)"&gt;&lt;code&gt;setFields(int...)&lt;/code&gt;&lt;/a&gt;, 如下：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;testSingleStatements3&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
     &lt;span class="n"&gt;Calendar&lt;/span&gt; &lt;span class="n"&gt;cal&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Calendar&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;Builder&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;
         &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;setFields&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;YEAR&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2013&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;MONTH&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;MAY&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;DATE&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;29&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;HOUR&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;14&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;MINUTE&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;25&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;SECOND&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;30&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
@@ -1075,7 +1077,7 @@ D:\SublimeText\Data\Packages\GoSublime\gosubl\gs.py:
 
 
 &lt;h4 id="calendarbuilder-instant-calendar"&gt;通过Calendar.Builder 转换 Instant 到 Calendar&lt;/h4&gt;
-&lt;p&gt;&lt;a href="file:///F:/work/Java/doc/docs/api/index.html" title="Instant"&gt;Instant&lt;/a&gt; 也是jdk8的新特性，它是&lt;a href="http://download.java.net/jdk8/docs/api/java/time/package-summary.html" title="java.time.*"&gt;java.time.*&lt;/a&gt; 下的类，有兴趣的可以区查看一下官方文档，我会在过段时间，研究了之后在发一篇这个包的介绍文章，下面看一下之后的代码:&lt;/p&gt;
+&lt;p&gt;&lt;a href="file:///F:/work/Java/doc/docs/api/index.html" target="_blank" title="Instant"&gt;Instant&lt;/a&gt; 也是jdk8的新特性，它是&lt;a href="http://download.java.net/jdk8/docs/api/java/time/package-summary.html" target="_blank" title="java.time.*"&gt;java.time.*&lt;/a&gt; 下的类，有兴趣的可以区查看一下官方文档，我会在过段时间，研究了之后在发一篇这个包的介绍文章，下面看一下之后的代码:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;testSingleStatements4&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
     &lt;span class="n"&gt;Calendar&lt;/span&gt; &lt;span class="n"&gt;cal&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Calendar&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;Builder&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;
         &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;setInstant&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Instant&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;now&lt;/span&gt;&lt;span class="o"&gt;().&lt;/span&gt;&lt;span class="na"&gt;toEpochMilli&lt;/span&gt;&lt;span class="o"&gt;())&lt;/span&gt;
@@ -1121,7 +1123,7 @@ D:\SublimeText\Data\Packages\GoSublime\gosubl\gs.py:
 
 
 &lt;p&gt;这是Rakefile中关于post的那段代码：&lt;code&gt;slug = title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')&lt;/code&gt;，我们只需要在行代码之前加入对标题的转换就可以。&lt;/p&gt;
-&lt;p&gt;汉字转拼音我用的是&lt;a href="https://github.com/elvuel/hz2py"&gt;hz2py&lt;/a&gt;,使用&lt;code&gt;gem install hz2py&lt;/code&gt;就可以安装，使用也很简单：&lt;/p&gt;
+&lt;p&gt;汉字转拼音我用的是&lt;a href="https://github.com/elvuel/hz2py" target="_blank"&gt;hz2py&lt;/a&gt;,使用&lt;code&gt;gem install hz2py&lt;/code&gt;就可以安装，使用也很简单：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;require&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;hz2py&amp;#39;&lt;/span&gt;
 
 &lt;span class="no"&gt;Hz2py&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;do&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;听说使用hz2py可以使jekyll支持中文标题，并转换成拼音&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;:join_with&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;-&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;:to_simplified&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="kp"&gt;true&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -1185,7 +1187,7 @@ D:\SublimeText\Data\Packages\GoSublime\gosubl\gs.py:
 &lt;h2 id="_2"&gt;开始之前&lt;/h2&gt;
 &lt;p&gt;我的测试例子中使用到了三个包，分别是 web.py , Misaka , pygments ,如果在开始之前需要使用pip安装这三个包&lt;/p&gt;
 &lt;h3 id="webpy"&gt;Web.py&lt;/h3&gt;
-&lt;p&gt;&lt;a href="http://webpy.org" title="web.py"&gt;Web.py&lt;/a&gt;是python的一个轻量级web框架，我只是简单的使用了一下，有兴趣的人可以去它的&lt;a href="http://webpy.org" title="web.py"&gt;官网&lt;/a&gt;,它的官方有一个&lt;a href="http://webpy.org/docs/0.3/tutorial.zh-cn" title="web.py tutorial"&gt;中文教程&lt;/a&gt;说的很详细。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://webpy.org" target="_blank" title="web.py"&gt;Web.py&lt;/a&gt;是python的一个轻量级web框架，我只是简单的使用了一下，有兴趣的人可以去它的&lt;a href="http://webpy.org" target="_blank" title="web.py"&gt;官网&lt;/a&gt;,它的官方有一个&lt;a href="http://webpy.org/docs/0.3/tutorial.zh-cn" target="_blank" title="web.py tutorial"&gt;中文教程&lt;/a&gt;说的很详细。&lt;/p&gt;
 &lt;p&gt;我这里使用他做一个简单的web服务：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Index&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;GET&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
@@ -1201,8 +1203,8 @@ D:\SublimeText\Data\Packages\GoSublime\gosubl\gs.py:
 
 
 &lt;h3 id="misaka"&gt;Misaka&lt;/h3&gt;
-&lt;p&gt;&lt;a href="http://misaka.61924.nl/" title="Misaka"&gt;Misaka&lt;/a&gt;是一个Markdown的解析工具包，他的Github地址：&lt;a href="https://github.com/FSX/misaka" title="Misaka Github"&gt;https://github.com/FSX/misaka&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Misaka的官网上也有他的&lt;a href="http://misaka.61924.nl/manual/" title="Misaka Tutorial"&gt;教程&lt;/a&gt;，我在这里只是简单的举个例子，说明一下：&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://misaka.61924.nl/" target="_blank" title="Misaka"&gt;Misaka&lt;/a&gt;是一个Markdown的解析工具包，他的Github地址：&lt;a href="https://github.com/FSX/misaka" target="_blank" title="Misaka Github"&gt;https://github.com/FSX/misaka&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Misaka的官网上也有他的&lt;a href="http://misaka.61924.nl/manual/" target="_blank" title="Misaka Tutorial"&gt;教程&lt;/a&gt;，我在这里只是简单的举个例子，说明一下：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;misaka&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;m&lt;/span&gt;
 
 &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;A ~~complex~~ simple example.&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;extensions&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;EXT_STRIKETHROUGH&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -1224,9 +1226,9 @@ D:\SublimeText\Data\Packages\GoSublime\gosubl\gs.py:
 &lt;/ul&gt;
 &lt;h3 id="pygments"&gt;pygments&lt;/h3&gt;
 &lt;p&gt;pygments是python的语法高亮工具包，它提供了语法样式 &lt;code&gt;pygments.styles&lt;/code&gt;,关于styles文档请查看[http://pygments.org/docs/styles/][pygments_styles]&lt;/p&gt;
-&lt;p&gt;昨天无事可作的时候 把&lt;a href="http://jekyllrb.com/" title="Jekyll"&gt;jekyll&lt;/a&gt;的一个主题minimum的样式写成Style,代码如下：&lt;/p&gt;
+&lt;p&gt;昨天无事可作的时候 把&lt;a href="http://jekyllrb.com/" target="_blank" title="Jekyll"&gt;jekyll&lt;/a&gt;的一个主题minimum的样式写成Style,代码如下：&lt;/p&gt;
 &lt;p&gt;{% gist 5567214 %}&lt;/p&gt;
-&lt;p&gt;同时它也支持很多语言，具体支持什么语言请参照&lt;a href="http://pygments.org/languages/" title="Pygments Support Language"&gt;Support Language&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;同时它也支持很多语言，具体支持什么语言请参照&lt;a href="http://pygments.org/languages/" target="_blank" title="Pygments Support Language"&gt;Support Language&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;pygments提供一个工具,pygmentize用于生成Style的css文件，但是我不知道这个工具能不能通过css文件生成Style，所以上面的那个Style是我自己手敲的 T_T !&lt;/p&gt;
 &lt;p&gt;pygmentize的用法：&lt;code&gt;pygmentize -S default -f html &amp;gt; style.css&lt;/code&gt; 这样就能生成指定的Style的css样式文件&lt;/p&gt;
 &lt;blockquote&gt;
@@ -1397,7 +1399,7 @@ D:\SublimeText\Data\Packages\GoSublime\gosubl\gs.py:
     app.run()&lt;/p&gt;
 &lt;p&gt;```&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;在命令下运行: &lt;code&gt;python test.py 1234&lt;/code&gt;之后使用 &lt;a href="http://localhost:1234"&gt;http://localhost:1234&lt;/a&gt;)就能访问,并且看到结果&lt;/p&gt;
+&lt;p&gt;在命令下运行: &lt;code&gt;python test.py 1234&lt;/code&gt;之后使用 &lt;a href="http://localhost:1234" target="_blank"&gt;http://localhost:1234&lt;/a&gt;)就能访问,并且看到结果&lt;/p&gt;
 &lt;/blockquote&gt;</summary><category term="python"></category><category term="misaka"></category><category term="pygments"></category><category term="markdown"></category></entry><entry><title>如何配置在nginx和cas上配置ssl？</title><link href="http://blog.turbidsoul.me/posts/ru-he-pei-zhi-zai-nginxhe-casshang-pei-zhi-ssl.html" rel="alternate"></link><updated>2013-05-08T00:00:00+08:00</updated><author><name>Turbidsoul Chan</name></author><id>tag:blog.turbidsoul.me,2013-05-08:posts/ru-he-pei-zhi-zai-nginxhe-casshang-pei-zhi-ssl.html</id><summary type="html">&lt;p&gt;公司准备对登录服务采用https，而登录服务采用的是cas，前段的是用nginx代理， 所以就有了之后的几个问题。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;主要碰到了下面3个问题&lt;/strong&gt; ：&lt;/p&gt;
 &lt;ol&gt;
@@ -1412,7 +1414,7 @@ D:\SublimeText\Data\Packages\GoSublime\gosubl\gs.py:
 &lt;li&gt;接下来要生成CSR文件： openssl req -new -key server.key -out server.csr&lt;/li&gt;
 &lt;li&gt;最后就是生成证书文件： openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;这里有我一个笔记是openssl的简单教程：&lt;a href="https://www.evernote.com/shard/s25/sh/233c0eda-2f70-4756-8907-50dc0bff82c2/92861a2bd473f1d703bcead620080d27"&gt;openssl简单教程&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这里有我一个笔记是openssl的简单教程：&lt;a href="https://www.evernote.com/shard/s25/sh/233c0eda-2f70-4756-8907-50dc0bff82c2/92861a2bd473f1d703bcead620080d27" target="_blank"&gt;openssl简单教程&lt;/a&gt;&lt;/p&gt;
 &lt;hr /&gt;
 &lt;p&gt;生成证书后，就可以配置nginx了，打开nginx.conf，加入以下几行:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;listen&lt;/span&gt;                 &lt;span class="mi"&gt;443&lt;/span&gt; &lt;span class="s"&gt;ssl&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
@@ -1469,13 +1471,13 @@ D:\SublimeText\Data\Packages\GoSublime\gosubl\gs.py:
 &lt;p&gt;修改&lt;code&gt;p:cookieSecure="false"&lt;/code&gt; 的值为&lt;code&gt;true&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;修改这两个之后就可以把cas的包放入tomcat中启动tomcat。&lt;/p&gt;
 &lt;p&gt;经过上面两部其实按正常情况下已经可以访问了，但是在登录的时候， 进入cas的登录页面进行登录，登录成功后返回的时候会抛出异常，对于这个异常我不甚理解， 但是我在google上所有得到的结果是这时java的一个bug，不过已经给出了解决方法.&lt;/p&gt;
-&lt;p&gt;下载下面的代码： &lt;a href="https://gist.github.com/turbidsoul/5506661"&gt;InstallCert.java&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;下载下面的代码： &lt;a href="https://gist.github.com/turbidsoul/5506661" target="_blank"&gt;InstallCert.java&lt;/a&gt;&lt;/p&gt;
 &lt;script src="https://gist.github.com/turbidsoul/5506661.js"&gt;&lt;/script&gt;
 
 &lt;p&gt;编译之后使用使用下面命令执行以下：&lt;code&gt;java InstallCert cas.xxxxx.com&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;https://login.xxxx.com 是你配置了ssl的服务的那个域名&lt;/p&gt;
 &lt;p&gt;执行完后会在当前目录下生成jssecacerts的文件，把文件copy到&lt;code&gt;jdk1.7.0_10\jre\lib\security&lt;/code&gt;目录下 重新启动服务即可。或者在java的启动参数中加入&lt;code&gt;-Djavax.net.ssl.trustStore=F:/work/Java/jssecacerts&lt;/code&gt;, 重新启动也是可行的，我使用的后面这个方法，前面的那个我没有测试，不过应该不会有问题。&lt;/p&gt;
-&lt;p&gt;到这里就算是把ssl配置完成了，其实并没有什么复杂的东西，就是最后java这个问题让我找了很常时间。 最后在java的社区中找到解决办法，可以这个类的源码文件的下载链接还失效了，在google中找了半天才找到个完整的。&lt;/p&gt;</summary><category term="nginx"></category><category term="cas"></category><category term="ssl"></category><category term="java"></category><category term="https"></category></entry><entry><title>fn实现无限计算等比级数</title><link href="http://blog.turbidsoul.me/posts/fnshi-xian-wu-xian-ji-suan-deng-bi-ji-shu.html" rel="alternate"></link><updated>2013-04-28T00:00:00+08:00</updated><author><name>Turbidsoul Chan</name></author><id>tag:blog.turbidsoul.me,2013-04-28:posts/fnshi-xian-wu-xian-ji-suan-deng-bi-ji-shu.html</id><summary type="html">&lt;p&gt;今天看InfoQ上的一篇关于 &lt;a href="http://www.infoq.com/cn/articles/fn.py-functional-programming-python"&gt;Fn.py&lt;/a&gt; 的文章，Fn中的Stream可以实现无限序列，例如文章中的代码：&lt;/p&gt;
+&lt;p&gt;到这里就算是把ssl配置完成了，其实并没有什么复杂的东西，就是最后java这个问题让我找了很常时间。 最后在java的社区中找到解决办法，可以这个类的源码文件的下载链接还失效了，在google中找了半天才找到个完整的。&lt;/p&gt;</summary><category term="nginx"></category><category term="cas"></category><category term="ssl"></category><category term="java"></category><category term="https"></category></entry><entry><title>fn实现无限计算等比级数</title><link href="http://blog.turbidsoul.me/posts/fnshi-xian-wu-xian-ji-suan-deng-bi-ji-shu.html" rel="alternate"></link><updated>2013-04-28T00:00:00+08:00</updated><author><name>Turbidsoul Chan</name></author><id>tag:blog.turbidsoul.me,2013-04-28:posts/fnshi-xian-wu-xian-ji-suan-deng-bi-ji-shu.html</id><summary type="html">&lt;p&gt;今天看InfoQ上的一篇关于 &lt;a href="http://www.infoq.com/cn/articles/fn.py-functional-programming-python" target="_blank"&gt;Fn.py&lt;/a&gt; 的文章，Fn中的Stream可以实现无限序列，例如文章中的代码：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Stream&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;span class="n"&gt;fib&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="nb"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;drop&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -1555,8 +1557,8 @@ D:\SublimeText\Data\Packages\GoSublime\gosubl\gs.py:
 &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;comp&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;123&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;</summary><category term="python"></category><category term="arithmetic"></category></entry><entry><title>OpenSSL和Java AES算法的的问题</title><link href="http://blog.turbidsoul.me/posts/opensslhe-java-aessuan-fa-de-de-wen-ti.html" rel="alternate"></link><updated>2013-03-13T00:00:00+08:00</updated><author><name>Turbidsoul Chan</name></author><id>tag:blog.turbidsoul.me,2013-03-13:posts/opensslhe-java-aessuan-fa-de-de-wen-ti.html</id><summary type="html">&lt;p&gt;开篇第一句话我想说， &lt;strong&gt;OpenSSL不支持与Java的对接&lt;/strong&gt; ，这是多么蛋疼的一句话，不过确实是这样，原因是在c中的填充方式和Java中的填充方式不一样，Java不支持c中的/0的填充方式。&lt;/p&gt;
-&lt;p&gt;具体信息请查看：&lt;a href="http://blog.csdn.net/rocketball/article/details/6575677"&gt;OpenSSL和JAVA AES算法的问题总结&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;至于我为什么会写这篇文章呢，是我们的项目中有部分在网络传输的内容需要加密，所以就选用了AES的，服务端使用的是&lt;a href="http://openresty.org/"&gt;openresty&lt;/a&gt; 这是淘宝的一个大牛写的，他里面集成了LuaJit， 加密的部分使用的是resty.aes，而resty使用的是OpenSSL的C代码实现的加密解密。为了和OpenSSL实现对接，我就蛋疼的去简单的链接了下OpenSSL，在上面的文章中才指导OpenSSL并不支持Java，查了无数人的文章，很多人都对这个问题很苦恼，最后在 stackoverflow 里找到了一个大牛给出了一个解码的实现 &lt;a href="http://stackoverflow.com/questions/11783062/how-to-decrypt-an-encrypted-file-in-java-with-openssl-with-aes"&gt;stackoverflow &lt;/a&gt;我根据这位大牛的代码简单的修改了一下，就做成了我需要的代码：&lt;/p&gt;
+&lt;p&gt;具体信息请查看：&lt;a href="http://blog.csdn.net/rocketball/article/details/6575677" target="_blank"&gt;OpenSSL和JAVA AES算法的问题总结&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;至于我为什么会写这篇文章呢，是我们的项目中有部分在网络传输的内容需要加密，所以就选用了AES的，服务端使用的是&lt;a href="http://openresty.org/" target="_blank"&gt;openresty&lt;/a&gt; 这是淘宝的一个大牛写的，他里面集成了LuaJit， 加密的部分使用的是resty.aes，而resty使用的是OpenSSL的C代码实现的加密解密。为了和OpenSSL实现对接，我就蛋疼的去简单的链接了下OpenSSL，在上面的文章中才指导OpenSSL并不支持Java，查了无数人的文章，很多人都对这个问题很苦恼，最后在 stackoverflow 里找到了一个大牛给出了一个解码的实现 &lt;a href="http://stackoverflow.com/questions/11783062/how-to-decrypt-an-encrypted-file-in-java-with-openssl-with-aes" target="_blank"&gt;stackoverflow &lt;/a&gt;我根据这位大牛的代码简单的修改了一下，就做成了我需要的代码：&lt;/p&gt;
 &lt;script src="https://gist.github.com/turbidsoul/5227012.js"&gt;&lt;/script&gt;
 
 &lt;p&gt;最后我想吐槽一下lua5.1居然不支持位运算，要5.2才支持，好吧，openresty集成的就是5.1所以我在实现lua的16位编码解码果然蛋疼了一下。&lt;/p&gt;</summary><category term="openssl"></category><category term="java"></category><category term="aes"></category><category term="arithmetic"></category></entry><entry><title>WebSocket+WebRTC实现视频通讯</title><link href="http://blog.turbidsoul.me/posts/websocketwebrtcshi-xian-shi-pin-tong-xun.html" rel="alternate"></link><updated>2013-02-28T00:00:00+08:00</updated><author><name>Turbidsoul Chan</name></author><id>tag:blog.turbidsoul.me,2013-02-28:posts/websocketwebrtcshi-xian-shi-pin-tong-xun.html</id><summary type="html">&lt;p&gt;这篇文章本来早就该写了，但是电脑坏了，在加上工作比较忙，所以就一直拖到今天。&lt;/p&gt;
@@ -1579,7 +1581,7 @@ D:\SublimeText\Data\Packages\GoSublime\gosubl\gs.py:
 &lt;li&gt;如果等于0xfe(0b11111110)或者与127做与运算，结果等于127，则掩码就是在4-7个字节即,第4,5,6,7这4个字节，数据就是从第8个字节开始&lt;/li&gt;
 &lt;li&gt;如果等于0xff(0b11111111)或者与127做与运算，结果大于127，则掩码就是在10-13个字节即,第10,11,12,13这4个字节，数据就是从第14个字节开始&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;如果需要详细了解websocket请参看文章【&lt;a href="http://blog.csdn.net/fenglibing/article/details/6852497"&gt;基于Websocket草案10协议的升级及基于Netty的握手实现&lt;/a&gt;】，这里详细介绍了websocket协议&lt;/p&gt;
+&lt;p&gt;如果需要详细了解websocket请参看文章【&lt;a href="http://blog.csdn.net/fenglibing/article/details/6852497" target="_blank"&gt;基于Websocket草案10协议的升级及基于Netty的握手实现&lt;/a&gt;】，这里详细介绍了websocket协议&lt;/p&gt;
 &lt;p&gt;其次我在说一说WebRTC，这里我会结合WebSocket一起说一些我的：&lt;/p&gt;
 &lt;p&gt;&lt;img alt="webrtc" src="/file/images/webrtc.png" /&gt;&lt;/p&gt;
 &lt;p&gt;这是我做的demo的时序图，第一次画将就以下吧：&lt;/p&gt;
@@ -1591,9 +1593,9 @@ D:\SublimeText\Data\Packages\GoSublime\gosubl\gs.py:
 &lt;li&gt;WebSocket接到并请求这的信息，直接发送给请求者&lt;/li&gt;
 &lt;li&gt;请求者接到WebSocket服务器发来的被请求作者的answer信息，使用answer创建远程连接连接被请求者&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;对于WebRTC的概要介绍，请看这篇文章【&lt;a href="http://h5dev.uc.cn/article-22-1.html"&gt;WebRTC现状及实现概要&lt;/a&gt;】，这篇文章介绍了WebRTC的现状，同时在文章的后面还有WebRTC的调用图，可以方便开发者更容易的理解WebRTC&lt;/p&gt;
+&lt;p&gt;对于WebRTC的概要介绍，请看这篇文章【&lt;a href="http://h5dev.uc.cn/article-22-1.html" target="_blank"&gt;WebRTC现状及实现概要&lt;/a&gt;】，这篇文章介绍了WebRTC的现状，同时在文章的后面还有WebRTC的调用图，可以方便开发者更容易的理解WebRTC&lt;/p&gt;
 &lt;p&gt;说到这里，基本上我的demo的实现思想基本说完了，但是还要说明以下，我花了很多时间调试代码，但是一直都没有成功，最后把浏览器更新到firefox19才调试成功，firefox19之前的版本虽然也对WebRTC实现，但是功能实现的并不完善，默写方法和19实现的也不一样。所以这里需要注意以下。&lt;/p&gt;
-&lt;p&gt;这是我实现的源代码：&lt;a href="https://github.com/turbidsoul/webrtc-demo"&gt;WebRTC-Demo&lt;/a&gt;，代码实现的很粗糙，而且也借鉴其他人的实现的方法。&lt;/p&gt;</summary><category term="webrtc"></category><category term="websocket"></category><category term="python"></category></entry><entry><title>快速计算二进制位1的个数</title><link href="http://blog.turbidsoul.me/posts/kuai-su-ji-suan-er-jin-zhi-wei-1de-ge-shu.html" rel="alternate"></link><updated>2013-02-01T00:00:00+08:00</updated><author><name>Turbidsoul Chan</name></author><id>tag:blog.turbidsoul.me,2013-02-01:posts/kuai-su-ji-suan-er-jin-zhi-wei-1de-ge-shu.html</id><summary type="html">&lt;p&gt;昨天在G+上看到的一个算法题: &amp;gt; Returns the number of 1bits in any integer, for example, bits(2) = 1, &amp;gt; bits(3) = 2, bits(4) = 1, bits(5) = 2, bits(6) = 2, bits(7) = 3 我用python简单的实现了一下，实现的还是有点冗长，应该还能优化。&lt;/p&gt;
+&lt;p&gt;这是我实现的源代码：&lt;a href="https://github.com/turbidsoul/webrtc-demo" target="_blank"&gt;WebRTC-Demo&lt;/a&gt;，代码实现的很粗糙，而且也借鉴其他人的实现的方法。&lt;/p&gt;</summary><category term="webrtc"></category><category term="websocket"></category><category term="python"></category></entry><entry><title>快速计算二进制位1的个数</title><link href="http://blog.turbidsoul.me/posts/kuai-su-ji-suan-er-jin-zhi-wei-1de-ge-shu.html" rel="alternate"></link><updated>2013-02-01T00:00:00+08:00</updated><author><name>Turbidsoul Chan</name></author><id>tag:blog.turbidsoul.me,2013-02-01:posts/kuai-su-ji-suan-er-jin-zhi-wei-1de-ge-shu.html</id><summary type="html">&lt;p&gt;昨天在G+上看到的一个算法题: &amp;gt; Returns the number of 1bits in any integer, for example, bits(2) = 1, &amp;gt; bits(3) = 2, bits(4) = 1, bits(5) = 2, bits(6) = 2, bits(7) = 3 我用python简单的实现了一下，实现的还是有点冗长，应该还能优化。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;bits&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
     &lt;span class="n"&gt;f1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -1742,17 +1744,17 @@ D:\SublimeText\Data\Packages\GoSublime\gosubl\gs.py:
 &lt;p&gt;而JRebel是从ClassLoader入手的，JRebel在加载的时候会加载这类引用到的所有实例，这样就不会出现DCEVM中出现的问题， 而JRebel也有自己的问题，在某些时候修改的代码次数过多虎抛出一个异常，但是这个异常貌似并没有影响到不能运行，需要重新启动的情况， 也可能是我的类结构比较简单，所以没有影响，因为在网上搜到的别人的文章中有提到过这个异常，但是也没有说会有什么影响。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;总的来说JRebel比DCEVM功能更全面，也强大，毕竟是商业软件，且价格不菲，如果环境允许的情况下还是花点钱买个正版的， 毕竟使用盗版也不是什么好事情，而且使用正版也是对软件作者的支持&lt;/p&gt;</summary><category term="java"></category><category term="jrebel"></category></entry><entry><title>Sublime2插件Emmet和SublimeV8冲突</title><link href="http://blog.turbidsoul.me/posts/sublime2cha-jian-emmethe-sublimev8chong-tu.html" rel="alternate"></link><updated>2012-12-13T00:00:00+08:00</updated><author><name>Turbidsoul Chan</name></author><id>tag:blog.turbidsoul.me,2012-12-13:posts/sublime2cha-jian-emmethe-sublimev8chong-tu.html</id><summary type="html">&lt;p&gt;Zencode很久没有更新，最近在github上看到Zencode的作者&lt;a href="https://github.com/sergeche"&gt;sergeche&lt;/a&gt;把Zencode更名为Emmet，并增加了很多新功能.&lt;/p&gt;
+&lt;p&gt;总的来说JRebel比DCEVM功能更全面，也强大，毕竟是商业软件，且价格不菲，如果环境允许的情况下还是花点钱买个正版的， 毕竟使用盗版也不是什么好事情，而且使用正版也是对软件作者的支持&lt;/p&gt;</summary><category term="java"></category><category term="jrebel"></category></entry><entry><title>Sublime2插件Emmet和SublimeV8冲突</title><link href="http://blog.turbidsoul.me/posts/sublime2cha-jian-emmethe-sublimev8chong-tu.html" rel="alternate"></link><updated>2012-12-13T00:00:00+08:00</updated><author><name>Turbidsoul Chan</name></author><id>tag:blog.turbidsoul.me,2012-12-13:posts/sublime2cha-jian-emmethe-sublimev8chong-tu.html</id><summary type="html">&lt;p&gt;Zencode很久没有更新，最近在github上看到Zencode的作者&lt;a href="https://github.com/sergeche" target="_blank"&gt;sergeche&lt;/a&gt;把Zencode更名为Emmet，并增加了很多新功能.&lt;/p&gt;
 &lt;p&gt;刚好下午左右没什么事情，就安装了Emmet并卸载了Zencode,可以怎么都没有效果，打开sublime的控制台看了下， 每次按Tab键的时候都会出现下图的错误:&lt;/p&gt;
 &lt;p&gt;&lt;img alt="emmet.png" src="asets/images/emmet.png" /&gt;&lt;/p&gt;
-&lt;p&gt;百思不得其解，最后没办法上Github向&lt;a href="https://github.com/sergeche"&gt;sergeche&lt;/a&gt;求助，他告诉我说是SublimeV8引起的， 在移除SublimeV8之后果然问题解决，当然具体什么原因呢，我就不自己陈述了，sergeche给了解释：Issue204&lt;/p&gt;
+&lt;p&gt;百思不得其解，最后没办法上Github向&lt;a href="https://github.com/sergeche" target="_blank"&gt;sergeche&lt;/a&gt;求助，他告诉我说是SublimeV8引起的， 在移除SublimeV8之后果然问题解决，当然具体什么原因呢，我就不自己陈述了，sergeche给了解释：Issue204&lt;/p&gt;
 &lt;p&gt;好吧我承认我偷懒了，Emmet的新功能就自己出研究吧。&lt;/p&gt;</summary><category term="sublime2"></category><category term="emmet"></category><category term="sublimev8"></category></entry><entry><title>markdown：简单，轻量级的文档标记语言</title><link href="http://blog.turbidsoul.me/posts/markdownjian-dan-qing-liang-ji-de-wen-dang-biao-ji-yu-yan.html" rel="alternate"></link><updated>2012-09-16T00:00:00+08:00</updated><author><name>Turbidsoul Chan</name></author><id>tag:blog.turbidsoul.me,2012-09-16:posts/markdownjian-dan-qing-liang-ji-de-wen-dang-biao-ji-yu-yan.html</id><summary type="html">&lt;p&gt;最近喜欢喜欢上了markdown这东西，我觉得他简单，轻量级，易学，是非常适合开发人员用来写文档的工具，也尝试用他写了一些文档，配合这网上找的好的css样式，写出来的文档还是很漂亮和整洁的！&lt;/p&gt;
 &lt;p&gt;先简单介绍一些Markdown:&lt;/p&gt;
-&lt;p&gt;Markdown是文档标记，他的表示方式更加简单，让人容易理解和记忆。这是markdown项目的主页:&lt;a href="http://daringfireball.net/projects/markdown/"&gt;http://daringfireball.net/projects/markdown/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Markdown是文档标记，他的表示方式更加简单，让人容易理解和记忆。这是markdown项目的主页:&lt;a href="http://daringfireball.net/projects/markdown/" target="_blank"&gt;http://daringfireball.net/projects/markdown/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Markdown是用pl写的，不过很多其他语言都有他的实现：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Python: markdown, markdown2, &lt;a href="http://misaka.61924.nl/"&gt;misaka&lt;/a&gt;等， 可以通过easy_install安装&lt;/li&gt;
-&lt;li&gt;Java: &lt;a href="http://code.google.com/p/markdownj/"&gt;markdownj&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Python: markdown, markdown2, &lt;a href="http://misaka.61924.nl/" target="_blank"&gt;misaka&lt;/a&gt;等， 可以通过easy_install安装&lt;/li&gt;
+&lt;li&gt;Java: &lt;a href="http://code.google.com/p/markdownj/" target="_blank"&gt;markdownj&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;同时markdown也有一些不错的编辑器：&lt;/p&gt;
 &lt;ol&gt;
@@ -1763,9 +1765,9 @@ D:\SublimeText\Data\Packages\GoSublime\gosubl\gs.py:
 &lt;/ol&gt;
 &lt;p&gt;笔者自己使用的是sublime2，所以这里我多说几句：&lt;/p&gt;
 &lt;p&gt;在sublime2下安装markdown这是markdown的语法包。&lt;/p&gt;
-&lt;p&gt;Markdown Preview这个是生成HTML文件预览，可以直接在浏览器中看，也可以在sublime2中生成HTML代码，笔者对这个插件做了简单的修改可以让他对应不同的theme，当然这是css都是我在网上搜罗的，笔者是个纯粹的程序猿，对css神马的完全是只能简单修改，让笔者去写那就没有指望了，笔者修改的代码会在稍后介绍，这里先给出插件的下载连接[&lt;a href="https://docs.google.com/open?id=0B1L569wdo3IkQ19aeFdkWGtMZWc"&gt;Markdown Preview&lt;/a&gt;]。&lt;/p&gt;
+&lt;p&gt;Markdown Preview这个是生成HTML文件预览，可以直接在浏览器中看，也可以在sublime2中生成HTML代码，笔者对这个插件做了简单的修改可以让他对应不同的theme，当然这是css都是我在网上搜罗的，笔者是个纯粹的程序猿，对css神马的完全是只能简单修改，让笔者去写那就没有指望了，笔者修改的代码会在稍后介绍，这里先给出插件的下载连接[&lt;a href="https://docs.google.com/open?id=0B1L569wdo3IkQ19aeFdkWGtMZWc" target="_blank"&gt;Markdown Preview&lt;/a&gt;]。&lt;/p&gt;
 &lt;p&gt;Markdown Slideshow也是生成预览的，但是他生成的是PPT形式的，可以用它来做一些HTML的PPT也是一个不错的选择，不过我还没时间研究这个。&lt;/p&gt;
-&lt;p&gt;本来想简单说下markdown的语法的，但是后来想想没有必要，在&lt;a href="https://github.com/"&gt;GitHub&lt;/a&gt;上有个开源项目&lt;a href="https://github.com/riku/Markdown-Syntax-CN"&gt;Markdown-Syntax-CN&lt;/a&gt; 这个项目是从 &lt;a href="http://markdown.tw/"&gt;http://markdown.tw/ &lt;/a&gt;fork来的，里面有很详细的语法介绍，当然如果你感兴趣也可以fork之后加入自己的东西在Pull Requests，也可以对项目进行校对等。&lt;/p&gt;
+&lt;p&gt;本来想简单说下markdown的语法的，但是后来想想没有必要，在&lt;a href="https://github.com/" target="_blank"&gt;GitHub&lt;/a&gt;上有个开源项目&lt;a href="https://github.com/riku/Markdown-Syntax-CN" target="_blank"&gt;Markdown-Syntax-CN&lt;/a&gt; 这个项目是从 &lt;a href="http://markdown.tw/" target="_blank"&gt;http://markdown.tw/ &lt;/a&gt;fork来的，里面有很详细的语法介绍，当然如果你感兴趣也可以fork之后加入自己的东西在Pull Requests，也可以对项目进行校对等。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;本来还有些要说的，但是写道这里觉得应该说的都说了，剩下的可以在google上搜索到，我在这里吹的天花乱坠的都不如去自己试试，感觉一下是否真的好，我一直坚持的是discover，自己去发现，觉得好，然后接推荐给别人。&lt;/strong&gt;&lt;/p&gt;</summary><category term="markdown"></category></entry><entry><title>关于firefox中使用google搜索被劫持到www5.1616.com的解决办法！</title><link href="http://blog.turbidsoul.me/posts/guan-yu-firefoxzhong-shi-yong-googlesou-suo-bei-jie-chi-dao-www51616comde-jie-jue-ban-fa.html" rel="alternate"></link><updated>2012-03-16T00:00:00+08:00</updated><author><name>Turbidsoul Chan</name></author><id>tag:blog.turbidsoul.me,2012-03-16:posts/guan-yu-firefoxzhong-shi-yong-googlesou-suo-bei-jie-chi-dao-www51616comde-jie-jue-ban-fa.html</id><summary type="html">&lt;p&gt;这个问题也是我今天早上发现的，搜索东西的时候发现先进入www5.1616.net然后在跳转到google中，感觉像是被劫持了，于是我就在 google上搜索了www5.1616.net发现很多人都有这个问题，而且但是绝大多数都认为是DNS被劫持的问题，但是我觉得不是这样，因为很多人 都和我的情况一样，出现问题的只有他一个，同一局域网下的别人都正常，同一社区下的只有个别的人有这个问题，并不是大面积出现，而且我只有Firefox 有问题，chrome和IE9都正常，所以我肯定是firefox的问题。&lt;/p&gt;
 &lt;p&gt;后面我有简单的试了几次，发现https下不存在这种现象所以我象应该是他修改我的某些search相关文件，其实在firefox中和search有关的文件就几个，常用的人也都知道：&lt;/p&gt;
 &lt;ol&gt;
@@ -1776,7 +1778,7 @@ D:\SublimeText\Data\Packages\GoSublime\gosubl\gs.py:
 &lt;li&gt;{Profiles}/extensions/cehomepage@mozillaonline.com/searchplugins/*.xml&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;总共就这5个吧，我知道的只有这些.&lt;/p&gt;
-&lt;p&gt;其实我本来并没有想到会是这几个地方，但是看了月光在2010年5月的一片名为&lt;a href="http://www.williamlong.info/archives/2186.html"&gt;《Google支持HTTPS加密搜索》&lt;/a&gt;文章，才想到这点上的。&lt;/p&gt;
+&lt;p&gt;其实我本来并没有想到会是这几个地方，但是看了月光在2010年5月的一片名为&lt;a href="http://www.williamlong.info/archives/2186.html" target="_blank"&gt;《Google支持HTTPS加密搜索》&lt;/a&gt;文章，才想到这点上的。&lt;/p&gt;
 &lt;p&gt;在网上有些文章说需要删除search.json和search.sqlite，其实不用。先打开search.json，可以格式化一下，看着清楚，直接搜索google，找到后向下拖，看到有下面的代码:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="nt"&gt;&amp;quot;params&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
@@ -2000,7 +2002,7 @@ IText之所以会在处理HTML转换PDF是出错，是因为他的内部没有�
 &lt;li&gt;第二个就是mongodb的问题，但是问题不在与mongodb上，而在于我们的查询上，几个树加载慢的表都冗余了大量的数据，这些数据在树的显示上都没有用，一个树需要的只有一个id和name两个字段，所以在查询上带出了太多的无用数据。&lt;/li&gt;
 &lt;li&gt;第三个就是在网络传输上，这个问题其实和第二个是一样的，从mongodb带出了太多的无用数据，而且是一次性全部数据都查寻来，这样就会造成数据越多查询越慢，网络的传输上压力就越大，到最后就是服务器崩掉&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;解 决这问题其实很简单，对症下药而已，dwz是同步树，那就换成异步树，每次只加载点击节点下的数据，mongodb查询带出了大量无用的冗余数据，但是我 们只用了id和name那就在查询的时候只查出id和name，morphia的Query有个方法retrievedFields方法（参数的说明请参看&lt;a href="http://code.google.com/p/morphia/"&gt;API文档或者源代码&lt;/a&gt;），这个方法可以查询的时候只抓取想要的字段，这样不但可以减少在mongodb查询时间，同时也减小了网络传输的时间。&lt;/p&gt;
+&lt;p&gt;解 决这问题其实很简单，对症下药而已，dwz是同步树，那就换成异步树，每次只加载点击节点下的数据，mongodb查询带出了大量无用的冗余数据，但是我 们只用了id和name那就在查询的时候只查出id和name，morphia的Query有个方法retrievedFields方法（参数的说明请参看&lt;a href="http://code.google.com/p/morphia/" target="_blank"&gt;API文档或者源代码&lt;/a&gt;），这个方法可以查询的时候只抓取想要的字段，这样不但可以减少在mongodb查询时间，同时也减小了网络传输的时间。&lt;/p&gt;
 &lt;p&gt;我 现在无法给出具体的时间数据，因为我手上没有未优化的代码，但是在优化之前我清楚的记得，生成一次树的时间是几十秒甚至几分钟，加了异步树之后每次只加载 当前点击的节点，所以体验上好了很多，但是在打开节点下的时候，因为数据量有点大（大概有1k行的样子），虽然看着不多，但是这个表冗余了很多数据，说是 一千行，但是实际的数据可能会多几十倍，甚至过百倍，所以在只抓取id和name的时候，数据提升了很大，从8－15秒提升到了40－80ms，当然这里 面数值下线都是在chrome中测试的结果，在这里不得不在此赞叹一下V8引擎，真的是太TMD的快了。&lt;/p&gt;
 &lt;p&gt;在最后的吐槽中，我实在是想骂娘，这代码是谁写的，让哥抗了一天没吃饭，一直到下午6点才做完去吃饭，饿死哥了！&lt;/p&gt;</summary><category term="java"></category><category term="morphia"></category><category term="mongo"></category><category term="code"></category></entry><entry><title>关于Morphia在存储冗余类的时候出现的一个问题？</title><link href="http://blog.turbidsoul.me/posts/guan-yu-morphiazai-cun-chu-rong-yu-lei-de-shi-hou-chu-xian-de-yi-ge-wen-ti.html" rel="alternate"></link><updated>2012-01-05T00:00:00+08:00</updated><author><name>Turbidsoul Chan</name></author><id>tag:blog.turbidsoul.me,2012-01-05:posts/guan-yu-morphiazai-cun-chu-rong-yu-lei-de-shi-hou-chu-xian-de-yi-ge-wen-ti.html</id><summary type="html">&lt;p&gt;昨天中午临吃午饭前，我对系统的业务功能代码进行重构之后，准备测试一下，通过就去吃饭，但是发生了一个让我很意外的问题，就是在存储的时候，系统 报出来，类型转换异常（&lt;code&gt;java.lang.ClassCaseException&lt;/code&gt;）或者是这么一个错误信息（&lt;code&gt;object is not an instance of declaring class&lt;/code&gt;），很纠结因为之前这里测试都好好的，而且给内容组，视频组和测试组部署的测试环境，还在正常运行，一时想不通那里出了问题。&lt;/p&gt;
 &lt;p&gt;在 经过几次debug跟踪之后发现，每次报错都是在，存储FreeCourse和FreeVideo两个类是发生的问题，我仔细回忆 了，从上次重部署测试环境到出问题之间修改的代码，中间都没有什么问题，只有一个地方和其他人写的代码略有不一样，就是：其他人在写list类型的属性 时，默认是给空值的，但是我会给他们new一个size为0的ArrayList，这是我的一个喜欢，是为了避免出现一些因为疏忽而发生的问题，但是如果 只是这样不应该会有问题。&lt;/p&gt;

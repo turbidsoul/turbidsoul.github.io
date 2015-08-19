@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Turbidsoul's 小黑屋 - css - Turbidsoul's 小黑屋</title>
+    <title>Turbidsoul's 小黑屋 - cssTurbidsoul's 小黑屋</title>
 
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
@@ -53,7 +53,7 @@
  -- (<a href="http://blog.turbidsoul.me/posts/yi-ge-csscuo-wu-yin-qi-de-maven-stackoverflowerror.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>这个问题是我的一个失误造成的，这是上一片文章的后续，我在使用正则做文本替换的时候没有注意到，这个正则在主干上是正常的，但是在分支上执行的时候使一行css少了一个引号，这个问题在浏览器中是暴露不出来的，之后在maven打包的时候对文件做压缩的时候才会出现，下面我们来看看是什么样的问题。</p>
-<p>我们项目使用的是 <a href="https://github.com/davidB/yuicompressor-maven-plugin" title="yuicompressor-maven-plugin">yuicompressor-maven-plugin</a> 做js和css的压缩，在压缩的过程中出现了下面的错误：</p>
+<p>我们项目使用的是 <a href="https://github.com/davidB/yuicompressor-maven-plugin" target="_blank" title="yuicompressor-maven-plugin">yuicompressor-maven-plugin</a> 做js和css的压缩，在压缩的过程中出现了下面的错误：</p>
 <div class="highlight"><pre><span class="x">---------------------------------------------------</span>
 <span class="x">constituent[0]: file:/E:/opensource/apache/maven-2.2.1.RELEASE/lib/aether-api-1.13.1.jar</span>
 <span class="x">constituent[1]: file:/E:/opensource/apache/maven-2.2.1.RELEASE/lib/aether-connector-wagon-1.13.1.jar</span>

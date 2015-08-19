@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Turbidsoul's 小黑屋 - functional - Turbidsoul's 小黑屋</title>
+    <title>Turbidsoul's 小黑屋 - functionalTurbidsoul's 小黑屋</title>
 
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
@@ -52,7 +52,7 @@
     <a href="http://blog.turbidsoul.me/tag/functional.html">functional</a>, 
  -- (<a href="http://blog.turbidsoul.me/posts/fnshi-xian-wu-xian-ji-suan-deng-bi-ji-shu.html" rel="bookmark">permalink</a>)
 </small>
-</p>      <p>今天看InfoQ上的一篇关于 <a href="http://www.infoq.com/cn/articles/fn.py-functional-programming-python">Fn.py</a> 的文章，Fn中的Stream可以实现无限序列，例如文章中的代码：</p>
+</p>      <p>今天看InfoQ上的一篇关于 <a href="http://www.infoq.com/cn/articles/fn.py-functional-programming-python" target="_blank">Fn.py</a> 的文章，Fn中的Stream可以实现无限序列，例如文章中的代码：</p>
 <div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="n">Stream</span><span class="p">()</span>
 <span class="n">fib</span> <span class="o">=</span> <span class="n">f</span> <span class="o">&lt;&lt;</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">drop</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">f</span><span class="p">))</span>
 </pre></div>

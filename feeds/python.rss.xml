@@ -30,7 +30,7 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;上面的代码就是ssl服务的实现，非常的简单，一共就不到10多代码。其中&lt;strong&gt;keyfile&lt;/strong&gt;和&lt;strong&gt;certfile&lt;/strong&gt;是密钥文件，使用&lt;strong&gt;openssl&lt;/strong&gt;可以生成，具体如何生成请看我在evernote上的从&lt;a href="brooks.wang.blog.163.com"&gt;顽石的日志&lt;/a&gt;收集的笔记&lt;a href="http://www.evernote.com/l/ABkjPA7aL3BHVokHUNwL_4LCkoYaK9Rz8dc/"&gt;http://www.evernote.com/l/ABkjPA7aL3BHVokHUNwL_4LCkoYaK9Rz8dc/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;上面的代码就是ssl服务的实现，非常的简单，一共就不到10多代码。其中&lt;strong&gt;keyfile&lt;/strong&gt;和&lt;strong&gt;certfile&lt;/strong&gt;是密钥文件，使用&lt;strong&gt;openssl&lt;/strong&gt;可以生成，具体如何生成请看我在evernote上的从&lt;a href="brooks.wang.blog.163.com" target="_blank"&gt;顽石的日志&lt;/a&gt;收集的笔记&lt;a href="http://www.evernote.com/l/ABkjPA7aL3BHVokHUNwL_4LCkoYaK9Rz8dc/" target="_blank"&gt;http://www.evernote.com/l/ABkjPA7aL3BHVokHUNwL_4LCkoYaK9Rz8dc/&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id="_2"&gt;最后说点啥？&lt;/h2&gt;
 &lt;p&gt;最近一年基本没根心过blog，主要是三个原因：&lt;/p&gt;
 &lt;ol&gt;
@@ -51,7 +51,7 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;这是我们通常用来配置记录日志到文件的代码，但是如果我们要把日志记根据条件记录到不同的日志文件中就需要用到 &lt;strong&gt;&lt;a href="http://docs.python.org/2/library/logging.html?highlight=filter#logging.Filter"&gt;logging.Filter&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;这是我们通常用来配置记录日志到文件的代码，但是如果我们要把日志记根据条件记录到不同的日志文件中就需要用到 &lt;strong&gt;&lt;a href="http://docs.python.org/2/library/logging.html?highlight=filter#logging.Filter" target="_blank"&gt;logging.Filter&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;我们可以对上面的代码做一点点的修改，创建一个过滤器，这个过滤器是根据IP进行过滤的，只有IP是创建过滤器时指定的IP才能被记录下来，下面来看看我创建的过滤器:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;logging&lt;/span&gt;
 
@@ -143,7 +143,7 @@
 &lt;p&gt;&lt;code&gt;pacman -S python nginx&lt;/code&gt;
 &lt;code&gt;pip install uwsgi bottlepy&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;arch linux 默认python应该是3.3.2，所以需要安装&lt;em&gt;pythonbrew&lt;/em&gt;然后在来安装2.7.5,至于pythonbrew如何安装，请自行搜索，安装其实很简单。至于nginx默认是支持uwsgi，所以不需要特别安装其他的插件。&lt;/p&gt;
-&lt;p&gt;其实也可以通过&lt;code&gt;pacman -S uwsgi&lt;/code&gt;来安装但是这个是不支持python的，所以需要用户pip安装uwsgi，才能支持python至于&lt;a href="http://bottlepy.org/docs/dev/"&gt;bottlepy&lt;/a&gt;我就不多说了，请查看其文档。&lt;/p&gt;
+&lt;p&gt;其实也可以通过&lt;code&gt;pacman -S uwsgi&lt;/code&gt;来安装但是这个是不支持python的，所以需要用户pip安装uwsgi，才能支持python至于&lt;a href="http://bottlepy.org/docs/dev/" target="_blank"&gt;bottlepy&lt;/a&gt;我就不多说了，请查看其文档。&lt;/p&gt;
 &lt;h2 id="_2"&gt;配置&lt;/h2&gt;
 &lt;h4 id="bottle"&gt;Bottle&lt;/h4&gt;
 &lt;p&gt;bottlepy 其实也就是我们的服务端代码，我们这里就简单的一个&lt;code&gt;Hello World!&lt;/code&gt;&lt;/p&gt;
@@ -234,7 +234,7 @@ spawned uWSGI worker 1 (and the only) (pid: 6503, cores: 1)
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;所以我在这里路径写成&lt;code&gt;/var/run/x.socket&lt;/code&gt; 是这个路径下的就不会有问题,关于这个问题这里有个帖子应该能解决问题&lt;a href="http://mediadrop.net/community/topic/trouble-with-uwsgi-nginx" title="Trouble with uwsgi + nginx"&gt;Trouble with uwsgi + nginx&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;所以我在这里路径写成&lt;code&gt;/var/run/x.socket&lt;/code&gt; 是这个路径下的就不会有问题,关于这个问题这里有个帖子应该能解决问题&lt;a href="http://mediadrop.net/community/topic/trouble-with-uwsgi-nginx" target="_blank" title="Trouble with uwsgi + nginx"&gt;Trouble with uwsgi + nginx&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;另外如果错误中有 &lt;code&gt;13: Permission denied&lt;/code&gt; 这个错误，那可能是在nginx的配置文件中没有声明用户，或者用户没权限，我这里是用root用户登录的，所以在nginx最上面加了&lt;code&gt;user root;&lt;/code&gt;&lt;/p&gt;
 &lt;h2 id="_3"&gt;结论&lt;/h2&gt;
 &lt;p&gt;uwsgi自创了一个uwsgi协议，与wsgi、fcgi不同，据说uwsgi的速度是fcgi的10倍，我没有那个环境测试。uwsgi旨在为分布式部署提供一套解决方案，他支持很多语言，也同时可以使用c,c++等来开发插件，我使用他纯粹是为了在我的VPS上部署我的python应用。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Turbidsoul</dc:creator><pubDate>Wed, 13 Nov 2013 00:00:00 +0800</pubDate><guid>tag:blog.turbidsoul.me,2013-11-13:posts/nginxuwsgibottlepypei-zhi-bu-shu-pythonying-yong.html</guid><category>nginx</category><category>uwsgi</category><category>python</category><category>web</category><category>bottlepy</category></item><item><title>python 2.7 的参数解析模块 argparse</title><link>http://blog.turbidsoul.me/posts/python-27-de-can-shu-jie-xi-mo-kuai-argparse.html</link><description>&lt;p&gt;今天下午没事，就优化了一下以前写的一些工作上用的小工具，当然大多数都是python写的命令行下的小工具，之前命令行参数都是自己解析，虽然不是什么复杂的事情，但是自己临时写出来的东西毕竟不如人家写出来的好，正好前短时间看到python2.7把 &lt;strong&gt;argparse&lt;/strong&gt; 加入到了标准模块中，所以这次对这些工具的代码重构就是使用了 &lt;strong&gt;argparse&lt;/strong&gt; 替代自己写的那个简陋名两行解析工具。&lt;/p&gt;
@@ -266,8 +266,8 @@ spawned uWSGI worker 1 (and the only) (pid: 6503, cores: 1)
 
 
 &lt;p&gt;简单的说一下这个例子:
-&lt;em&gt; &lt;code&gt;ArgumentParser&lt;/code&gt; 这是解析器的入口，此链接&lt;a href="http://docs.python.org/2/library/argparse.html#argumentparser-objects" title="ArgumentParser objects"&gt;argparse#argumentparser-objects&lt;/a&gt;关于此class的参数说明。
-&lt;/em&gt; &lt;code&gt;add_argument&lt;/code&gt; 添加具体命令行参数，这是关于此方法&lt;a href="http://docs.python.org/2/library/argparse.html#the-add-argument-method" title="The add_argument() method"&gt;argparse#the-add-argument-method&lt;/a&gt;的说明
+&lt;em&gt; &lt;code&gt;ArgumentParser&lt;/code&gt; 这是解析器的入口，此链接&lt;a href="http://docs.python.org/2/library/argparse.html#argumentparser-objects" target="_blank" title="ArgumentParser objects"&gt;argparse#argumentparser-objects&lt;/a&gt;关于此class的参数说明。
+&lt;/em&gt; &lt;code&gt;add_argument&lt;/code&gt; 添加具体命令行参数，这是关于此方法&lt;a href="http://docs.python.org/2/library/argparse.html#the-add-argument-method" target="_blank" title="The add_argument() method"&gt;argparse#the-add-argument-method&lt;/a&gt;的说明
 &lt;em&gt; &lt;code&gt;print_help()&lt;/code&gt; 和 &lt;code&gt;print_usage()&lt;/code&gt; 这是打印帮助信息和usage，就是python xxxx.py -h 只有打印出的那些帮助信息
 &lt;/em&gt; &lt;code&gt;parser.parse_args()&lt;/code&gt; 这是解析命令行参数
 * &lt;code&gt;args.start&lt;/code&gt; 和 &lt;code&gt;args.end&lt;/code&gt; 这样是读取之前在上面用&lt;code&gt;add_argument&lt;/code&gt;添加的参数，如果要读取没有添加的参数则会抛出一个异常, 例如:&lt;/p&gt;
@@ -578,7 +578,7 @@ spawned uWSGI worker 1 (and the only) (pid: 6503, cores: 1)
 &lt;ul&gt;
 &lt;li&gt;required: 为True时，表示这个参数是必须的，默认是False&lt;/li&gt;
 &lt;li&gt;help: 参数的说明描述，当值为&lt;code&gt;argparse.SUPPRESS&lt;/code&gt;时，这个参数在参数说明中不显示&lt;/li&gt;
-&lt;li&gt;metavar: 对于这个参数我不知道如何解释，可以看一下他的&lt;a href="http://docs.python.org/2/library/argparse.html#metavar" title="metavar"&gt;官方文档&lt;/a&gt;和下面的代码应该就能理解。&lt;/li&gt;
+&lt;li&gt;metavar: 对于这个参数我不知道如何解释，可以看一下他的&lt;a href="http://docs.python.org/2/library/argparse.html#metavar" target="_blank" title="metavar"&gt;官方文档&lt;/a&gt;和下面的代码应该就能理解。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="gp"&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;&lt;span class="n"&gt;parser&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;argparse&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ArgumentParser&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;prog&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;argtest&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="gp"&gt;... &lt;/span&gt;&lt;span class="n"&gt;parser&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add_argument&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;-s&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;--start&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -619,7 +619,7 @@ spawned uWSGI worker 1 (and the only) (pid: 6503, cores: 1)
 &lt;h4 id="_1"&gt;安装&lt;/h4&gt;
 &lt;p&gt;执行:&lt;code&gt;pip install html2bbcode&lt;/code&gt; 安装模块&lt;/p&gt;
 &lt;h4 id="_2"&gt;使用&lt;/h4&gt;
-&lt;p&gt;下面是&lt;a href="https://bitbucket.org/amigo/html2bbcode" title="HTML to BBCode converter"&gt;bitbucket.org&lt;/a&gt;的例子：&lt;/p&gt;
+&lt;p&gt;下面是&lt;a href="https://bitbucket.org/amigo/html2bbcode" target="_blank" title="HTML to BBCode converter"&gt;bitbucket.org&lt;/a&gt;的例子：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="gp"&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;&lt;span class="n"&gt;parser&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;HTML2BBCode&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;span class="gp"&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;parser&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;feed&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;one&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;two&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;span class="go"&gt;&amp;#39;[list][li]one[/li][li]two[/li][/list]&amp;#39;&lt;/span&gt;
@@ -663,9 +663,9 @@ spawned uWSGI worker 1 (and the only) (pid: 6503, cores: 1)
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;把代码中的 &lt;strong&gt;-mno-cygwin&lt;/strong&gt; 去掉即可。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Turbidsoul</dc:creator><pubDate>Fri, 16 Aug 2013 00:00:00 +0800</pubDate><guid>tag:blog.turbidsoul.me,2013-08-16:posts/python-332-mingw-gcc-471-an-zhuang-misakamo-kuai-shi-bian-yi-bao-cuo.html</guid><category>python</category><category>python33</category><category>mingw</category><category>gcc</category></item><item><title>python实现ldap和rtx之间的组织和用户数据同步</title><link>http://blog.turbidsoul.me/posts/pythonshi-xian-ldaphe-rtxzhi-jian-de-zu-zhi-he-yong-hu-shu-ju-tong-bu.html</link><description>&lt;p&gt;最近公司正在准备使用 &lt;strong&gt;AD&lt;/strong&gt; ( &lt;strong&gt;&lt;a href="https://zh.wikipedia.org/wiki/Active_Directory" title="Active Directory"&gt;Activate Directory&lt;/a&gt;&lt;/strong&gt; )服务来进行公司员工的帐号管理，这样就避免不了需要对AD的帐号和&lt;a href="http://rtx.tencent.com/rtx/index.shtml" title="RTX"&gt;RTX&lt;/a&gt;的帐号和组织关系进行同步，所以才有了这篇文章。&lt;/p&gt;
+&lt;p&gt;把代码中的 &lt;strong&gt;-mno-cygwin&lt;/strong&gt; 去掉即可。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Turbidsoul</dc:creator><pubDate>Fri, 16 Aug 2013 00:00:00 +0800</pubDate><guid>tag:blog.turbidsoul.me,2013-08-16:posts/python-332-mingw-gcc-471-an-zhuang-misakamo-kuai-shi-bian-yi-bao-cuo.html</guid><category>python</category><category>python33</category><category>mingw</category><category>gcc</category></item><item><title>python实现ldap和rtx之间的组织和用户数据同步</title><link>http://blog.turbidsoul.me/posts/pythonshi-xian-ldaphe-rtxzhi-jian-de-zu-zhi-he-yong-hu-shu-ju-tong-bu.html</link><description>&lt;p&gt;最近公司正在准备使用 &lt;strong&gt;AD&lt;/strong&gt; ( &lt;strong&gt;&lt;a href="https://zh.wikipedia.org/wiki/Active_Directory" target="_blank" title="Active Directory"&gt;Activate Directory&lt;/a&gt;&lt;/strong&gt; )服务来进行公司员工的帐号管理，这样就避免不了需要对AD的帐号和&lt;a href="http://rtx.tencent.com/rtx/index.shtml" target="_blank" title="RTX"&gt;RTX&lt;/a&gt;的帐号和组织关系进行同步，所以才有了这篇文章。&lt;/p&gt;
 &lt;h4 id="python-ldap"&gt;Python-Ldap&lt;/h4&gt;
-&lt;p&gt;&lt;a href="http://www.python-ldap.org/" title="LDAP client API for Python"&gt;Python-Ldap&lt;/a&gt;是python用来操作ldap的模块，可以对ldap进行查询，添加，修改，删除等操作，如下代码：&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.python-ldap.org/" target="_blank" title="LDAP client API for Python"&gt;Python-Ldap&lt;/a&gt;是python用来操作ldap的模块，可以对ldap进行查询，添加，修改，删除等操作，如下代码：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;ldap_host&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;127.0.0.1&amp;quot;&lt;/span&gt;
 &lt;span class="n"&gt;ldap_port&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;389&lt;/span&gt;
 &lt;span class="n"&gt;ldap_who&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;turbidsoul.me&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s"&gt;test&amp;quot;&lt;/span&gt;
@@ -712,10 +712,10 @@ spawned uWSGI worker 1 (and the only) (pid: 6503, cores: 1)
 &lt;li&gt;old: 指就原属性，如果原属性不存在，这里给个空字符串即可，&lt;code&gt;""&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;new: 需要修改的新值&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;我这里使用的jobno并不是ad的默认就有的属性是自己后来添加的扩展属性，至于如何添加扩展属性，請参照这篇文章&lt;a href="http://docs.tidyinfo.com/?p=309" title="AD扩展属性定义"&gt;AD扩展属性定义&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;我这里使用的jobno并不是ad的默认就有的属性是自己后来添加的扩展属性，至于如何添加扩展属性，請参照这篇文章&lt;a href="http://docs.tidyinfo.com/?p=309" target="_blank" title="AD扩展属性定义"&gt;AD扩展属性定义&lt;/a&gt;&lt;/p&gt;
 &lt;h4 id="rtx"&gt;RTX&lt;/h4&gt;
 &lt;p&gt;我通过python-ldap从AD中读取到数据，现在需要把他写道RTX中，在这里我遇到了一个问题，当时并没有仔细去看rtx sdk文档，只是想当然的以为直接用python操作数据，来进行数据同步，但是后来发现，数据虽然同步成功了，但是rtx客户端并不能从服务器抓取到新用户的信息，包括基本资料和详细资料等。&lt;/p&gt;
-&lt;p&gt;使用上面的方法，算是走到死胡同，同事的一句话让我想到我可以用过windows的com接口实现数据的同步，python下实现调用windows的com接口的模块是&lt;a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/" title="Unofficial Windows Binaries for Python Extension Packages"&gt;win32com&lt;/a&gt;(这个网站有，pywin32编译好的安装包，根据自己的python版本下载安装即可)。&lt;/p&gt;
+&lt;p&gt;使用上面的方法，算是走到死胡同，同事的一句话让我想到我可以用过windows的com接口实现数据的同步，python下实现调用windows的com接口的模块是&lt;a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/" target="_blank" title="Unofficial Windows Binaries for Python Extension Packages"&gt;win32com&lt;/a&gt;(这个网站有，pywin32编译好的安装包，根据自己的python版本下载安装即可)。&lt;/p&gt;
 &lt;p&gt;我们来看一段测试代码：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;win32com.client&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;xml.etree.cElementTree&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;et&lt;/span&gt;
@@ -906,7 +906,7 @@ spawned uWSGI worker 1 (and the only) (pid: 6503, cores: 1)
 &lt;p&gt;编译完了之后在dist目录下就是表一好的文件，ftp_download.exe,我们运行一下看看效果： &lt;code&gt;ftp_download.exe 127.0.0.1 test test PbSetup60.exe,VIDEO0006.mp4&lt;/code&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;Download [PbSetup60.exe]: 100% [********************] Time: 0:00:05   1.69 MB/s
 Download [VIDEO0006.mp4]:  20% [****                ] ETA:  0:00:09   2.24 MB/s
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Turbidsoul Chan</dc:creator><pubDate>Sun, 23 Jun 2013 00:00:00 +0800</pubDate><guid>tag:blog.turbidsoul.me,2013-06-23:posts/pythonshi-xian-ming-ling-xing-xia-zai-jin-du-tiao.html</guid><category>python</category><category>cmd</category><category>ftp</category><category>progressbar</category></item><item><title>Leibniz公式和Walliz公式估算Pi的值</title><link>http://blog.turbidsoul.me/posts/leibnizgong-shi-he-wallizgong-shi-gu-suan-pide-zhi.html</link><description>&lt;p&gt;前两天和同事在聊天的时候说道了 $pi$ 的算法，回家之后在&lt;a href="https://zh.wikipedia.org/wiki/圓周率"&gt;维基&lt;/a&gt;上看了一下关于 $pi$ 的公式，正好这回没事干，就用Python实现了两个比较简单的公式，分别是Leibniz 和 Walliz.&lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Turbidsoul Chan</dc:creator><pubDate>Sun, 23 Jun 2013 00:00:00 +0800</pubDate><guid>tag:blog.turbidsoul.me,2013-06-23:posts/pythonshi-xian-ming-ling-xing-xia-zai-jin-du-tiao.html</guid><category>python</category><category>cmd</category><category>ftp</category><category>progressbar</category></item><item><title>Leibniz公式和Walliz公式估算Pi的值</title><link>http://blog.turbidsoul.me/posts/leibnizgong-shi-he-wallizgong-shi-gu-suan-pide-zhi.html</link><description>&lt;p&gt;前两天和同事在聊天的时候说道了 $pi$ 的算法，回家之后在&lt;a href="https://zh.wikipedia.org/wiki/圓周率" target="_blank"&gt;维基&lt;/a&gt;上看了一下关于 $pi$ 的公式，正好这回没事干，就用Python实现了两个比较简单的公式，分别是Leibniz 和 Walliz.&lt;/p&gt;
 &lt;h2 id="leibniz"&gt;Leibniz&lt;/h2&gt;
 &lt;p&gt;公式如下：&lt;/p&gt;
 &lt;p&gt;$1 - 1/3 + 1/5 - 1/7 + 1/9 - ... = pi/4$&lt;/p&gt;
@@ -961,8 +961,8 @@ Download [VIDEO0006.mp4]:  20% [****                ] ETA:  0:00:09   2.24 MB/s
         (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
     }
 &lt;/script&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Turbidsoul Chan</dc:creator><pubDate>Sat, 08 Jun 2013 00:00:00 +0800</pubDate><guid>tag:blog.turbidsoul.me,2013-06-08:posts/leibnizgong-shi-he-wallizgong-shi-gu-suan-pide-zhi.html</guid><category>pi</category><category>python</category><category>leibniz</category><category>walliz</category></item><item><title>python实现morse编码与解码</title><link>http://blog.turbidsoul.me/posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html</link><description>&lt;p&gt;写这个完全是闲着无聊，看了一片趣文&lt;a href="http://blog.jobbole.com/40628/?utm_source=rss&amp;amp;utm_medium=rss&amp;amp;utm_campaign=draft-created-on-20130531-at-1028-am"&gt;趣文：表白后女生发给我一串五层加密的密码&lt;/a&gt; 这篇文章来源自百度贴吧的的有一个帖子&lt;a href="http://tieba.baidu.com/f?kz=529691897"&gt;传送门&lt;/a&gt;，文章的内容还是很欢乐的。&lt;/p&gt;
-&lt;p&gt;言归正传，&lt;a href="http://zh.wikipedia.org/zh/%E6%91%A9%E5%B0%94%E6%96%AF%E7%94%B5%E7%A0%81"&gt;Morse Code&lt;/a&gt; 的算法是根据维基得来的，说白了就是键值对，编码解码也都是按照键值对进行匹配的。&lt;/p&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Turbidsoul Chan</dc:creator><pubDate>Sat, 08 Jun 2013 00:00:00 +0800</pubDate><guid>tag:blog.turbidsoul.me,2013-06-08:posts/leibnizgong-shi-he-wallizgong-shi-gu-suan-pide-zhi.html</guid><category>pi</category><category>python</category><category>leibniz</category><category>walliz</category></item><item><title>python实现morse编码与解码</title><link>http://blog.turbidsoul.me/posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html</link><description>&lt;p&gt;写这个完全是闲着无聊，看了一片趣文&lt;a href="http://blog.jobbole.com/40628/?utm_source=rss&amp;amp;utm_medium=rss&amp;amp;utm_campaign=draft-created-on-20130531-at-1028-am" target="_blank"&gt;趣文：表白后女生发给我一串五层加密的密码&lt;/a&gt; 这篇文章来源自百度贴吧的的有一个帖子&lt;a href="http://tieba.baidu.com/f?kz=529691897" target="_blank"&gt;传送门&lt;/a&gt;，文章的内容还是很欢乐的。&lt;/p&gt;
+&lt;p&gt;言归正传，&lt;a href="http://zh.wikipedia.org/zh/%E6%91%A9%E5%B0%94%E6%96%AF%E7%94%B5%E7%A0%81" target="_blank"&gt;Morse Code&lt;/a&gt; 的算法是根据维基得来的，说白了就是键值对，编码解码也都是按照键值对进行匹配的。&lt;/p&gt;
 &lt;p&gt;编码如下：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;__morse_code__&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="s"&gt;&amp;#39;A&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;.-&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;B&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;-...&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;C&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;-.-.&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;D&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;-..&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;E&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;.&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;F&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;..-.&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;G&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;--.&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
@@ -1046,13 +1046,13 @@ Download [VIDEO0006.mp4]:  20% [****                ] ETA:  0:00:09   2.24 MB/s
 &lt;p&gt;上面的就是运行结果，下面有两个关于morse的应用：&lt;/p&gt;
 &lt;iframe src="//zh.wikipedia.org/wiki/File:TVB_News_Theme_Song_Extract.ogg?embedplayer=yes" width="220" height="23" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;&lt;/iframe&gt;
 
-&lt;p&gt;&lt;a href="http://www.omnicron.com/~ford/java/NMorse.html"&gt;Morse Code Translation and Copy Practice&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Turbidsoul Chan</dc:creator><pubDate>Tue, 04 Jun 2013 00:00:00 +0800</pubDate><guid>tag:blog.turbidsoul.me,2013-06-04:posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html</guid><category>python</category><category>morse</category><category>code</category></item><item><title>Misaka+pygments实现markdown生成html页面并语法高亮</title><link>http://blog.turbidsoul.me/posts/misakapygmentsshi-xian-markdownsheng-cheng-htmlye-mian-bing-yu-fa-gao-liang.html</link><description>&lt;h2 id="_1"&gt;来由&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://www.omnicron.com/~ford/java/NMorse.html" target="_blank"&gt;Morse Code Translation and Copy Practice&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Turbidsoul Chan</dc:creator><pubDate>Tue, 04 Jun 2013 00:00:00 +0800</pubDate><guid>tag:blog.turbidsoul.me,2013-06-04:posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html</guid><category>python</category><category>morse</category><category>code</category></item><item><title>Misaka+pygments实现markdown生成html页面并语法高亮</title><link>http://blog.turbidsoul.me/posts/misakapygmentsshi-xian-markdownsheng-cheng-htmlye-mian-bing-yu-fa-gao-liang.html</link><description>&lt;h2 id="_1"&gt;来由&lt;/h2&gt;
 &lt;p&gt;最近新blog开发到文章页面生成这块，看上了GFM这样的方式，使用markdown编辑页面，也很适合程序猿。使用富文本编辑始终太重量级，并不适合程序猿写文章，所以我也很推崇jekyll，用他来写文章、blog确实很geek也很舒适。&lt;/p&gt;
 &lt;p&gt;经过几次简单的测试，最后决定使用&lt;code&gt;Misaka&lt;/code&gt;+&lt;code&gt;pygments&lt;/code&gt;，下面我简单说一下实现方法。&lt;/p&gt;
 &lt;h2 id="_2"&gt;开始之前&lt;/h2&gt;
 &lt;p&gt;我的测试例子中使用到了三个包，分别是 web.py , Misaka , pygments ,如果在开始之前需要使用pip安装这三个包&lt;/p&gt;
 &lt;h3 id="webpy"&gt;Web.py&lt;/h3&gt;
-&lt;p&gt;&lt;a href="http://webpy.org" title="web.py"&gt;Web.py&lt;/a&gt;是python的一个轻量级web框架，我只是简单的使用了一下，有兴趣的人可以去它的&lt;a href="http://webpy.org" title="web.py"&gt;官网&lt;/a&gt;,它的官方有一个&lt;a href="http://webpy.org/docs/0.3/tutorial.zh-cn" title="web.py tutorial"&gt;中文教程&lt;/a&gt;说的很详细。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://webpy.org" target="_blank" title="web.py"&gt;Web.py&lt;/a&gt;是python的一个轻量级web框架，我只是简单的使用了一下，有兴趣的人可以去它的&lt;a href="http://webpy.org" target="_blank" title="web.py"&gt;官网&lt;/a&gt;,它的官方有一个&lt;a href="http://webpy.org/docs/0.3/tutorial.zh-cn" target="_blank" title="web.py tutorial"&gt;中文教程&lt;/a&gt;说的很详细。&lt;/p&gt;
 &lt;p&gt;我这里使用他做一个简单的web服务：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Index&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;GET&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
@@ -1068,8 +1068,8 @@ Download [VIDEO0006.mp4]:  20% [****                ] ETA:  0:00:09   2.24 MB/s
 
 
 &lt;h3 id="misaka"&gt;Misaka&lt;/h3&gt;
-&lt;p&gt;&lt;a href="http://misaka.61924.nl/" title="Misaka"&gt;Misaka&lt;/a&gt;是一个Markdown的解析工具包，他的Github地址：&lt;a href="https://github.com/FSX/misaka" title="Misaka Github"&gt;https://github.com/FSX/misaka&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Misaka的官网上也有他的&lt;a href="http://misaka.61924.nl/manual/" title="Misaka Tutorial"&gt;教程&lt;/a&gt;，我在这里只是简单的举个例子，说明一下：&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://misaka.61924.nl/" target="_blank" title="Misaka"&gt;Misaka&lt;/a&gt;是一个Markdown的解析工具包，他的Github地址：&lt;a href="https://github.com/FSX/misaka" target="_blank" title="Misaka Github"&gt;https://github.com/FSX/misaka&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Misaka的官网上也有他的&lt;a href="http://misaka.61924.nl/manual/" target="_blank" title="Misaka Tutorial"&gt;教程&lt;/a&gt;，我在这里只是简单的举个例子，说明一下：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;misaka&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;m&lt;/span&gt;
 
 &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;A ~~complex~~ simple example.&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;extensions&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;EXT_STRIKETHROUGH&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -1091,9 +1091,9 @@ Download [VIDEO0006.mp4]:  20% [****                ] ETA:  0:00:09   2.24 MB/s
 &lt;/ul&gt;
 &lt;h3 id="pygments"&gt;pygments&lt;/h3&gt;
 &lt;p&gt;pygments是python的语法高亮工具包，它提供了语法样式 &lt;code&gt;pygments.styles&lt;/code&gt;,关于styles文档请查看[http://pygments.org/docs/styles/][pygments_styles]&lt;/p&gt;
-&lt;p&gt;昨天无事可作的时候 把&lt;a href="http://jekyllrb.com/" title="Jekyll"&gt;jekyll&lt;/a&gt;的一个主题minimum的样式写成Style,代码如下：&lt;/p&gt;
+&lt;p&gt;昨天无事可作的时候 把&lt;a href="http://jekyllrb.com/" target="_blank" title="Jekyll"&gt;jekyll&lt;/a&gt;的一个主题minimum的样式写成Style,代码如下：&lt;/p&gt;
 &lt;p&gt;{% gist 5567214 %}&lt;/p&gt;
-&lt;p&gt;同时它也支持很多语言，具体支持什么语言请参照&lt;a href="http://pygments.org/languages/" title="Pygments Support Language"&gt;Support Language&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;同时它也支持很多语言，具体支持什么语言请参照&lt;a href="http://pygments.org/languages/" target="_blank" title="Pygments Support Language"&gt;Support Language&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;pygments提供一个工具,pygmentize用于生成Style的css文件，但是我不知道这个工具能不能通过css文件生成Style，所以上面的那个Style是我自己手敲的 T_T !&lt;/p&gt;
 &lt;p&gt;pygmentize的用法：&lt;code&gt;pygmentize -S default -f html &amp;gt; style.css&lt;/code&gt; 这样就能生成指定的Style的css样式文件&lt;/p&gt;
 &lt;blockquote&gt;
@@ -1264,8 +1264,8 @@ Download [VIDEO0006.mp4]:  20% [****                ] ETA:  0:00:09   2.24 MB/s
     app.run()&lt;/p&gt;
 &lt;p&gt;```&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;在命令下运行: &lt;code&gt;python test.py 1234&lt;/code&gt;之后使用 &lt;a href="http://localhost:1234"&gt;http://localhost:1234&lt;/a&gt;)就能访问,并且看到结果&lt;/p&gt;
-&lt;/blockquote&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Turbidsoul Chan</dc:creator><pubDate>Tue, 14 May 2013 00:00:00 +0800</pubDate><guid>tag:blog.turbidsoul.me,2013-05-14:posts/misakapygmentsshi-xian-markdownsheng-cheng-htmlye-mian-bing-yu-fa-gao-liang.html</guid><category>python</category><category>misaka</category><category>pygments</category><category>markdown</category></item><item><title>fn实现无限计算等比级数</title><link>http://blog.turbidsoul.me/posts/fnshi-xian-wu-xian-ji-suan-deng-bi-ji-shu.html</link><description>&lt;p&gt;今天看InfoQ上的一篇关于 &lt;a href="http://www.infoq.com/cn/articles/fn.py-functional-programming-python"&gt;Fn.py&lt;/a&gt; 的文章，Fn中的Stream可以实现无限序列，例如文章中的代码：&lt;/p&gt;
+&lt;p&gt;在命令下运行: &lt;code&gt;python test.py 1234&lt;/code&gt;之后使用 &lt;a href="http://localhost:1234" target="_blank"&gt;http://localhost:1234&lt;/a&gt;)就能访问,并且看到结果&lt;/p&gt;
+&lt;/blockquote&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Turbidsoul Chan</dc:creator><pubDate>Tue, 14 May 2013 00:00:00 +0800</pubDate><guid>tag:blog.turbidsoul.me,2013-05-14:posts/misakapygmentsshi-xian-markdownsheng-cheng-htmlye-mian-bing-yu-fa-gao-liang.html</guid><category>python</category><category>misaka</category><category>pygments</category><category>markdown</category></item><item><title>fn实现无限计算等比级数</title><link>http://blog.turbidsoul.me/posts/fnshi-xian-wu-xian-ji-suan-deng-bi-ji-shu.html</link><description>&lt;p&gt;今天看InfoQ上的一篇关于 &lt;a href="http://www.infoq.com/cn/articles/fn.py-functional-programming-python" target="_blank"&gt;Fn.py&lt;/a&gt; 的文章，Fn中的Stream可以实现无限序列，例如文章中的代码：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Stream&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;span class="n"&gt;fib&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="nb"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;drop&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;

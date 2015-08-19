@@ -4,7 +4,7 @@
 对FLV文件内的TagBody内的数据进行加密，这样就可以在不影响视频播放的情况下对视频数据加密，就算防下载被破解，下载下的视频也是加过密的视频，
 播放的话都是雪花点之类的。&lt;/p&gt;
 &lt;h2 id="_1"&gt;算法&lt;/h2&gt;
-&lt;p&gt;我们在这里不讨论视频的具体加密技术，因为涉及到公司的机密，只是简单的讨论这个算法。这个算法其实很简单，来自一片博士论文：&lt;a href="https://drive.google.com/file/d/0B1L569wdo3IkMFBISVlZZXVmRlk/view?usp=sharing"&gt;传送门&lt;/a&gt;，也可以说&lt;code&gt;会者不难，难者不会&lt;/code&gt;，我就属于后者不会的那个，
+&lt;p&gt;我们在这里不讨论视频的具体加密技术，因为涉及到公司的机密，只是简单的讨论这个算法。这个算法其实很简单，来自一片博士论文：&lt;a href="https://drive.google.com/file/d/0B1L569wdo3IkMFBISVlZZXVmRlk/view?usp=sharing" target="_blank"&gt;传送门&lt;/a&gt;，也可以说&lt;code&gt;会者不难，难者不会&lt;/code&gt;，我就属于后者不会的那个，
 不过公司里有数学老师，我们头拿着这篇论文找到数学老师请教时候，果然很简单，当然我只搞懂了&lt;code&gt;等模乱序算法&lt;/code&gt;，&lt;code&gt;变模乱序算法&lt;/code&gt;还是没搞懂，我现在来简单的介绍一下等模乱序算法这个算法。&lt;/p&gt;
 &lt;p&gt;首先我们假设有一个序列：&lt;/p&gt;
 &lt;blockquote&gt;

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Turbidsoul's 小黑屋 - cas - Turbidsoul's 小黑屋</title>
+    <title>Turbidsoul's 小黑屋 - casTurbidsoul's 小黑屋</title>
 
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
@@ -68,7 +68,7 @@
 <li>接下来要生成CSR文件： openssl req -new -key server.key -out server.csr</li>
 <li>最后就是生成证书文件： openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt</li>
 </ol>
-<p>这里有我一个笔记是openssl的简单教程：<a href="https://www.evernote.com/shard/s25/sh/233c0eda-2f70-4756-8907-50dc0bff82c2/92861a2bd473f1d703bcead620080d27">openssl简单教程</a></p>
+<p>这里有我一个笔记是openssl的简单教程：<a href="https://www.evernote.com/shard/s25/sh/233c0eda-2f70-4756-8907-50dc0bff82c2/92861a2bd473f1d703bcead620080d27" target="_blank">openssl简单教程</a></p>
 <hr />
 <p>生成证书后，就可以配置nginx了，打开nginx.conf，加入以下几行:</p>
 <div class="highlight"><pre><span class="k">listen</span>                 <span class="mi">443 ...</span></pre></div> 

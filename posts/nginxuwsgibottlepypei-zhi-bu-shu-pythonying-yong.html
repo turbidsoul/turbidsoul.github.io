@@ -66,7 +66,7 @@
 <p><code>pacman -S python nginx</code>
 <code>pip install uwsgi bottlepy</code></p>
 <p>arch linux 默认python应该是3.3.2，所以需要安装<em>pythonbrew</em>然后在来安装2.7.5,至于pythonbrew如何安装，请自行搜索，安装其实很简单。至于nginx默认是支持uwsgi，所以不需要特别安装其他的插件。</p>
-<p>其实也可以通过<code>pacman -S uwsgi</code>来安装但是这个是不支持python的，所以需要用户pip安装uwsgi，才能支持python至于<a href="http://bottlepy.org/docs/dev/">bottlepy</a>我就不多说了，请查看其文档。</p>
+<p>其实也可以通过<code>pacman -S uwsgi</code>来安装但是这个是不支持python的，所以需要用户pip安装uwsgi，才能支持python至于<a href="http://bottlepy.org/docs/dev/" target="_blank">bottlepy</a>我就不多说了，请查看其文档。</p>
 <h2 id="_2">配置</h2>
 <h4 id="bottle">Bottle</h4>
 <p>bottlepy 其实也就是我们的服务端代码，我们这里就简单的一个<code>Hello World!</code></p>
@@ -157,7 +157,7 @@ spawned uWSGI worker 1 (and the only) (pid: 6503, cores: 1)
 </pre></div>
 
 
-<p>所以我在这里路径写成<code>/var/run/x.socket</code> 是这个路径下的就不会有问题,关于这个问题这里有个帖子应该能解决问题<a href="http://mediadrop.net/community/topic/trouble-with-uwsgi-nginx" title="Trouble with uwsgi + nginx">Trouble with uwsgi + nginx</a></p>
+<p>所以我在这里路径写成<code>/var/run/x.socket</code> 是这个路径下的就不会有问题,关于这个问题这里有个帖子应该能解决问题<a href="http://mediadrop.net/community/topic/trouble-with-uwsgi-nginx" target="_blank" title="Trouble with uwsgi + nginx">Trouble with uwsgi + nginx</a></p>
 <p>另外如果错误中有 <code>13: Permission denied</code> 这个错误，那可能是在nginx的配置文件中没有声明用户，或者用户没权限，我这里是用root用户登录的，所以在nginx最上面加了<code>user root;</code></p>
 <h2 id="_3">结论</h2>
 <p>uwsgi自创了一个uwsgi协议，与wsgi、fcgi不同，据说uwsgi的速度是fcgi的10倍，我没有那个环境测试。uwsgi旨在为分布式部署提供一套解决方案，他支持很多语言，也同时可以使用c,c++等来开发插件，我使用他纯粹是为了在我的VPS上部署我的python应用。</p>

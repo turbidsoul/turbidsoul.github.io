@@ -19,7 +19,7 @@
 &lt;li&gt;如果等于0xfe(0b11111110)或者与127做与运算，结果等于127，则掩码就是在4-7个字节即,第4,5,6,7这4个字节，数据就是从第8个字节开始&lt;/li&gt;
 &lt;li&gt;如果等于0xff(0b11111111)或者与127做与运算，结果大于127，则掩码就是在10-13个字节即,第10,11,12,13这4个字节，数据就是从第14个字节开始&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;如果需要详细了解websocket请参看文章【&lt;a href="http://blog.csdn.net/fenglibing/article/details/6852497"&gt;基于Websocket草案10协议的升级及基于Netty的握手实现&lt;/a&gt;】，这里详细介绍了websocket协议&lt;/p&gt;
+&lt;p&gt;如果需要详细了解websocket请参看文章【&lt;a href="http://blog.csdn.net/fenglibing/article/details/6852497" target="_blank"&gt;基于Websocket草案10协议的升级及基于Netty的握手实现&lt;/a&gt;】，这里详细介绍了websocket协议&lt;/p&gt;
 &lt;p&gt;其次我在说一说WebRTC，这里我会结合WebSocket一起说一些我的：&lt;/p&gt;
 &lt;p&gt;&lt;img alt="webrtc" src="/file/images/webrtc.png" /&gt;&lt;/p&gt;
 &lt;p&gt;这是我做的demo的时序图，第一次画将就以下吧：&lt;/p&gt;
@@ -31,6 +31,6 @@
 &lt;li&gt;WebSocket接到并请求这的信息，直接发送给请求者&lt;/li&gt;
 &lt;li&gt;请求者接到WebSocket服务器发来的被请求作者的answer信息，使用answer创建远程连接连接被请求者&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;对于WebRTC的概要介绍，请看这篇文章【&lt;a href="http://h5dev.uc.cn/article-22-1.html"&gt;WebRTC现状及实现概要&lt;/a&gt;】，这篇文章介绍了WebRTC的现状，同时在文章的后面还有WebRTC的调用图，可以方便开发者更容易的理解WebRTC&lt;/p&gt;
+&lt;p&gt;对于WebRTC的概要介绍，请看这篇文章【&lt;a href="http://h5dev.uc.cn/article-22-1.html" target="_blank"&gt;WebRTC现状及实现概要&lt;/a&gt;】，这篇文章介绍了WebRTC的现状，同时在文章的后面还有WebRTC的调用图，可以方便开发者更容易的理解WebRTC&lt;/p&gt;
 &lt;p&gt;说到这里，基本上我的demo的实现思想基本说完了，但是还要说明以下，我花了很多时间调试代码，但是一直都没有成功，最后把浏览器更新到firefox19才调试成功，firefox19之前的版本虽然也对WebRTC实现，但是功能实现的并不完善，默写方法和19实现的也不一样。所以这里需要注意以下。&lt;/p&gt;
-&lt;p&gt;这是我实现的源代码：&lt;a href="https://github.com/turbidsoul/webrtc-demo"&gt;WebRTC-Demo&lt;/a&gt;，代码实现的很粗糙，而且也借鉴其他人的实现的方法。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Turbidsoul Chan</dc:creator><pubDate>Thu, 28 Feb 2013 00:00:00 +0800</pubDate><guid>tag:blog.turbidsoul.me,2013-02-28:posts/websocketwebrtcshi-xian-shi-pin-tong-xun.html</guid><category>webrtc</category><category>websocket</category><category>python</category></item></channel></rss>
+&lt;p&gt;这是我实现的源代码：&lt;a href="https://github.com/turbidsoul/webrtc-demo" target="_blank"&gt;WebRTC-Demo&lt;/a&gt;，代码实现的很粗糙，而且也借鉴其他人的实现的方法。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Turbidsoul Chan</dc:creator><pubDate>Thu, 28 Feb 2013 00:00:00 +0800</pubDate><guid>tag:blog.turbidsoul.me,2013-02-28:posts/websocketwebrtcshi-xian-shi-pin-tong-xun.html</guid><category>webrtc</category><category>websocket</category><category>python</category></item></channel></rss>

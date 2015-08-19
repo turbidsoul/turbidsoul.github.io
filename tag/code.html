@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Turbidsoul's 小黑屋 - code - Turbidsoul's 小黑屋</title>
+    <title>Turbidsoul's 小黑屋 - codeTurbidsoul's 小黑屋</title>
 
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
@@ -145,8 +145,8 @@
     <a href="http://blog.turbidsoul.me/tag/code.html">code</a>, 
  -- (<a href="http://blog.turbidsoul.me/posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html" rel="bookmark">permalink</a>)
 </small>
-</p>      <p>写这个完全是闲着无聊，看了一片趣文<a href="http://blog.jobbole.com/40628/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=draft-created-on-20130531-at-1028-am">趣文：表白后女生发给我一串五层加密的密码</a> 这篇文章来源自百度贴吧的的有一个帖子<a href="http://tieba.baidu.com/f?kz=529691897">传送门</a>，文章的内容还是很欢乐的。</p>
-<p>言归正传，<a href="http://zh.wikipedia.org/zh/%E6%91%A9%E5%B0%94%E6%96%AF%E7%94%B5%E7%A0%81">Morse Code</a> 的算法是根据维基得来的，说白了就是键值对，编码解码也都是按照键值对进行匹配的。</p>
+</p>      <p>写这个完全是闲着无聊，看了一片趣文<a href="http://blog.jobbole.com/40628/?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=draft-created-on-20130531-at-1028-am" target="_blank">趣文：表白后女生发给我一串五层加密的密码</a> 这篇文章来源自百度贴吧的的有一个帖子<a href="http://tieba.baidu.com/f?kz=529691897" target="_blank">传送门</a>，文章的内容还是很欢乐的。</p>
+<p>言归正传，<a href="http://zh.wikipedia.org/zh/%E6%91%A9%E5%B0%94%E6%96%AF%E7%94%B5%E7%A0%81" target="_blank">Morse Code</a> 的算法是根据维基得来的，说白了就是键值对，编码解码也都是按照键值对进行匹配的。</p>
 <p>编码如下：</p>
 <div class="highlight"><pre><span class="n">__morse_code__</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s">&#39;A&#39;</span><span class="p">:</span> <span class="s">&#39;.-&#39;</span><span class="p">,</span> <span class="s">&#39;B&#39;</span><span class="p">:</span> <span class="s">&#39;-...&#39;</span><span class="p">,</span> <span class="s">&#39;C&#39;</span><span class="p">:</span> <span class="s">&#39;-.-.&#39;</span><span class="p">,</span> <span class="s">&#39;D&#39;</span><span class="p">:</span> <span class="s">&#39;-..&#39;</span><span class="p">,</span> <span class="s">&#39;E&#39;</span><span class="p">:</span> <span class="s">&#39;.&#39;</span><span class="p">,</span> <span class="s">&#39;F&#39;</span><span class="p">:</span> <span class="s">&#39;..-.&#39;</span><span class="p">,</span> <span class="s">&#39;G&#39;</span><span class="p">:</span> <span class="s">&#39;--.&#39;</span><span class="p">,</span>
@@ -170,7 +170,7 @@
     <a href="http://blog.turbidsoul.me/tag/code.html">code</a>, 
  -- (<a href="http://blog.turbidsoul.me/posts/jekyllmo-ban-de-zhong-wen-wen-ti.html" rel="bookmark">permalink</a>)
 </small>
-</p>      <p>今天在给blog添加<a href="http://creativecommons.org/licenses/by/3.0/cn/">Creative Commons</a>(简称CC)时，发现在jekyll的模版中不能加入中文。大概看了一下build时报的错，可以确定应该和jekyll不能发带有中文的文章的问题是一样的，不过出问题的地方不一样。</p>
+</p>      <p>今天在给blog添加<a href="http://creativecommons.org/licenses/by/3.0/cn/" target="_blank">Creative Commons</a>(简称CC)时，发现在jekyll的模版中不能加入中文。大概看了一下build时报的错，可以确定应该和jekyll不能发带有中文的文章的问题是一样的，不过出问题的地方不一样。</p>
 <h4 id="jekyll">jekyll不能发有中文的文章</h4>
 <p>出问题的地方是在convertible.rb#31 行：</p>
 <div class="highlight"><pre><span class="nb">self</span><span class="o">.</span><span class="n">content</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="nb">name</span><span class="p">),</span> <span class="ss">:encoding</span> <span class="o">=&gt;</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>

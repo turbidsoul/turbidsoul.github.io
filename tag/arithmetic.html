@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Turbidsoul's 小黑屋 - arithmetic - Turbidsoul's 小黑屋</title>
+    <title>Turbidsoul's 小黑屋 - arithmeticTurbidsoul's 小黑屋</title>
 
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
@@ -52,7 +52,7 @@
     <a href="http://blog.turbidsoul.me/tag/functional.html">functional</a>, 
  -- (<a href="http://blog.turbidsoul.me/posts/fnshi-xian-wu-xian-ji-suan-deng-bi-ji-shu.html" rel="bookmark">permalink</a>)
 </small>
-</p>      <p>今天看InfoQ上的一篇关于 <a href="http://www.infoq.com/cn/articles/fn.py-functional-programming-python">Fn.py</a> 的文章，Fn中的Stream可以实现无限序列，例如文章中的代码：</p>
+</p>      <p>今天看InfoQ上的一篇关于 <a href="http://www.infoq.com/cn/articles/fn.py-functional-programming-python" target="_blank">Fn.py</a> 的文章，Fn中的Stream可以实现无限序列，例如文章中的代码：</p>
 <div class="highlight"><pre><span class="n">f</span> <span class="o">=</span> <span class="n">Stream</span><span class="p">()</span>
 <span class="n">fib</span> <span class="o">=</span> <span class="n">f</span> <span class="o">&lt;&lt;</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">drop</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">f</span><span class="p">))</span>
 </pre></div>
@@ -112,8 +112,8 @@
  -- (<a href="http://blog.turbidsoul.me/posts/opensslhe-java-aessuan-fa-de-de-wen-ti.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>开篇第一句话我想说， <strong>OpenSSL不支持与Java的对接</strong> ，这是多么蛋疼的一句话，不过确实是这样，原因是在c中的填充方式和Java中的填充方式不一样，Java不支持c中的/0的填充方式。</p>
-<p>具体信息请查看：<a href="http://blog.csdn.net/rocketball/article/details/6575677">OpenSSL和JAVA AES算法的问题总结</a></p>
-<p>至于我为什么会写这篇文章呢，是我们的项目中有部分在网络传输的内容需要加密，所以就选用了AES的，服务端使用的是<a href="http://openresty.org/">openresty</a> 这是淘宝的一个大牛写的，他里面集成了LuaJit， 加密的部分使用的是resty.aes，而resty使用的是OpenSSL的C代码实现的加密解密。为了和OpenSSL实现对接，我就蛋疼的去简单的链接了下OpenSSL，在上面的文章中才指导OpenSSL并不支持Java，查了无数人的文章，很多人都对这个问题很苦恼，最后在 stackoverflow 里找到了一个大牛给出了一个解码的实现 <a href="http://stackoverflow.com/questions/11783062/how-to-decrypt-an-encrypted-file-in-java-with-openssl-with-aes">stackoverflow </a>我根据这位大牛的代码简单的修改了一下，就做成了我需要的代码：</p>
+<p>具体信息请查看：<a href="http://blog.csdn.net/rocketball/article/details/6575677" target="_blank">OpenSSL和JAVA AES算法的问题总结</a></p>
+<p>至于我为什么会写这篇文章呢，是我们的项目中有部分在网络传输的内容需要加密，所以就选用了AES的，服务端使用的是<a href="http://openresty.org/" target="_blank">openresty</a> 这是淘宝的一个大牛写的，他里面集成了LuaJit， 加密的部分使用的是resty.aes，而resty使用的是OpenSSL的C代码实现的加密解密。为了和OpenSSL实现对接，我就蛋疼的去简单的链接了下OpenSSL，在上面的文章中才指导OpenSSL并不支持Java，查了无数人的文章，很多人都对这个问题很苦恼，最后在 stackoverflow 里找到了一个大牛给出了一个解码的实现 <a href="http://stackoverflow.com/questions/11783062/how-to-decrypt-an-encrypted-file-in-java-with-openssl-with-aes" target="_blank">stackoverflow </a>我根据这位大牛的代码简单的修改了一下，就做成了我需要的代码：</p>
 <script src="https://gist.github.com/turbidsoul/5227012.js"></script>
 
 <p>最后我想吐槽一下lua5.1居然不支持位运算，要5.2才支持，好吧，openresty集成的就是5.1所以我在实现lua的16位编码解码果然蛋疼了一下。</p> 

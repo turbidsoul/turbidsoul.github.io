@@ -93,7 +93,7 @@
 
 
 <p>这是Rakefile中关于post的那段代码：<code>slug = title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')</code>，我们只需要在行代码之前加入对标题的转换就可以。</p>
-<p>汉字转拼音我用的是<a href="https://github.com/elvuel/hz2py">hz2py</a>,使用<code>gem install hz2py</code>就可以安装，使用也很简单：</p>
+<p>汉字转拼音我用的是<a href="https://github.com/elvuel/hz2py" target="_blank">hz2py</a>,使用<code>gem install hz2py</code>就可以安装，使用也很简单：</p>
 <div class="highlight"><pre><span class="nb">require</span> <span class="s1">&#39;hz2py&#39;</span>
 
 <span class="no">Hz2py</span><span class="o">.</span><span class="n">do</span><span class="p">(</span><span class="s1">&#39;听说使用hz2py可以使jekyll支持中文标题，并转换成拼音&#39;</span><span class="p">,</span> <span class="ss">:join_with</span> <span class="o">=&gt;</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="ss">:to_simplified</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">)</span>

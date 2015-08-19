@@ -3,7 +3,7 @@
 &lt;p&gt;之前头让搞一个24小时内帖子或者视频的点击量，当时为了省事，就随便写了一个，虽然是实时的，但是却没有满足 &lt;strong&gt;24小时内&lt;/strong&gt; 这个条件, 数据会在每天0点清零重新计算，前几天被头发现了，所以就只能从新写一个了。&lt;/p&gt;
 &lt;p&gt;思来想去最后还是决定用&lt;code&gt;awk&lt;/code&gt;解析日志来完成这个功能，这样最简单。&lt;/p&gt;
 &lt;h2 id="_2"&gt;之前的准备&lt;/h2&gt;
-&lt;p&gt;AWK是贝尔实验室1977年搞出来的文本出现神器，所以有必要做个简单的介绍，大家请看这三篇文章:&lt;a href="http://coolshell.cn/articles/9070.html" title="AWK 简明教程"&gt;AWK 简明教程&lt;/a&gt;, &lt;a href="http://www.cnblogs.com/chengmo/archive/2010/10/08/1845913.html" title="linux awk 内置函数详细介绍（实例）"&gt;linux awk 内置函数详细介绍（实例）&lt;/a&gt;, &lt;a href="http://www.colorfuldays.org/linux/good_awk_tutorial/" title="很好的awk教程 "&gt;awk教程&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;AWK是贝尔实验室1977年搞出来的文本出现神器，所以有必要做个简单的介绍，大家请看这三篇文章:&lt;a href="http://coolshell.cn/articles/9070.html" target="_blank" title="AWK 简明教程"&gt;AWK 简明教程&lt;/a&gt;, &lt;a href="http://www.cnblogs.com/chengmo/archive/2010/10/08/1845913.html" target="_blank" title="linux awk 内置函数详细介绍（实例）"&gt;linux awk 内置函数详细介绍（实例）&lt;/a&gt;, &lt;a href="http://www.colorfuldays.org/linux/good_awk_tutorial/" target="_blank" title="很好的awk教程 "&gt;awk教程&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;这三篇文章是前置的知识，有必要简单的看一下，最开始我觉得awk有点麻烦，写了一些之后我发现他和&lt;code&gt;lua&lt;/code&gt;一样的简单。&lt;/p&gt;
 &lt;h2 id="_3"&gt;代码分析&lt;/h2&gt;
 &lt;p&gt;我们的要求是，分别统计出 &lt;em&gt;thread&lt;/em&gt;, &lt;em&gt;resource&lt;/em&gt;, &lt;em&gt;video&lt;/em&gt;, _article_中，没一个的点击量&lt;/p&gt;

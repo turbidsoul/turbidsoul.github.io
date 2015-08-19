@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Turbidsoul's 小黑屋</title><link>http://blog.turbidsoul.me/</link><description></description><atom:link href="http://blog.turbidsoul.me/feeds/nginx.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 26 Jan 2014 00:00:00 +0800</lastBuildDate><item><title>Nginx实现文件下载自动打包成zip文件</title><link>http://blog.turbidsoul.me/posts/nginxshi-xian-wen-jian-xia-zai-zi-dong-da-bao-cheng-zipwen-jian.html</link><description>&lt;h2 id="_1"&gt;来源和介绍&lt;/h2&gt;
 &lt;p&gt;问题的来源是需要对已有的资料在下载的时候进行添加广告，但是对于doc文件操作麻烦的情况，采用在下载的时候将广告文件和资料一起打包成zip文件.&lt;/p&gt;
-&lt;p&gt;在apache服务器中有个mod_zip的模块就是完成这个功能，同样nginx有大神已经实现了这个模块，我们只需要拿来用就可以了:&lt;a href="https://github.com/evanmiller/mod_zip"&gt;mod_zip&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;在apache服务器中有个mod_zip的模块就是完成这个功能，同样nginx有大神已经实现了这个模块，我们只需要拿来用就可以了:&lt;a href="https://github.com/evanmiller/mod_zip" target="_blank"&gt;mod_zip&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id="_2"&gt;应用&lt;/h2&gt;
 &lt;p&gt;此模块并不是nginx的默认模块所以需要用户自己编译安装。&lt;/p&gt;
 &lt;p&gt;安装完成之后，不需要修改任何nginx的任何配置，完成打包都在服务点返回的信息中，下面请看我用python实现的示例：&lt;/p&gt;
@@ -44,7 +44,7 @@
 &lt;li&gt;接下来要生成CSR文件： openssl req -new -key server.key -out server.csr&lt;/li&gt;
 &lt;li&gt;最后就是生成证书文件： openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;这里有我一个笔记是openssl的简单教程：&lt;a href="https://www.evernote.com/shard/s25/sh/233c0eda-2f70-4756-8907-50dc0bff82c2/92861a2bd473f1d703bcead620080d27"&gt;openssl简单教程&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这里有我一个笔记是openssl的简单教程：&lt;a href="https://www.evernote.com/shard/s25/sh/233c0eda-2f70-4756-8907-50dc0bff82c2/92861a2bd473f1d703bcead620080d27" target="_blank"&gt;openssl简单教程&lt;/a&gt;&lt;/p&gt;
 &lt;hr /&gt;
 &lt;p&gt;生成证书后，就可以配置nginx了，打开nginx.conf，加入以下几行:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;listen&lt;/span&gt;                 &lt;span class="mi"&gt;443&lt;/span&gt; &lt;span class="s"&gt;ssl&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
@@ -101,7 +101,7 @@
 &lt;p&gt;修改&lt;code&gt;p:cookieSecure="false"&lt;/code&gt; 的值为&lt;code&gt;true&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;修改这两个之后就可以把cas的包放入tomcat中启动tomcat。&lt;/p&gt;
 &lt;p&gt;经过上面两部其实按正常情况下已经可以访问了，但是在登录的时候， 进入cas的登录页面进行登录，登录成功后返回的时候会抛出异常，对于这个异常我不甚理解， 但是我在google上所有得到的结果是这时java的一个bug，不过已经给出了解决方法.&lt;/p&gt;
-&lt;p&gt;下载下面的代码： &lt;a href="https://gist.github.com/turbidsoul/5506661"&gt;InstallCert.java&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;下载下面的代码： &lt;a href="https://gist.github.com/turbidsoul/5506661" target="_blank"&gt;InstallCert.java&lt;/a&gt;&lt;/p&gt;
 &lt;script src="https://gist.github.com/turbidsoul/5506661.js"&gt;&lt;/script&gt;
 
 &lt;p&gt;编译之后使用使用下面命令执行以下：&lt;code&gt;java InstallCert cas.xxxxx.com&lt;/code&gt;&lt;/p&gt;

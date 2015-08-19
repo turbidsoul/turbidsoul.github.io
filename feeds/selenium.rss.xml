@@ -3,7 +3,7 @@
 &lt;h2 id="selenium"&gt;Selenium 入门&lt;/h2&gt;
 &lt;h4 id="_1"&gt;安装&lt;/h4&gt;
 &lt;p&gt;我使用的是 Firefox Aurora 现在的版本就是ff26,这下面是正常的，我不知道在每日编译版下是否正常，虽然我机子上也安装了，但是并没有在起下面做个测试，不过应该是没有问题的。&lt;/p&gt;
-&lt;p&gt;在 &lt;a href="about:addons"&gt;about:addons&lt;/a&gt; 或者 &lt;a href="http://addons.mozilla.org/"&gt;http://addons.mozilla.org/&lt;/a&gt; 上搜索 &lt;em&gt;selenium&lt;/em&gt; 点击安装，安装的时候同时还会附带安装几个其他的插件，这些都是 Selenium 的一些附属插件，我在之后的会有介绍。&lt;/p&gt;
+&lt;p&gt;在 &lt;a href="about:addons" target="_blank"&gt;about:addons&lt;/a&gt; 或者 &lt;a href="http://addons.mozilla.org/" target="_blank"&gt;http://addons.mozilla.org/&lt;/a&gt; 上搜索 &lt;em&gt;selenium&lt;/em&gt; 点击安装，安装的时候同时还会附带安装几个其他的插件，这些都是 Selenium 的一些附属插件，我在之后的会有介绍。&lt;/p&gt;
 &lt;p&gt;安装完之后可以在 &lt;code&gt;菜单 &amp;gt;&amp;gt; 工具 &amp;gt;&amp;gt; Selenium IDE&lt;/code&gt; 打开或者在 &lt;em&gt;附加组建栏&lt;/em&gt; 点击 Selenium IDE 按钮打开，如何附加组建栏没有，请自行添加。&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Selenium IDE 界面" src="/file/images/selenium1.jpg" title="Selenium IDE" /&gt;&lt;/p&gt;
 &lt;p&gt;上图就是 Selenium IDE 界面，图最右边的红色圆形按钮就是录制按钮，一般在打开的时候这个那就就是按下的，所以可以直接录制。&lt;/p&gt;
@@ -61,7 +61,7 @@
 &lt;p&gt;上面的代码就是录制后的代码，是html代码，当然也可以按照在这样的方法写出来，复制到Selenium中也是可以运行的。&lt;/p&gt;
 &lt;p&gt;运行的方法很简单，菜单 Actions -&amp;gt; Play entire test suite 就会把录制的脚本运行一边，同时我们也能在浏览器上看到运行的结果。&lt;/p&gt;
 &lt;p&gt;Selenium可以完成我们在浏览器上的所有操作，因为它就是模拟我们浏览器的操作，所以登录等操作也是没有问题的。这就是Selenium的几本操作，更加复杂的可以自己去探索.&lt;/p&gt;
-&lt;p&gt;Selenium也可以把录制的宏导出成其他代码，比如java,ruby,php,python,C#,XML等，导出的方法很简单，在菜单中的 文件 -&amp;gt; Export Test Case 就可以看到导出的选项，但是要要导出这些代码，是需要有扩展支持的，一般这些扩展在安装 Selenium IDE 的时候都会提示一起安装，如果在这里没有看到的花，可以在&lt;a href="http://addons.mozilla.org/"&gt;http://addons.mozilla.org&lt;/a&gt;搜索，然后安装，重启firefox之后就可以了&lt;/p&gt;
+&lt;p&gt;Selenium也可以把录制的宏导出成其他代码，比如java,ruby,php,python,C#,XML等，导出的方法很简单，在菜单中的 文件 -&amp;gt; Export Test Case 就可以看到导出的选项，但是要要导出这些代码，是需要有扩展支持的，一般这些扩展在安装 Selenium IDE 的时候都会提示一起安装，如果在这里没有看到的花，可以在&lt;a href="http://addons.mozilla.org/" target="_blank"&gt;http://addons.mozilla.org&lt;/a&gt;搜索，然后安装，重启firefox之后就可以了&lt;/p&gt;
 &lt;h2 id="python"&gt;Python&lt;/h2&gt;
 &lt;p&gt;如何得到python 的测试代码呢？有两种，第一个就是通过Selenium中提供的导出的方法直接导出，另外一个就是自己编写python代码了。&lt;/p&gt;
 &lt;p&gt;从Selenium可以导出两种，一种是基于&lt;code&gt;Webdriver&lt;/code&gt;，另外一个就是基于&lt;code&gt;Remote Control&lt;/code&gt;：&lt;/p&gt;
@@ -165,7 +165,7 @@ OK
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;对于Remote Control方式，在运行之前需要下载&lt;a href="https://code.google.com/p/selenium/downloads/list"&gt;selenium-server-standalone-&lt;version&gt;.jar&lt;/a&gt;,下载完成后，在命令行下运行&lt;code&gt;java -jar selenium-server-standalone-&amp;lt;version&amp;gt;.jar&lt;/code&gt; 启动服务，启动成功后能看下如下信息：&lt;/p&gt;
+&lt;p&gt;对于Remote Control方式，在运行之前需要下载&lt;a href="https://code.google.com/p/selenium/downloads/list" target="_blank"&gt;selenium-server-standalone-&lt;version&gt;.jar&lt;/a&gt;,下载完成后，在命令行下运行&lt;code&gt;java -jar selenium-server-standalone-&amp;lt;version&amp;gt;.jar&lt;/code&gt; 启动服务，启动成功后能看下如下信息：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="err"&gt;十月&lt;/span&gt; &lt;span class="mi"&gt;21&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2013&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;28&lt;/span&gt; &lt;span class="err"&gt;下午&lt;/span&gt; &lt;span class="n"&gt;org&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;openqa&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;grid&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;selenium&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;GridLauncher&lt;/span&gt; &lt;span class="n"&gt;main&lt;/span&gt;
 &lt;span class="err"&gt;信息&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Launching&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;standalone&lt;/span&gt; &lt;span class="n"&gt;server&lt;/span&gt;
 &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mf"&gt;30.219&lt;/span&gt; &lt;span class="n"&gt;INFO&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nl"&gt;Java&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Oracle&lt;/span&gt; &lt;span class="n"&gt;Corporation&lt;/span&gt; &lt;span class="mf"&gt;21.0&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;b17&lt;/span&gt;
