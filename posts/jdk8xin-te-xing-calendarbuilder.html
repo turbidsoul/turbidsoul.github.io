@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>JDK8新特性 Calendar.BuilderTurbidsoul's 小黑屋</title>
+    <title>JDK8新特性 Calendar.Builder - Turbidsoul's 小黑屋</title>
 
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
@@ -58,7 +58,7 @@
  -- (<a href="http://blog.turbidsoul.me/posts/jdk8xin-te-xing-calendarbuilder.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>5月23号，Oracle 发布了 jdk8 <strong>M7</strong> 版，这是一个<a href="http://openjdk.java.net/projects/jdk8/milestones#Feature_Complete">Feature Complete</a>，就是说它已经把所有特性和功能都加入。在翻看 <strong>M7</strong> 的文档时发现了 <a href="http://download.java.net/jdk8/docs/api/java/util/Locale.Builder.html" title="Locale.Builder"><em>Locale.Builder</em></a> ，在jdk7的时候加入过一个类似的：<a href="http://download.java.net/jdk8/docs/api/java/util/Locale.Builder.html" title="Locale.Builder"><em>Locale.Builder</em></a>, 下面我们来看看 <a href="http://download.java.net/jdk8/docs/api/java/util/Calendar.Builder.html" title="Calendar.Builder"><em>Calendar.Builder</em></a>。</p>
-<h4>允许单语句设置</h4>
+<h4 id="_1">允许单语句设置</h4>
 <p>允许使用 <a href="http://download.java.net/jdk8/docs/api/java/util/Calendar.Builder.html#set(int,%20int)" title="set(int, int)"><code>set(int, int)</code></a> 方法，为指定的Field设置值，如下：</p>
 <div class="highlight"><pre><span class="kn">import</span> <span class="nn">java.util.Calendar</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.text.SimpleDateFormat</span><span class="o">;</span>
@@ -83,7 +83,7 @@
 </pre></div>
 
 
-<h4>允许设置Date和Time</h4>
+<h4 id="datetime">允许设置Date和Time</h4>
 <p>除了<a href="http://download.java.net/jdk8/docs/api/java/util/Calendar.Builder.html#set(int,%20int)" title="set(int, int)"><code>set(int, int)</code></a> 这样的方法外，还有还有一些更多参数的方法如：<a href="http://download.java.net/jdk8/docs/api/java/util/Calendar.Builder.html#setDate(int,%20int,%20int)" title="setDate(int, int, int)"><code>setDate(int, int, int)</code></a>，<a href="http://download.java.net/jdk8/docs/api/java/util/Calendar.Builder.html#setTimeOfDay(int,%20int,%20int)" title="setTimeOfDay(int, int, int)"><code>setTimeOfDay(int, int, int)</code></a> 下面我们来看一个例子：</p>
 <div class="highlight"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">testSingleStatements2</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">Calendar</span> <span class="n">cal</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Calendar</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
@@ -95,7 +95,7 @@
 </pre></div>
 
 
-<h4>允许通过Calendar Field设置值</h4>
+<h4 id="calendar-field">允许通过Calendar Field设置值</h4>
 <p>除了上面的两种方法外还可以使用<a href="http://download.java.net/jdk8/docs/api/java/util/Calendar.Builder.html#setFields(int...)" title="setFields(int...)"><code>setFields(int...)</code></a>, 如下：</p>
 <div class="highlight"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">testSingleStatements3</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">Calendar</span> <span class="n">cal</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Calendar</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
@@ -106,7 +106,7 @@
 </pre></div>
 
 
-<h4>通过Calendar.Builder 转换 Instant 到 Calendar</h4>
+<h4 id="calendarbuilder-instant-calendar">通过Calendar.Builder 转换 Instant 到 Calendar</h4>
 <p><a href="file:///F:/work/Java/doc/docs/api/index.html" title="Instant">Instant</a> 也是jdk8的新特性，它是<a href="http://download.java.net/jdk8/docs/api/java/time/package-summary.html" title="java.time.*">java.time.*</a> 下的类，有兴趣的可以区查看一下官方文档，我会在过段时间，研究了之后在发一篇这个包的介绍文章，下面看一下之后的代码:</p>
 <div class="highlight"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">testSingleStatements4</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">Calendar</span> <span class="n">cal</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Calendar</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
@@ -117,7 +117,7 @@
 </pre></div>
 
 
-<h4>结论</h4>
+<h4 id="_2">结论</h4>
 <p>对于java的日期时间API一直都是被人吐槽的对象，虽然<code>Calendar.Builder</code>对写大量关于日期时间相关代码的压力还是有所减少，但是还是觉得不甚如人意，我还是很希望Java对日期时间API的调整更加方便使用，因为每次使用现有的API都忍不住像吐槽一下。</p>
       <!-- <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="Turbidsoul">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
  -->

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Turbidsoul's 小黑屋 - Turbidsoul ChanTurbidsoul's 小黑屋</title>
+    <title>Turbidsoul's 小黑屋 - Turbidsoul Chan - Turbidsoul's 小黑屋</title>
 
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
@@ -40,6 +40,31 @@
 
       </header>
       <section>
+      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/sublimecha-jian-emmetqi-dong-shi-bai.html">sublime插件emmet启动失败</a></div>
+<p>
+<small>
+<abbr class="published" title="2013-06-05">
+  2013年 六月 05日 周三
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/tag/sublime.html">sublime</a>, 
+    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
+    <a href="http://blog.turbidsoul.me/tag/emmet.html">emmet</a>, 
+ -- (<a href="http://blog.turbidsoul.me/posts/sublimecha-jian-emmetqi-dong-shi-bai.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>最近发现我的sublime的emmet失效，查看了控制台，发现在sublime启动的失败，启动的时候报了如下的错误：</p>
+<div class="highlight"><pre><span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;.\sublime_plugin.py&quot;</span>, line <span class="m">62</span>, in <span class="n">reload_plugin</span>
+  File <span class="nb">&quot;.\emmet-plugin.py&quot;</span>, line <span class="m">710</span>, in <span class="n">&lt;module&gt;</span>
+    <span class="n">init</span><span class="p">()</span>
+  File <span class="nb">&quot;.\emmet-plugin.py&quot;</span>, line <span class="m">101</span>, in <span class="n">init</span>
+    <span class="n">update_settings</span><span class="p">()</span>
+  File <span class="nb">&quot;.\emmet-plugin.py&quot;</span>, line <span class="m">231</span>, in <span class="n">update_settings</span>
+    <span class="n">ctx</span><span class="o">.</span><span class="n">js</span><span class="p">()</span>
+  File <span class="nb">&quot;.\emmet\context.py&quot;</span>, line <span class="m">178</span>, in <span class="n">js</span>
+    <span class="bp">self ...</span></pre></div> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/sublimecha-jian-emmetqi-dong-shi-bai.html">read more...</a></div>
+      <hr />
       <div class="front-title"><a href="http://blog.turbidsoul.me/posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html">python实现morse编码与解码</a></div>
 <p>
 <small>
@@ -78,21 +103,21 @@
  -- (<a href="http://blog.turbidsoul.me/posts/jekyllmo-ban-de-zhong-wen-wen-ti.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>今天在给blog添加<a href="http://creativecommons.org/licenses/by/3.0/cn/">Creative Commons</a>(简称CC)时，发现在jekyll的模版中不能加入中文。大概看了一下build时报的错，可以确定应该和jekyll不能发带有中文的文章的问题是一样的，不过出问题的地方不一样。</p>
-<h4>jekyll不能发有中文的文章</h4>
+<h4 id="jekyll">jekyll不能发有中文的文章</h4>
 <p>出问题的地方是在convertible.rb#31 行：</p>
 <div class="highlight"><pre><span class="nb">self</span><span class="o">.</span><span class="n">content</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="nb">name</span><span class="p">),</span> <span class="ss">:encoding</span> <span class="o">=&gt;</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
 </pre></div>
 
 
 <p>如上面的代码在最后加入编码参数，以utf8读取文件即可，即用上面的代码替换原来的代码就可以了</p>
-<h4>jekyll模版不能包含中文</h4>
+<h4 id="jekyll_1">jekyll模版不能包含中文</h4>
 <p>这问题出在 tags/include.rb#23 行：</p>
 <div class="highlight"><pre><span class="n">source</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="vi">@file</span><span class="p">,</span> <span class="ss">:encoding</span> <span class="o">=&gt;</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
 </pre></div>
 
 
 <p>同样的方式，替换原来的代码即可。</p>
-<h4>结论</h4>
+<h4 id="_1">结论</h4>
 <p>同样的问题，应该都可以用同样的方式解决，jekyll作者应该并没有在这里考虑中文的问题，不过我们可以自己解决这个问题，如果有更新jekyll最新版，记得也要改响应的问题位置的相关编码问题。</p> 
       <div class="read-more"><a href="http://blog.turbidsoul.me/posts/jekyllmo-ban-de-zhong-wen-wen-ti.html">read more...</a></div>
       <hr />
@@ -127,7 +152,7 @@ D:\SublimeText\Data\Packages\Default\exec.py:
  -- (<a href="http://blog.turbidsoul.me/posts/jdk8xin-te-xing-calendarbuilder.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>5月23号，Oracle 发布了 jdk8 <strong>M7</strong> 版，这是一个<a href="http://openjdk.java.net/projects/jdk8/milestones#Feature_Complete">Feature Complete</a>，就是说它已经把所有特性和功能都加入。在翻看 <strong>M7</strong> 的文档时发现了 <a href="http://download.java.net/jdk8/docs/api/java/util/Locale.Builder.html" title="Locale.Builder"><em>Locale.Builder</em></a> ，在jdk7的时候加入过一个类似的：<a href="http://download.java.net/jdk8/docs/api/java/util/Locale.Builder.html" title="Locale.Builder"><em>Locale.Builder</em></a>, 下面我们来看看 <a href="http://download.java.net/jdk8/docs/api/java/util/Calendar.Builder.html" title="Calendar.Builder"><em>Calendar.Builder</em></a>。</p>
-<h4>允许单语句设置</h4>
+<h4 id="_1">允许单语句设置</h4>
 <p>允许使用 <a href="http://download.java.net/jdk8/docs/api/java/util/Calendar.Builder.html#set(int,%20int)" title="set(int, int)"><code>set(int, int)</code></a> 方法，为指定的Field设置值，如下：</p>
 <div class="highlight"><pre><span class="kn">import</span> <span class="nn">java.util.Calendar</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">java.text.SimpleDateFormat</span><span class="o">;</span>
@@ -173,12 +198,12 @@ D:\SublimeText\Data\Packages\Default\exec.py:
     <a href="http://blog.turbidsoul.me/tag/xian-liao.html">闲聊</a>, 
  -- (<a href="http://blog.turbidsoul.me/posts/wo-de-mo-shou-shi-jie-wo-de-gong-zuo-wo-de-sheng-huo.html" rel="bookmark">permalink</a>)
 </small>
-</p>      <h3>WOW</h3>
+</p>      <h3 id="wow">WOW</h3>
 <p>昨天重新安装的WOW，这是从上次电脑坏了之后4个月第一次玩WOW，依然还是这么喜欢，玩的很兴奋，一直玩到凌晨4点，其实一直都不甚明天自己为什么这么喜欢这个游戏，可能是吊丝心理什么的。</p>
 <p>虽然不再象以前那样天天定时定点的下副本，带团，活动什么，但是可以休闲式的玩玩，打法无聊时光，和朋友聊天打屁，确实是很享受，很惬意的事情，四个月的工作、装修、搬家等等，确实让自己很疲惫，不过也确实很充实。</p>
-<h3>工作</h3>
+<h3 id="_1">工作</h3>
 <p>最近工作上有点小不顺利，精神有点不够集中，总是出一些小错误，而且有点惫懒，也可能是新搬家搬的有点远，起床比以前早了一些，睡眠有些不足，也可能是马上29了，年纪大了？不管如何都要坚持下去，我还有很多想法都没有实现，所以我需要更加努力。</p>
-<h3>生活</h3>
+<h3 id="_2">生活</h3>
 <p>其实最近两年生活算是不顺利了，一是爸妈年纪都大了，身体也都不是很好，尤其是老爸，我非常担心他，但是他又不听人劝，这样子总是让人很担心。</p>
 <p>对于自己，说实话29岁说不想找个女朋友结婚那是假的，看到朋友、同事、同学，一个个的结婚生子，為人父母，自己也很有冲动 ...</p> 
       <div class="read-more"><a href="http://blog.turbidsoul.me/posts/wo-de-mo-shou-shi-jie-wo-de-gong-zuo-wo-de-sheng-huo.html">read more...</a></div>
@@ -229,12 +254,12 @@ D:\SublimeText\Data\Packages\Default\exec.py:
     <a href="http://blog.turbidsoul.me/tag/markdown.html">markdown</a>, 
  -- (<a href="http://blog.turbidsoul.me/posts/misakapygmentsshi-xian-markdownsheng-cheng-htmlye-mian-bing-yu-fa-gao-liang.html" rel="bookmark">permalink</a>)
 </small>
-</p>      <h2>来由</h2>
+</p>      <h2 id="_1">来由</h2>
 <p>最近新blog开发到文章页面生成这块，看上了GFM这样的方式，使用markdown编辑页面，也很适合程序猿。使用富文本编辑始终太重量级，并不适合程序猿写文章，所以我也很推崇jekyll，用他来写文章、blog确实很geek也很舒适。</p>
 <p>经过几次简单的测试，最后决定使用<code>Misaka</code>+<code>pygments</code>，下面我简单说一下实现方法。</p>
-<h2>开始之前</h2>
+<h2 id="_2">开始之前</h2>
 <p>我的测试例子中使用到了三个包，分别是 web.py , Misaka , pygments ,如果在开始之前需要使用pip安装这三个包</p>
-<h3>Web.py</h3>
+<h3 id="webpy">Web.py</h3>
 <p><a href="http://webpy.org" title="web.py">Web.py</a>是python的一个轻量级web框架，我只是简单的使用了一下，有兴趣的人可以去它的<a href="http://webpy.org" title="web.py">官网</a>,它的官方有一个<a href="http://webpy.org/docs/0.3/tutorial.zh-cn" title="web.py tutorial">中文教程</a>说的很详细。</p>
 <p>我这里使用他做一个简单的web服务：</p>
 <div class="highlight"><pre><span class="k">class</span> <span class="nc">Index</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -247,40 +272,6 @@ D:\SublimeText\Data\Packages\Default\exec.py:
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">app ...</span></pre></div> 
       <div class="read-more"><a href="http://blog.turbidsoul.me/posts/misakapygmentsshi-xian-markdownsheng-cheng-htmlye-mian-bing-yu-fa-gao-liang.html">read more...</a></div>
-      <hr />
-      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/ru-he-pei-zhi-zai-nginxhe-casshang-pei-zhi-ssl.html">如何配置在nginx和cas上配置ssl？</a></div>
-<p>
-<small>
-<abbr class="published" title="2013-05-08">
-  2013年 五月 08日 周三
-</abbr> | 
-  tags: 
-    <a href="http://blog.turbidsoul.me/tag/nginx.html">nginx</a>, 
-    <a href="http://blog.turbidsoul.me/tag/cas.html">cas</a>, 
-    <a href="http://blog.turbidsoul.me/tag/ssl.html">ssl</a>, 
-    <a href="http://blog.turbidsoul.me/tag/java.html">java</a>, 
-    <a href="http://blog.turbidsoul.me/tag/https.html">https</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/ru-he-pei-zhi-zai-nginxhe-casshang-pei-zhi-ssl.html" rel="bookmark">permalink</a>)
-</small>
-</p>      <p>公司准备对登录服务采用https，而登录服务采用的是cas，前段的是用nginx代理， 所以就有了之后的几个问题。</p>
-<p><strong>主要碰到了下面3个问题</strong> ：</p>
-<ol>
-<li>nginx中配置ssl</li>
-<li>cas中开启ssl</li>
-<li>java中导入证书</li>
-</ol>
-<hr />
-<p>首先是生成我们的证书，我使用的是openssl：</p>
-<ol>
-<li>首先是生成私钥： openssl genrsa -out server.key</li>
-<li>接下来要生成CSR文件： openssl req -new -key server.key -out server.csr</li>
-<li>最后就是生成证书文件： openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt</li>
-</ol>
-<p>这里有我一个笔记是openssl的简单教程：<a href="https://www.evernote.com/shard/s25/sh/233c0eda-2f70-4756-8907-50dc0bff82c2/92861a2bd473f1d703bcead620080d27">openssl简单教程</a></p>
-<hr />
-<p>生成证书后，就可以配置nginx了，打开nginx.conf，加入以下几行:</p>
-<div class="highlight"><pre><span class="k">listen</span>                 <span class="mi">443 ...</span></pre></div> 
-      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/ru-he-pei-zhi-zai-nginxhe-casshang-pei-zhi-ssl.html">read more...</a></div>
       <hr />
 
 <span class="paginator">

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>python实现命令行下载进度条Turbidsoul's 小黑屋</title>
+    <title>python实现命令行下载进度条 - Turbidsoul's 小黑屋</title>
 
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
@@ -60,13 +60,13 @@
  -- (<a href="http://blog.turbidsoul.me/posts/pythonshi-xian-ming-ling-xing-xia-zai-jin-du-tiao.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>这是昨晚下班之后同事问我的一个问题，不过当时已经7点，如果在不出公司就会赶不上最后一趟公交车，所以就给同事说回家研究研究礼拜一给他答案，昨晚无事就看了一下。</p>
-<h4>需要用到的模块</h4>
+<h4 id="_1">需要用到的模块</h4>
 <ul>
 <li>使用 <strong>pip</strong> 安装progressbar <code>pip install progressbar</code></li>
 <li>这里我是从ftp上下载一个或者多个文件，所以我们要用到 <strong>ftplib</strong>。这是python的标准模块，在代码前导入即可</li>
 <li>我在最后要把代码编译成exe文件所以要用 <strong>py2exe</strong> <code>pip install py2exe</code></li>
 </ul>
-<h4>原理</h4>
+<h4 id="_2">原理</h4>
 <p>我们先来看一下progressbar的是原理，如下代码：</p>
 <div class="highlight"><pre><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">time</span>
@@ -84,7 +84,7 @@
 
 
 <p>这是最简单的命令行进度条，只是通过循环向stdio输出进度条，每0.02s向控制台输出，每次都会从新计算#和-的个数，这样就会变化成我们欲行代码时看到的效果，也可以在上面加入对文件传输的速度和文件下载速度的显示，就能做成类似progressbar那样的效果。</p>
-<h4>progressbar的使用</h4>
+<h4 id="progressbar">progressbar的使用</h4>
 <p>progressbar使用非常简单，如下代码：</p>
 <div class="highlight"><pre><span class="kn">from</span> <span class="nn">progressbar</span> <span class="kn">import</span> <span class="n">ProgressBar</span>
 <span class="kn">import</span> <span class="nn">time</span>
@@ -108,7 +108,7 @@
 <li>widgets：配置progressbar进度条样式的时候会用到这个，我会在后面介绍</li>
 </ul>
 <p>这三个是我代码中用到的，还有很多，可以参考progress文档或者代码</p>
-<h4>完整代码</h4>
+<h4 id="_3">完整代码</h4>
 <p>{% gist 5844112 %}</p>
 <p>这段代码接受4个参数，分别是ftp地址，用户名，密码和需要下载的文件（多个文件使用,分割）</p>
 <ol>

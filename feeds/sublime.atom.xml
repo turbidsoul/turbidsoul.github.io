@@ -55,5 +55,5 @@ D:\SublimeText\Data\Packages\GoSublime\gosubl\gs.py:
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h4&gt;结论&lt;/h4&gt;
+&lt;h4 id="_1"&gt;结论&lt;/h4&gt;
 &lt;p&gt;其实这样的做法并不是一个好的解决方案，就和jekyll解决中文问题一样，算是一种暴力的方式，但是暴力的方式通常都是最快最省时间的，但是这样的解决方法也容易埋下隐患。&lt;/p&gt;</summary><category term="sublime"></category><category term="python"></category></entry></feed>

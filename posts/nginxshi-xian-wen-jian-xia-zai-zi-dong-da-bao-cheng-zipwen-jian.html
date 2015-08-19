@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Nginx实现文件下载自动打包成zip文件Turbidsoul's 小黑屋</title>
+    <title>Nginx实现文件下载自动打包成zip文件 - Turbidsoul's 小黑屋</title>
 
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
@@ -57,10 +57,10 @@
     <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
  -- (<a href="http://blog.turbidsoul.me/posts/nginxshi-xian-wen-jian-xia-zai-zi-dong-da-bao-cheng-zipwen-jian.html" rel="bookmark">permalink</a>)
 </small>
-</p>      <h2>来源和介绍</h2>
+</p>      <h2 id="_1">来源和介绍</h2>
 <p>问题的来源是需要对已有的资料在下载的时候进行添加广告，但是对于doc文件操作麻烦的情况，采用在下载的时候将广告文件和资料一起打包成zip文件.</p>
 <p>在apache服务器中有个mod_zip的模块就是完成这个功能，同样nginx有大神已经实现了这个模块，我们只需要拿来用就可以了:<a href="https://github.com/evanmiller/mod_zip">mod_zip</a></p>
-<h2>应用</h2>
+<h2 id="_2">应用</h2>
 <p>此模块并不是nginx的默认模块所以需要用户自己编译安装。</p>
 <p>安装完成之后，不需要修改任何nginx的任何配置，完成打包都在服务点返回的信息中，下面请看我用python实现的示例：</p>
 <div class="highlight"><pre><span class="kn">from</span> <span class="nn">bottle</span> <span class="kn">import</span> <span class="n">run</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">response</span>

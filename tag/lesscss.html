@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Turbidsoul's 小黑屋 - lesscssTurbidsoul's 小黑屋</title>
+    <title>Turbidsoul's 小黑屋 - lesscss - Turbidsoul's 小黑屋</title>
 
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
@@ -55,7 +55,7 @@
 </p>      <p>这其实是一个很简单的问题，本来并不打算写成一片文章的，因为这个文件和另外一个问题是一起的，就是我们在nginx上做css和js文件合并时遇到的，不过在这之前我还遇到了另外一个问题，就是我们开发环境是windows7，而nginx下有个静态文件合并的模块: <strong>http_concat_module</strong> ，是<a href="https://github.com/alibaba/nginx-http-concat" title="HTTP Concatenation module for Nginx">淘宝</a>开源的，这个模块并不是nginx标准模块，所以要使用它需要自己重新编译nginx，具体如何编译我需要一段一点时间整理一下，在之后的文章中会写出来。</p>
 <p>至于为什么要使用<a href="http://lesscss.org" title="The Dynamic Stylesheet language">less</a>是因为使用了 <strong>http_concat_module</strong> 之后css中文件的一些路径出现了错误，需要为css文件设置一些变量，其实使用maven的插件也可以进行变量替换，但是这样只能在maven打包的时候才能起作用，对于开发来说就不行，因为开发必须要求在编译的时候就生效。所以就需要使用maven的另一个插件<a href="https://github.com/marceloverdijk/lesscss-maven-plugin" title="Official LESS CSS Maven Plugin">lesscss-maven-plugin</a>，这个插件的作用就是在编译的时候就能把less转换成css，这样做对我们最大的好处就是需要修改的地方是最少的，而且能一劳永逸的解决这个问题。</p>
 <p>现在我们来说说这个插件如何配置：</p>
-<h4>添加插件</h4>
+<h4 id="_1">添加插件</h4>
 <div class="highlight"><pre><span class="nt">&lt;plugin&gt;</span>
     <span class="nt">&lt;groupId&gt;</span>org.lesscss<span class="nt">&lt;/groupId&gt;</span>
     <span class="nt">&lt;artifactId&gt;</span>lesscss-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>

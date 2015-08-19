@@ -3,7 +3,7 @@
 不过不管用什么方法，防下载都是一种不够稳妥的方式，因为能播放就能下载，只要能找到对的方式，所以我们这次采用的加密的方法，
 对FLV文件内的TagBody内的数据进行加密，这样就可以在不影响视频播放的情况下对视频数据加密，就算防下载被破解，下载下的视频也是加过密的视频，
 播放的话都是雪花点之类的。&lt;/p&gt;
-&lt;h2&gt;算法&lt;/h2&gt;
+&lt;h2 id="_1"&gt;算法&lt;/h2&gt;
 &lt;p&gt;我们在这里不讨论视频的具体加密技术，因为涉及到公司的机密，只是简单的讨论这个算法。这个算法其实很简单，来自一片博士论文：&lt;a href="https://drive.google.com/file/d/0B1L569wdo3IkMFBISVlZZXVmRlk/view?usp=sharing"&gt;传送门&lt;/a&gt;，也可以说&lt;code&gt;会者不难，难者不会&lt;/code&gt;，我就属于后者不会的那个，
 不过公司里有数学老师，我们头拿着这篇论文找到数学老师请教时候，果然很简单，当然我只搞懂了&lt;code&gt;等模乱序算法&lt;/code&gt;，&lt;code&gt;变模乱序算法&lt;/code&gt;还是没搞懂，我现在来简单的介绍一下等模乱序算法这个算法。&lt;/p&gt;
 &lt;p&gt;首先我们假设有一个序列：&lt;/p&gt;
@@ -50,7 +50,7 @@
 &lt;p&gt;通过上面的$K$和$R$的推到公式,我们可以推导出:&lt;code&gt;r =  [3, 0, 2, 4, 1]&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;我们最后用c和r重新解密出:&lt;code&gt;m = [b, d, f, e, a]&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;这个例子是一个非常简单的例子，只是让人能更好的理解这个算法。下面我们在来看看使用&lt;code&gt;Python&lt;/code&gt;做的简单实现。&lt;/p&gt;
-&lt;h2&gt;算法的Python实现&lt;/h2&gt;
+&lt;h2 id="python"&gt;算法的Python实现&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;a&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;c&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;e&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;d&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;g&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;f&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;h&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;b&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sample&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 
@@ -75,7 +75,7 @@
 
 
 &lt;p&gt;上面是我用python实现的乱序加密和机密代码，我这里用的是&lt;em&gt;generator&lt;/em&gt;，其实可以直接带入上面的公式，这样更简单，也更容易理解。&lt;/p&gt;
-&lt;h2&gt;结论&lt;/h2&gt;
+&lt;h2 id="_2"&gt;结论&lt;/h2&gt;
 &lt;p&gt;其实视频的乱序加密并不是我所说的这么简单，其是本身非常复杂，我这里只是简单的介绍了一下乱序加密的思路，整个加密分两块：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;服务端加密：服务端的加密方式有很多可以自由发挥，增加随机性。&lt;/li&gt;

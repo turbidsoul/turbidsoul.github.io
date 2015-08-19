@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Turbidsoul's 小黑屋</title><link href="http://blog.turbidsoul.me/" rel="alternate"></link><link href="http://blog.turbidsoul.me/feeds/turbidsoul.atom.xml" rel="self"></link><id>http://blog.turbidsoul.me/</id><updated>2014-04-10T00:00:00+08:00</updated><entry><title>使用awk做实时的统计</title><link href="http://blog.turbidsoul.me/posts/shi-yong-awkzuo-shi-shi-de-tong-ji.html" rel="alternate"></link><updated>2014-04-10T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me,2014-04-10:posts/shi-yong-awkzuo-shi-shi-de-tong-ji.html</id><summary type="html">&lt;h2&gt;缘由&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Turbidsoul's 小黑屋</title><link href="http://blog.turbidsoul.me/" rel="alternate"></link><link href="http://blog.turbidsoul.me/feeds/turbidsoul.atom.xml" rel="self"></link><id>http://blog.turbidsoul.me/</id><updated>2014-04-10T00:00:00+08:00</updated><entry><title>使用awk做实时的统计</title><link href="http://blog.turbidsoul.me/posts/shi-yong-awkzuo-shi-shi-de-tong-ji.html" rel="alternate"></link><updated>2014-04-10T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me,2014-04-10:posts/shi-yong-awkzuo-shi-shi-de-tong-ji.html</id><summary type="html">&lt;h2 id="_1"&gt;缘由&lt;/h2&gt;
 &lt;p&gt;之前头让搞一个24小时内帖子或者视频的点击量，当时为了省事，就随便写了一个，虽然是实时的，但是却没有满足 &lt;strong&gt;24小时内&lt;/strong&gt; 这个条件, 数据会在每天0点清零重新计算，前几天被头发现了，所以就只能从新写一个了。&lt;/p&gt;
 &lt;p&gt;思来想去最后还是决定用&lt;code&gt;awk&lt;/code&gt;解析日志来完成这个功能，这样最简单。&lt;/p&gt;
-&lt;h2&gt;之前的准备&lt;/h2&gt;
+&lt;h2 id="_2"&gt;之前的准备&lt;/h2&gt;
 &lt;p&gt;AWK是贝尔实验室1977年搞出来的文本出现神器，所以有必要做个简单的介绍，大家请看这三篇文章:&lt;a href="http://coolshell.cn/articles/9070.html" title="AWK 简明教程"&gt;AWK 简明教程&lt;/a&gt;, &lt;a href="http://www.cnblogs.com/chengmo/archive/2010/10/08/1845913.html" title="linux awk 内置函数详细介绍（实例）"&gt;linux awk 内置函数详细介绍（实例）&lt;/a&gt;, &lt;a href="http://www.colorfuldays.org/linux/good_awk_tutorial/" title="很好的awk教程 "&gt;awk教程&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;这三篇文章是前置的知识，有必要简单的看一下，最开始我觉得awk有点麻烦，写了一些之后我发现他和&lt;code&gt;lua&lt;/code&gt;一样的简单。&lt;/p&gt;
-&lt;h2&gt;代码分析&lt;/h2&gt;
+&lt;h2 id="_3"&gt;代码分析&lt;/h2&gt;
 &lt;p&gt;我们的要求是，分别统计出 &lt;em&gt;thread&lt;/em&gt;, &lt;em&gt;resource&lt;/em&gt;, &lt;em&gt;video&lt;/em&gt;, _article_中，没一个的点击量&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;BEGIN&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="nb"&gt;FS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;,;&amp;quot;&lt;/span&gt; &lt;span class="c1"&gt;# 我的日志中的分隔符是 `,;` 所以这里要给`FS` 指定一下，因为默认值是`Tab` 或者 `Space`&lt;/span&gt;
@@ -76,7 +76,7 @@
 
 &lt;p&gt;上面的代码中关键的地方都有加注释，这是不完全的代码，只是实现了解析出各个帖子id并统计，并没有限制24小时之内的，但是这并不影响我们对代码的理解.&lt;/p&gt;
 &lt;p&gt;除了这些以外awk还支持格式化输出，内建函数，内建变量，正则表达式等等&lt;/p&gt;
-&lt;h2&gt;总结&lt;/h2&gt;
+&lt;h2 id="_4"&gt;总结&lt;/h2&gt;
 &lt;p&gt;awk说他是神器一点都不为过，处理文本的速度很快，至少比python处理起来要快很多，而且我相信只要愿意awk可以完成复杂的统计任务&lt;/p&gt;&lt;script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"&gt;&lt;/script&gt;
 &lt;script type= "text/javascript"&gt;
     if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
@@ -95,10 +95,10 @@
         (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
     }
 &lt;/script&gt;
-</summary><category term="linux"></category><category term="awk"></category></entry><entry><title>Nginx实现文件下载自动打包成zip文件</title><link href="http://blog.turbidsoul.me/posts/nginxshi-xian-wen-jian-xia-zai-zi-dong-da-bao-cheng-zipwen-jian.html" rel="alternate"></link><updated>2014-01-26T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me,2014-01-26:posts/nginxshi-xian-wen-jian-xia-zai-zi-dong-da-bao-cheng-zipwen-jian.html</id><summary type="html">&lt;h2&gt;来源和介绍&lt;/h2&gt;
+</summary><category term="linux"></category><category term="awk"></category></entry><entry><title>Nginx实现文件下载自动打包成zip文件</title><link href="http://blog.turbidsoul.me/posts/nginxshi-xian-wen-jian-xia-zai-zi-dong-da-bao-cheng-zipwen-jian.html" rel="alternate"></link><updated>2014-01-26T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me,2014-01-26:posts/nginxshi-xian-wen-jian-xia-zai-zi-dong-da-bao-cheng-zipwen-jian.html</id><summary type="html">&lt;h2 id="_1"&gt;来源和介绍&lt;/h2&gt;
 &lt;p&gt;问题的来源是需要对已有的资料在下载的时候进行添加广告，但是对于doc文件操作麻烦的情况，采用在下载的时候将广告文件和资料一起打包成zip文件.&lt;/p&gt;
 &lt;p&gt;在apache服务器中有个mod_zip的模块就是完成这个功能，同样nginx有大神已经实现了这个模块，我们只需要拿来用就可以了:&lt;a href="https://github.com/evanmiller/mod_zip"&gt;mod_zip&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;应用&lt;/h2&gt;
+&lt;h2 id="_2"&gt;应用&lt;/h2&gt;
 &lt;p&gt;此模块并不是nginx的默认模块所以需要用户自己编译安装。&lt;/p&gt;
 &lt;p&gt;安装完成之后，不需要修改任何nginx的任何配置，完成打包都在服务点返回的信息中，下面请看我用python实现的示例：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;bottle&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;route&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;response&lt;/span&gt;
@@ -227,14 +227,14 @@
 
 
 &lt;p&gt;这是我的nginx的access.log中的一段日志，我用这段日志来做测试，最终得到的结果和我最初预设的是一样的，我在这里就不再贴出测试的结果，有兴趣的朋友可以自己测试一下。&lt;/p&gt;</summary><category term="python"></category><category term="logging"></category><category term="filter"></category><category term="code"></category></entry><entry><title>nginx,uwsgi,bottlepy配置部署python应用</title><link href="http://blog.turbidsoul.me/posts/nginxuwsgibottlepypei-zhi-bu-shu-pythonying-yong.html" rel="alternate"></link><updated>2013-11-13T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me,2013-11-13:posts/nginxuwsgibottlepypei-zhi-bu-shu-pythonying-yong.html</id><summary type="html">&lt;p&gt;这几天一直在写一个用户行为分析出席清晰代码的工具，我的本意是想把这个用python做成一个独立的应用，但是这么做其实是比较麻烦和有一定难度的，因为用户的行为分析是和要我们主数据库结合做的，如果做成独立应用的话需要从主库中找出大量的数据，这样会影响效率，所以就把用户端分析和cms系统做到以前，前期的日志清洗和数据初期简单的分析做到一个python实现的一个离线工具，这个不是我这篇blog的重点，这次的重点是如何使用nginx，uwsgi，python部署web应用，这只是这次工作的题外话，但是我认为这是这个用户行为分析模块将来的方向，所以研究留用计数备忘和初期探索。&lt;/p&gt;
-&lt;h2&gt;搭建环境&lt;/h2&gt;
+&lt;h2 id="_1"&gt;搭建环境&lt;/h2&gt;
 &lt;p&gt;因为uwsgi没有windows版的，所以这次是在linux下做的测试，我在虚拟机上装了arch linux。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;pacman -S python nginx&lt;/code&gt;
 &lt;code&gt;pip install uwsgi bottlepy&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;arch linux 默认python应该是3.3.2，所以需要安装&lt;em&gt;pythonbrew&lt;/em&gt;然后在来安装2.7.5,至于pythonbrew如何安装，请自行搜索，安装其实很简单。至于nginx默认是支持uwsgi，所以不需要特别安装其他的插件。&lt;/p&gt;
 &lt;p&gt;其实也可以通过&lt;code&gt;pacman -S uwsgi&lt;/code&gt;来安装但是这个是不支持python的，所以需要用户pip安装uwsgi，才能支持python至于&lt;a href="http://bottlepy.org/docs/dev/"&gt;bottlepy&lt;/a&gt;我就不多说了，请查看其文档。&lt;/p&gt;
-&lt;h2&gt;配置&lt;/h2&gt;
-&lt;h4&gt;Bottle&lt;/h4&gt;
+&lt;h2 id="_2"&gt;配置&lt;/h2&gt;
+&lt;h4 id="bottle"&gt;Bottle&lt;/h4&gt;
 &lt;p&gt;bottlepy 其实也就是我们的服务端代码，我们这里就简单的一个&lt;code&gt;Hello World!&lt;/code&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;bottle&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;route&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;default_app&lt;/span&gt;
 
@@ -250,7 +250,7 @@
 
 
 &lt;p&gt;这就是bottle的代码，很简单，if部分的代码就是普通的main方法运行,而else部分的代码就是我们要和uwsgi对接的代码，这样写就可以了&lt;/p&gt;
-&lt;h4&gt;uWSGI&lt;/h4&gt;
+&lt;h4 id="uwsgi"&gt;uWSGI&lt;/h4&gt;
 &lt;p&gt;我们先来看看http的运行方式，在终端输入&lt;code&gt;uwsgi --http 192.168.56.101:9000 --wsgi-file app.py&lt;/code&gt;,如果能看到下面的输出就算是运行成功了：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;*** Starting uWSGI 1.9.19 (32bit) on [Tue Nov 19 23:55:07 2013] ***
 compiled with version: 4.8.2 on 14 November 2013 00:18:09
@@ -293,7 +293,7 @@ spawned uWSGI worker 1 (and the only) (pid: 6503, cores: 1)
 &lt;p&gt;不过这样启动tcp后面的端口是随机的每次启动都会变化，不适合我们部署，所以我们需要把他配置固定的，所以就需要使用如下的命令:
 &lt;code&gt;uwsgi -s 127.0.0.1:9000 --wsgi-file app.py&lt;/code&gt;，这样之后每次启动的端口都是一样的，但是http就不会在启动了。&lt;/p&gt;
 &lt;p&gt;而socket的方式和tcp启动的方式参数出差不多，之后把http地址方程一个socket文件的地址：&lt;code&gt;uwsgi -s ~/app.socket --wsgi-file app.py&lt;/code&gt;，在启动日志中看到&lt;code&gt;uwsgi socket 0 bound to UNIX address /root/app.socket fd 3&lt;/code&gt; 这一句说明我们socket的地址了&lt;/p&gt;
-&lt;h4&gt;nginx&lt;/h4&gt;
+&lt;h4 id="nginx"&gt;nginx&lt;/h4&gt;
 &lt;p&gt;在nginx可以使用http反向代理，只需要在nginx里面配置&lt;code&gt;proxy_pass&lt;/code&gt;代理使用http启动的uwsgi，具体的我就不再多说了。&lt;/p&gt;
 &lt;p&gt;下面我们来说说socket连接在nginx中如何配置的：&lt;/p&gt;
 &lt;ol&gt;
@@ -325,10 +325,10 @@ spawned uWSGI worker 1 (and the only) (pid: 6503, cores: 1)
 
 &lt;p&gt;所以我在这里路径写成&lt;code&gt;/var/run/x.socket&lt;/code&gt; 是这个路径下的就不会有问题,关于这个问题这里有个帖子应该能解决问题&lt;a href="http://mediadrop.net/community/topic/trouble-with-uwsgi-nginx" title="Trouble with uwsgi + nginx"&gt;Trouble with uwsgi + nginx&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;另外如果错误中有 &lt;code&gt;13: Permission denied&lt;/code&gt; 这个错误，那可能是在nginx的配置文件中没有声明用户，或者用户没权限，我这里是用root用户登录的，所以在nginx最上面加了&lt;code&gt;user root;&lt;/code&gt;&lt;/p&gt;
-&lt;h2&gt;结论&lt;/h2&gt;
+&lt;h2 id="_3"&gt;结论&lt;/h2&gt;
 &lt;p&gt;uwsgi自创了一个uwsgi协议，与wsgi、fcgi不同，据说uwsgi的速度是fcgi的10倍，我没有那个环境测试。uwsgi旨在为分布式部署提供一套解决方案，他支持很多语言，也同时可以使用c,c++等来开发插件，我使用他纯粹是为了在我的VPS上部署我的python应用。&lt;/p&gt;</summary><category term="nginx"></category><category term="uwsgi"></category><category term="python"></category><category term="web"></category><category term="bottlepy"></category></entry><entry><title>使用selenium进行web测试入门和使用WebDriver开发web测试代码入门</title><link href="http://blog.turbidsoul.me/posts/shi-yong-seleniumjin-xing-webce-shi-ru-men-he-shi-yong-webdriverkai-fa-webce-shi-dai-ma-ru-men.html" rel="alternate"></link><updated>2013-10-17T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me,2013-10-17:posts/shi-yong-seleniumjin-xing-webce-shi-ru-men-he-shi-yong-webdriverkai-fa-webce-shi-dai-ma-ru-men.html</id><summary type="html">&lt;p&gt;前段时间我们头在搞一个分布式测试，使用的就是 &lt;strong&gt;Selenium&lt;/strong&gt; 可以坑太多，最后应该是放弃了，因为我没见到回音，说实话这东西是bug挺多，而且在firefox上的版本兼容也有很大的问题，不过这不是我们讨论的问题，我们这里要讨论的是使用它来做简单的web测试。&lt;/p&gt;
-&lt;h2&gt;Selenium 入门&lt;/h2&gt;
-&lt;h4&gt;安装&lt;/h4&gt;
+&lt;h2 id="selenium"&gt;Selenium 入门&lt;/h2&gt;
+&lt;h4 id="_1"&gt;安装&lt;/h4&gt;
 &lt;p&gt;我使用的是 Firefox Aurora 现在的版本就是ff26,这下面是正常的，我不知道在每日编译版下是否正常，虽然我机子上也安装了，但是并没有在起下面做个测试，不过应该是没有问题的。&lt;/p&gt;
 &lt;p&gt;在 &lt;a href="about:addons"&gt;about:addons&lt;/a&gt; 或者 &lt;a href="http://addons.mozilla.org/"&gt;http://addons.mozilla.org/&lt;/a&gt; 上搜索 &lt;em&gt;selenium&lt;/em&gt; 点击安装，安装的时候同时还会附带安装几个其他的插件，这些都是 Selenium 的一些附属插件，我在之后的会有介绍。&lt;/p&gt;
 &lt;p&gt;安装完之后可以在 &lt;code&gt;菜单 &amp;gt;&amp;gt; 工具 &amp;gt;&amp;gt; Selenium IDE&lt;/code&gt; 打开或者在 &lt;em&gt;附加组建栏&lt;/em&gt; 点击 Selenium IDE 按钮打开，如何附加组建栏没有，请自行添加。&lt;/p&gt;
@@ -389,7 +389,7 @@ spawned uWSGI worker 1 (and the only) (pid: 6503, cores: 1)
 &lt;p&gt;运行的方法很简单，菜单 Actions -&amp;gt; Play entire test suite 就会把录制的脚本运行一边，同时我们也能在浏览器上看到运行的结果。&lt;/p&gt;
 &lt;p&gt;Selenium可以完成我们在浏览器上的所有操作，因为它就是模拟我们浏览器的操作，所以登录等操作也是没有问题的。这就是Selenium的几本操作，更加复杂的可以自己去探索.&lt;/p&gt;
 &lt;p&gt;Selenium也可以把录制的宏导出成其他代码，比如java,ruby,php,python,C#,XML等，导出的方法很简单，在菜单中的 文件 -&amp;gt; Export Test Case 就可以看到导出的选项，但是要要导出这些代码，是需要有扩展支持的，一般这些扩展在安装 Selenium IDE 的时候都会提示一起安装，如果在这里没有看到的花，可以在&lt;a href="http://addons.mozilla.org/"&gt;http://addons.mozilla.org&lt;/a&gt;搜索，然后安装，重启firefox之后就可以了&lt;/p&gt;
-&lt;h2&gt;Python&lt;/h2&gt;
+&lt;h2 id="python"&gt;Python&lt;/h2&gt;
 &lt;p&gt;如何得到python 的测试代码呢？有两种，第一个就是通过Selenium中提供的导出的方法直接导出，另外一个就是自己编写python代码了。&lt;/p&gt;
 &lt;p&gt;从Selenium可以导出两种，一种是基于&lt;code&gt;Webdriver&lt;/code&gt;，另外一个就是基于&lt;code&gt;Remote Control&lt;/code&gt;：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# webdriver #&lt;/span&gt;
@@ -556,7 +556,7 @@ OK
 
 
 &lt;p&gt;则是因为没有在环境变量中配置firefox的路径，不过这里不需要在环境变量里配置，只需要在&lt;code&gt;selenium("localhost", 4444, "*firefox x:/xxxxxx/Mozilla Firefox/firefox.exe", "http://www.kaoshidian.com/")&lt;/code&gt; 声明即可，一般通过selenium生成的代码这里是 &lt;code&gt;selenium("localhost", 4444, "*chrome", "http://www.kaoshidian.com/")&lt;/code&gt; 所以这里需要注意修改一下。&lt;/p&gt;
-&lt;h2&gt;Java&lt;/h2&gt;
+&lt;h2 id="java"&gt;Java&lt;/h2&gt;
 &lt;p&gt;Selenium导出的是也是分为Webdriver和Remote Control 两种，同时也基于junit3和4，在这里我就只做一个Webdriver的例子。&lt;/p&gt;
 &lt;p&gt;我们先创建一个maven项目，然后在&lt;code&gt;pom.xml&lt;/code&gt;文件中加入关于selenium的声明：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
@@ -650,9 +650,9 @@ OK
 
 &lt;p&gt;上面的代码运行的是偶可能会跑错，指示说没有指定firefox的路径，所以我们需要指定一下路径，方法很简单，就是修改创建driver实例的地方，&lt;code&gt;new FirefoxDriver(new FirefoxBinary(new File("x:\\xxxxxxxxxxx\\Mozilla Firefox\\firefox.exe")), new FirefoxProfile());&lt;/code&gt; 这样在运行就可以了，运行之后就能看到我们之前在运行python一样的结果。&lt;/p&gt;
 &lt;p&gt;至于Remote Control我就不在这里在多说了，有兴趣的朋友可以自己去试一下，和python的Remote Control差不多的。&lt;/p&gt;
-&lt;h2&gt;结论&lt;/h2&gt;
+&lt;h2 id="_2"&gt;结论&lt;/h2&gt;
 &lt;p&gt;Selenium其实还有支持很多，比如Ruby,PHP,Perl,Hashel,Javascript,Objective-C等语言，也支持Chrome,Opera,IE等主流的浏览器，不过在兼容性上我没发给出确切的答案，因为没有做过测试，但是我们头做这个的分布式测试时候，倒是深有体会。同时也在支持在android和iOS上的测试，在功能上还是很全面的，操作也简单，是web测试中上佳的选择。&lt;/p&gt;</summary><category term="selenium"></category><category term="python"></category><category term="java"></category><category term="webdriver"></category><category term="test"></category><category term="code"></category></entry><entry><title>python 2.7 的参数解析模块 argparse</title><link href="http://blog.turbidsoul.me/posts/python-27-de-can-shu-jie-xi-mo-kuai-argparse.html" rel="alternate"></link><updated>2013-09-27T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me,2013-09-27:posts/python-27-de-can-shu-jie-xi-mo-kuai-argparse.html</id><summary type="html">&lt;p&gt;今天下午没事，就优化了一下以前写的一些工作上用的小工具，当然大多数都是python写的命令行下的小工具，之前命令行参数都是自己解析，虽然不是什么复杂的事情，但是自己临时写出来的东西毕竟不如人家写出来的好，正好前短时间看到python2.7把 &lt;strong&gt;argparse&lt;/strong&gt; 加入到了标准模块中，所以这次对这些工具的代码重构就是使用了 &lt;strong&gt;argparse&lt;/strong&gt; 替代自己写的那个简陋名两行解析工具。&lt;/p&gt;
-&lt;h2&gt;入门&lt;/h2&gt;
+&lt;h2 id="_1"&gt;入门&lt;/h2&gt;
 &lt;p&gt;上面已经说了在 &lt;strong&gt;Python 2.7&lt;/strong&gt; 中已经内置了这个模块，所以就不用安装了。可以直接使用&lt;code&gt;import argparse&lt;/code&gt;导入模块使用，我们先看一个简单的例子：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="gp"&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;argparse&lt;/span&gt;
 &lt;span class="gp"&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;&lt;span class="n"&gt;parser&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;argparse&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ArgumentParser&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;description&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;test argparse&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -694,7 +694,7 @@ OK
 
 
 &lt;p&gt;这是最简单的例子，argparse 还可以定义参数组，必选参数，参数默认值，参数值类型等等，下来我们来慢慢的看这些是如何设置的。&lt;/p&gt;
-&lt;h4&gt;ArgumentParser&lt;/h4&gt;
+&lt;h4 id="argumentparser"&gt;ArgumentParser&lt;/h4&gt;
 &lt;p&gt;prog：程序名，是usage后面的第一个字符串，就是上面例子的 &lt;em&gt;arg_test.py&lt;/em&gt; 默认值是 sys.argv[0], 就是python脚本的名字.&lt;/p&gt;
 &lt;p&gt;usage： 程序的用法。即使用&lt;code&gt;print_usage()&lt;/code&gt;打印出来的信息.&lt;/p&gt;
 &lt;p&gt;epilog：这也是一个帮助文档，但是显示在参数的文档的后面，通常会写一些程序使用例子.&lt;/p&gt;
@@ -754,7 +754,7 @@ OK
 &lt;p&gt;上面就是三种formatter_class的表现&lt;/p&gt;
 &lt;p&gt;prefix_chars：参数前缀，默认是&lt;code&gt;-&lt;/code&gt;。不过要注意的是，如果改成其他的符号，那么在使用&lt;code&gt;add_argument()&lt;/code&gt; 方法添加参数的时候，参数的前缀要写成和prefix_chars一样，这里是可以声明多个前缀的。&lt;/p&gt;
 &lt;p&gt;常用的参数就这些，剩下的几个并不是很常用，所以就不一一介绍，有兴趣的可以看一下官方的文档了解一下&lt;/p&gt;
-&lt;h4&gt;add_argument()&lt;/h4&gt;
+&lt;h4 id="add_argument"&gt;add_argument()&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;name or flags: 参数名称或者是一个字符串列表，e.g.: &lt;code&gt;parser.add_argument('-f', '--foo')&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;action: 指定参数的处理方式。&lt;/li&gt;
@@ -1028,11 +1028,11 @@ OK
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h2&gt;结论&lt;/h2&gt;
+&lt;h2 id="_2"&gt;结论&lt;/h2&gt;
 &lt;p&gt;argparse 还有很多其他功能，我这里之说了连个最常用的，当然我的小工具里也就用了这么多，如果还有兴趣可以自己试一试，python本身确实提供了很多不错的模块，有时候完全没有必要舍本逐末。&lt;/p&gt;</summary><category term="python"></category><category term="code"></category><category term="argparse"></category><category term="python27"></category></entry><entry><title>python模块html2bbcode</title><link href="http://blog.turbidsoul.me/posts/pythonmo-kuai-html2bbcode.html" rel="alternate"></link><updated>2013-08-30T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me,2013-08-30:posts/pythonmo-kuai-html2bbcode.html</id><summary type="html">&lt;p&gt;公司最近在调整网站的模块，把网站的公告模块去掉，公告的数据移到Discuz做的论坛中，整体功能都很简单，写了一个python脚本，执行一下就能完成数据迁移。在数据迁移的过程中有个小问题，我们公告的正文是用富文本编辑器写的，代码是 &lt;em&gt;html&lt;/em&gt; 代码，但是在Discuz中确是用 &lt;em&gt;bbcode&lt;/em&gt; 所以就需要对公告正文进行转换，这里就要使用到python的一个模块: &lt;strong&gt;html2bbcode&lt;/strong&gt;&lt;/p&gt;
-&lt;h4&gt;安装&lt;/h4&gt;
+&lt;h4 id="_1"&gt;安装&lt;/h4&gt;
 &lt;p&gt;执行:&lt;code&gt;pip install html2bbcode&lt;/code&gt; 安装模块&lt;/p&gt;
-&lt;h4&gt;使用&lt;/h4&gt;
+&lt;h4 id="_2"&gt;使用&lt;/h4&gt;
 &lt;p&gt;下面是&lt;a href="https://bitbucket.org/amigo/html2bbcode" title="HTML to BBCode converter"&gt;bitbucket.org&lt;/a&gt;的例子：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="gp"&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;&lt;span class="n"&gt;parser&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;HTML2BBCode&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;span class="gp"&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;parser&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;feed&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;one&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;two&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
@@ -1053,7 +1053,7 @@ OK
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h4&gt;&lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt; 标签的转换&lt;/h4&gt;
+&lt;h4 id="p"&gt;&lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt; 标签的转换&lt;/h4&gt;
 &lt;p&gt;在使用的时候发现，&lt;em&gt;html2bbcode&lt;/em&gt; 不能对&lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt;标签进行转换，我们都知道在富文本编辑器中每一段文字都是用&lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt;包裹的，所以我们需要对&lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt;标签转换成&lt;code&gt;\n&lt;/code&gt;，请看下面代码：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;has_section&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;p&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add_section&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;p&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -1063,7 +1063,7 @@ OK
 
 
 &lt;p&gt;上面的代码就是添加&lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt;转换配置，我这里，对开始标签做了换行和6个空格，结束标签是一个换行&lt;/p&gt;
-&lt;h4&gt;结论&lt;/h4&gt;
+&lt;h4 id="_3"&gt;结论&lt;/h4&gt;
 &lt;p&gt;这其实是一个很简单的python模块，只是一个开始，我准备之后每次都会把使用的python模块写一个简单的介绍&lt;/p&gt;</summary><category term="python"></category><category term="code"></category></entry><entry><title>python 3.3.2 mingw gcc 4.7.1 安装misaka模块时编译报错</title><link href="http://blog.turbidsoul.me/posts/python-332-mingw-gcc-471-an-zhuang-misakamo-kuai-shi-bian-yi-bao-cuo.html" rel="alternate"></link><updated>2013-08-16T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me,2013-08-16:posts/python-332-mingw-gcc-471-an-zhuang-misakamo-kuai-shi-bian-yi-bao-cuo.html</id><summary type="html">&lt;p&gt;今天安装在 &lt;strong&gt;python3.3.2&lt;/strong&gt; 下安装 &lt;strong&gt;misaka&lt;/strong&gt;  编译的时候报出了一个编译错误 &lt;em&gt;gcc: error: unrecognized command line option '-mno-cygwin'&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;解决的办法很简单，在 &lt;strong&gt;gcc 4.7&lt;/strong&gt; 不支持 &lt;strong&gt;-mno-cygwin&lt;/strong&gt; 选项，所以我们只需要把这个选项在编译的时候去掉就行了。&lt;/p&gt;
 &lt;p&gt;但是在那里去掉呢？python负责编译的模块是 &lt;strong&gt;distutils&lt;/strong&gt; 这个包，在这个模块下有个 &lt;strong&gt;cygwinccompiler.py&lt;/strong&gt; 文件，打开在297行：&lt;/p&gt;
@@ -1078,7 +1078,7 @@ OK
 
 
 &lt;p&gt;把代码中的 &lt;strong&gt;-mno-cygwin&lt;/strong&gt; 去掉即可。&lt;/p&gt;</summary><category term="python"></category><category term="python33"></category><category term="mingw"></category><category term="gcc"></category></entry><entry><title>程序员数学 - 零的故事</title><link href="http://blog.turbidsoul.me/posts/cheng-xu-yuan-shu-xue-ling-de-gu-shi.html" rel="alternate"></link><updated>2013-08-14T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me,2013-08-14:posts/cheng-xu-yuan-shu-xue-ling-de-gu-shi.html</id><summary type="html">&lt;p&gt;之前买了几本关于数学的书，这两天看了《程序员数学》第一章 0的故事，以前只是知道0，却不知道0在数学中的作用和意义。&lt;/p&gt;
-&lt;h4&gt;计数法&lt;/h4&gt;
+&lt;h4 id="_1"&gt;计数法&lt;/h4&gt;
 &lt;p&gt;在10进制中，每一位的数字表示的是这一位上的个数，如书中的2503：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;2 =&amp;gt; $2 xx 1000$ =&amp;gt; $2 xx 10^3$&lt;/p&gt;
@@ -1088,7 +1088,7 @@ OK
 &lt;/blockquote&gt;
 &lt;p&gt;如上面引用中的，把每一行的结果加起来就是 &lt;strong&gt;2503&lt;/strong&gt;，这里我觉得在中文中表示数字其实更准确： &lt;em&gt;两千五百零三&lt;/em&gt; ，在每一位都表示了这一位的单位，在阅读上更容易理解和准确，但是在书写上并不方便。&lt;/p&gt;
 &lt;p&gt;2进制每一位的表示和10进制的差不多，不过2进制是以 $2^n$ 做为基数的，其他进制的也差不多。不管是什么进制的计数法，每一位上的数字表示都都是这位上数字的个数，而对于这位上没有数字，就用0表示。&lt;/p&gt;
-&lt;h4&gt;指数法则&lt;/h4&gt;
+&lt;h4 id="_2"&gt;指数法则&lt;/h4&gt;
 &lt;p&gt;这一节说了 $n^0$ 为什么等于 1：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;$10^3 = 1000$&lt;/p&gt;
@@ -1099,16 +1099,16 @@ OK
 &lt;p&gt;$10^-2 = 1/100$&lt;/p&gt;
 &lt;p&gt;$10^-3 = 1/1000$&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;从上面的等式可以推导出： $1 = 10 xx 1/10 = 10^1 xx 10^-1 = 10^(1-1) = 10^0$&lt;/p&gt;
-&lt;p&gt;这就是 &lt;strong&gt;指数法则&lt;/strong&gt; ，他的表达式是： $N^a xx N^b = N^(a+b)$, 其中 N != 0。&lt;/p&gt;
-&lt;h4&gt;零的作用&lt;/h4&gt;
+&lt;p&gt;从上面的等式可以推导出： $1 = 10 xx 1/10 = 10&lt;sup&gt;1 xx 10&lt;/sup&gt;-1 = 10&lt;sup&gt;(1-1) = 10&lt;/sup&gt;0$&lt;/p&gt;
+&lt;p&gt;这就是 &lt;strong&gt;指数法则&lt;/strong&gt; ，他的表达式是： $N&lt;sup&gt;a xx N&lt;/sup&gt;b = N^(a+b)$, 其中 N != 0。&lt;/p&gt;
+&lt;h4 id="_3"&gt;零的作用&lt;/h4&gt;
 &lt;p&gt;零的作用：占位；统一标准，简化规则；在日常生活中表示没有计划等之类的。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;占位：在计数中表示所在位没有，虽然没有但是不能不写，不写的数字就表示的很怪异，所以需要0 &lt;strong&gt;占位&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;统一标准，简化规则：在计数法中，每一位数字都可以用 $a_k xx 10^k$ 表示，其中k是这个数字的 位数-1 ， a就是这个数字。&lt;/li&gt;
 &lt;li&gt;在日常生活中0表示没有，比方说没有计划，今天不用吃药等&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4&gt;结论&lt;/h4&gt;
+&lt;h4 id="_4"&gt;结论&lt;/h4&gt;
 &lt;p&gt;在书中，人类为了超越极限不断的简化计数方法，将大为题分解一个个小的单元，即便在现代我们做软件工程的，也是把一个项目分解成若干的模块，分给不同的小组，项目组在把这个模块分解成若干个小单元，分给每个小组成员，这也是这本书的主旨之一。&lt;/p&gt;&lt;script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"&gt;&lt;/script&gt;
 &lt;script type= "text/javascript"&gt;
     if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
@@ -1148,7 +1148,7 @@ OK
 &lt;li&gt;&lt;strong&gt;《图灵的秘密:他的生平、思想及论文解读》&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;《C语言入门经典》&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;前面5本都是和数学有关的，也都是和程序员有关，因为我想成为 ~~卓越的XX~~ ，最后一本是C语言的入门书籍，因为我觉得不管是什么 &lt;em&gt;Code Monkey&lt;/em&gt; ， C都是必须的，所以我想对C做简单的入门（好吧，我也承认大学的C我全部还给了老师）。&lt;/p&gt;
+&lt;p&gt;前面5本都是和数学有关的，也都是和程序员有关，因为我想成为 &lt;del&gt;卓越的XX&lt;/del&gt; ，最后一本是C语言的入门书籍，因为我觉得不管是什么 &lt;em&gt;Code Monkey&lt;/em&gt; ， C都是必须的，所以我想对C做简单的入门（好吧，我也承认大学的C我全部还给了老师）。&lt;/p&gt;
 &lt;p&gt;现在已经在看《统计思维》这本书，书并不厚只有144页，我希望我能在1个月内看完，可能有点慢，我想我在看这本书的时候同时需要做练习题，每天能花在这上的时间大概在一个小时左右。&lt;/p&gt;
 &lt;p&gt;现在发现自己的时间真的很不够用，真希望能把一个小时当两个小时用，想想而已！&lt;/p&gt;</summary><category term="闲聊"></category><category term="math"></category><category term="code"></category><category term="programer"></category><category term="developer"></category></entry><entry><title>开发jquery插件</title><link href="http://blog.turbidsoul.me/posts/develop-jquery-plugin.html" rel="alternate"></link><updated>2011-12-01T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me,2011-12-01:posts/develop-jquery-plugin.html</id><summary type="html">&lt;p&gt;公司网站首页广告位需要一个鼠标悬浮切换的特效，但是公司不让使用jquery已经实现过的特效，而公司的这方面的高手又没有时间做，所以只能自己去实现一个这样的特效插件。&lt;/p&gt;
 &lt;p&gt;下面是先说下JQuery 插件大概的结构:&lt;/p&gt;

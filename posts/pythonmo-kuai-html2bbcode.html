@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>python模块html2bbcodeTurbidsoul's 小黑屋</title>
+    <title>python模块html2bbcode - Turbidsoul's 小黑屋</title>
 
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
@@ -58,9 +58,9 @@
  -- (<a href="http://blog.turbidsoul.me/posts/pythonmo-kuai-html2bbcode.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>公司最近在调整网站的模块，把网站的公告模块去掉，公告的数据移到Discuz做的论坛中，整体功能都很简单，写了一个python脚本，执行一下就能完成数据迁移。在数据迁移的过程中有个小问题，我们公告的正文是用富文本编辑器写的，代码是 <em>html</em> 代码，但是在Discuz中确是用 <em>bbcode</em> 所以就需要对公告正文进行转换，这里就要使用到python的一个模块: <strong>html2bbcode</strong></p>
-<h4>安装</h4>
+<h4 id="_1">安装</h4>
 <p>执行:<code>pip install html2bbcode</code> 安装模块</p>
-<h4>使用</h4>
+<h4 id="_2">使用</h4>
 <p>下面是<a href="https://bitbucket.org/amigo/html2bbcode" title="HTML to BBCode converter">bitbucket.org</a>的例子：</p>
 <div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">parser</span> <span class="o">=</span> <span class="n">HTML2BBCode</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">parser</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="s">&#39;&lt;ul&gt;&lt;li&gt;one&lt;/li&gt;&lt;li&gt;two&lt;/li&gt;&lt;/ul&gt;&#39;</span><span class="p">))</span>
@@ -81,7 +81,7 @@
 </pre></div>
 
 
-<h4><code>&lt;p&gt;</code> 标签的转换</h4>
+<h4 id="p"><code>&lt;p&gt;</code> 标签的转换</h4>
 <p>在使用的时候发现，<em>html2bbcode</em> 不能对<code>&lt;p&gt;</code>标签进行转换，我们都知道在富文本编辑器中每一段文字都是用<code>&lt;p&gt;</code>包裹的，所以我们需要对<code>&lt;p&gt;</code>标签转换成<code>\n</code>，请看下面代码：</p>
 <div class="highlight"><pre><span class="k">if</span> <span class="ow">not</span> <span class="n">p</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">has_section</span><span class="p">(</span><span class="s">&#39;p&#39;</span><span class="p">):</span>
     <span class="n">p</span><span class="o">.</span><span class="n">map</span><span class="o">.</span><span class="n">add_section</span><span class="p">(</span><span class="s">&#39;p&#39;</span><span class="p">)</span>
@@ -91,7 +91,7 @@
 
 
 <p>上面的代码就是添加<code>&lt;p&gt;</code>转换配置，我这里，对开始标签做了换行和6个空格，结束标签是一个换行</p>
-<h4>结论</h4>
+<h4 id="_3">结论</h4>
 <p>这其实是一个很简单的python模块，只是一个开始，我准备之后每次都会把使用的python模块写一个简单的介绍</p>
       <!-- <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="Turbidsoul">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
  -->

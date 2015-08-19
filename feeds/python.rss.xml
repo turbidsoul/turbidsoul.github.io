@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Turbidsoul's 小黑屋</title><link>http://blog.turbidsoul.me/</link><description></description><atom:link href="http://blog.turbidsoul.me/feeds/python.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 13 Aug 2015 00:00:00 +0800</lastBuildDate><item><title>Bottle实现https服务端</title><link>http://blog.turbidsoul.me/posts/2015-08-13-Bottle-shi-xian-https-fu-wu-duan.html.html</link><description>&lt;h2&gt;2 TO 3&lt;/h2&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Turbidsoul's 小黑屋</title><link>http://blog.turbidsoul.me/</link><description></description><atom:link href="http://blog.turbidsoul.me/feeds/python.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 13 Aug 2015 00:00:00 +0800</lastBuildDate><item><title>Bottle实现https服务端</title><link>http://blog.turbidsoul.me/posts/2015-08-13-Bottle-shi-xian-https-fu-wu-duan.html.html</link><description>&lt;h2 id="2-to-3"&gt;2 TO 3&lt;/h2&gt;
 &lt;p&gt;年前转了&lt;code&gt;Python3&lt;/code&gt;所以之后使用的环境都是Python34甚至可能是Python35，因为实在是对&lt;code&gt;Python27&lt;/code&gt;之前的版本的编码问题很蛋疼。&lt;/p&gt;
 &lt;p&gt;最近在研究&lt;strong&gt;OAuth2&lt;/strong&gt;，在回调的时候需要一个&lt;code&gt;https&lt;/code&gt;，因为就是一个简单的demo所以懒的去编译配置nginx，就用bottle服务端使用Python些了一个简单的SSL服务。&lt;/p&gt;
-&lt;h2&gt;代码&lt;/h2&gt;
+&lt;h2 id="_1"&gt;代码&lt;/h2&gt;
 &lt;p&gt;其实代码中除了&lt;code&gt;bottle&lt;/code&gt;其他的并没有使用第三方的库，我们都知道bottle推荐使用&lt;code&gt;cherrypy&lt;/code&gt; 不过我还是使用Python自己写了一个简单的ssl服务器，因为足够简单和轻量级。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;ssl&lt;/span&gt;
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;bottle&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;redirect&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;route&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ServerAdapter&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;static_file&lt;/span&gt;
@@ -31,7 +31,7 @@
 
 
 &lt;p&gt;上面的代码就是ssl服务的实现，非常的简单，一共就不到10多代码。其中&lt;strong&gt;keyfile&lt;/strong&gt;和&lt;strong&gt;certfile&lt;/strong&gt;是密钥文件，使用&lt;strong&gt;openssl&lt;/strong&gt;可以生成，具体如何生成请看我在evernote上的从&lt;a href="brooks.wang.blog.163.com"&gt;顽石的日志&lt;/a&gt;收集的笔记&lt;a href="http://www.evernote.com/l/ABkjPA7aL3BHVokHUNwL_4LCkoYaK9Rz8dc/"&gt;http://www.evernote.com/l/ABkjPA7aL3BHVokHUNwL_4LCkoYaK9Rz8dc/&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;最后说点啥？&lt;/h2&gt;
+&lt;h2 id="_2"&gt;最后说点啥？&lt;/h2&gt;
 &lt;p&gt;最近一年基本没根心过blog，主要是三个原因：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;第一是其实一直有写，但是总是觉得自己写的不够，写着写着就废了.&lt;/li&gt;
@@ -138,14 +138,14 @@
 
 
 &lt;p&gt;这是我的nginx的access.log中的一段日志，我用这段日志来做测试，最终得到的结果和我最初预设的是一样的，我在这里就不再贴出测试的结果，有兴趣的朋友可以自己测试一下。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Turbidsoul</dc:creator><pubDate>Fri, 22 Nov 2013 00:00:00 +0800</pubDate><guid>tag:blog.turbidsoul.me,2013-11-22:posts/python-logging-mo-kuai-de-filter.html</guid><category>python</category><category>logging</category><category>filter</category><category>code</category></item><item><title>nginx,uwsgi,bottlepy配置部署python应用</title><link>http://blog.turbidsoul.me/posts/nginxuwsgibottlepypei-zhi-bu-shu-pythonying-yong.html</link><description>&lt;p&gt;这几天一直在写一个用户行为分析出席清晰代码的工具，我的本意是想把这个用python做成一个独立的应用，但是这么做其实是比较麻烦和有一定难度的，因为用户的行为分析是和要我们主数据库结合做的，如果做成独立应用的话需要从主库中找出大量的数据，这样会影响效率，所以就把用户端分析和cms系统做到以前，前期的日志清洗和数据初期简单的分析做到一个python实现的一个离线工具，这个不是我这篇blog的重点，这次的重点是如何使用nginx，uwsgi，python部署web应用，这只是这次工作的题外话，但是我认为这是这个用户行为分析模块将来的方向，所以研究留用计数备忘和初期探索。&lt;/p&gt;
-&lt;h2&gt;搭建环境&lt;/h2&gt;
+&lt;h2 id="_1"&gt;搭建环境&lt;/h2&gt;
 &lt;p&gt;因为uwsgi没有windows版的，所以这次是在linux下做的测试，我在虚拟机上装了arch linux。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;pacman -S python nginx&lt;/code&gt;
 &lt;code&gt;pip install uwsgi bottlepy&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;arch linux 默认python应该是3.3.2，所以需要安装&lt;em&gt;pythonbrew&lt;/em&gt;然后在来安装2.7.5,至于pythonbrew如何安装，请自行搜索，安装其实很简单。至于nginx默认是支持uwsgi，所以不需要特别安装其他的插件。&lt;/p&gt;
 &lt;p&gt;其实也可以通过&lt;code&gt;pacman -S uwsgi&lt;/code&gt;来安装但是这个是不支持python的，所以需要用户pip安装uwsgi，才能支持python至于&lt;a href="http://bottlepy.org/docs/dev/"&gt;bottlepy&lt;/a&gt;我就不多说了，请查看其文档。&lt;/p&gt;
-&lt;h2&gt;配置&lt;/h2&gt;
-&lt;h4&gt;Bottle&lt;/h4&gt;
+&lt;h2 id="_2"&gt;配置&lt;/h2&gt;
+&lt;h4 id="bottle"&gt;Bottle&lt;/h4&gt;
 &lt;p&gt;bottlepy 其实也就是我们的服务端代码，我们这里就简单的一个&lt;code&gt;Hello World!&lt;/code&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;bottle&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;route&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;default_app&lt;/span&gt;
 
@@ -161,7 +161,7 @@
 
 
 &lt;p&gt;这就是bottle的代码，很简单，if部分的代码就是普通的main方法运行,而else部分的代码就是我们要和uwsgi对接的代码，这样写就可以了&lt;/p&gt;
-&lt;h4&gt;uWSGI&lt;/h4&gt;
+&lt;h4 id="uwsgi"&gt;uWSGI&lt;/h4&gt;
 &lt;p&gt;我们先来看看http的运行方式，在终端输入&lt;code&gt;uwsgi --http 192.168.56.101:9000 --wsgi-file app.py&lt;/code&gt;,如果能看到下面的输出就算是运行成功了：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;*** Starting uWSGI 1.9.19 (32bit) on [Tue Nov 19 23:55:07 2013] ***
 compiled with version: 4.8.2 on 14 November 2013 00:18:09
@@ -204,7 +204,7 @@ spawned uWSGI worker 1 (and the only) (pid: 6503, cores: 1)
 &lt;p&gt;不过这样启动tcp后面的端口是随机的每次启动都会变化，不适合我们部署，所以我们需要把他配置固定的，所以就需要使用如下的命令:
 &lt;code&gt;uwsgi -s 127.0.0.1:9000 --wsgi-file app.py&lt;/code&gt;，这样之后每次启动的端口都是一样的，但是http就不会在启动了。&lt;/p&gt;
 &lt;p&gt;而socket的方式和tcp启动的方式参数出差不多，之后把http地址方程一个socket文件的地址：&lt;code&gt;uwsgi -s ~/app.socket --wsgi-file app.py&lt;/code&gt;，在启动日志中看到&lt;code&gt;uwsgi socket 0 bound to UNIX address /root/app.socket fd 3&lt;/code&gt; 这一句说明我们socket的地址了&lt;/p&gt;
-&lt;h4&gt;nginx&lt;/h4&gt;
+&lt;h4 id="nginx"&gt;nginx&lt;/h4&gt;
 &lt;p&gt;在nginx可以使用http反向代理，只需要在nginx里面配置&lt;code&gt;proxy_pass&lt;/code&gt;代理使用http启动的uwsgi，具体的我就不再多说了。&lt;/p&gt;
 &lt;p&gt;下面我们来说说socket连接在nginx中如何配置的：&lt;/p&gt;
 &lt;ol&gt;
@@ -236,9 +236,9 @@ spawned uWSGI worker 1 (and the only) (pid: 6503, cores: 1)
 
 &lt;p&gt;所以我在这里路径写成&lt;code&gt;/var/run/x.socket&lt;/code&gt; 是这个路径下的就不会有问题,关于这个问题这里有个帖子应该能解决问题&lt;a href="http://mediadrop.net/community/topic/trouble-with-uwsgi-nginx" title="Trouble with uwsgi + nginx"&gt;Trouble with uwsgi + nginx&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;另外如果错误中有 &lt;code&gt;13: Permission denied&lt;/code&gt; 这个错误，那可能是在nginx的配置文件中没有声明用户，或者用户没权限，我这里是用root用户登录的，所以在nginx最上面加了&lt;code&gt;user root;&lt;/code&gt;&lt;/p&gt;
-&lt;h2&gt;结论&lt;/h2&gt;
+&lt;h2 id="_3"&gt;结论&lt;/h2&gt;
 &lt;p&gt;uwsgi自创了一个uwsgi协议，与wsgi、fcgi不同，据说uwsgi的速度是fcgi的10倍，我没有那个环境测试。uwsgi旨在为分布式部署提供一套解决方案，他支持很多语言，也同时可以使用c,c++等来开发插件，我使用他纯粹是为了在我的VPS上部署我的python应用。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Turbidsoul</dc:creator><pubDate>Wed, 13 Nov 2013 00:00:00 +0800</pubDate><guid>tag:blog.turbidsoul.me,2013-11-13:posts/nginxuwsgibottlepypei-zhi-bu-shu-pythonying-yong.html</guid><category>nginx</category><category>uwsgi</category><category>python</category><category>web</category><category>bottlepy</category></item><item><title>python 2.7 的参数解析模块 argparse</title><link>http://blog.turbidsoul.me/posts/python-27-de-can-shu-jie-xi-mo-kuai-argparse.html</link><description>&lt;p&gt;今天下午没事，就优化了一下以前写的一些工作上用的小工具，当然大多数都是python写的命令行下的小工具，之前命令行参数都是自己解析，虽然不是什么复杂的事情，但是自己临时写出来的东西毕竟不如人家写出来的好，正好前短时间看到python2.7把 &lt;strong&gt;argparse&lt;/strong&gt; 加入到了标准模块中，所以这次对这些工具的代码重构就是使用了 &lt;strong&gt;argparse&lt;/strong&gt; 替代自己写的那个简陋名两行解析工具。&lt;/p&gt;
-&lt;h2&gt;入门&lt;/h2&gt;
+&lt;h2 id="_1"&gt;入门&lt;/h2&gt;
 &lt;p&gt;上面已经说了在 &lt;strong&gt;Python 2.7&lt;/strong&gt; 中已经内置了这个模块，所以就不用安装了。可以直接使用&lt;code&gt;import argparse&lt;/code&gt;导入模块使用，我们先看一个简单的例子：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="gp"&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;argparse&lt;/span&gt;
 &lt;span class="gp"&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;&lt;span class="n"&gt;parser&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;argparse&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ArgumentParser&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;description&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;test argparse&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -280,7 +280,7 @@ spawned uWSGI worker 1 (and the only) (pid: 6503, cores: 1)
 
 
 &lt;p&gt;这是最简单的例子，argparse 还可以定义参数组，必选参数，参数默认值，参数值类型等等，下来我们来慢慢的看这些是如何设置的。&lt;/p&gt;
-&lt;h4&gt;ArgumentParser&lt;/h4&gt;
+&lt;h4 id="argumentparser"&gt;ArgumentParser&lt;/h4&gt;
 &lt;p&gt;prog：程序名，是usage后面的第一个字符串，就是上面例子的 &lt;em&gt;arg_test.py&lt;/em&gt; 默认值是 sys.argv[0], 就是python脚本的名字.&lt;/p&gt;
 &lt;p&gt;usage： 程序的用法。即使用&lt;code&gt;print_usage()&lt;/code&gt;打印出来的信息.&lt;/p&gt;
 &lt;p&gt;epilog：这也是一个帮助文档，但是显示在参数的文档的后面，通常会写一些程序使用例子.&lt;/p&gt;
@@ -340,7 +340,7 @@ spawned uWSGI worker 1 (and the only) (pid: 6503, cores: 1)
 &lt;p&gt;上面就是三种formatter_class的表现&lt;/p&gt;
 &lt;p&gt;prefix_chars：参数前缀，默认是&lt;code&gt;-&lt;/code&gt;。不过要注意的是，如果改成其他的符号，那么在使用&lt;code&gt;add_argument()&lt;/code&gt; 方法添加参数的时候，参数的前缀要写成和prefix_chars一样，这里是可以声明多个前缀的。&lt;/p&gt;
 &lt;p&gt;常用的参数就这些，剩下的几个并不是很常用，所以就不一一介绍，有兴趣的可以看一下官方的文档了解一下&lt;/p&gt;
-&lt;h4&gt;add_argument()&lt;/h4&gt;
+&lt;h4 id="add_argument"&gt;add_argument()&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;name or flags: 参数名称或者是一个字符串列表，e.g.: &lt;code&gt;parser.add_argument('-f', '--foo')&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;action: 指定参数的处理方式。&lt;/li&gt;
@@ -614,11 +614,11 @@ spawned uWSGI worker 1 (and the only) (pid: 6503, cores: 1)
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h2&gt;结论&lt;/h2&gt;
+&lt;h2 id="_2"&gt;结论&lt;/h2&gt;
 &lt;p&gt;argparse 还有很多其他功能，我这里之说了连个最常用的，当然我的小工具里也就用了这么多，如果还有兴趣可以自己试一试，python本身确实提供了很多不错的模块，有时候完全没有必要舍本逐末。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Turbidsoul</dc:creator><pubDate>Fri, 27 Sep 2013 00:00:00 +0800</pubDate><guid>tag:blog.turbidsoul.me,2013-09-27:posts/python-27-de-can-shu-jie-xi-mo-kuai-argparse.html</guid><category>python</category><category>code</category><category>argparse</category><category>python27</category></item><item><title>python模块html2bbcode</title><link>http://blog.turbidsoul.me/posts/pythonmo-kuai-html2bbcode.html</link><description>&lt;p&gt;公司最近在调整网站的模块，把网站的公告模块去掉，公告的数据移到Discuz做的论坛中，整体功能都很简单，写了一个python脚本，执行一下就能完成数据迁移。在数据迁移的过程中有个小问题，我们公告的正文是用富文本编辑器写的，代码是 &lt;em&gt;html&lt;/em&gt; 代码，但是在Discuz中确是用 &lt;em&gt;bbcode&lt;/em&gt; 所以就需要对公告正文进行转换，这里就要使用到python的一个模块: &lt;strong&gt;html2bbcode&lt;/strong&gt;&lt;/p&gt;
-&lt;h4&gt;安装&lt;/h4&gt;
+&lt;h4 id="_1"&gt;安装&lt;/h4&gt;
 &lt;p&gt;执行:&lt;code&gt;pip install html2bbcode&lt;/code&gt; 安装模块&lt;/p&gt;
-&lt;h4&gt;使用&lt;/h4&gt;
+&lt;h4 id="_2"&gt;使用&lt;/h4&gt;
 &lt;p&gt;下面是&lt;a href="https://bitbucket.org/amigo/html2bbcode" title="HTML to BBCode converter"&gt;bitbucket.org&lt;/a&gt;的例子：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="gp"&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;&lt;span class="n"&gt;parser&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;HTML2BBCode&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;span class="gp"&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;parser&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;feed&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&amp;lt;ul&amp;gt;&amp;lt;li&amp;gt;one&amp;lt;/li&amp;gt;&amp;lt;li&amp;gt;two&amp;lt;/li&amp;gt;&amp;lt;/ul&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
@@ -639,7 +639,7 @@ spawned uWSGI worker 1 (and the only) (pid: 6503, cores: 1)
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h4&gt;&lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt; 标签的转换&lt;/h4&gt;
+&lt;h4 id="p"&gt;&lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt; 标签的转换&lt;/h4&gt;
 &lt;p&gt;在使用的时候发现，&lt;em&gt;html2bbcode&lt;/em&gt; 不能对&lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt;标签进行转换，我们都知道在富文本编辑器中每一段文字都是用&lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt;包裹的，所以我们需要对&lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt;标签转换成&lt;code&gt;\n&lt;/code&gt;，请看下面代码：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;has_section&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;p&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;map&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add_section&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;p&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -649,7 +649,7 @@ spawned uWSGI worker 1 (and the only) (pid: 6503, cores: 1)
 
 
 &lt;p&gt;上面的代码就是添加&lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt;转换配置，我这里，对开始标签做了换行和6个空格，结束标签是一个换行&lt;/p&gt;
-&lt;h4&gt;结论&lt;/h4&gt;
+&lt;h4 id="_3"&gt;结论&lt;/h4&gt;
 &lt;p&gt;这其实是一个很简单的python模块，只是一个开始，我准备之后每次都会把使用的python模块写一个简单的介绍&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Turbidsoul</dc:creator><pubDate>Fri, 30 Aug 2013 00:00:00 +0800</pubDate><guid>tag:blog.turbidsoul.me,2013-08-30:posts/pythonmo-kuai-html2bbcode.html</guid><category>python</category><category>code</category></item><item><title>python 3.3.2 mingw gcc 4.7.1 安装misaka模块时编译报错</title><link>http://blog.turbidsoul.me/posts/python-332-mingw-gcc-471-an-zhuang-misakamo-kuai-shi-bian-yi-bao-cuo.html</link><description>&lt;p&gt;今天安装在 &lt;strong&gt;python3.3.2&lt;/strong&gt; 下安装 &lt;strong&gt;misaka&lt;/strong&gt;  编译的时候报出了一个编译错误 &lt;em&gt;gcc: error: unrecognized command line option '-mno-cygwin'&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;解决的办法很简单，在 &lt;strong&gt;gcc 4.7&lt;/strong&gt; 不支持 &lt;strong&gt;-mno-cygwin&lt;/strong&gt; 选项，所以我们只需要把这个选项在编译的时候去掉就行了。&lt;/p&gt;
 &lt;p&gt;但是在那里去掉呢？python负责编译的模块是 &lt;strong&gt;distutils&lt;/strong&gt; 这个包，在这个模块下有个 &lt;strong&gt;cygwinccompiler.py&lt;/strong&gt; 文件，打开在297行：&lt;/p&gt;
@@ -664,7 +664,7 @@ spawned uWSGI worker 1 (and the only) (pid: 6503, cores: 1)
 
 
 &lt;p&gt;把代码中的 &lt;strong&gt;-mno-cygwin&lt;/strong&gt; 去掉即可。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Turbidsoul</dc:creator><pubDate>Fri, 16 Aug 2013 00:00:00 +0800</pubDate><guid>tag:blog.turbidsoul.me,2013-08-16:posts/python-332-mingw-gcc-471-an-zhuang-misakamo-kuai-shi-bian-yi-bao-cuo.html</guid><category>python</category><category>python33</category><category>mingw</category><category>gcc</category></item><item><title>python实现ldap和rtx之间的组织和用户数据同步</title><link>http://blog.turbidsoul.me/posts/pythonshi-xian-ldaphe-rtxzhi-jian-de-zu-zhi-he-yong-hu-shu-ju-tong-bu.html</link><description>&lt;p&gt;最近公司正在准备使用 &lt;strong&gt;AD&lt;/strong&gt; ( &lt;strong&gt;&lt;a href="https://zh.wikipedia.org/wiki/Active_Directory" title="Active Directory"&gt;Activate Directory&lt;/a&gt;&lt;/strong&gt; )服务来进行公司员工的帐号管理，这样就避免不了需要对AD的帐号和&lt;a href="http://rtx.tencent.com/rtx/index.shtml" title="RTX"&gt;RTX&lt;/a&gt;的帐号和组织关系进行同步，所以才有了这篇文章。&lt;/p&gt;
-&lt;h4&gt;Python-Ldap&lt;/h4&gt;
+&lt;h4 id="python-ldap"&gt;Python-Ldap&lt;/h4&gt;
 &lt;p&gt;&lt;a href="http://www.python-ldap.org/" title="LDAP client API for Python"&gt;Python-Ldap&lt;/a&gt;是python用来操作ldap的模块，可以对ldap进行查询，添加，修改，删除等操作，如下代码：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;ldap_host&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;127.0.0.1&amp;quot;&lt;/span&gt;
 &lt;span class="n"&gt;ldap_port&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;389&lt;/span&gt;
@@ -713,7 +713,7 @@ spawned uWSGI worker 1 (and the only) (pid: 6503, cores: 1)
 &lt;li&gt;new: 需要修改的新值&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;我这里使用的jobno并不是ad的默认就有的属性是自己后来添加的扩展属性，至于如何添加扩展属性，請参照这篇文章&lt;a href="http://docs.tidyinfo.com/?p=309" title="AD扩展属性定义"&gt;AD扩展属性定义&lt;/a&gt;&lt;/p&gt;
-&lt;h4&gt;RTX&lt;/h4&gt;
+&lt;h4 id="rtx"&gt;RTX&lt;/h4&gt;
 &lt;p&gt;我通过python-ldap从AD中读取到数据，现在需要把他写道RTX中，在这里我遇到了一个问题，当时并没有仔细去看rtx sdk文档，只是想当然的以为直接用python操作数据，来进行数据同步，但是后来发现，数据虽然同步成功了，但是rtx客户端并不能从服务器抓取到新用户的信息，包括基本资料和详细资料等。&lt;/p&gt;
 &lt;p&gt;使用上面的方法，算是走到死胡同，同事的一句话让我想到我可以用过windows的com接口实现数据的同步，python下实现调用windows的com接口的模块是&lt;a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/" title="Unofficial Windows Binaries for Python Extension Packages"&gt;win32com&lt;/a&gt;(这个网站有，pywin32编译好的安装包，根据自己的python版本下载安装即可)。&lt;/p&gt;
 &lt;p&gt;我们来看一段测试代码：&lt;/p&gt;
@@ -745,7 +745,7 @@ spawned uWSGI worker 1 (and the only) (pid: 6503, cores: 1)
 
 &lt;p&gt;代码很清晰，我们先加载了RTXSAPIRootObj.RTXAPIRootObj这个组件，这是rtx的api的跟对象（rtx文档中是这么说的，我觉得好别扭），具体有什么方法，請参照rtx文档。&lt;/p&gt;
 &lt;p&gt;UserManager和DeptManager分别是用户管理对象和部门管理对象，至于具体的还是請参照rtx文档，如何使用就如上面的代码一样，方法名的调用直接和rtx的api文章方法名一样，不过rtx的api有两种参数，in和out，我们传入的只是in参数，out的返回值，所以不需要管他，rtx有些返回值是xml，所以这里使用的cElementTree来处理。&lt;/p&gt;
-&lt;h4&gt;Shiro和Ldap的整合&lt;/h4&gt;
+&lt;h4 id="shiroldap"&gt;Shiro和Ldap的整合&lt;/h4&gt;
 &lt;p&gt;本来并没有打算写这一段，但是写道这里了，我想也会有人在这里遇到问题，所以我就简单的说一下。&lt;/p&gt;
 &lt;p&gt;首先我们先来看一下在Spring中shiro的配置：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;bean&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;shiroLdapRealm&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;class=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;me.turbidsoul.permission.ShiroLdapRealm&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
@@ -817,17 +817,17 @@ spawned uWSGI worker 1 (and the only) (pid: 6503, cores: 1)
 &lt;li&gt;一定会用到DN，所以要么自己可以在本地拼出DN，要么就直接像我这样直接把DN冗余到本地库中。&lt;/li&gt;
 &lt;li&gt;当我们在代码中使用&lt;code&gt;SecurityUtils.getSubject().getPrincipal()&lt;/code&gt;获取用户对象的时候，返回的只是一个用户名，不想JDBC的方式获取的是用户的对象。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4&gt;结论&lt;/h4&gt;
+&lt;h4 id="_1"&gt;结论&lt;/h4&gt;
 &lt;p&gt;在这次的开发工作中，其实费了不少时间，有快一个礼拜，其中有两天多的时候都卡在的编码的问题上，说起来挺可笑也挺无奈，ad对编码的问题支持的还算不错，rtx就不行了，他使用的mdb数据库，windows下是gb2312而在python中我使用了utf8，所以在和rtx交互的时候需要把字符串的编码，进行转码，如：&lt;code&gt;"中文编码".decode('utf8').encode('gb2312')&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;其次耗费时间的是，我花了一些时间，研究为什么直接操作数据库并不能是rtx客户端读取到用户资料，为此我还用 &lt;strong&gt;Wireshark&lt;/strong&gt; 进行了抓包，发现并不似rtx本身配置的问题，因为通过抓包分析得到rtx本身并没有问题，我想应该就是我在操作数据库上存在问题，但是又想不到是那里的问题。在后来使用com接口操作时候，对比了两种方式操作数据库之后数据库的变化，让我发现，问题出在sys_sysconfig这张表上，这张表里有两个字段 &lt;em&gt;UserVersion&lt;/em&gt; 和 &lt;em&gt;DeptVersion&lt;/em&gt; 两个这两个字段记录的是上一次更新数据之后sys_user和rtx_dept两个表数据的最后版本变化，在这两个表里也同样存在这两个对应的字段 &lt;em&gt;UserVersion&lt;/em&gt; 和 &lt;em&gt;Version&lt;/em&gt; 记录了没个记录的版本号，rtx客户端会更新版本号大于等于sys_sysconfig中记录的版本号，我尝试修改版本号来测试，得到的结果和我猜测的是一样的。但是我并不知道使用com接口操作是不是还有修改其他的数据，因为这里完全是黑盒，而且在rtx的官网也看到推荐使用api操作，直接操作数据库可能会造成数据库的不一致。&lt;/p&gt;
 &lt;p&gt;但在数据同步并不是这上面说的使用UserManager和DeptManager这两个对象来操作，也可以使用ElementTree配成xml，使用rtx提供的方法导入也可以，这样的方法效率要比上面的方法更快，不过我并没有看到一个完成的XML例子，所以并没有采用这种方法。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Turbidsoul Chan</dc:creator><pubDate>Mon, 15 Jul 2013 00:00:00 +0800</pubDate><guid>tag:blog.turbidsoul.me,2013-07-15:posts/pythonshi-xian-ldaphe-rtxzhi-jian-de-zu-zhi-he-yong-hu-shu-ju-tong-bu.html</guid><category>python</category><category>ldap</category><category>rtx</category><category>win32com</category></item><item><title>python实现命令行下载进度条</title><link>http://blog.turbidsoul.me/posts/pythonshi-xian-ming-ling-xing-xia-zai-jin-du-tiao.html</link><description>&lt;p&gt;这是昨晚下班之后同事问我的一个问题，不过当时已经7点，如果在不出公司就会赶不上最后一趟公交车，所以就给同事说回家研究研究礼拜一给他答案，昨晚无事就看了一下。&lt;/p&gt;
-&lt;h4&gt;需要用到的模块&lt;/h4&gt;
+&lt;h4 id="_1"&gt;需要用到的模块&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;使用 &lt;strong&gt;pip&lt;/strong&gt; 安装progressbar &lt;code&gt;pip install progressbar&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;这里我是从ftp上下载一个或者多个文件，所以我们要用到 &lt;strong&gt;ftplib&lt;/strong&gt;。这是python的标准模块，在代码前导入即可&lt;/li&gt;
 &lt;li&gt;我在最后要把代码编译成exe文件所以要用 &lt;strong&gt;py2exe&lt;/strong&gt; &lt;code&gt;pip install py2exe&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4&gt;原理&lt;/h4&gt;
+&lt;h4 id="_2"&gt;原理&lt;/h4&gt;
 &lt;p&gt;我们先来看一下progressbar的是原理，如下代码：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;time&lt;/span&gt;
@@ -845,7 +845,7 @@ spawned uWSGI worker 1 (and the only) (pid: 6503, cores: 1)
 
 
 &lt;p&gt;这是最简单的命令行进度条，只是通过循环向stdio输出进度条，每0.02s向控制台输出，每次都会从新计算#和-的个数，这样就会变化成我们欲行代码时看到的效果，也可以在上面加入对文件传输的速度和文件下载速度的显示，就能做成类似progressbar那样的效果。&lt;/p&gt;
-&lt;h4&gt;progressbar的使用&lt;/h4&gt;
+&lt;h4 id="progressbar"&gt;progressbar的使用&lt;/h4&gt;
 &lt;p&gt;progressbar使用非常简单，如下代码：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;progressbar&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ProgressBar&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;time&lt;/span&gt;
@@ -869,7 +869,7 @@ spawned uWSGI worker 1 (and the only) (pid: 6503, cores: 1)
 &lt;li&gt;widgets：配置progressbar进度条样式的时候会用到这个，我会在后面介绍&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;这三个是我代码中用到的，还有很多，可以参考progress文档或者代码&lt;/p&gt;
-&lt;h4&gt;完整代码&lt;/h4&gt;
+&lt;h4 id="_3"&gt;完整代码&lt;/h4&gt;
 &lt;p&gt;{% gist 5844112 %}&lt;/p&gt;
 &lt;p&gt;这段代码接受4个参数，分别是ftp地址，用户名，密码和需要下载的文件（多个文件使用,分割）&lt;/p&gt;
 &lt;ol&gt;
@@ -907,11 +907,11 @@ spawned uWSGI worker 1 (and the only) (pid: 6503, cores: 1)
 &lt;div class="highlight"&gt;&lt;pre&gt;Download [PbSetup60.exe]: 100% [********************] Time: 0:00:05   1.69 MB/s
 Download [VIDEO0006.mp4]:  20% [****                ] ETA:  0:00:09   2.24 MB/s
 &lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Turbidsoul Chan</dc:creator><pubDate>Sun, 23 Jun 2013 00:00:00 +0800</pubDate><guid>tag:blog.turbidsoul.me,2013-06-23:posts/pythonshi-xian-ming-ling-xing-xia-zai-jin-du-tiao.html</guid><category>python</category><category>cmd</category><category>ftp</category><category>progressbar</category></item><item><title>Leibniz公式和Walliz公式估算Pi的值</title><link>http://blog.turbidsoul.me/posts/leibnizgong-shi-he-wallizgong-shi-gu-suan-pide-zhi.html</link><description>&lt;p&gt;前两天和同事在聊天的时候说道了 $pi$ 的算法，回家之后在&lt;a href="https://zh.wikipedia.org/wiki/圓周率"&gt;维基&lt;/a&gt;上看了一下关于 $pi$ 的公式，正好这回没事干，就用Python实现了两个比较简单的公式，分别是Leibniz 和 Walliz.&lt;/p&gt;
-&lt;h2&gt;Leibniz&lt;/h2&gt;
+&lt;h2 id="leibniz"&gt;Leibniz&lt;/h2&gt;
 &lt;p&gt;公式如下：&lt;/p&gt;
 &lt;p&gt;$1 - 1/3 + 1/5 - 1/7 + 1/9 - ... = pi/4$&lt;/p&gt;
 &lt;p&gt;这个公式也可以用另外一种方式表示：&lt;/p&gt;
-&lt;p&gt;$pi/4 = sum_{n=0}^{oo} (-1)^n/(2n+1)$&lt;/p&gt;
+&lt;p&gt;$pi/4 = sum_{n=0}&lt;sup&gt;{oo} (-1)&lt;/sup&gt;n/(2n+1)$&lt;/p&gt;
 &lt;p&gt;从公式中能看出来，Leibniz是当n趋向于无穷大的时候，计算 $(-1)^n/(2n+1)$的和，用python代码实现如下：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;leibniz_pi&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="nb"&gt;reduce&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;[(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;1.0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;2.0&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mf"&gt;1.0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;xrange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)])&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;
@@ -923,7 +923,7 @@ Download [VIDEO0006.mp4]:  20% [****                ] ETA:  0:00:09   2.24 MB/s
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h2&gt;Wallis&lt;/h2&gt;
+&lt;h2 id="wallis"&gt;Wallis&lt;/h2&gt;
 &lt;p&gt;公式如下：&lt;/p&gt;
 &lt;p&gt;$2/1 * 2/3 * 4/3 * 4/5 * 6/5 * 6/7 * 8/7 * 8/9 ... = pi/2$&lt;/p&gt;
 &lt;p&gt;公式也能如下表示：&lt;/p&gt;
@@ -939,7 +939,7 @@ Download [VIDEO0006.mp4]:  20% [****                ] ETA:  0:00:09   2.24 MB/s
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h2&gt;结论&lt;/h2&gt;
+&lt;h2 id="_1"&gt;结论&lt;/h2&gt;
 &lt;p&gt;两个公式的实现都比较简单，其实对于这类的计算题，只要知道公式现实起来都不会复杂，因为这是把前人智慧的结晶已另外一种方式展现出来，并不是自己的成果，而且我觉得这两个公式的实现代码还有优化的可能，在$n&amp;gt;999999$的时候程序执行的效率明显下降，但是我想就算优化也是有限的，因为$pi$的计算越到后面越是对计算机性能的考验而非算法。&lt;/p&gt;
 &lt;p&gt;维基上面关$pi$的计算公式还有好多，我也有实验过，但是限于我机子性能的问题，并没有深入下去。维基上也给出了一些更简单的算法，比方说使用反正切函数计算就会更加简单。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;这里我是第一次使用MathJax写数学公式如果有那里错误，请指正出来，我会在最短的时间内修正!&lt;/strong&gt;&lt;/p&gt;
@@ -1046,12 +1046,12 @@ Download [VIDEO0006.mp4]:  20% [****                ] ETA:  0:00:09   2.24 MB/s
 &lt;p&gt;上面的就是运行结果，下面有两个关于morse的应用：&lt;/p&gt;
 &lt;iframe src="//zh.wikipedia.org/wiki/File:TVB_News_Theme_Song_Extract.ogg?embedplayer=yes" width="220" height="23" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen&gt;&lt;/iframe&gt;
 
-&lt;p&gt;&lt;a href="http://www.omnicron.com/~ford/java/NMorse.html"&gt;Morse Code Translation and Copy Practice&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Turbidsoul Chan</dc:creator><pubDate>Tue, 04 Jun 2013 00:00:00 +0800</pubDate><guid>tag:blog.turbidsoul.me,2013-06-04:posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html</guid><category>python</category><category>morse</category><category>code</category></item><item><title>Misaka+pygments实现markdown生成html页面并语法高亮</title><link>http://blog.turbidsoul.me/posts/misakapygmentsshi-xian-markdownsheng-cheng-htmlye-mian-bing-yu-fa-gao-liang.html</link><description>&lt;h2&gt;来由&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://www.omnicron.com/~ford/java/NMorse.html"&gt;Morse Code Translation and Copy Practice&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Turbidsoul Chan</dc:creator><pubDate>Tue, 04 Jun 2013 00:00:00 +0800</pubDate><guid>tag:blog.turbidsoul.me,2013-06-04:posts/pythonshi-xian-morsebian-ma-yu-jie-ma.html</guid><category>python</category><category>morse</category><category>code</category></item><item><title>Misaka+pygments实现markdown生成html页面并语法高亮</title><link>http://blog.turbidsoul.me/posts/misakapygmentsshi-xian-markdownsheng-cheng-htmlye-mian-bing-yu-fa-gao-liang.html</link><description>&lt;h2 id="_1"&gt;来由&lt;/h2&gt;
 &lt;p&gt;最近新blog开发到文章页面生成这块，看上了GFM这样的方式，使用markdown编辑页面，也很适合程序猿。使用富文本编辑始终太重量级，并不适合程序猿写文章，所以我也很推崇jekyll，用他来写文章、blog确实很geek也很舒适。&lt;/p&gt;
 &lt;p&gt;经过几次简单的测试，最后决定使用&lt;code&gt;Misaka&lt;/code&gt;+&lt;code&gt;pygments&lt;/code&gt;，下面我简单说一下实现方法。&lt;/p&gt;
-&lt;h2&gt;开始之前&lt;/h2&gt;
+&lt;h2 id="_2"&gt;开始之前&lt;/h2&gt;
 &lt;p&gt;我的测试例子中使用到了三个包，分别是 web.py , Misaka , pygments ,如果在开始之前需要使用pip安装这三个包&lt;/p&gt;
-&lt;h3&gt;Web.py&lt;/h3&gt;
+&lt;h3 id="webpy"&gt;Web.py&lt;/h3&gt;
 &lt;p&gt;&lt;a href="http://webpy.org" title="web.py"&gt;Web.py&lt;/a&gt;是python的一个轻量级web框架，我只是简单的使用了一下，有兴趣的人可以去它的&lt;a href="http://webpy.org" title="web.py"&gt;官网&lt;/a&gt;,它的官方有一个&lt;a href="http://webpy.org/docs/0.3/tutorial.zh-cn" title="web.py tutorial"&gt;中文教程&lt;/a&gt;说的很详细。&lt;/p&gt;
 &lt;p&gt;我这里使用他做一个简单的web服务：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Index&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
@@ -1067,7 +1067,7 @@ Download [VIDEO0006.mp4]:  20% [****                ] ETA:  0:00:09   2.24 MB/s
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h3&gt;Misaka&lt;/h3&gt;
+&lt;h3 id="misaka"&gt;Misaka&lt;/h3&gt;
 &lt;p&gt;&lt;a href="http://misaka.61924.nl/" title="Misaka"&gt;Misaka&lt;/a&gt;是一个Markdown的解析工具包，他的Github地址：&lt;a href="https://github.com/FSX/misaka" title="Misaka Github"&gt;https://github.com/FSX/misaka&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Misaka的官网上也有他的&lt;a href="http://misaka.61924.nl/manual/" title="Misaka Tutorial"&gt;教程&lt;/a&gt;，我在这里只是简单的举个例子，说明一下：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;misaka&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;m&lt;/span&gt;
@@ -1089,7 +1089,7 @@ Download [VIDEO0006.mp4]:  20% [****                ] ETA:  0:00:09   2.24 MB/s
 &lt;ul&gt;
 &lt;li&gt;上面这三个例子就是misaka的最基本用法。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;pygments&lt;/h3&gt;
+&lt;h3 id="pygments"&gt;pygments&lt;/h3&gt;
 &lt;p&gt;pygments是python的语法高亮工具包，它提供了语法样式 &lt;code&gt;pygments.styles&lt;/code&gt;,关于styles文档请查看[http://pygments.org/docs/styles/][pygments_styles]&lt;/p&gt;
 &lt;p&gt;昨天无事可作的时候 把&lt;a href="http://jekyllrb.com/" title="Jekyll"&gt;jekyll&lt;/a&gt;的一个主题minimum的样式写成Style,代码如下：&lt;/p&gt;
 &lt;p&gt;{% gist 5567214 %}&lt;/p&gt;
@@ -1271,7 +1271,7 @@ Download [VIDEO0006.mp4]:  20% [****                ] ETA:  0:00:09   2.24 MB/s
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;这是实现了一个无限的斐波那契数列，我根据这个实现了一个等比级数，等比级数的公式是f = b^(n-1), b是基数，n=1 f=1, n&amp;gt;=2 f=b^(n-1)。&lt;/p&gt;
+&lt;p&gt;这是实现了一个无限的斐波那契数列，我根据这个实现了一个等比级数，等比级数的公式是f = b&lt;sup&gt;(n-1), b是基数，n=1 f=1, n&amp;gt;=2 f=b&lt;/sup&gt;(n-1)。&lt;/p&gt;
 &lt;p&gt;我实现的方法使用了生成器：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;geo_sequence&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
     &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Turbidsoul's 小黑屋 - piTurbidsoul's 小黑屋</title>
+    <title>Turbidsoul's 小黑屋 - pi - Turbidsoul's 小黑屋</title>
 
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
@@ -54,11 +54,11 @@
  -- (<a href="http://blog.turbidsoul.me/posts/leibnizgong-shi-he-wallizgong-shi-gu-suan-pide-zhi.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>前两天和同事在聊天的时候说道了 $pi$ 的算法，回家之后在<a href="https://zh.wikipedia.org/wiki/圓周率">维基</a>上看了一下关于 $pi$ 的公式，正好这回没事干，就用Python实现了两个比较简单的公式，分别是Leibniz 和 Walliz.</p>
-<h2>Leibniz</h2>
+<h2 id="leibniz">Leibniz</h2>
 <p>公式如下：</p>
 <p>$1 - 1/3 + 1/5 - 1/7 + 1/9 - ... = pi/4$</p>
 <p>这个公式也可以用另外一种方式表示：</p>
-<p>$pi/4 = sum_{n=0}^{oo} (-1)^n/(2n+1)$</p>
+<p>$pi/4 = sum_{n=0}<sup>{oo} (-1)</sup>n/(2n+1)$</p>
 <p>从公式中能看出来，Leibniz是当n趋向于无穷大的时候，计算 $(-1)^n/(2n+1)$的和，用python代码实现如下：</p>
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">leibniz_pi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n ...</span></pre></div><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type= "text/javascript">

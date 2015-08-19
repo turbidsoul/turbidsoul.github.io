@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Turbidsoul's 小黑屋</title><link href="http://blog.turbidsoul.me/" rel="alternate"></link><link href="http://blog.turbidsoul.me/feeds/selenium.atom.xml" rel="self"></link><id>http://blog.turbidsoul.me/</id><updated>2013-10-17T00:00:00+08:00</updated><entry><title>使用selenium进行web测试入门和使用WebDriver开发web测试代码入门</title><link href="http://blog.turbidsoul.me/posts/shi-yong-seleniumjin-xing-webce-shi-ru-men-he-shi-yong-webdriverkai-fa-webce-shi-dai-ma-ru-men.html" rel="alternate"></link><updated>2013-10-17T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me,2013-10-17:posts/shi-yong-seleniumjin-xing-webce-shi-ru-men-he-shi-yong-webdriverkai-fa-webce-shi-dai-ma-ru-men.html</id><summary type="html">&lt;p&gt;前段时间我们头在搞一个分布式测试，使用的就是 &lt;strong&gt;Selenium&lt;/strong&gt; 可以坑太多，最后应该是放弃了，因为我没见到回音，说实话这东西是bug挺多，而且在firefox上的版本兼容也有很大的问题，不过这不是我们讨论的问题，我们这里要讨论的是使用它来做简单的web测试。&lt;/p&gt;
-&lt;h2&gt;Selenium 入门&lt;/h2&gt;
-&lt;h4&gt;安装&lt;/h4&gt;
+&lt;h2 id="selenium"&gt;Selenium 入门&lt;/h2&gt;
+&lt;h4 id="_1"&gt;安装&lt;/h4&gt;
 &lt;p&gt;我使用的是 Firefox Aurora 现在的版本就是ff26,这下面是正常的，我不知道在每日编译版下是否正常，虽然我机子上也安装了，但是并没有在起下面做个测试，不过应该是没有问题的。&lt;/p&gt;
 &lt;p&gt;在 &lt;a href="about:addons"&gt;about:addons&lt;/a&gt; 或者 &lt;a href="http://addons.mozilla.org/"&gt;http://addons.mozilla.org/&lt;/a&gt; 上搜索 &lt;em&gt;selenium&lt;/em&gt; 点击安装，安装的时候同时还会附带安装几个其他的插件，这些都是 Selenium 的一些附属插件，我在之后的会有介绍。&lt;/p&gt;
 &lt;p&gt;安装完之后可以在 &lt;code&gt;菜单 &amp;gt;&amp;gt; 工具 &amp;gt;&amp;gt; Selenium IDE&lt;/code&gt; 打开或者在 &lt;em&gt;附加组建栏&lt;/em&gt; 点击 Selenium IDE 按钮打开，如何附加组建栏没有，请自行添加。&lt;/p&gt;
@@ -62,7 +62,7 @@
 &lt;p&gt;运行的方法很简单，菜单 Actions -&amp;gt; Play entire test suite 就会把录制的脚本运行一边，同时我们也能在浏览器上看到运行的结果。&lt;/p&gt;
 &lt;p&gt;Selenium可以完成我们在浏览器上的所有操作，因为它就是模拟我们浏览器的操作，所以登录等操作也是没有问题的。这就是Selenium的几本操作，更加复杂的可以自己去探索.&lt;/p&gt;
 &lt;p&gt;Selenium也可以把录制的宏导出成其他代码，比如java,ruby,php,python,C#,XML等，导出的方法很简单，在菜单中的 文件 -&amp;gt; Export Test Case 就可以看到导出的选项，但是要要导出这些代码，是需要有扩展支持的，一般这些扩展在安装 Selenium IDE 的时候都会提示一起安装，如果在这里没有看到的花，可以在&lt;a href="http://addons.mozilla.org/"&gt;http://addons.mozilla.org&lt;/a&gt;搜索，然后安装，重启firefox之后就可以了&lt;/p&gt;
-&lt;h2&gt;Python&lt;/h2&gt;
+&lt;h2 id="python"&gt;Python&lt;/h2&gt;
 &lt;p&gt;如何得到python 的测试代码呢？有两种，第一个就是通过Selenium中提供的导出的方法直接导出，另外一个就是自己编写python代码了。&lt;/p&gt;
 &lt;p&gt;从Selenium可以导出两种，一种是基于&lt;code&gt;Webdriver&lt;/code&gt;，另外一个就是基于&lt;code&gt;Remote Control&lt;/code&gt;：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# webdriver #&lt;/span&gt;
@@ -229,7 +229,7 @@ OK
 
 
 &lt;p&gt;则是因为没有在环境变量中配置firefox的路径，不过这里不需要在环境变量里配置，只需要在&lt;code&gt;selenium("localhost", 4444, "*firefox x:/xxxxxx/Mozilla Firefox/firefox.exe", "http://www.kaoshidian.com/")&lt;/code&gt; 声明即可，一般通过selenium生成的代码这里是 &lt;code&gt;selenium("localhost", 4444, "*chrome", "http://www.kaoshidian.com/")&lt;/code&gt; 所以这里需要注意修改一下。&lt;/p&gt;
-&lt;h2&gt;Java&lt;/h2&gt;
+&lt;h2 id="java"&gt;Java&lt;/h2&gt;
 &lt;p&gt;Selenium导出的是也是分为Webdriver和Remote Control 两种，同时也基于junit3和4，在这里我就只做一个Webdriver的例子。&lt;/p&gt;
 &lt;p&gt;我们先创建一个maven项目，然后在&lt;code&gt;pom.xml&lt;/code&gt;文件中加入关于selenium的声明：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nt"&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
@@ -323,5 +323,5 @@ OK
 
 &lt;p&gt;上面的代码运行的是偶可能会跑错，指示说没有指定firefox的路径，所以我们需要指定一下路径，方法很简单，就是修改创建driver实例的地方，&lt;code&gt;new FirefoxDriver(new FirefoxBinary(new File("x:\\xxxxxxxxxxx\\Mozilla Firefox\\firefox.exe")), new FirefoxProfile());&lt;/code&gt; 这样在运行就可以了，运行之后就能看到我们之前在运行python一样的结果。&lt;/p&gt;
 &lt;p&gt;至于Remote Control我就不在这里在多说了，有兴趣的朋友可以自己去试一下，和python的Remote Control差不多的。&lt;/p&gt;
-&lt;h2&gt;结论&lt;/h2&gt;
+&lt;h2 id="_2"&gt;结论&lt;/h2&gt;
 &lt;p&gt;Selenium其实还有支持很多，比如Ruby,PHP,Perl,Hashel,Javascript,Objective-C等语言，也支持Chrome,Opera,IE等主流的浏览器，不过在兼容性上我没发给出确切的答案，因为没有做过测试，但是我们头做这个的分布式测试时候，倒是深有体会。同时也在支持在android和iOS上的测试，在功能上还是很全面的，操作也简单，是web测试中上佳的选择。&lt;/p&gt;</summary><category term="selenium"></category><category term="python"></category><category term="java"></category><category term="webdriver"></category><category term="test"></category><category term="code"></category></entry></feed>

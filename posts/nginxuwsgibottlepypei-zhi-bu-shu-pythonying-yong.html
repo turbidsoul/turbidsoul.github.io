@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>nginx,uwsgi,bottlepy配置部署python应用Turbidsoul's 小黑屋</title>
+    <title>nginx,uwsgi,bottlepy配置部署python应用 - Turbidsoul's 小黑屋</title>
 
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
@@ -61,14 +61,14 @@
  -- (<a href="http://blog.turbidsoul.me/posts/nginxuwsgibottlepypei-zhi-bu-shu-pythonying-yong.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>这几天一直在写一个用户行为分析出席清晰代码的工具，我的本意是想把这个用python做成一个独立的应用，但是这么做其实是比较麻烦和有一定难度的，因为用户的行为分析是和要我们主数据库结合做的，如果做成独立应用的话需要从主库中找出大量的数据，这样会影响效率，所以就把用户端分析和cms系统做到以前，前期的日志清洗和数据初期简单的分析做到一个python实现的一个离线工具，这个不是我这篇blog的重点，这次的重点是如何使用nginx，uwsgi，python部署web应用，这只是这次工作的题外话，但是我认为这是这个用户行为分析模块将来的方向，所以研究留用计数备忘和初期探索。</p>
-<h2>搭建环境</h2>
+<h2 id="_1">搭建环境</h2>
 <p>因为uwsgi没有windows版的，所以这次是在linux下做的测试，我在虚拟机上装了arch linux。</p>
 <p><code>pacman -S python nginx</code>
 <code>pip install uwsgi bottlepy</code></p>
 <p>arch linux 默认python应该是3.3.2，所以需要安装<em>pythonbrew</em>然后在来安装2.7.5,至于pythonbrew如何安装，请自行搜索，安装其实很简单。至于nginx默认是支持uwsgi，所以不需要特别安装其他的插件。</p>
 <p>其实也可以通过<code>pacman -S uwsgi</code>来安装但是这个是不支持python的，所以需要用户pip安装uwsgi，才能支持python至于<a href="http://bottlepy.org/docs/dev/">bottlepy</a>我就不多说了，请查看其文档。</p>
-<h2>配置</h2>
-<h4>Bottle</h4>
+<h2 id="_2">配置</h2>
+<h4 id="bottle">Bottle</h4>
 <p>bottlepy 其实也就是我们的服务端代码，我们这里就简单的一个<code>Hello World!</code></p>
 <div class="highlight"><pre><span class="kn">from</span> <span class="nn">bottle</span> <span class="kn">import</span> <span class="n">run</span><span class="p">,</span> <span class="n">route</span><span class="p">,</span> <span class="n">default_app</span>
 
@@ -84,7 +84,7 @@
 
 
 <p>这就是bottle的代码，很简单，if部分的代码就是普通的main方法运行,而else部分的代码就是我们要和uwsgi对接的代码，这样写就可以了</p>
-<h4>uWSGI</h4>
+<h4 id="uwsgi">uWSGI</h4>
 <p>我们先来看看http的运行方式，在终端输入<code>uwsgi --http 192.168.56.101:9000 --wsgi-file app.py</code>,如果能看到下面的输出就算是运行成功了：</p>
 <div class="highlight"><pre>*** Starting uWSGI 1.9.19 (32bit) on [Tue Nov 19 23:55:07 2013] ***
 compiled with version: 4.8.2 on 14 November 2013 00:18:09
@@ -127,7 +127,7 @@ spawned uWSGI worker 1 (and the only) (pid: 6503, cores: 1)
 <p>不过这样启动tcp后面的端口是随机的每次启动都会变化，不适合我们部署，所以我们需要把他配置固定的，所以就需要使用如下的命令:
 <code>uwsgi -s 127.0.0.1:9000 --wsgi-file app.py</code>，这样之后每次启动的端口都是一样的，但是http就不会在启动了。</p>
 <p>而socket的方式和tcp启动的方式参数出差不多，之后把http地址方程一个socket文件的地址：<code>uwsgi -s ~/app.socket --wsgi-file app.py</code>，在启动日志中看到<code>uwsgi socket 0 bound to UNIX address /root/app.socket fd 3</code> 这一句说明我们socket的地址了</p>
-<h4>nginx</h4>
+<h4 id="nginx">nginx</h4>
 <p>在nginx可以使用http反向代理，只需要在nginx里面配置<code>proxy_pass</code>代理使用http启动的uwsgi，具体的我就不再多说了。</p>
 <p>下面我们来说说socket连接在nginx中如何配置的：</p>
 <ol>
@@ -159,7 +159,7 @@ spawned uWSGI worker 1 (and the only) (pid: 6503, cores: 1)
 
 <p>所以我在这里路径写成<code>/var/run/x.socket</code> 是这个路径下的就不会有问题,关于这个问题这里有个帖子应该能解决问题<a href="http://mediadrop.net/community/topic/trouble-with-uwsgi-nginx" title="Trouble with uwsgi + nginx">Trouble with uwsgi + nginx</a></p>
 <p>另外如果错误中有 <code>13: Permission denied</code> 这个错误，那可能是在nginx的配置文件中没有声明用户，或者用户没权限，我这里是用root用户登录的，所以在nginx最上面加了<code>user root;</code></p>
-<h2>结论</h2>
+<h2 id="_3">结论</h2>
 <p>uwsgi自创了一个uwsgi协议，与wsgi、fcgi不同，据说uwsgi的速度是fcgi的10倍，我没有那个环境测试。uwsgi旨在为分布式部署提供一套解决方案，他支持很多语言，也同时可以使用c,c++等来开发插件，我使用他纯粹是为了在我的VPS上部署我的python应用。</p>
       <!-- <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="Turbidsoul">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
  -->

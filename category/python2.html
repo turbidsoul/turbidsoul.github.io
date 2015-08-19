@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Turbidsoul's 小黑屋 - PythonTurbidsoul's 小黑屋</title>
+    <title>Turbidsoul's 小黑屋 - Python - Turbidsoul's 小黑屋</title>
 
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
@@ -53,12 +53,12 @@
     <a href="http://blog.turbidsoul.me/tag/markdown.html">markdown</a>, 
  -- (<a href="http://blog.turbidsoul.me/posts/misakapygmentsshi-xian-markdownsheng-cheng-htmlye-mian-bing-yu-fa-gao-liang.html" rel="bookmark">permalink</a>)
 </small>
-</p>      <h2>来由</h2>
+</p>      <h2 id="_1">来由</h2>
 <p>最近新blog开发到文章页面生成这块，看上了GFM这样的方式，使用markdown编辑页面，也很适合程序猿。使用富文本编辑始终太重量级，并不适合程序猿写文章，所以我也很推崇jekyll，用他来写文章、blog确实很geek也很舒适。</p>
 <p>经过几次简单的测试，最后决定使用<code>Misaka</code>+<code>pygments</code>，下面我简单说一下实现方法。</p>
-<h2>开始之前</h2>
+<h2 id="_2">开始之前</h2>
 <p>我的测试例子中使用到了三个包，分别是 web.py , Misaka , pygments ,如果在开始之前需要使用pip安装这三个包</p>
-<h3>Web.py</h3>
+<h3 id="webpy">Web.py</h3>
 <p><a href="http://webpy.org" title="web.py">Web.py</a>是python的一个轻量级web框架，我只是简单的使用了一下，有兴趣的人可以去它的<a href="http://webpy.org" title="web.py">官网</a>,它的官方有一个<a href="http://webpy.org/docs/0.3/tutorial.zh-cn" title="web.py tutorial">中文教程</a>说的很详细。</p>
 <p>我这里使用他做一个简单的web服务：</p>
 <div class="highlight"><pre><span class="k">class</span> <span class="nc">Index</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -90,7 +90,7 @@
 </pre></div>
 
 
-<p>这是实现了一个无限的斐波那契数列，我根据这个实现了一个等比级数，等比级数的公式是f = b^(n-1), b是基数，n=1 f=1, n&gt;=2 f=b^(n-1)。</p>
+<p>这是实现了一个无限的斐波那契数列，我根据这个实现了一个等比级数，等比级数的公式是f = b<sup>(n-1), b是基数，n=1 f=1, n&gt;=2 f=b</sup>(n-1)。</p>
 <p>我实现的方法使用了生成器：</p>
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">geo_sequence</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
     <span class="n">n</span> <span class="o">=</span> <span class="mi">2</span>

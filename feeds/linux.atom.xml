@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Turbidsoul's 小黑屋</title><link href="http://blog.turbidsoul.me/" rel="alternate"></link><link href="http://blog.turbidsoul.me/feeds/linux.atom.xml" rel="self"></link><id>http://blog.turbidsoul.me/</id><updated>2014-04-10T00:00:00+08:00</updated><entry><title>使用awk做实时的统计</title><link href="http://blog.turbidsoul.me/posts/shi-yong-awkzuo-shi-shi-de-tong-ji.html" rel="alternate"></link><updated>2014-04-10T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me,2014-04-10:posts/shi-yong-awkzuo-shi-shi-de-tong-ji.html</id><summary type="html">&lt;h2&gt;缘由&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Turbidsoul's 小黑屋</title><link href="http://blog.turbidsoul.me/" rel="alternate"></link><link href="http://blog.turbidsoul.me/feeds/linux.atom.xml" rel="self"></link><id>http://blog.turbidsoul.me/</id><updated>2014-04-10T00:00:00+08:00</updated><entry><title>使用awk做实时的统计</title><link href="http://blog.turbidsoul.me/posts/shi-yong-awkzuo-shi-shi-de-tong-ji.html" rel="alternate"></link><updated>2014-04-10T00:00:00+08:00</updated><author><name>Turbidsoul</name></author><id>tag:blog.turbidsoul.me,2014-04-10:posts/shi-yong-awkzuo-shi-shi-de-tong-ji.html</id><summary type="html">&lt;h2 id="_1"&gt;缘由&lt;/h2&gt;
 &lt;p&gt;之前头让搞一个24小时内帖子或者视频的点击量，当时为了省事，就随便写了一个，虽然是实时的，但是却没有满足 &lt;strong&gt;24小时内&lt;/strong&gt; 这个条件, 数据会在每天0点清零重新计算，前几天被头发现了，所以就只能从新写一个了。&lt;/p&gt;
 &lt;p&gt;思来想去最后还是决定用&lt;code&gt;awk&lt;/code&gt;解析日志来完成这个功能，这样最简单。&lt;/p&gt;
-&lt;h2&gt;之前的准备&lt;/h2&gt;
+&lt;h2 id="_2"&gt;之前的准备&lt;/h2&gt;
 &lt;p&gt;AWK是贝尔实验室1977年搞出来的文本出现神器，所以有必要做个简单的介绍，大家请看这三篇文章:&lt;a href="http://coolshell.cn/articles/9070.html" title="AWK 简明教程"&gt;AWK 简明教程&lt;/a&gt;, &lt;a href="http://www.cnblogs.com/chengmo/archive/2010/10/08/1845913.html" title="linux awk 内置函数详细介绍（实例）"&gt;linux awk 内置函数详细介绍（实例）&lt;/a&gt;, &lt;a href="http://www.colorfuldays.org/linux/good_awk_tutorial/" title="很好的awk教程 "&gt;awk教程&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;这三篇文章是前置的知识，有必要简单的看一下，最开始我觉得awk有点麻烦，写了一些之后我发现他和&lt;code&gt;lua&lt;/code&gt;一样的简单。&lt;/p&gt;
-&lt;h2&gt;代码分析&lt;/h2&gt;
+&lt;h2 id="_3"&gt;代码分析&lt;/h2&gt;
 &lt;p&gt;我们的要求是，分别统计出 &lt;em&gt;thread&lt;/em&gt;, &lt;em&gt;resource&lt;/em&gt;, &lt;em&gt;video&lt;/em&gt;, _article_中，没一个的点击量&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;BEGIN&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="nb"&gt;FS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;,;&amp;quot;&lt;/span&gt; &lt;span class="c1"&gt;# 我的日志中的分隔符是 `,;` 所以这里要给`FS` 指定一下，因为默认值是`Tab` 或者 `Space`&lt;/span&gt;
@@ -76,7 +76,7 @@
 
 &lt;p&gt;上面的代码中关键的地方都有加注释，这是不完全的代码，只是实现了解析出各个帖子id并统计，并没有限制24小时之内的，但是这并不影响我们对代码的理解.&lt;/p&gt;
 &lt;p&gt;除了这些以外awk还支持格式化输出，内建函数，内建变量，正则表达式等等&lt;/p&gt;
-&lt;h2&gt;总结&lt;/h2&gt;
+&lt;h2 id="_4"&gt;总结&lt;/h2&gt;
 &lt;p&gt;awk说他是神器一点都不为过，处理文本的速度很快，至少比python处理起来要快很多，而且我相信只要愿意awk可以完成复杂的统计任务&lt;/p&gt;&lt;script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"&gt;&lt;/script&gt;
 &lt;script type= "text/javascript"&gt;
     if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {

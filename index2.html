@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Turbidsoul's 小黑屋</title>
+    <title> - Turbidsoul's 小黑屋</title>
 
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
@@ -40,6 +40,22 @@
 
       </header>
       <section>
+      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/python-27-de-can-shu-jie-xi-mo-kuai-argparse.html">python 2.7 的参数解析模块 argparse</a></div>
+<p>
+<small>
+<abbr class="published" title="2013-09-27">
+  2013年 九月 27日 周五
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
+    <a href="http://blog.turbidsoul.me/tag/code.html">code</a>, 
+    <a href="http://blog.turbidsoul.me/tag/argparse.html">argparse</a>, 
+    <a href="http://blog.turbidsoul.me/tag/python27.html">python27</a>, 
+ -- (<a href="http://blog.turbidsoul.me/posts/python-27-de-can-shu-jie-xi-mo-kuai-argparse.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>今天下午没事，就优化了一下以前写的一些工作上用的小工具，当然大多数都是python写的命令行下的小工具，之前命令行参数都是自己解析，虽然不是什么复杂的事情，但是自己临时写出来的东西毕竟不如人家写出来的好，正好前短时间看到python2.7把 <strong>argparse</strong> 加入到了标准模块中，所以这次对这些工具的代码重构就是使用了 <strong>argparse</strong> 替代自己写的那个简陋名两行解析工具。</p> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/python-27-de-can-shu-jie-xi-mo-kuai-argparse.html">read more...</a></div>
+      <hr />
       <div class="front-title"><a href="http://blog.turbidsoul.me/posts/pythonmo-kuai-html2bbcode.html">python模块html2bbcode</a></div>
 <p>
 <small>
@@ -84,7 +100,7 @@
  -- (<a href="http://blog.turbidsoul.me/posts/cheng-xu-yuan-shu-xue-ling-de-gu-shi.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>之前买了几本关于数学的书，这两天看了《程序员数学》第一章 0的故事，以前只是知道0，却不知道0在数学中的作用和意义。</p>
-<h4>计数法</h4>
+<h4 id="_1">计数法</h4>
 <p>在10进制中，每一位的数字表示的是这一位上的个数，如书中的2503：</p>
 <blockquote>
 <p>2 =&gt; $2 xx 1000$ =&gt; $2 xx 10^3$</p>
@@ -156,7 +172,7 @@
  -- (<a href="http://blog.turbidsoul.me/posts/pythonshi-xian-ldaphe-rtxzhi-jian-de-zu-zhi-he-yong-hu-shu-ju-tong-bu.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>最近公司正在准备使用 <strong>AD</strong> ( <strong><a href="https://zh.wikipedia.org/wiki/Active_Directory" title="Active Directory">Activate Directory</a></strong> )服务来进行公司员工的帐号管理，这样就避免不了需要对AD的帐号和<a href="http://rtx.tencent.com/rtx/index.shtml" title="RTX">RTX</a>的帐号和组织关系进行同步，所以才有了这篇文章。</p>
-<h4>Python-Ldap</h4>
+<h4 id="python-ldap">Python-Ldap</h4>
 <p><a href="http://www.python-ldap.org/" title="LDAP client API for Python">Python-Ldap</a>是python用来操作ldap的模块，可以对ldap进行查询，添加，修改，删除等操作，如下代码：</p>
 <div class="highlight"><pre><span class="n">ldap_host</span> <span class="o">=</span> <span class="s">&quot;127.0.0.1&quot;</span>
 <span class="n">ldap_port</span> <span class="o">=</span> <span class="mi">389</span>
@@ -182,13 +198,13 @@
  -- (<a href="http://blog.turbidsoul.me/posts/pythonshi-xian-ming-ling-xing-xia-zai-jin-du-tiao.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>这是昨晚下班之后同事问我的一个问题，不过当时已经7点，如果在不出公司就会赶不上最后一趟公交车，所以就给同事说回家研究研究礼拜一给他答案，昨晚无事就看了一下。</p>
-<h4>需要用到的模块</h4>
+<h4 id="_1">需要用到的模块</h4>
 <ul>
 <li>使用 <strong>pip</strong> 安装progressbar <code>pip install progressbar</code></li>
 <li>这里我是从ftp上下载一个或者多个文件，所以我们要用到 <strong>ftplib</strong>。这是python的标准模块，在代码前导入即可</li>
 <li>我在最后要把代码编译成exe文件所以要用 <strong>py2exe</strong> <code>pip install py2exe</code></li>
 </ul>
-<h4>原理</h4>
+<h4 id="_2">原理</h4>
 <p>我们先来看一下progressbar的是原理，如下代码：</p>
 <div class="highlight"><pre><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">time</span>
@@ -233,7 +249,7 @@
 </p>      <p>这其实是一个很简单的问题，本来并不打算写成一片文章的，因为这个文件和另外一个问题是一起的，就是我们在nginx上做css和js文件合并时遇到的，不过在这之前我还遇到了另外一个问题，就是我们开发环境是windows7，而nginx下有个静态文件合并的模块: <strong>http_concat_module</strong> ，是<a href="https://github.com/alibaba/nginx-http-concat" title="HTTP Concatenation module for Nginx">淘宝</a>开源的，这个模块并不是nginx标准模块，所以要使用它需要自己重新编译nginx，具体如何编译我需要一段一点时间整理一下，在之后的文章中会写出来。</p>
 <p>至于为什么要使用<a href="http://lesscss.org" title="The Dynamic Stylesheet language">less</a>是因为使用了 <strong>http_concat_module</strong> 之后css中文件的一些路径出现了错误，需要为css文件设置一些变量，其实使用maven的插件也可以进行变量替换，但是这样只能在maven打包的时候才能起作用，对于开发来说就不行，因为开发必须要求在编译的时候就生效。所以就需要使用maven的另一个插件<a href="https://github.com/marceloverdijk/lesscss-maven-plugin" title="Official LESS CSS Maven Plugin">lesscss-maven-plugin</a>，这个插件的作用就是在编译的时候就能把less转换成css，这样做对我们最大的好处就是需要修改的地方是最少的，而且能一劳永逸的解决这个问题。</p>
 <p>现在我们来说说这个插件如何配置：</p>
-<h4>添加插件</h4>
+<h4 id="_1">添加插件</h4>
 <div class="highlight"><pre><span class="nt">&lt;plugin&gt;</span>
     <span class="nt">&lt;groupId&gt;</span>org.lesscss<span class="nt">&lt;/groupId&gt;</span>
     <span class="nt">&lt;artifactId&gt;</span>lesscss-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
@@ -259,11 +275,11 @@
  -- (<a href="http://blog.turbidsoul.me/posts/leibnizgong-shi-he-wallizgong-shi-gu-suan-pide-zhi.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>前两天和同事在聊天的时候说道了 $pi$ 的算法，回家之后在<a href="https://zh.wikipedia.org/wiki/圓周率">维基</a>上看了一下关于 $pi$ 的公式，正好这回没事干，就用Python实现了两个比较简单的公式，分别是Leibniz 和 Walliz.</p>
-<h2>Leibniz</h2>
+<h2 id="leibniz">Leibniz</h2>
 <p>公式如下：</p>
 <p>$1 - 1/3 + 1/5 - 1/7 + 1/9 - ... = pi/4$</p>
 <p>这个公式也可以用另外一种方式表示：</p>
-<p>$pi/4 = sum_{n=0}^{oo} (-1)^n/(2n+1)$</p>
+<p>$pi/4 = sum_{n=0}<sup>{oo} (-1)</sup>n/(2n+1)$</p>
 <p>从公式中能看出来，Leibniz是当n趋向于无穷大的时候，计算 $(-1)^n/(2n+1)$的和，用python代码实现如下：</p>
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">leibniz_pi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n ...</span></pre></div><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type= "text/javascript">
@@ -285,31 +301,6 @@
 </script>
  
       <div class="read-more"><a href="http://blog.turbidsoul.me/posts/leibnizgong-shi-he-wallizgong-shi-gu-suan-pide-zhi.html">read more...</a></div>
-      <hr />
-      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/sublimecha-jian-emmetqi-dong-shi-bai.html">sublime插件emmet启动失败</a></div>
-<p>
-<small>
-<abbr class="published" title="2013-06-05">
-  2013年 六月 05日 周三
-</abbr> | 
-  tags: 
-    <a href="http://blog.turbidsoul.me/tag/sublime.html">sublime</a>, 
-    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
-    <a href="http://blog.turbidsoul.me/tag/emmet.html">emmet</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/sublimecha-jian-emmetqi-dong-shi-bai.html" rel="bookmark">permalink</a>)
-</small>
-</p>      <p>最近发现我的sublime的emmet失效，查看了控制台，发现在sublime启动的失败，启动的时候报了如下的错误：</p>
-<div class="highlight"><pre><span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">&quot;.\sublime_plugin.py&quot;</span>, line <span class="m">62</span>, in <span class="n">reload_plugin</span>
-  File <span class="nb">&quot;.\emmet-plugin.py&quot;</span>, line <span class="m">710</span>, in <span class="n">&lt;module&gt;</span>
-    <span class="n">init</span><span class="p">()</span>
-  File <span class="nb">&quot;.\emmet-plugin.py&quot;</span>, line <span class="m">101</span>, in <span class="n">init</span>
-    <span class="n">update_settings</span><span class="p">()</span>
-  File <span class="nb">&quot;.\emmet-plugin.py&quot;</span>, line <span class="m">231</span>, in <span class="n">update_settings</span>
-    <span class="n">ctx</span><span class="o">.</span><span class="n">js</span><span class="p">()</span>
-  File <span class="nb">&quot;.\emmet\context.py&quot;</span>, line <span class="m">178</span>, in <span class="n">js</span>
-    <span class="bp">self ...</span></pre></div> 
-      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/sublimecha-jian-emmetqi-dong-shi-bai.html">read more...</a></div>
       <hr />
 
 <span class="paginator">

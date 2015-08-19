@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>程序员数学 - 零的故事Turbidsoul's 小黑屋</title>
+    <title>程序员数学 - 零的故事 - Turbidsoul's 小黑屋</title>
 
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
@@ -60,7 +60,7 @@
  -- (<a href="http://blog.turbidsoul.me/posts/cheng-xu-yuan-shu-xue-ling-de-gu-shi.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>之前买了几本关于数学的书，这两天看了《程序员数学》第一章 0的故事，以前只是知道0，却不知道0在数学中的作用和意义。</p>
-<h4>计数法</h4>
+<h4 id="_1">计数法</h4>
 <p>在10进制中，每一位的数字表示的是这一位上的个数，如书中的2503：</p>
 <blockquote>
 <p>2 =&gt; $2 xx 1000$ =&gt; $2 xx 10^3$</p>
@@ -70,7 +70,7 @@
 </blockquote>
 <p>如上面引用中的，把每一行的结果加起来就是 <strong>2503</strong>，这里我觉得在中文中表示数字其实更准确： <em>两千五百零三</em> ，在每一位都表示了这一位的单位，在阅读上更容易理解和准确，但是在书写上并不方便。</p>
 <p>2进制每一位的表示和10进制的差不多，不过2进制是以 $2^n$ 做为基数的，其他进制的也差不多。不管是什么进制的计数法，每一位上的数字表示都都是这位上数字的个数，而对于这位上没有数字，就用0表示。</p>
-<h4>指数法则</h4>
+<h4 id="_2">指数法则</h4>
 <p>这一节说了 $n^0$ 为什么等于 1：</p>
 <blockquote>
 <p>$10^3 = 1000$</p>
@@ -81,16 +81,16 @@
 <p>$10^-2 = 1/100$</p>
 <p>$10^-3 = 1/1000$</p>
 </blockquote>
-<p>从上面的等式可以推导出： $1 = 10 xx 1/10 = 10^1 xx 10^-1 = 10^(1-1) = 10^0$</p>
-<p>这就是 <strong>指数法则</strong> ，他的表达式是： $N^a xx N^b = N^(a+b)$, 其中 N != 0。</p>
-<h4>零的作用</h4>
+<p>从上面的等式可以推导出： $1 = 10 xx 1/10 = 10<sup>1 xx 10</sup>-1 = 10<sup>(1-1) = 10</sup>0$</p>
+<p>这就是 <strong>指数法则</strong> ，他的表达式是： $N<sup>a xx N</sup>b = N^(a+b)$, 其中 N != 0。</p>
+<h4 id="_3">零的作用</h4>
 <p>零的作用：占位；统一标准，简化规则；在日常生活中表示没有计划等之类的。</p>
 <ul>
 <li>占位：在计数中表示所在位没有，虽然没有但是不能不写，不写的数字就表示的很怪异，所以需要0 <strong>占位</strong></li>
 <li>统一标准，简化规则：在计数法中，每一位数字都可以用 $a_k xx 10^k$ 表示，其中k是这个数字的 位数-1 ， a就是这个数字。</li>
 <li>在日常生活中0表示没有，比方说没有计划，今天不用吃药等</li>
 </ul>
-<h4>结论</h4>
+<h4 id="_4">结论</h4>
 <p>在书中，人类为了超越极限不断的简化计数方法，将大为题分解一个个小的单元，即便在现代我们做软件工程的，也是把一个项目分解成若干的模块，分给不同的小组，项目组在把这个模块分解成若干个小单元，分给每个小组成员，这也是这本书的主旨之一。</p><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type= "text/javascript">
     if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {

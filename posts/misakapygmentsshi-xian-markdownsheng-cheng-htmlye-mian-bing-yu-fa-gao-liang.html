@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Misaka+pygments实现markdown生成html页面并语法高亮Turbidsoul's 小黑屋</title>
+    <title>Misaka+pygments实现markdown生成html页面并语法高亮 - Turbidsoul's 小黑屋</title>
 
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
@@ -59,12 +59,12 @@
     <a href="http://blog.turbidsoul.me/tag/markdown.html">markdown</a>, 
  -- (<a href="http://blog.turbidsoul.me/posts/misakapygmentsshi-xian-markdownsheng-cheng-htmlye-mian-bing-yu-fa-gao-liang.html" rel="bookmark">permalink</a>)
 </small>
-</p>      <h2>来由</h2>
+</p>      <h2 id="_1">来由</h2>
 <p>最近新blog开发到文章页面生成这块，看上了GFM这样的方式，使用markdown编辑页面，也很适合程序猿。使用富文本编辑始终太重量级，并不适合程序猿写文章，所以我也很推崇jekyll，用他来写文章、blog确实很geek也很舒适。</p>
 <p>经过几次简单的测试，最后决定使用<code>Misaka</code>+<code>pygments</code>，下面我简单说一下实现方法。</p>
-<h2>开始之前</h2>
+<h2 id="_2">开始之前</h2>
 <p>我的测试例子中使用到了三个包，分别是 web.py , Misaka , pygments ,如果在开始之前需要使用pip安装这三个包</p>
-<h3>Web.py</h3>
+<h3 id="webpy">Web.py</h3>
 <p><a href="http://webpy.org" title="web.py">Web.py</a>是python的一个轻量级web框架，我只是简单的使用了一下，有兴趣的人可以去它的<a href="http://webpy.org" title="web.py">官网</a>,它的官方有一个<a href="http://webpy.org/docs/0.3/tutorial.zh-cn" title="web.py tutorial">中文教程</a>说的很详细。</p>
 <p>我这里使用他做一个简单的web服务：</p>
 <div class="highlight"><pre><span class="k">class</span> <span class="nc">Index</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -80,7 +80,7 @@
 </pre></div>
 
 
-<h3>Misaka</h3>
+<h3 id="misaka">Misaka</h3>
 <p><a href="http://misaka.61924.nl/" title="Misaka">Misaka</a>是一个Markdown的解析工具包，他的Github地址：<a href="https://github.com/FSX/misaka" title="Misaka Github">https://github.com/FSX/misaka</a></p>
 <p>Misaka的官网上也有他的<a href="http://misaka.61924.nl/manual/" title="Misaka Tutorial">教程</a>，我在这里只是简单的举个例子，说明一下：</p>
 <div class="highlight"><pre><span class="kn">import</span> <span class="nn">misaka</span> <span class="kn">as</span> <span class="nn">m</span>
@@ -102,7 +102,7 @@
 <ul>
 <li>上面这三个例子就是misaka的最基本用法。</li>
 </ul>
-<h3>pygments</h3>
+<h3 id="pygments">pygments</h3>
 <p>pygments是python的语法高亮工具包，它提供了语法样式 <code>pygments.styles</code>,关于styles文档请查看[http://pygments.org/docs/styles/][pygments_styles]</p>
 <p>昨天无事可作的时候 把<a href="http://jekyllrb.com/" title="Jekyll">jekyll</a>的一个主题minimum的样式写成Style,代码如下：</p>
 <p>{% gist 5567214 %}</p>

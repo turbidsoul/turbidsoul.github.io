@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>python实现ldap和rtx之间的组织和用户数据同步Turbidsoul's 小黑屋</title>
+    <title>python实现ldap和rtx之间的组织和用户数据同步 - Turbidsoul's 小黑屋</title>
 
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
@@ -60,7 +60,7 @@
  -- (<a href="http://blog.turbidsoul.me/posts/pythonshi-xian-ldaphe-rtxzhi-jian-de-zu-zhi-he-yong-hu-shu-ju-tong-bu.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>最近公司正在准备使用 <strong>AD</strong> ( <strong><a href="https://zh.wikipedia.org/wiki/Active_Directory" title="Active Directory">Activate Directory</a></strong> )服务来进行公司员工的帐号管理，这样就避免不了需要对AD的帐号和<a href="http://rtx.tencent.com/rtx/index.shtml" title="RTX">RTX</a>的帐号和组织关系进行同步，所以才有了这篇文章。</p>
-<h4>Python-Ldap</h4>
+<h4 id="python-ldap">Python-Ldap</h4>
 <p><a href="http://www.python-ldap.org/" title="LDAP client API for Python">Python-Ldap</a>是python用来操作ldap的模块，可以对ldap进行查询，添加，修改，删除等操作，如下代码：</p>
 <div class="highlight"><pre><span class="n">ldap_host</span> <span class="o">=</span> <span class="s">&quot;127.0.0.1&quot;</span>
 <span class="n">ldap_port</span> <span class="o">=</span> <span class="mi">389</span>
@@ -109,7 +109,7 @@
 <li>new: 需要修改的新值</li>
 </ul>
 <p>我这里使用的jobno并不是ad的默认就有的属性是自己后来添加的扩展属性，至于如何添加扩展属性，請参照这篇文章<a href="http://docs.tidyinfo.com/?p=309" title="AD扩展属性定义">AD扩展属性定义</a></p>
-<h4>RTX</h4>
+<h4 id="rtx">RTX</h4>
 <p>我通过python-ldap从AD中读取到数据，现在需要把他写道RTX中，在这里我遇到了一个问题，当时并没有仔细去看rtx sdk文档，只是想当然的以为直接用python操作数据，来进行数据同步，但是后来发现，数据虽然同步成功了，但是rtx客户端并不能从服务器抓取到新用户的信息，包括基本资料和详细资料等。</p>
 <p>使用上面的方法，算是走到死胡同，同事的一句话让我想到我可以用过windows的com接口实现数据的同步，python下实现调用windows的com接口的模块是<a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/" title="Unofficial Windows Binaries for Python Extension Packages">win32com</a>(这个网站有，pywin32编译好的安装包，根据自己的python版本下载安装即可)。</p>
 <p>我们来看一段测试代码：</p>
@@ -141,7 +141,7 @@
 
 <p>代码很清晰，我们先加载了RTXSAPIRootObj.RTXAPIRootObj这个组件，这是rtx的api的跟对象（rtx文档中是这么说的，我觉得好别扭），具体有什么方法，請参照rtx文档。</p>
 <p>UserManager和DeptManager分别是用户管理对象和部门管理对象，至于具体的还是請参照rtx文档，如何使用就如上面的代码一样，方法名的调用直接和rtx的api文章方法名一样，不过rtx的api有两种参数，in和out，我们传入的只是in参数，out的返回值，所以不需要管他，rtx有些返回值是xml，所以这里使用的cElementTree来处理。</p>
-<h4>Shiro和Ldap的整合</h4>
+<h4 id="shiroldap">Shiro和Ldap的整合</h4>
 <p>本来并没有打算写这一段，但是写道这里了，我想也会有人在这里遇到问题，所以我就简单的说一下。</p>
 <p>首先我们先来看一下在Spring中shiro的配置：</p>
 <div class="highlight"><pre><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&quot;shiroLdapRealm&quot;</span> <span class="na">class=</span><span class="s">&quot;me.turbidsoul.permission.ShiroLdapRealm&quot;</span><span class="nt">&gt;</span>
@@ -213,7 +213,7 @@
 <li>一定会用到DN，所以要么自己可以在本地拼出DN，要么就直接像我这样直接把DN冗余到本地库中。</li>
 <li>当我们在代码中使用<code>SecurityUtils.getSubject().getPrincipal()</code>获取用户对象的时候，返回的只是一个用户名，不想JDBC的方式获取的是用户的对象。</li>
 </ul>
-<h4>结论</h4>
+<h4 id="_1">结论</h4>
 <p>在这次的开发工作中，其实费了不少时间，有快一个礼拜，其中有两天多的时候都卡在的编码的问题上，说起来挺可笑也挺无奈，ad对编码的问题支持的还算不错，rtx就不行了，他使用的mdb数据库，windows下是gb2312而在python中我使用了utf8，所以在和rtx交互的时候需要把字符串的编码，进行转码，如：<code>"中文编码".decode('utf8').encode('gb2312')</code></p>
 <p>其次耗费时间的是，我花了一些时间，研究为什么直接操作数据库并不能是rtx客户端读取到用户资料，为此我还用 <strong>Wireshark</strong> 进行了抓包，发现并不似rtx本身配置的问题，因为通过抓包分析得到rtx本身并没有问题，我想应该就是我在操作数据库上存在问题，但是又想不到是那里的问题。在后来使用com接口操作时候，对比了两种方式操作数据库之后数据库的变化，让我发现，问题出在sys_sysconfig这张表上，这张表里有两个字段 <em>UserVersion</em> 和 <em>DeptVersion</em> 两个这两个字段记录的是上一次更新数据之后sys_user和rtx_dept两个表数据的最后版本变化，在这两个表里也同样存在这两个对应的字段 <em>UserVersion</em> 和 <em>Version</em> 记录了没个记录的版本号，rtx客户端会更新版本号大于等于sys_sysconfig中记录的版本号，我尝试修改版本号来测试，得到的结果和我猜测的是一样的。但是我并不知道使用com接口操作是不是还有修改其他的数据，因为这里完全是黑盒，而且在rtx的官网也看到推荐使用api操作，直接操作数据库可能会造成数据库的不一致。</p>
 <p>但在数据同步并不是这上面说的使用UserManager和DeptManager这两个对象来操作，也可以使用ElementTree配成xml，使用rtx提供的方法导入也可以，这样的方法效率要比上面的方法更快，不过我并没有看到一个完成的XML例子，所以并没有采用这种方法。</p>

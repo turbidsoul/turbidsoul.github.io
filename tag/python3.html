@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Turbidsoul's 小黑屋 - css - Turbidsoul's 小黑屋</title>
+    <title>Turbidsoul's 小黑屋 - python - Turbidsoul's 小黑屋</title>
 
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
@@ -40,27 +40,31 @@
 
       </header>
       <section>
-      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/yi-ge-csscuo-wu-yin-qi-de-maven-stackoverflowerror.html">一个css错误引起的maven StackOverflowError</a></div>
+      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/kuai-su-ji-suan-er-jin-zhi-wei-1de-ge-shu.html">快速计算二进制位1的个数</a></div>
 <p>
 <small>
-<abbr class="published" title="2013-06-18">
-  2013年 六月 18日 周二
+<abbr class="published" title="2013-02-01">
+  2013年 二月 01日 周五
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/tag/java.html">java</a>, 
-    <a href="http://blog.turbidsoul.me/tag/maven.html">maven</a>, 
-    <a href="http://blog.turbidsoul.me/tag/css.html">css</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/yi-ge-csscuo-wu-yin-qi-de-maven-stackoverflowerror.html" rel="bookmark">permalink</a>)
+    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
+    <a href="http://blog.turbidsoul.me/tag/arithmetic.html">arithmetic</a>, 
+ -- (<a href="http://blog.turbidsoul.me/posts/kuai-su-ji-suan-er-jin-zhi-wei-1de-ge-shu.html" rel="bookmark">permalink</a>)
 </small>
-</p>      <p>这个问题是我的一个失误造成的，这是上一片文章的后续，我在使用正则做文本替换的时候没有注意到，这个正则在主干上是正常的，但是在分支上执行的时候使一行css少了一个引号，这个问题在浏览器中是暴露不出来的，之后在maven打包的时候对文件做压缩的时候才会出现，下面我们来看看是什么样的问题。</p>
-<p>我们项目使用的是 <a href="https://github.com/davidB/yuicompressor-maven-plugin" title="yuicompressor-maven-plugin">yuicompressor-maven-plugin</a> 做js和css的压缩，在压缩的过程中出现了下面的错误：</p>
-<div class="highlight"><pre><span class="x">---------------------------------------------------</span>
-<span class="x">constituent[0]: file:/E:/opensource/apache/maven-2.2.1.RELEASE/lib/aether-api-1.13.1.jar</span>
-<span class="x">constituent[1]: file:/E:/opensource/apache/maven-2.2.1.RELEASE/lib/aether-connector-wagon-1.13.1.jar</span>
-<span class="x">constituent[2]: file:/E:/opensource/apache/maven-2.2 ...</span></pre></div> 
-      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/yi-ge-csscuo-wu-yin-qi-de-maven-stackoverflowerror.html">read more...</a></div>
+</p>      <p>昨天在G+上看到的一个算法题: &gt; Returns the number of 1bits in any integer, for example, bits(2) = 1, &gt; bits(3) = 2, bits(4) = 1, bits(5) = 2, bits(6) = 2, bits(7) = 3 我用python简单的实现了一下，实现的还是有点冗长，应该还能优化。</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">bits</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">f1</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">f2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">if ...</span></pre></div> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/kuai-su-ji-suan-er-jin-zhi-wei-1de-ge-shu.html">read more...</a></div>
       <hr />
 
+<span class="paginator">
+    <a href="http://blog.turbidsoul.me/tag/python2.html">&laquo;</a>
+
+  Page 3 / 3
+</span>
       </section>
       <footer>
         <p><small>&copy; Turbidsoul's 小黑屋 &mdash; Theme based on Sundown by <a href="https://github.com/orderedlist">orderedlist</a></small></p>

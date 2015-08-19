@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
-
 import os
 
 curdir = os.path.dirname(__file__)
@@ -53,9 +52,20 @@ DEFAULT_METADATA = (('Content-Type', 'text/html; charset=utf-8'),)
 # STATIC_PATHS = ["content/images", ]
 GRV_URL='/content/images/avatar.jpg'
 TWITTER_USERNAME='Turbidsoul'
-MD_EXTENSIONS = ['codehilite(css_class=highlight)','extra']
+MD_EXTENSIONS = [
+    'codehilite(css_class=highlight)',
+    'extra',
+    'sane_lists',
+    'headerid',
+    'del_ins',
+    'superscript',
+    'subscript',
+    'cite',
+    'markdown_checklist.extension',
+    'MarkdownHighlight.highlight'
+]
 PLUGIN_PATHS=[os.path.join(curdir, 'plugins')]
-PLUGINS = ['render_math', 'googleplus_comments']
+PLUGINS = ['googleplus_comments', 'render_math']
 
 AUTHOR='Turbidsoul Chan'
 AUTHOR_EMAIL='sccn.sq@gmail.com'

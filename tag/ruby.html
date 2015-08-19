@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Turbidsoul's 小黑屋 - rubyTurbidsoul's 小黑屋</title>
+    <title>Turbidsoul's 小黑屋 - ruby - Turbidsoul's 小黑屋</title>
 
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
@@ -53,21 +53,21 @@
  -- (<a href="http://blog.turbidsoul.me/posts/jekyllmo-ban-de-zhong-wen-wen-ti.html" rel="bookmark">permalink</a>)
 </small>
 </p>      <p>今天在给blog添加<a href="http://creativecommons.org/licenses/by/3.0/cn/">Creative Commons</a>(简称CC)时，发现在jekyll的模版中不能加入中文。大概看了一下build时报的错，可以确定应该和jekyll不能发带有中文的文章的问题是一样的，不过出问题的地方不一样。</p>
-<h4>jekyll不能发有中文的文章</h4>
+<h4 id="jekyll">jekyll不能发有中文的文章</h4>
 <p>出问题的地方是在convertible.rb#31 行：</p>
 <div class="highlight"><pre><span class="nb">self</span><span class="o">.</span><span class="n">content</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="nb">name</span><span class="p">),</span> <span class="ss">:encoding</span> <span class="o">=&gt;</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
 </pre></div>
 
 
 <p>如上面的代码在最后加入编码参数，以utf8读取文件即可，即用上面的代码替换原来的代码就可以了</p>
-<h4>jekyll模版不能包含中文</h4>
+<h4 id="jekyll_1">jekyll模版不能包含中文</h4>
 <p>这问题出在 tags/include.rb#23 行：</p>
 <div class="highlight"><pre><span class="n">source</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="vi">@file</span><span class="p">,</span> <span class="ss">:encoding</span> <span class="o">=&gt;</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
 </pre></div>
 
 
 <p>同样的方式，替换原来的代码即可。</p>
-<h4>结论</h4>
+<h4 id="_1">结论</h4>
 <p>同样的问题，应该都可以用同样的方式解决，jekyll作者应该并没有在这里考虑中文的问题，不过我们可以自己解决这个问题，如果有更新jekyll最新版，记得也要改响应的问题位置的相关编码问题。</p> 
       <div class="read-more"><a href="http://blog.turbidsoul.me/posts/jekyllmo-ban-de-zhong-wen-wen-ti.html">read more...</a></div>
       <hr />

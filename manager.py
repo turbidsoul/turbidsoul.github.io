@@ -3,7 +3,7 @@
 # @Author: Administrator
 # @Date:   2014-07-13 11:33:28
 # @Last Modified 2014-10-26
-# @Last Modified time: 2015-08-13 23:25:06
+# @Last Modified time: 2015-08-17 22:29:18
 
 import os
 
@@ -26,6 +26,7 @@ Summary: {summary}
 """
 
 rst_template = """{title}
+####################
 
 :date: {create_date}
 :modified: {modified_date}

@@ -73,7 +73,7 @@ es\style\share\page.css
 
 
 &lt;p&gt;url之后的链接少了一个 "&lt;strong&gt;"&lt;/strong&gt;",我加上引号之后在运行插件压缩css文件，这次成功了。看来问题就是出在这里。&lt;/p&gt;
-&lt;h4&gt;结论&lt;/h4&gt;
+&lt;h4 id="_1"&gt;结论&lt;/h4&gt;
 &lt;p&gt;这个问题并不是一定会一定出现，可能需要特性的环境，我并没有做详细的求证，但是我昨晚在家里的时候就准备写这篇文章，但是我发现我用同样的方式是无法重现问题，可能是我家里的只用了一个css文件，而公司的项目css和js文件会比较多的原因造成的，我并不清楚，写这篇文章的目的只是给遇到这类问题的人提醒，凡事要小心，谨慎，细心和耐心，问题本身并不是什么高深问题，但是我却花了一下午的时间，检查了所有可能出问题的地方，刚开始的时候有些浮躁，并没有去注意这些细节上的问题，但是在两三个小时之后才发现这样并不能解决问题，去洗了个脸，清醒一下，回来沉下心仔细的重新整理一下，其实很快就能解决问题。&lt;/p&gt;&lt;script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"&gt;&lt;/script&gt;
 &lt;script type= "text/javascript"&gt;
     if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
@@ -93,7 +93,7 @@ es\style\share\page.css
     }
 &lt;/script&gt;
 </description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Turbidsoul Chan</dc:creator><pubDate>Tue, 18 Jun 2013 00:00:00 +0800</pubDate><guid>tag:blog.turbidsoul.me,2013-06-18:posts/yi-ge-csscuo-wu-yin-qi-de-maven-stackoverflowerror.html</guid><category>java</category><category>maven</category><category>css</category></item><item><title>JDK8新特性 Calendar.Builder</title><link>http://blog.turbidsoul.me/posts/jdk8xin-te-xing-calendarbuilder.html</link><description>&lt;p&gt;5月23号，Oracle 发布了 jdk8 &lt;strong&gt;M7&lt;/strong&gt; 版，这是一个&lt;a href="http://openjdk.java.net/projects/jdk8/milestones#Feature_Complete"&gt;Feature Complete&lt;/a&gt;，就是说它已经把所有特性和功能都加入。在翻看 &lt;strong&gt;M7&lt;/strong&gt; 的文档时发现了 &lt;a href="http://download.java.net/jdk8/docs/api/java/util/Locale.Builder.html" title="Locale.Builder"&gt;&lt;em&gt;Locale.Builder&lt;/em&gt;&lt;/a&gt; ，在jdk7的时候加入过一个类似的：&lt;a href="http://download.java.net/jdk8/docs/api/java/util/Locale.Builder.html" title="Locale.Builder"&gt;&lt;em&gt;Locale.Builder&lt;/em&gt;&lt;/a&gt;, 下面我们来看看 &lt;a href="http://download.java.net/jdk8/docs/api/java/util/Calendar.Builder.html" title="Calendar.Builder"&gt;&lt;em&gt;Calendar.Builder&lt;/em&gt;&lt;/a&gt;。&lt;/p&gt;
-&lt;h4&gt;允许单语句设置&lt;/h4&gt;
+&lt;h4 id="_1"&gt;允许单语句设置&lt;/h4&gt;
 &lt;p&gt;允许使用 &lt;a href="http://download.java.net/jdk8/docs/api/java/util/Calendar.Builder.html#set(int,%20int)" title="set(int, int)"&gt;&lt;code&gt;set(int, int)&lt;/code&gt;&lt;/a&gt; 方法，为指定的Field设置值，如下：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;java.util.Calendar&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
 &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;java.text.SimpleDateFormat&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
@@ -118,7 +118,7 @@ es\style\share\page.css
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h4&gt;允许设置Date和Time&lt;/h4&gt;
+&lt;h4 id="datetime"&gt;允许设置Date和Time&lt;/h4&gt;
 &lt;p&gt;除了&lt;a href="http://download.java.net/jdk8/docs/api/java/util/Calendar.Builder.html#set(int,%20int)" title="set(int, int)"&gt;&lt;code&gt;set(int, int)&lt;/code&gt;&lt;/a&gt; 这样的方法外，还有还有一些更多参数的方法如：&lt;a href="http://download.java.net/jdk8/docs/api/java/util/Calendar.Builder.html#setDate(int,%20int,%20int)" title="setDate(int, int, int)"&gt;&lt;code&gt;setDate(int, int, int)&lt;/code&gt;&lt;/a&gt;，&lt;a href="http://download.java.net/jdk8/docs/api/java/util/Calendar.Builder.html#setTimeOfDay(int,%20int,%20int)" title="setTimeOfDay(int, int, int)"&gt;&lt;code&gt;setTimeOfDay(int, int, int)&lt;/code&gt;&lt;/a&gt; 下面我们来看一个例子：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;testSingleStatements2&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
     &lt;span class="n"&gt;Calendar&lt;/span&gt; &lt;span class="n"&gt;cal&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Calendar&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;Builder&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;
@@ -130,7 +130,7 @@ es\style\share\page.css
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h4&gt;允许通过Calendar Field设置值&lt;/h4&gt;
+&lt;h4 id="calendar-field"&gt;允许通过Calendar Field设置值&lt;/h4&gt;
 &lt;p&gt;除了上面的两种方法外还可以使用&lt;a href="http://download.java.net/jdk8/docs/api/java/util/Calendar.Builder.html#setFields(int...)" title="setFields(int...)"&gt;&lt;code&gt;setFields(int...)&lt;/code&gt;&lt;/a&gt;, 如下：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;testSingleStatements3&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
     &lt;span class="n"&gt;Calendar&lt;/span&gt; &lt;span class="n"&gt;cal&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Calendar&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;Builder&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;
@@ -141,7 +141,7 @@ es\style\share\page.css
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h4&gt;通过Calendar.Builder 转换 Instant 到 Calendar&lt;/h4&gt;
+&lt;h4 id="calendarbuilder-instant-calendar"&gt;通过Calendar.Builder 转换 Instant 到 Calendar&lt;/h4&gt;
 &lt;p&gt;&lt;a href="file:///F:/work/Java/doc/docs/api/index.html" title="Instant"&gt;Instant&lt;/a&gt; 也是jdk8的新特性，它是&lt;a href="http://download.java.net/jdk8/docs/api/java/time/package-summary.html" title="java.time.*"&gt;java.time.*&lt;/a&gt; 下的类，有兴趣的可以区查看一下官方文档，我会在过段时间，研究了之后在发一篇这个包的介绍文章，下面看一下之后的代码:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;static&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;testSingleStatements4&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
     &lt;span class="n"&gt;Calendar&lt;/span&gt; &lt;span class="n"&gt;cal&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Calendar&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;Builder&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;
@@ -152,7 +152,7 @@ es\style\share\page.css
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h4&gt;结论&lt;/h4&gt;
+&lt;h4 id="_2"&gt;结论&lt;/h4&gt;
 &lt;p&gt;对于java的日期时间API一直都是被人吐槽的对象，虽然&lt;code&gt;Calendar.Builder&lt;/code&gt;对写大量关于日期时间相关代码的压力还是有所减少，但是还是觉得不甚如人意，我还是很希望Java对日期时间API的调整更加方便使用，因为每次使用现有的API都忍不住像吐槽一下。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Turbidsoul Chan</dc:creator><pubDate>Wed, 29 May 2013 00:00:00 +0800</pubDate><guid>tag:blog.turbidsoul.me,2013-05-29:posts/jdk8xin-te-xing-calendarbuilder.html</guid><category>java</category><category>jdk8</category></item><item><title>OpenSSL和Java AES算法的的问题</title><link>http://blog.turbidsoul.me/posts/opensslhe-java-aessuan-fa-de-de-wen-ti.html</link><description>&lt;p&gt;开篇第一句话我想说， &lt;strong&gt;OpenSSL不支持与Java的对接&lt;/strong&gt; ，这是多么蛋疼的一句话，不过确实是这样，原因是在c中的填充方式和Java中的填充方式不一样，Java不支持c中的/0的填充方式。&lt;/p&gt;
 &lt;p&gt;具体信息请查看：&lt;a href="http://blog.csdn.net/rocketball/article/details/6575677"&gt;OpenSSL和JAVA AES算法的问题总结&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;至于我为什么会写这篇文章呢，是我们的项目中有部分在网络传输的内容需要加密，所以就选用了AES的，服务端使用的是&lt;a href="http://openresty.org/"&gt;openresty&lt;/a&gt; 这是淘宝的一个大牛写的，他里面集成了LuaJit， 加密的部分使用的是resty.aes，而resty使用的是OpenSSL的C代码实现的加密解密。为了和OpenSSL实现对接，我就蛋疼的去简单的链接了下OpenSSL，在上面的文章中才指导OpenSSL并不支持Java，查了无数人的文章，很多人都对这个问题很苦恼，最后在 stackoverflow 里找到了一个大牛给出了一个解码的实现 &lt;a href="http://stackoverflow.com/questions/11783062/how-to-decrypt-an-encrypted-file-in-java-with-openssl-with-aes"&gt;stackoverflow &lt;/a&gt;我根据这位大牛的代码简单的修改了一下，就做成了我需要的代码：&lt;/p&gt;

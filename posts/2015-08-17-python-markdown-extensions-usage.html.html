@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>开发jquery插件 - Turbidsoul's 小黑屋</title>
+    <title>Python Markdown Extensions Usage - Turbidsoul's 小黑屋</title>
 
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
@@ -43,40 +43,50 @@
 <section id="content" class="body">
   <article>
       <div class="article-title">
-        开发jquery插件
+        Python Markdown Extensions Usage
       </div>
 
     <div class="entry-content">
 <p>
 <small>
-<abbr class="published" title="2011-12-01">
-  2011年 十二月 01日 周四
+<abbr class="published" title="2015-08-17">
+  2015年 八月 17日 周一
 </abbr> | 
   tags: 
-    <a href="http://blog.turbidsoul.me/tag/jquery.html">jquery</a>, 
-    <a href="http://blog.turbidsoul.me/tag/javascript.html">javascript</a>, 
-    <a href="http://blog.turbidsoul.me/tag/code.html">code</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/develop-jquery-plugin.html" rel="bookmark">permalink</a>)
+    <a href="http://blog.turbidsoul.me/tag/markdown.html">markdown</a>, 
+    <a href="http://blog.turbidsoul.me/tag/python.html">python</a>, 
+ -- (<a href="http://blog.turbidsoul.me/posts/2015-08-17-python-markdown-extensions-usage.html.html" rel="bookmark">permalink</a>)
 </small>
-</p>      <p>公司网站首页广告位需要一个鼠标悬浮切换的特效，但是公司不让使用jquery已经实现过的特效，而公司的这方面的高手又没有时间做，所以只能自己去实现一个这样的特效插件。</p>
-<p>下面是先说下JQuery 插件大概的结构:</p>
-<div class="highlight"><pre><span class="c1">// 这里这个匿名函数，是为了避免冲突</span>
-<span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">$</span><span class="p">){</span>
-  <span class="c1">// 为JQuery 附加一个新的方法</span>
-  <span class="nx">$</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
-    <span class="c1">//这里需要开发的插件的名字</span>
-    <span class="nx">fv_adv</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
-      <span class="c1">// 这里就是插件的具体实现代码</span>
-    <span class="p">},</span>
-    <span class="err">……</span>
-    <span class="c1">// 这里可以继续增加插件</span>
-  <span class="p">});</span>
-<span class="p">})(</span><span class="nx">jQuery</span><span class="p">);</span>
-</pre></div>
+</p>      <h2 id="test1">Test1</h2>
+<ol>
+<li>Test1</li>
+<li>Test2</li>
+</ol>
+<h2 id="_1">测试</h2>
+<ul>
+<li>Test1</li>
+<li>Test2</li>
+</ul>
+<h2 id="asciimathml">AsciiMathML</h2>
+<p>$ sqrt 2 $</p>
+<p>$C = E_K(m(0),m(1),......,m(n-1)) = (m(k(0)),m(k(1)),......,m(k(n-1)))$</p>
+<h2 id="del-ins">Del Ins</h2>
+<p><ins>this is ins test</ins></p>
+<p><del>this is del test</del></p>
+<h2 id="sup-sub-script">Sup Sub Script</h2>
+<p>2<sup>10</sup> is 1024</p>
+<p>The molecular composition of water is H<sub>2</sub>O.</p>
+<h2 id="cite">Cite</h2>
+<p><cite>Who Is Killing the Great Chefs of Europe?</cite> is the last movie I watched.</p>
 
-
-<p>本来想把代码大概的说下的，但是觉得这个插件很简单，没有什么值得特别说说的，jquery的 插件结构就项上面说的那样，一个插件名，对应一个具体的实现，在function里写插件的具体代码，这些东西在网上被人都快说烂了，但是我觉得有些说的 实在不清晰，至少我没看明白，我在这里不像说太多的，有时候对于程序员来说具体的代码，比一本书更管用！</p>
-<p>源代码：<a href="http://www.rayfile.com/zh-cn/files/b82a5e82-1a71-11e1-88b6-0015c55db73d/">jquery_plugin.7z</a></p><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<h2 id="github-checklist">Github checklist</h2>
+<ol>
+<li><input type="checkbox" disabled> foo</li>
+<li><input type="checkbox" disabled checked> bar</li>
+<li><input type="checkbox" disabled> baz</li>
+</ol>
+<h2 id="hightlight">Hightlight</h2>
+<p>this is <mark>hightlight</mark> line</p><script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type= "text/javascript">
     if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
         var mathjaxscript = document.createElement('script');
@@ -102,7 +112,7 @@
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
         var disqus_shortname = 'Turbidsoul'; // required: replace example with your forum shortname
-        var disqus_identifier = "posts/develop-jquery-plugin.html";
+        var disqus_identifier = "posts/2015-08-17-python-markdown-extensions-usage.html.html";
 
         /* * * DON'T EDIT BELOW THIS LINE * * */
         (function() {

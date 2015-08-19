@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>Turbidsoul's 小黑屋</title><link href="http://blog.turbidsoul.me/" rel="alternate"></link><link href="http://blog.turbidsoul.me/feeds/rtmp.atom.xml" rel="self"></link><id>http://blog.turbidsoul.me/</id><updated>2014-04-19T00:00:00+08:00</updated><entry><title>ffmpeg,rtmpdump和nginx rtmp实现录屏，直播和录制</title><link href="http://blog.turbidsoul.me/posts/ffmpegrtmpdumphe-nginx-rtmpshi-xian-lu-ping-zhi-bo-he-lu-zhi.html" rel="alternate"></link><updated>2014-04-19T00:00:00+08:00</updated><author><name>Turbidsoul Chan</name></author><id>tag:blog.turbidsoul.me,2014-04-19:posts/ffmpegrtmpdumphe-nginx-rtmpshi-xian-lu-ping-zhi-bo-he-lu-zhi.html</id><summary type="html">&lt;p&gt;公司最近在做视频直播的项目，我这里分配到对直播的视频进行录制，录制的方式是通过rtmpdump对rtmp的视频流进行录制&lt;/p&gt;
-&lt;h2&gt;前置的知识&lt;/h2&gt;
+&lt;h2 id="_1"&gt;前置的知识&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="http://ffmpeg.org/ffmpeg.html"&gt;ffmpeg&lt;/a&gt;: 用于实现把录屏工具发出的视频和音频流，转换成我们需要的格式，然后发送到rtmp中转服务器上。&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://rtmpdump.mplayerhq.hu/"&gt;rtmpdump&lt;/a&gt;: 用于实现视频的录制，从rtmp的中转服务器接受到视频流，并把视频流保存成flv文件&lt;/li&gt;
@@ -10,7 +10,7 @@
 &lt;p&gt;首先，我们安装ffmpeg, rtmpdump和nginx-rtmp-module:&lt;/p&gt;
 &lt;p&gt;这里我使用的&lt;a href="http://ffmpeg.zeranoe.com/builds/"&gt;ffmpeg&lt;/a&gt;和&lt;a href="http://rtmpdump.mplayerhq.hu/download/rtmpdump-2.4-git-010913-windows.zip"&gt;rtmpdump&lt;/a&gt;都是windows版的，虽然和linux下的有所区别，但是在这里并没有使用到这些区别。&lt;/p&gt;
 &lt;p&gt;nginx是在windows下的虚拟机中的linux下编译的，因为windows编译这玩意是在太麻烦了，我实在不想编译第二次。&lt;/p&gt;
-&lt;h2&gt;ffmpeg 的简单使用&lt;/h2&gt;
+&lt;h2 id="ffmpeg"&gt;ffmpeg 的简单使用&lt;/h2&gt;
 &lt;p&gt;首先我们需要查看以下我们的自己上的设备信息，在安装了screen capture recorder之后就可以使用下面的命令:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;ffmpeg -list_devices true -f dshow -i dummy
 &lt;/pre&gt;&lt;/div&gt;
@@ -51,8 +51,8 @@
 
 
 &lt;p&gt;这里只说明一点，如果是发送到rtmp协议的话是需要加上&lt;code&gt;-f flv&lt;/code&gt;这个参数的，如果不加会报错，这样就算是把录制的视频流发送到了rtmp服务端，当然我这里的nginx服务器要配置好并且启动了，否则还是会报错的。&lt;/p&gt;
-&lt;h2&gt;nginx rtmp module&lt;/h2&gt;
-&lt;h4&gt;安装&lt;/h4&gt;
+&lt;h2 id="nginx-rtmp-module"&gt;nginx rtmp module&lt;/h2&gt;
+&lt;h4 id="_2"&gt;安装&lt;/h4&gt;
 &lt;p&gt;在编译安装模块的时候需要说明一点，如果在 configure的时候出现了openssl的错误，请安装libssl-dev.&lt;/p&gt;
 &lt;p&gt;ubuntu下： &lt;code&gt;sudo apt-get install libssl-dev&lt;/code&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;./configure --prefix=/usr/local/rtmp-nginx --without-http_rewrite_module
@@ -61,7 +61,7 @@ make install
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;h4&gt;配置&lt;/h4&gt;
+&lt;h4 id="_3"&gt;配置&lt;/h4&gt;
 &lt;p&gt;下面是我的配置:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;rtmp&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="kn"&gt;server&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
@@ -96,10 +96,10 @@ make install
 
 
 &lt;p&gt;我们只需要加入一个关于rtmp协议的块和在http协议下加入一个server块，用来配置统计星系等，这就是最简单的配置，这样已经快而已完成我们例子中的功能，如果需要更详细的，请查看&lt;a href="https://github.com/arut/nginx-rtmp-module"&gt;NGINX-based Media Streaming Server&lt;/a&gt;。&lt;/p&gt;
-&lt;h2&gt;RTMPDump&lt;/h2&gt;
+&lt;h2 id="rtmpdump"&gt;RTMPDump&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;RTMPDump&lt;/strong&gt; 是一位匈牙利大神在Adobe未公开RTMP协议的条件下，写出了针对RTMP协议的客户端程序。&lt;/p&gt;
 &lt;p&gt;在这里rtmpdump的使用是很简单的，当然rtmpdump其实也是有一些问题的，我们先来看看如果使用rtmpdump录制视频流&lt;/p&gt;
-&lt;h4&gt;使用&lt;/h4&gt;
+&lt;h4 id="_4"&gt;使用&lt;/h4&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;rtmpdump -v -m 0 -r rtmp://192.168.56.101/live/test -o test.flv
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -111,7 +111,7 @@ make install
 &lt;li&gt;-r：表示rtmp的url&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;rtmpdump的使用就是如此的简单&lt;/p&gt;
-&lt;h4&gt;问题&lt;/h4&gt;
+&lt;h4 id="_5"&gt;问题&lt;/h4&gt;
 &lt;p&gt;我在实际的使用过程中遇到了一个疑问，就是当视频的发送端崩溃或者死机，造成视频流中断，再次发送的时候会发送一个新的视频流，但是rtmpdump无法分辨这个新视频流，他会把这个视频流继续添加在文件后面，保存成一个文件而不是一个新的视频文件。相反对于网络中断而视频的发送端没有中断这种问题是可以处理的，不过中间可能会出现画面定在网络中断的那个时间点上，知道网络再次恢复。&lt;/p&gt;
 &lt;p&gt;不过这个问题是可以通过程序的方式解决的，在python的库中有一个&lt;strong&gt;&lt;a href="https://pypi.python.org/pypi/flvlib/0.1.13"&gt;flvlib&lt;/a&gt;&lt;/strong&gt;的库可以处理这类问题,请看下面的代码：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;split_flv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
@@ -168,5 +168,5 @@ make install
 
 
 &lt;p&gt;这两段代码就是先把视频分割开，然后在连接到一起生成一个新文件。&lt;/p&gt;
-&lt;h2&gt;总结&lt;/h2&gt;
+&lt;h2 id="_6"&gt;总结&lt;/h2&gt;
 &lt;p&gt;这是我解决直播的一个测试方案，因为公司的直播系统还没有起来，所以我采用了这样一中思路模拟直播测试我的录制系统。&lt;/p&gt;</summary><category term="ffmpeg"></category><category term="rtmp"></category><category term="rtmpdump"></category><category term="nginx"></category></entry></feed>

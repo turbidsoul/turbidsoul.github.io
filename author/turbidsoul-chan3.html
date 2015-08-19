@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Turbidsoul's 小黑屋 - Turbidsoul ChanTurbidsoul's 小黑屋</title>
+    <title>Turbidsoul's 小黑屋 - Turbidsoul Chan - Turbidsoul's 小黑屋</title>
 
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/main.css">
     <link rel="stylesheet" href="http://blog.turbidsoul.me/theme/css/pygment_trac.css">
@@ -40,6 +40,40 @@
 
       </header>
       <section>
+      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/ru-he-pei-zhi-zai-nginxhe-casshang-pei-zhi-ssl.html">如何配置在nginx和cas上配置ssl？</a></div>
+<p>
+<small>
+<abbr class="published" title="2013-05-08">
+  2013年 五月 08日 周三
+</abbr> | 
+  tags: 
+    <a href="http://blog.turbidsoul.me/tag/nginx.html">nginx</a>, 
+    <a href="http://blog.turbidsoul.me/tag/cas.html">cas</a>, 
+    <a href="http://blog.turbidsoul.me/tag/ssl.html">ssl</a>, 
+    <a href="http://blog.turbidsoul.me/tag/java.html">java</a>, 
+    <a href="http://blog.turbidsoul.me/tag/https.html">https</a>, 
+ -- (<a href="http://blog.turbidsoul.me/posts/ru-he-pei-zhi-zai-nginxhe-casshang-pei-zhi-ssl.html" rel="bookmark">permalink</a>)
+</small>
+</p>      <p>公司准备对登录服务采用https，而登录服务采用的是cas，前段的是用nginx代理， 所以就有了之后的几个问题。</p>
+<p><strong>主要碰到了下面3个问题</strong> ：</p>
+<ol>
+<li>nginx中配置ssl</li>
+<li>cas中开启ssl</li>
+<li>java中导入证书</li>
+</ol>
+<hr />
+<p>首先是生成我们的证书，我使用的是openssl：</p>
+<ol>
+<li>首先是生成私钥： openssl genrsa -out server.key</li>
+<li>接下来要生成CSR文件： openssl req -new -key server.key -out server.csr</li>
+<li>最后就是生成证书文件： openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt</li>
+</ol>
+<p>这里有我一个笔记是openssl的简单教程：<a href="https://www.evernote.com/shard/s25/sh/233c0eda-2f70-4756-8907-50dc0bff82c2/92861a2bd473f1d703bcead620080d27">openssl简单教程</a></p>
+<hr />
+<p>生成证书后，就可以配置nginx了，打开nginx.conf，加入以下几行:</p>
+<div class="highlight"><pre><span class="k">listen</span>                 <span class="mi">443 ...</span></pre></div> 
+      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/ru-he-pei-zhi-zai-nginxhe-casshang-pei-zhi-ssl.html">read more...</a></div>
+      <hr />
       <div class="front-title"><a href="http://blog.turbidsoul.me/posts/fnshi-xian-wu-xian-ji-suan-deng-bi-ji-shu.html">fn实现无限计算等比级数</a></div>
 <p>
 <small>
@@ -58,7 +92,7 @@
 </pre></div>
 
 
-<p>这是实现了一个无限的斐波那契数列，我根据这个实现了一个等比级数，等比级数的公式是f = b^(n-1), b是基数，n=1 f=1, n&gt;=2 f=b^(n-1)。</p>
+<p>这是实现了一个无限的斐波那契数列，我根据这个实现了一个等比级数，等比级数的公式是f = b<sup>(n-1), b是基数，n=1 f=1, n&gt;=2 f=b</sup>(n-1)。</p>
 <p>我实现的方法使用了生成器：</p>
 <div class="highlight"><pre><span class="k">def</span> <span class="nf">geo_sequence</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
     <span class="n">n</span> <span class="o">=</span> <span class="mi">2</span>
@@ -260,30 +294,6 @@
 <li>MaHua在线markdown编辑器：</li>
 <li>sublime2: 在sublime2中安装Markdown，Markdown Preview，Markdown Slideshow这三个，当然安装前两个就已经够了 ...</li></ol> 
       <div class="read-more"><a href="http://blog.turbidsoul.me/posts/markdownjian-dan-qing-liang-ji-de-wen-dang-biao-ji-yu-yan.html">read more...</a></div>
-      <hr />
-      <div class="front-title"><a href="http://blog.turbidsoul.me/posts/guan-yu-firefoxzhong-shi-yong-googlesou-suo-bei-jie-chi-dao-www51616comde-jie-jue-ban-fa.html">关于firefox中使用google搜索被劫持到www5.1616.com的解决办法！</a></div>
-<p>
-<small>
-<abbr class="published" title="2012-03-16">
-  2012年 三月 16日 周五
-</abbr> | 
-  tags: 
-    <a href="http://blog.turbidsoul.me/tag/firefox.html">firefox</a>, 
-    <a href="http://blog.turbidsoul.me/tag/google.html">google</a>, 
- -- (<a href="http://blog.turbidsoul.me/posts/guan-yu-firefoxzhong-shi-yong-googlesou-suo-bei-jie-chi-dao-www51616comde-jie-jue-ban-fa.html" rel="bookmark">permalink</a>)
-</small>
-</p>      <p>这个问题也是我今天早上发现的，搜索东西的时候发现先进入www5.1616.net然后在跳转到google中，感觉像是被劫持了，于是我就在 google上搜索了www5.1616.net发现很多人都有这个问题，而且但是绝大多数都认为是DNS被劫持的问题，但是我觉得不是这样，因为很多人 都和我的情况一样，出现问题的只有他一个，同一局域网下的别人都正常，同一社区下的只有个别的人有这个问题，并不是大面积出现，而且我只有Firefox 有问题，chrome和IE9都正常，所以我肯定是firefox的问题。</p>
-<p>后面我有简单的试了几次，发现https下不存在这种现象所以我象应该是他修改我的某些search相关文件，其实在firefox中和search有关的文件就几个，常用的人也都知道：</p>
-<ol>
-<li>{Profiles}/searchplugins/*.xml</li>
-<li>{app_root}/searchplugins/*.xml</li>
-<li>{Profiles}/search.json</li>
-<li>{Profiles}/search.sqlite</li>
-<li>{Profiles}/extensions/cehomepage@mozillaonline.com/searchplugins/*.xml</li>
-</ol>
-<p>总共就这5个吧，我知道的只有这些.</p>
-<p>其实我本来并没有想到会是这几个地方，但是看了月光在2010年5月的一片名为<a href="http://www.williamlong.info/archives/2186.html">《Google支持HTTPS加密搜索》</a>文章 ...</p> 
-      <div class="read-more"><a href="http://blog.turbidsoul.me/posts/guan-yu-firefoxzhong-shi-yong-googlesou-suo-bei-jie-chi-dao-www51616comde-jie-jue-ban-fa.html">read more...</a></div>
       <hr />
 
 <span class="paginator">
